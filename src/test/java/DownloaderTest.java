@@ -1,14 +1,18 @@
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+
+
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
 
 public class DownloaderTest {
 
 	@Test
-	public void checkCurrentWeightUsage() {
-	fail();
+	public void prepareListOfTickers() {
+		Binance b = new Binance();
+		assertTrue(b.getTickers().size() > 0);
 	}
+	
+	
 
 }

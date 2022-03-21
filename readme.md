@@ -9,3 +9,12 @@ Console software to download data from Binance. Working can be automated by wind
 * Downloaded data can be saved to file: csv
 
 
+# Program algorithm
+This program is intended use in daily intervals. In because of that, first thing to check is list of currency pairs.
+
+
+1. List of currency pairs.
+2. Check database for last entry
+3. Download data + some more.
+4. Put downloaded data to queue and check with data in database.
+5. Put missed data to database.
