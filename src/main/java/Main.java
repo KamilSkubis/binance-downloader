@@ -1,13 +1,15 @@
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.binance.connector.client.impl.SpotClientImpl;
 
 public class Main {
 	
 	public static void main(String[] args) {
-		
-		Binance binance = new Binance();
+		SpotClientImpl client = new SpotClientImpl();
+		BinanceDownloader binance = new BinanceDownloader(client.createMarket());
 //		binance.downloadUSDTcurrenciesKlines();
 		
-		binance.getTickers();
+		String r = client.createMarket().tickerSymbol(null);
+		System.out.println(r);
+		
 		
 		
 	}

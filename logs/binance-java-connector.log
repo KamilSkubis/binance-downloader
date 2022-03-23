@@ -4,3 +4,34 @@
 2022-03-21 21:07:10.799[1647893230799] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
 2022-03-21 21:16:03.565[1647893763565] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
 2022-03-21 21:16:04.604[1647893764604] | INFO  | main       | Binance                              - Found: 1985 tickers
+2022-03-23 07:42:27.623[1648017747623] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 07:42:28.931[1648017748931] | INFO  | main       | Binance                              - Found: 1985 tickers
+2022-03-23 07:47:40.832[1648018060832] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 07:47:41.816[1648018061816] | INFO  | main       | Binance                              - Found: 1985 tickers
+2022-03-23 07:54:43.817[1648018483817] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 07:54:44.792[1648018484792] | INFO  | main       | Binance                              - Found: 1985 tickers
+2022-03-23 07:55:13.064[1648018513064] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 07:55:13.980[1648018513980] | INFO  | main       | Binance                              - Found: 1985 tickers
+2022-03-23 15:49:28.240[1648046968240] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 15:49:29.381[1648046969381] | INFO  | main       | BinanceDownloader                    - Found: 1985 tickers
+2022-03-23 15:49:42.507[1648046982507] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 15:49:43.693[1648046983693] | INFO  | main       | BinanceDownloader                    - Found: 1985 tickers
+2022-03-23 15:53:32.791[1648047212791] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 15:53:33.805[1648047213805] | INFO  | main       | BinanceDownloader                    - Found: 1985 tickers
+2022-03-23 15:56:10.029[1648047370029] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 15:56:11.000[1648047371000] | INFO  | main       | BinanceDownloader                    - Found: 1985 tickers
+2022-03-23 15:57:46.119[1648047466119] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 15:57:47.932[1648047467932] | INFO  | main       | BinanceDownloader                    - Found: 1985 tickers
+2022-03-23 16:00:58.780[1648047658780] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 16:00:59.755[1648047659755] | INFO  | main       | BinanceDownloader                    - Found: 1985 tickers
+2022-03-23 16:18:24.966[1648048704966] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 16:24:33.422[1648049073422] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 16:24:34.540[1648049074540] | INFO  | main       | BinanceDownloader                    - Found: 1985 tickers
+2022-03-23 16:24:34.540[1648049074540] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 16:24:34.858[1648049074858] | INFO  | main       | BinanceDownloader                    - Found: 3970 tickers
+2022-03-23 16:26:35.605[1648049195605] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 16:26:36.531[1648049196531] | INFO  | main       | BinanceDownloader                    - Found: 1985 tickers
+2022-03-23 21:30:15.597[1648067415597] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 21:37:19.710[1648067839710] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-03-23 21:37:21.608[1648067841608] | INFO  | main       | BinanceDownloader                    - Found: 1985 tickers
+2022-03-23 21:46:51.716[1648068411716] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
