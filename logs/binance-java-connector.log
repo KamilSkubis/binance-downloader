@@ -46,3 +46,28 @@
 2022-03-29 11:38:37.412[1648546717412] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
 2022-03-29 11:44:42.296[1648547082296] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
 2022-03-29 11:44:42.351[1648547082351] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 11:49:30.922[1648547370922] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 11:49:30.975[1648547370975] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 12:30:01.444[1648549801444] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 12:30:01.494[1648549801494] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 12:31:46.713[1648549906713] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 12:31:46.764[1648549906764] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 12:34:56.606[1648550096606] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 12:34:56.653[1648550096653] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 12:36:44.176[1648550204176] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 12:36:44.228[1648550204228] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 12:37:22.558[1648550242558] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 12:37:22.629[1648550242629] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 12:47:31.479[1648550851479] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 12:47:31.569[1648550851569] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 13:08:16.193[1648552096193] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 13:08:16.241[1648552096241] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 13:56:38.201[1648554998201] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 13:56:38.240[1648554998240] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 13:56:38.253[1648554998253] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 13:59:05.047[1648555145047] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker %s
+2022-03-29 13:59:47.819[1648555187819] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker BTCUSDT
+2022-03-29 14:03:15.044[1648555395044] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 14:03:15.090[1648555395090] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 14:03:15.102[1648555395102] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker BTCUSDT
+2022-03-29 14:03:15.113[1648555395113] | INFO  | main       | BinanceDownloader                    - data for BTCUSDT downloaded successfully
