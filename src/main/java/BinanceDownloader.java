@@ -5,7 +5,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.binance.connector.client.impl.SpotClientImpl;
 import com.binance.connector.client.impl.spot.Market;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,7 +22,6 @@ public class BinanceDownloader {
 		logger = LoggerFactory.getLogger(BinanceDownloader.class);
 		tickers = new LinkedList<String>();
 	}
-
 
 	public void downloadUSDTcurrenciesKlines() {
 		LinkedHashMap<String, Object> params = new LinkedHashMap<String, Object>();
@@ -43,17 +41,16 @@ public class BinanceDownloader {
 	}
 
 	public List<String> getTickers() {
-
-		LinkedHashMap<String, Object> params = new LinkedHashMap<String, Object>();
-		String response = market.tickerSymbol(params);
-
-		JsonArray arr = (JsonArray) JsonParser.parseString(response);
+		logger.info("Initialization: Start downloading ticker names");
+		List<String> tickers = new LinkedList<String>();
+		String result = market.tickerSymbol(null);
+		JsonArray arr = (JsonArray) JsonParser.parseString(result);
 		for (JsonElement el : arr) {
 			JsonObject json = el.getAsJsonObject();
 			String symbol = json.get("symbol").toString();
-			tickers.add(symbol);
+			String symbolTrimmedFromSpecialCharacters = symbol.substring(1, symbol.length() - 1);
+			tickers.add(symbolTrimmedFromSpecialCharacters);
 		}
-
 		logger.info("Found: " + tickers.size() + " tickers");
 		return tickers;
 	}
@@ -78,14 +75,4 @@ public class BinanceDownloader {
 		this.tickers = tickers;
 	}
 
-	public List<String> getMeTickers() {
-		List<String> tickers = new LinkedList<String>();
-		String result= market.tickerSymbol(null);
-		
-		
-		
-		tickers.add(result);
-		return tickers; 
-	}
-	
 }
