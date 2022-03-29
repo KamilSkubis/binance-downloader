@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -55,13 +54,18 @@ public class BinanceDownloader {
 		return tickers;
 	}
 
-	public BarsData downloadKlines(LinkedHashMap<String, Object> params) {
+	public Data downloadKlines(LinkedHashMap<String, Object> params) {
 		logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
-		BarsData bars = new BarsData();
-		bars.setTicker(String.valueOf(params.get("symbol")));
+		Data barData = new Data();
+		barData.setTicker(String.valueOf(params.get("symbol")));
 
-
+		String response =  market.klines(params);
+		JsonArray arr = (JsonArray) JsonParser.parseString(response);
+		for(JsonElement el: arr){
+			String s = el.getAsJsonArray().get(0).getAsString();
+			barData.pushToOpenTime(s);
+		}
 		logger.info("data for {} downloaded successfully", params.get("symbol"));
-		return bars;
+		return barData;
 	}
 }

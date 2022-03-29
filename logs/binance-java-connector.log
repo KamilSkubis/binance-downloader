@@ -71,3 +71,37 @@
 2022-03-29 14:03:15.090[1648555395090] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
 2022-03-29 14:03:15.102[1648555395102] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker BTCUSDT
 2022-03-29 14:03:15.113[1648555395113] | INFO  | main       | BinanceDownloader                    - data for BTCUSDT downloaded successfully
+2022-03-29 14:06:28.381[1648555588381] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 14:06:28.445[1648555588445] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 14:06:28.461[1648555588461] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:06:28.465[1648555588465] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
+2022-03-29 14:36:22.069[1648557382069] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 14:36:22.138[1648557382138] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 14:36:22.157[1648557382157] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:36:22.162[1648557382162] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
+2022-03-29 14:36:22.164[1648557382164] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:36:22.165[1648557382165] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
+2022-03-29 14:37:10.953[1648557430953] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 14:37:11.006[1648557431006] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 14:37:11.021[1648557431021] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:37:11.037[1648557431037] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
+2022-03-29 14:37:11.042[1648557431042] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:37:11.044[1648557431044] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
+2022-03-29 14:38:55.638[1648557535638] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 14:38:55.688[1648557535688] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 14:38:55.704[1648557535704] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:38:55.709[1648557535709] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
+2022-03-29 14:38:55.717[1648557535717] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:38:55.717[1648557535717] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
+2022-03-29 14:40:17.081[1648557617081] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 14:40:17.140[1648557617140] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 14:40:17.154[1648557617154] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:40:17.158[1648557617158] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
+2022-03-29 14:40:17.160[1648557617160] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:40:17.160[1648557617160] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
+2022-03-29 14:43:51.866[1648557831866] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading ticker names
+2022-03-29 14:43:51.927[1648557831927] | INFO  | main       | BinanceDownloader                    - Found: 1 tickers
+2022-03-29 14:43:51.942[1648557831942] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:43:51.949[1648557831949] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
+2022-03-29 14:43:51.952[1648557831952] | INFO  | main       | BinanceDownloader                    - Initialization: Start downloading data for ticker test
+2022-03-29 14:43:51.953[1648557831953] | INFO  | main       | BinanceDownloader                    - data for test downloaded successfully
