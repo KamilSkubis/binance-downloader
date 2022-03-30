@@ -64,6 +64,16 @@ public class BinanceDownloader {
 		for(JsonElement el: arr){
 			String s = el.getAsJsonArray().get(0).getAsString();
 			barData.pushToOpenTime(s);
+			barData.pushOpen(el.getAsJsonArray().get(1).getAsDouble());
+			barData.pushHigh(el.getAsJsonArray().get(2).getAsDouble());
+			barData.pushLow(el.getAsJsonArray().get(3).getAsDouble());
+			barData.pushClose(el.getAsJsonArray().get(4).getAsDouble());
+			barData.pushVolume((el.getAsJsonArray().get(5).getAsDouble()));
+			barData.pushCloseTime(el.getAsJsonArray().get(6).getAsString());
+			barData.pushQuoteAsset(el.getAsJsonArray().get(7).getAsDouble());
+			barData.pushNumberTrades(el.getAsJsonArray().get(8).getAsInt());
+			barData.pushTakerBuyBase(el.getAsJsonArray().get(9).getAsDouble());
+			barData.pushTakerBuyQuote(el.getAsJsonArray().get(10).getAsDouble());
 		}
 		logger.info("data for {} downloaded successfully", params.get("symbol"));
 		return barData;
