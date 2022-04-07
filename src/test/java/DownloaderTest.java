@@ -1,4 +1,6 @@
 import com.binance.connector.client.impl.spot.Market;
+import downloads.BinanceDownloader;
+import downloads.Data;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Test;
 import org.mockito.Mockito;

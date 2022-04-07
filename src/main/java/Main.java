@@ -2,6 +2,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import com.binance.connector.client.impl.SpotClientImpl;
+import downloads.BinanceDownloader;
 
 public class Main {
 	
