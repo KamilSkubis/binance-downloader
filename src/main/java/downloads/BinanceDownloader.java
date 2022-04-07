@@ -56,9 +56,9 @@ public class BinanceDownloader {
 		return tickers;
 	}
 
-	public Data downloadKlines(LinkedHashMap<String, Object> params) {
+	public BinanceData downloadKlines(LinkedHashMap<String, Object> params) {
 		logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
-		Data barData = new Data();
+		BinanceData barData = new BinanceData();
 		barData.setTicker(String.valueOf(params.get("symbol")));
 
 		String response =  market.klines(params);

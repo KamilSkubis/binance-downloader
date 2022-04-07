@@ -13,8 +13,6 @@ public class Main {
 		LinkedHashMap<String,Object> params = new LinkedHashMap<>();
 		params.put("symbol", "BTCUSDT");
 		binance.downloadKlines(params);
-
-
 	}
 	
 }

@@ -1,6 +1,6 @@
 import com.binance.connector.client.impl.spot.Market;
 import downloads.BinanceDownloader;
-import downloads.Data;
+import downloads.BinanceData;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -58,7 +58,7 @@ public class DownloaderTest {
 
     @Test
     public void downloadKlines_ReturnCorrectDataFromJsonArray() {
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals("1499040000000", data.getOpenTime());
 
     }
@@ -66,64 +66,64 @@ public class DownloaderTest {
 
     @Test
     public void downloadKlines_ReturnCorrectOpenPrice() {
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals(0.01634790, data.getOpen(), 0.00001);
     }
 
 
     @Test
     public void downloadKlines_ReturnCorrectHighPrice() {
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals(0.80000000, data.getHigh(), 0.00001);
     }
 
     @Test
     public void downloadKlines_ReturnCorrectLowPrice() {
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals(0.01575800, data.getLow(), 0.00001);
     }
 
 
     @Test
     public void downloadKlines_ReturnCorrectClosePrice(){
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals(0.01577100, data.getClose(), 0.00001);
     }
 
     @Test
     public void downloadKlines_ReturnCorrectVolume(){
 
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals(148976.11427815, data.getVolume(), 0.00001);
     }
 
     @Test
     public void downloadKlines_ReturnCorrectCloseTime(){
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals("1499644799999", data.getCloseTime());
     }
 
     @Test
     public void downloadKlines_ReturnCorrectQuoteAssetVolume(){
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals(2434.19055334, data.getQuoteAsset(),0.00001);
     }
 
     @Test
     public void downloadKlines_ReturnCorrectNumberOfTrades(){
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals(308, data.getNumberTrades());
     }
 
     @Test
     public void downloadKlines_ReturnCorrectTakerBuyBase(){
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals(1756.87402397, data.getTakerBuyBase(), 0.00001);
     }
 
     @Test
     public void downloadKlines_ReturnCorrectTakerBuyQuote(){
-        Data data = getDataFromJsonTestArray();
+        BinanceData data = getDataFromJsonTestArray();
         assertEquals(28.46694368, data.getTakeBuyQuote(), 0.00001);
     }
 
@@ -137,12 +137,12 @@ public class DownloaderTest {
         return params;
     }
 
-    private Data getDataFromJsonTestArray() {
+    private BinanceData getDataFromJsonTestArray() {
         Market market = Mockito.mock(Market.class);
         Mockito.when(market.klines(setUpParams())).thenReturn(jsonArray);
         BinanceDownloader b = new BinanceDownloader(market);
         LinkedHashMap<String, Object> params = setUpParams();
-        Data data = b.downloadKlines(params);
+        BinanceData data = b.downloadKlines(params);
         return data;
     }
 
