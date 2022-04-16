@@ -6,6 +6,7 @@ import org.junit.rules.TemporaryFolder;
 import persistence.DataWriter;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 import static org.mockito.Mockito.*;
 
@@ -20,7 +21,8 @@ public class CSVFileWriter {
     public void setUp() throws IOException {
         tempF.newFile("test.csv");
         data = mock(BinanceData.class);
-        when(data.getOpenTime()).thenReturn("2000-1-1");
+        when(data.getOpenTime()).thenReturn(new LinkedList<Long>());
+
     }
 
     @Test

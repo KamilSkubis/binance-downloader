@@ -1,6 +1,6 @@
 import com.binance.connector.client.impl.spot.Market;
-import downloads.BinanceDownloader;
 import downloads.BinanceData;
+import downloads.BinanceDownloader;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -29,8 +29,8 @@ public class DownloaderTest {
 //			]
 //			]
 
-    private String jsonReturn = "[{" + "\"symbol\":" + "\"ticker\"," + "\"price\":" + "\"100\"" + "}]";
-    private String jsonArray = "[[1499040000000,\"0.01634790\",\"0.80000000\",\"0.01575800\",\"0.01577100\",\"148976.11427815\",1499644799999,\"2434.19055334\",308,\"1756.87402397\",\"28.46694368\",\"17928899.62484339\" ]]";
+    private final String jsonReturn = "[{" + "\"symbol\":" + "\"ticker\"," + "\"price\":" + "\"100\"" + "}]";
+    private final String jsonArray = "[[1499040000000,\"0.01634790\",\"0.80000000\",\"0.01575800\",\"0.01577100\",\"148976.11427815\",1499644799999,\"2434.19055334\",308,\"1756.87402397\",\"28.46694368\",\"17928899.62484339\" ]]";
 
 
     @Test
@@ -59,72 +59,71 @@ public class DownloaderTest {
     @Test
     public void downloadKlines_ReturnCorrectDataFromJsonArray() {
         BinanceData data = getDataFromJsonTestArray();
-        assertEquals("1499040000000", data.getOpenTime());
+        assertEquals(1499040000000L, data.getLastOpenTime(1), 1);
 
     }
-
-
+    
     @Test
     public void downloadKlines_ReturnCorrectOpenPrice() {
         BinanceData data = getDataFromJsonTestArray();
-        assertEquals(0.01634790, data.getOpen(), 0.00001);
+        assertEquals(0.01634790, data.getLastOpen(1), 0.00001);
     }
 
 
     @Test
     public void downloadKlines_ReturnCorrectHighPrice() {
         BinanceData data = getDataFromJsonTestArray();
-        assertEquals(0.80000000, data.getHigh(), 0.00001);
+        assertEquals(0.80000000, data.getLastHigh(1), 0.00001);
     }
 
     @Test
     public void downloadKlines_ReturnCorrectLowPrice() {
         BinanceData data = getDataFromJsonTestArray();
-        assertEquals(0.01575800, data.getLow(), 0.00001);
+        assertEquals(0.01575800, data.getLastLow(1), 0.00001);
     }
 
 
     @Test
-    public void downloadKlines_ReturnCorrectClosePrice(){
+    public void downloadKlines_ReturnCorrectClosePrice() {
         BinanceData data = getDataFromJsonTestArray();
-        assertEquals(0.01577100, data.getClose(), 0.00001);
+        assertEquals(0.01577100, data.getLastClose(1), 0.00001);
     }
 
     @Test
-    public void downloadKlines_ReturnCorrectVolume(){
-
+    public void downloadKlines_ReturnCorrectVolume() {
         BinanceData data = getDataFromJsonTestArray();
-        assertEquals(148976.11427815, data.getVolume(), 0.00001);
+        assertEquals(148976.11427815, data.getLastVolume(1), 0.00001);
+    }
+
+
+    @Test
+    public void downloadKlines_ReturnCorrectCloseTime() {
+        BinanceData data = getDataFromJsonTestArray();
+        assertEquals(1499644799999L, data.getLastCloseTime(1), 1);
     }
 
     @Test
-    public void downloadKlines_ReturnCorrectCloseTime(){
+    public void downloadKlines_ReturnCorrectQuoteAssetVolume() {
         BinanceData data = getDataFromJsonTestArray();
-        assertEquals("1499644799999", data.getCloseTime());
+        assertEquals(2434.19055334, data.getLastQuoteAsset(1), 0.00001);
     }
 
     @Test
-    public void downloadKlines_ReturnCorrectQuoteAssetVolume(){
+    public void downloadKlines_ReturnCorrectNumberOfTrades() {
         BinanceData data = getDataFromJsonTestArray();
-        assertEquals(2434.19055334, data.getQuoteAsset(),0.00001);
+        assertEquals(308, data.getLastNumberTrades(1));
     }
 
     @Test
-    public void downloadKlines_ReturnCorrectNumberOfTrades(){
+    public void downloadKlines_ReturnCorrectTakerBuyBase() {
         BinanceData data = getDataFromJsonTestArray();
-        assertEquals(308, data.getNumberTrades());
+        assertEquals(1756.87402397, data.getLastTakerBuyBase(1), 0.00001);
     }
 
     @Test
-    public void downloadKlines_ReturnCorrectTakerBuyBase(){
+    public void downloadKlines_ReturnCorrect_TakerBuyQuote() {
         BinanceData data = getDataFromJsonTestArray();
-        assertEquals(1756.87402397, data.getTakerBuyBase(), 0.00001);
-    }
-
-    @Test
-    public void downloadKlines_ReturnCorrectTakerBuyQuote(){
-        BinanceData data = getDataFromJsonTestArray();
-        assertEquals(28.46694368, data.getTakeBuyQuote(), 0.00001);
+        assertEquals(28.46694368, data.getLastTakerBuyQuote(1), 0.00001);
     }
 
 

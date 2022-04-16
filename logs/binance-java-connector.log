@@ -397,3 +397,265 @@
 2022-04-07 14:07:27.621[1649333247621] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
 2022-04-07 14:07:27.621[1649333247621] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
 2022-04-07 14:07:27.624[1649333247624] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.252[1650107642252] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.283[1650107642283] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.299[1650107642299] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.299[1650107642299] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.299[1650107642299] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.299[1650107642299] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.299[1650107642299] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.299[1650107642299] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.299[1650107642299] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.314[1650107642314] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:02.330[1650107642330] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:02.330[1650107642330] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.502[1650107689502] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.518[1650107689518] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.518[1650107689518] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.518[1650107689518] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.533[1650107689533] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.533[1650107689533] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.533[1650107689533] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.533[1650107689533] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.533[1650107689533] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 13:14:49.533[1650107689533] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 13:14:49.533[1650107689533] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.533[1650107689533] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.549[1650107689549] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:14:49.565[1650107689565] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:14:49.565[1650107689565] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.100[1650108302100] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.115[1650108302115] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.115[1650108302115] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.115[1650108302115] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.115[1650108302115] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.115[1650108302115] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.115[1650108302115] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.115[1650108302115] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.115[1650108302115] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.131[1650108302131] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:25:02.146[1650108302146] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:25:02.146[1650108302146] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:34:21.168[1650108861168] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.199[1650108861199] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.199[1650108861199] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.199[1650108861199] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.199[1650108861199] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 13:34:21.215[1650108861215] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 13:34:21.215[1650108861215] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.215[1650108861215] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.215[1650108861215] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.215[1650108861215] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.215[1650108861215] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.215[1650108861215] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.215[1650108861215] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:34:21.215[1650108861215] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.042[1650109160042] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.057[1650109160057] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.073[1650109160073] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.073[1650109160073] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.073[1650109160073] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 13:39:20.073[1650109160073] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 13:39:20.073[1650109160073] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.073[1650109160073] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.089[1650109160089] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.089[1650109160089] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.089[1650109160089] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.089[1650109160089] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.089[1650109160089] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:39:20.089[1650109160089] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.254[1650109788254] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.288[1650109788288] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.288[1650109788288] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.288[1650109788288] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.288[1650109788288] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.288[1650109788288] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.288[1650109788288] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.288[1650109788288] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.288[1650109788288] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.304[1650109788304] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.320[1650109788320] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.320[1650109788320] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:49:48.320[1650109788320] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:49:48.320[1650109788320] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.692[1650109837692] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.724[1650109837724] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.739[1650109837739] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.739[1650109837739] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.739[1650109837739] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.739[1650109837739] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.739[1650109837739] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.739[1650109837739] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.739[1650109837739] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.739[1650109837739] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:50:37.739[1650109837739] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:50:37.739[1650109837739] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.714[1650110213714] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.730[1650110213730] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.730[1650110213730] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.745[1650110213745] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.761[1650110213761] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.761[1650110213761] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.761[1650110213761] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.761[1650110213761] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:56:53.761[1650110213761] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:56:53.761[1650110213761] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.430[1650110261430] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.446[1650110261446] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:57:41.462[1650110261462] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.727[1650110307727] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.743[1650110307743] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 13:58:27.758[1650110307758] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.198[1650110577198] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.231[1650110577231] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.231[1650110577231] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.231[1650110577231] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.231[1650110577231] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.231[1650110577231] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.231[1650110577231] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.231[1650110577231] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.231[1650110577231] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-04-16 14:02:57.231[1650110577231] | INFO  | main       | downloads.BinanceDownloader          - Found: 1 tickers
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-04-16 14:02:57.246[1650110577246] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully

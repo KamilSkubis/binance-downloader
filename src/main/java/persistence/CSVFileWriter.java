@@ -2,11 +2,11 @@ package persistence;
 
 import downloads.BinanceData;
 
-import java.io.File;
+import java.util.List;
 
 public class CSVFileWriter implements DataWriter {
 
-    public CSVFileWriter(){
+    public CSVFileWriter() {
 
     }
 
@@ -16,7 +16,7 @@ public class CSVFileWriter implements DataWriter {
 //        File f = new File("B:\\" + data.getTicker() +".csv");
 
         //run loop to save data
-        String openTime= data.getOpenTime();
+        List<Long> openTime = data.getOpenTime();
 
     }
 }
