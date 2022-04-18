@@ -55,28 +55,30 @@ public class BinanceDownloader {
         return tickers;
     }
 
-    public BinanceData downloadKlines(LinkedHashMap<String, Object> params) {
+    public List<BinanceBar> downloadKlines(LinkedHashMap<String, Object> params) {
         logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
-        BinanceData barData = new BinanceData();
-        barData.setTicker(String.valueOf(params.get("symbol")));
+        List<BinanceBar> downloadedData = new LinkedList<>();
 
         String response = market.klines(params);
         JsonArray arr = (JsonArray) JsonParser.parseString(response);
         for (JsonElement el : arr) {
-            Long openTime = el.getAsJsonArray().get(0).getAsLong();
-            barData.pushToOpenTime(openTime);
-            barData.pushOpen(el.getAsJsonArray().get(1).getAsDouble());
-            barData.pushHigh(el.getAsJsonArray().get(2).getAsDouble());
-            barData.pushLow(el.getAsJsonArray().get(3).getAsDouble());
-            barData.pushClose(el.getAsJsonArray().get(4).getAsDouble());
-            barData.pushVolume((el.getAsJsonArray().get(5).getAsDouble()));
-            barData.pushCloseTime(el.getAsJsonArray().get(6).getAsLong());
-            barData.pushQuoteAsset(el.getAsJsonArray().get(7).getAsDouble());
-            barData.pushNumberTrades(el.getAsJsonArray().get(8).getAsInt());
-            barData.pushTakerBuyBase(el.getAsJsonArray().get(9).getAsDouble());
-            barData.pushTakerBuyQuote(el.getAsJsonArray().get(10).getAsDouble());
+            BinanceBar bar = new BinanceBar();
+            bar.setTicker(String.valueOf(params.get("symbol")));
+            bar.setOpenTime(el.getAsJsonArray().get(0).getAsLong());
+            bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());
+            bar.setHigh(el.getAsJsonArray().get(2).getAsDouble());
+            bar.setLow(el.getAsJsonArray().get(3).getAsDouble());
+            bar.setClose(el.getAsJsonArray().get(4).getAsDouble());
+            bar.setVolume(el.getAsJsonArray().get(5).getAsDouble());
+            bar.setCloseTime(el.getAsJsonArray().get(6).getAsLong());
+            bar.setQuoteAsset(el.getAsJsonArray().get(7).getAsDouble());
+            bar.setNumberOfTrades(el.getAsJsonArray().get(8).getAsInt());
+            bar.setTakerBuyBase(el.getAsJsonArray().get(9).getAsDouble());
+            bar.setTakerBuyQuote(el.getAsJsonArray().get(10).getAsDouble());
+            downloadedData.add(bar);
         }
         logger.info("data for {} downloaded successfully", params.get("symbol"));
-        return barData;
+        return downloadedData;
     }
+
 }
