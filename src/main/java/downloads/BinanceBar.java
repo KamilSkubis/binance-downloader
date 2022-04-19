@@ -1,5 +1,27 @@
 package downloads;
 
+//SQL query
+//create table data(
+//id bigint signed not null auto_increment,
+//ticker varchar(10),
+//open_time bigint signed,
+//open double,
+//high double,
+//low double,
+//close double,
+//volume double,
+//close_time bigint signed,
+//quote_asset double,
+//number_trades int,
+//taker_buy_base double,
+//taker_buy_quote double
+//);
+
+
+
+
+
+
 
 public class BinanceBar {
 
