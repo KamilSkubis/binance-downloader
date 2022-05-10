@@ -15,35 +15,53 @@ package downloads;
 //number_trades int,
 //taker_buy_base double,
 //taker_buy_quote double
+// key(id)
 //);
 
 
+import javax.persistence.*;
 
-
-
-
-
+@Entity
+@Table(name = "data")
 public class BinanceBar {
 
     String ticker;
+
+    @Column(name = "open_time")
     Long openTime;
+
     Double open;
     Double high;
     Double low;
     Double close;
     Double volume;
+
+    @Column(name = "close_time")
     Long closeTime;
+    @Column(name = "quote_asset")
     Double quoteAsset;
+    @Column(name = "number_trades")
     Integer numberOfTrades;
+    @Column(name = "taker_buy_base")
     Double takerBuyBase;
+    @Column(name = "taker_buy_quote")
     Double takerBuyQuote;
+
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(generator = "increment")
+    private Long id;
+
+
+    public BinanceBar() {
+    }
 
     public String getTicker() {
         return ticker;
     }
 
-    public void setTicker(String ticker) {
-        this.ticker = ticker;
+    public void setTicker(String tickerName) {
+        this.ticker = tickerName;
     }
 
     public Long getOpenTime() {
@@ -133,4 +151,14 @@ public class BinanceBar {
     public void setTakerBuyQuote(Double takerBuyQuote) {
         this.takerBuyQuote = takerBuyQuote;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
 }
