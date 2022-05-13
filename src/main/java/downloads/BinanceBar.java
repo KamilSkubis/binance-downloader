@@ -14,7 +14,7 @@ package downloads;
 //quote_asset double,
 //number_trades int,
 //taker_buy_base double,
-//taker_buy_quote double
+//taker_buy_quote double,
 // key(id)
 //);
 
@@ -22,14 +22,14 @@ package downloads;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "data")
+@Table(name = "binance_data")
 public class BinanceBar {
 
+    @Column(name="ticker_id")
     String ticker;
 
     @Column(name = "open_time")
     Long openTime;
-
     Double open;
     Double high;
     Double low;
@@ -48,7 +48,7 @@ public class BinanceBar {
     Double takerBuyQuote;
 
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "data_id", nullable = false)
     @GeneratedValue(generator = "increment")
     private Long id;
 

@@ -1,20 +1,16 @@
+# Status
+In development
+
 # Project goal
-Console software to download data from Binance. Working can be automated by windows or linux automation tool.
+Console software to download data from Binance.
 
-# Milestones
-* Can download data by using default parameters for all USDT currencies.
-* Can download data by using special parameters (start date, end date).
-* Downloaded data can be saved to database - using Hibernate
-* System will check if what data is missing and will start from there. This will ensure that system will have always up to date data. This check will be helpful in case automated job fail.
-* Downloaded data can be saved to file: csv
+# Motivation
 
+To create software to download data from Binance. Currently need this data to be in 1d and 1min format. 
 
-# Program algorithm
-This program is intended use in daily intervals. In because of that, first thing to check is list of currency pairs.
+As for current need this app is intended to be used as one time use only. No keeping connection alive with Binance. 
+Just fire up and download data. 
 
 
-1. List of currency pairs.
-2. Check database for last entry
-3. Download data + some more.
-4. Put downloaded data to queue and check with data in database.
-5. Put missed data to database.
+
+
