@@ -70,11 +70,6 @@ public class BinanceDownloader {
             bar.setLow(el.getAsJsonArray().get(3).getAsDouble());
             bar.setClose(el.getAsJsonArray().get(4).getAsDouble());
             bar.setVolume(el.getAsJsonArray().get(5).getAsDouble());
-            bar.setCloseTime(el.getAsJsonArray().get(6).getAsLong());
-            bar.setQuoteAsset(el.getAsJsonArray().get(7).getAsDouble());
-            bar.setNumberOfTrades(el.getAsJsonArray().get(8).getAsInt());
-            bar.setTakerBuyBase(el.getAsJsonArray().get(9).getAsDouble());
-            bar.setTakerBuyQuote(el.getAsJsonArray().get(10).getAsDouble());
             downloadedData.add(bar);
         }
         logger.info("data for {} downloaded successfully", params.get("symbol"));

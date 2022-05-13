@@ -17,7 +17,7 @@ public class Main {
         LinkedHashMap<String, Object> params = new LinkedHashMap<>();
         params.put("symbol", "BTCUSDT");
         params.put("interval", "1d");
-        params.put("limit", "10");
+        params.put("limit", "20");
         List<BinanceBar> datas = binance.downloadKlines(params);
 
         Session s = HibernateUtil.getSessionFactory().openSession();

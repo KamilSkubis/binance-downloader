@@ -101,36 +101,6 @@ public class DownloaderTest {
                 downloadedData.get(0).getVolume(), 0.00001);
     }
 
-    @Test
-    public void downloadKlines_ReturnCorrectCloseTime() {
-        assertEquals(1499644799999L,
-                downloadedData.get(0).getCloseTime(), 1);
-    }
-
-    @Test
-    public void downloadKlines_ReturnCorrectQuoteAssetVolume() {
-        assertEquals(2434.19055334,
-                downloadedData.get(0).getQuoteAsset(), 0.00001);
-    }
-
-    @Test
-    public void downloadKlines_ReturnCorrectNumberOfTrades() {
-        assertEquals(308,
-                downloadedData.get(0).getNumberOfTrades(), 0.0001);
-    }
-
-    @Test
-    public void downloadKlines_ReturnCorrectTakerBuyBase() {
-        assertEquals(1756.87402397,
-                downloadedData.get(0).getTakerBuyBase(), 0.00001);
-    }
-
-    @Test
-    public void downloadKlines_ReturnCorrect_TakerBuyQuote() {
-        assertEquals(28.46694368,
-                downloadedData.get(0).getTakerBuyQuote(), 0.00001);
-    }
-
 
     @NotNull
     private LinkedHashMap<String, Object> setUpParams() {
