@@ -1,16 +1,17 @@
 package downloads;
 
-//SQL query  :TODO update this query, deleted some fields
+//SQL query
 //create table binance_data(
-//ticker_id varchar(10),
-//open_time bigint signed,
-//open double,
-//high double,
-//low double,
-//close double,
-//volume double,
-// key(open_time)
-//);
+//        id bigint AUTO_INCREMENT,
+//        ticker_id varchar(10),
+//        open_time bigint signed,
+//        open double,
+//        high double,
+//        low double,
+//        close double,
+//        volume double,
+//        key(id)
+//        );
 
 
 import javax.persistence.*;
@@ -19,9 +20,12 @@ import javax.persistence.*;
 @Table(name = "binance_data")
 public class BinanceBar {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    Long id;
     @Column(name="ticker_id")
     String ticker;
-    @Id
+
     @Column(name = "open_time", nullable = false)
     Long openTime;
     Double open;
@@ -87,6 +91,10 @@ public class BinanceBar {
 
     public void setVolume(Double volume) {
         this.volume = volume;
+    }
+
+    public Long getId() {
+        return id;
     }
 
 }

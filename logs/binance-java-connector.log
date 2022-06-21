@@ -151,3 +151,67 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
 2022-05-13 14:05:50.217[1652443550217] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
 2022-05-13 14:05:50.719[1652443550719] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
 2022-05-13 14:05:52.088[1652443552088] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-21 14:12:48.155[1655813568155] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker BTCUSDT
+2022-06-21 14:12:48.173[1655813568173] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=20
+2022-06-21 14:12:50.237[1655813570237] | INFO  | main       | downloads.BinanceDownloader          - data for BTCUSDT downloaded successfully
+2022-06-21 14:12:50.414[1655813570414] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-21 14:12:53.240[1655813573240] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-21 14:12:53.581[1655813573581] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-21 14:12:53.596[1655813573596] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-06-21 14:12:53.596[1655813573596] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-21 14:12:53.596[1655813573596] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-21 14:12:53.604[1655813573604] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-21 14:12:54.340[1655813574340] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-21 14:12:56.003[1655813576003] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-21 14:13:54.287[1655813634287] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker BTCUSDT
+2022-06-21 14:13:54.299[1655813634299] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=20
+2022-06-21 14:13:56.048[1655813636048] | INFO  | main       | downloads.BinanceDownloader          - data for BTCUSDT downloaded successfully
+2022-06-21 14:13:56.214[1655813636214] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-21 14:13:58.287[1655813638287] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-21 14:13:58.650[1655813638650] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-21 14:13:58.667[1655813638667] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-06-21 14:13:58.668[1655813638668] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-21 14:13:58.669[1655813638669] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-21 14:13:58.677[1655813638677] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-21 14:13:59.205[1655813639205] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-21 14:14:00.413[1655813640413] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-21 14:15:50.808[1655813750808] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker BTCUSDT
+2022-06-21 14:15:50.825[1655813750825] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=20
+2022-06-21 14:15:52.789[1655813752789] | INFO  | main       | downloads.BinanceDownloader          - data for BTCUSDT downloaded successfully
+2022-06-21 14:15:52.938[1655813752938] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-21 14:15:55.359[1655813755359] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-21 14:15:55.622[1655813755622] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-21 14:15:55.635[1655813755635] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-06-21 14:15:55.636[1655813755636] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-21 14:15:55.636[1655813755636] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-21 14:15:55.642[1655813755642] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-21 14:15:56.195[1655813756195] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-21 14:15:57.544[1655813757544] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-21 14:15:57.748[1655813757748] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
+2022-06-21 14:15:57.748[1655813757748] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'testing-binance-downloader.binance_data' doesn't exist
+2022-06-21 14:18:59.630[1655813939630] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker BTCUSDT
+2022-06-21 14:18:59.654[1655813939654] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=20
+2022-06-21 14:19:01.403[1655813941403] | INFO  | main       | downloads.BinanceDownloader          - data for BTCUSDT downloaded successfully
+2022-06-21 14:19:01.583[1655813941583] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-21 14:19:03.853[1655813943853] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-21 14:19:04.133[1655813944133] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-21 14:19:04.148[1655813944148] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-06-21 14:19:04.148[1655813944148] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-21 14:19:04.148[1655813944148] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-21 14:19:04.156[1655813944156] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-21 14:19:04.690[1655813944690] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-21 14:19:06.162[1655813946162] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-21 14:19:06.423[1655813946423] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
+2022-06-21 14:19:06.423[1655813946423] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'testing-binance-downloader.binance_data' doesn't exist
+2022-06-21 14:22:54.928[1655814174928] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker BTCUSDT
+2022-06-21 14:22:54.946[1655814174946] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=20
+2022-06-21 14:22:56.680[1655814176680] | INFO  | main       | downloads.BinanceDownloader          - data for BTCUSDT downloaded successfully
+2022-06-21 14:22:56.859[1655814176859] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-21 14:22:59.332[1655814179332] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-21 14:22:59.630[1655814179630] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-21 14:22:59.649[1655814179649] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-06-21 14:22:59.650[1655814179650] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-21 14:22:59.650[1655814179650] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-21 14:22:59.654[1655814179654] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-21 14:23:00.121[1655814180121] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-21 14:23:01.453[1655814181453] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
