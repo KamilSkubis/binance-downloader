@@ -1,12 +1,16 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="tickers")
 public class Ticker {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name="ticker_name")
     private String tickerName;
 
     public Ticker() {
