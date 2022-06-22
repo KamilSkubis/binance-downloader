@@ -62,17 +62,17 @@ public class BinanceDownloader {
 
         String response = market.klines(params);
         JsonArray arr = (JsonArray) JsonParser.parseString(response);
-        for (JsonElement el : arr) {
-            Data bar = new Data();
-            bar.setTicker(String.valueOf(params.get("symbol")));
-            bar.setOpenTime(el.getAsJsonArray().get(0).getAsLong());
-            bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());
-            bar.setHigh(el.getAsJsonArray().get(2).getAsDouble());
-            bar.setLow(el.getAsJsonArray().get(3).getAsDouble());
-            bar.setClose(el.getAsJsonArray().get(4).getAsDouble());
-            bar.setVolume(el.getAsJsonArray().get(5).getAsDouble());
-            downloadedData.add(bar);
-        }
+//        for (JsonElement el : arr) {
+//            Data bar = new Data();
+//            bar.setTicker(String.valueOf(params.get("symbol")));
+//            bar.setOpenTime(el.getAsJsonArray().get(0).getAsLong());
+//            bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());
+//            bar.setHigh(el.getAsJsonArray().get(2).getAsDouble());
+//            bar.setLow(el.getAsJsonArray().get(3).getAsDouble());
+//            bar.setClose(el.getAsJsonArray().get(4).getAsDouble());
+//            bar.setVolume(el.getAsJsonArray().get(5).getAsDouble());
+//            downloadedData.add(bar);
+//        }
         logger.info("data for {} downloaded successfully", params.get("symbol"));
         return downloadedData;
     }

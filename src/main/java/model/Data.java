@@ -3,7 +3,7 @@ package model;
 //SQL query
 //create table binance_data(
 //        id bigint AUTO_INCREMENT,
-//        ticker_id varchar(10),
+//        ticker_id int,
 //        open_time bigint signed,
 //        open double,
 //        high double,
@@ -23,8 +23,10 @@ public class Data {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id;
-    @Column(name="ticker_id")
-    String ticker;
+
+    @OneToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name="ticker_id", referencedColumnName = "ticker_name")
+    private Ticker ticker;
 
     @Column(name = "open_time", nullable = false)
     Long openTime;
@@ -37,11 +39,11 @@ public class Data {
     public Data() {
     }
 
-    public String getTicker() {
+    public Ticker getTicker() {
         return ticker;
     }
 
-    public void setTicker(String ticker) {
+    public void setTicker(Ticker ticker) {
         this.ticker = ticker;
     }
 
