@@ -11,7 +11,8 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/testing-binance-downloader</property>
         <property name="connection.username">root</property>
         <property name="connection.password">password</property>
-        <mapping class="downloads.BinanceBar"/>
+        <mapping class="model.Data"/>
+        <mapping class="model.Ticker"/>
 
     </session-factory>
 </hibernate-configuration>

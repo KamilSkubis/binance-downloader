@@ -5,6 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import model.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,14 +56,14 @@ public class BinanceDownloader {
         return tickers;
     }
 
-    public List<BinanceBar> downloadKlines(LinkedHashMap<String, Object> params) {
+    public List<Data> downloadKlines(LinkedHashMap<String, Object> params) {
         logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
-        List<BinanceBar> downloadedData = new LinkedList<>();
+        List<Data> downloadedData = new LinkedList<>();
 
         String response = market.klines(params);
         JsonArray arr = (JsonArray) JsonParser.parseString(response);
         for (JsonElement el : arr) {
-            BinanceBar bar = new BinanceBar();
+            Data bar = new Data();
             bar.setTicker(String.valueOf(params.get("symbol")));
             bar.setOpenTime(el.getAsJsonArray().get(0).getAsLong());
             bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());

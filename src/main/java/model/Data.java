@@ -1,4 +1,4 @@
-package downloads;
+package model;
 
 //SQL query
 //create table binance_data(
@@ -18,7 +18,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "binance_data")
-public class BinanceBar {
+public class Data {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -34,7 +34,7 @@ public class BinanceBar {
     Double close;
     Double volume;
 
-    public BinanceBar() {
+    public Data() {
     }
 
     public String getTicker() {

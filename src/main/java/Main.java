@@ -1,11 +1,10 @@
 import com.binance.connector.client.impl.SpotClientImpl;
-import downloads.BinanceBar;
+import model.Data;
 import downloads.BinanceDownloader;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import persistence.HibernateUtil;
 
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,8 +20,8 @@ public class Main {
 //        params.put("limit", "20");
 //        List<BinanceBar> datas = binance.downloadKlines(params);
 
-        List<BinanceBar> datas = new LinkedList<>();
-        BinanceBar b = new BinanceBar();
+        List<Data> datas = new LinkedList<>();
+        Data b = new Data();
         b.setTicker("test");
         b.setOpen(2313.03);
         b.setHigh(2323.00);
@@ -34,7 +33,7 @@ public class Main {
 
         Session s = HibernateUtil.getSessionFactory().openSession();
         Transaction t = s.beginTransaction();
-        for (BinanceBar data : datas) {
+        for (Data data : datas) {
             s.persist(data);
         }
         t.commit();

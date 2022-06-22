@@ -1,5 +1,5 @@
 import com.binance.connector.client.impl.spot.Market;
-import downloads.BinanceBar;
+import model.Data;
 import downloads.BinanceDownloader;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Before;
@@ -33,7 +33,7 @@ public class DownloaderTest {
 
     private final String jsonReturn = "[{" + "\"symbol\":" + "\"ticker\"," + "\"price\":" + "\"100\"" + "}]";
     private final String jsonArray = "[[1499040000000,\"0.01634790\",\"0.80000000\",\"0.01575800\",\"0.01577100\",\"148976.11427815\",1499644799999,\"2434.19055334\",308,\"1756.87402397\",\"28.46694368\",\"17928899.62484339\" ]]";
-    private List<BinanceBar> downloadedData;
+    private List<Data> downloadedData;
 
     @Before
     public void setUp() {
