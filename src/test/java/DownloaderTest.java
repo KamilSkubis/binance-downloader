@@ -59,7 +59,7 @@ public class DownloaderTest {
         LinkedHashMap<String, Object> params = setUpParams();
         Mockito.when(market.klines(params)).thenReturn(jsonArray);
 
-        assertEquals("test", b.downloadKlines(params).get(0).getTicker());
+        assertEquals("test", b.downloadKlines(params).get(0).getSymbol());
     }
 
 

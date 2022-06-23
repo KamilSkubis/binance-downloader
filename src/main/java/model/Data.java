@@ -3,7 +3,7 @@ package model;
 //SQL query
 //create table binance_1d(
 //        id bigint AUTO_INCREMENT,
-//        symbol char(13),
+//        symbol_id int,
 //        open_time bigint signed,
 //        open double,
 //        high double,
@@ -26,7 +26,8 @@ public class Data {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id;
 
-    String symbol;
+    @ManyToOne
+    Symbol symbol;
 
     @Column(name = "open_time", nullable = false)
     Long openTime;
@@ -104,11 +105,11 @@ public class Data {
         return Objects.hash(openTime, open, high, low, close, volume);
     }
 
-    public void setTicker(String symbol) {
+    public void setTicker(Symbol symbol) {
         this.symbol = symbol;
     }
 
-    public String getSymbol() {
+    public Symbol getSymbol() {
         return symbol;
     }
 }
