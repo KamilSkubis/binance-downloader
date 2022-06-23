@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import model.Data;
+import model.DataFromBinance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,23 +57,23 @@ public class BinanceDownloader {
         return tickers;
     }
 
-    public List<Data> downloadKlines(LinkedHashMap<String, Object> params) {
+    public List<DataFromBinance> downloadKlines(LinkedHashMap<String, Object> params) {
         logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
-        List<Data> downloadedData = new LinkedList<>();
+        List<DataFromBinance> downloadedData = new LinkedList<>();
 
         String response = market.klines(params);
         JsonArray arr = (JsonArray) JsonParser.parseString(response);
-//        for (JsonElement el : arr) {
-//            Data bar = new Data();
-//            bar.setTicker(String.valueOf(params.get("symbol")));
-//            bar.setOpenTime(el.getAsJsonArray().get(0).getAsLong());
-//            bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());
-//            bar.setHigh(el.getAsJsonArray().get(2).getAsDouble());
-//            bar.setLow(el.getAsJsonArray().get(3).getAsDouble());
-//            bar.setClose(el.getAsJsonArray().get(4).getAsDouble());
-//            bar.setVolume(el.getAsJsonArray().get(5).getAsDouble());
-//            downloadedData.add(bar);
-//        }
+        for (JsonElement el : arr) {
+            DataFromBinance bar = new DataFromBinance();
+            bar.setTicker((String) params.get("symbol"));
+            bar.setOpenTime(el.getAsJsonArray().get(0).getAsLong());
+            bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());
+            bar.setHigh(el.getAsJsonArray().get(2).getAsDouble());
+            bar.setLow(el.getAsJsonArray().get(3).getAsDouble());
+            bar.setClose(el.getAsJsonArray().get(4).getAsDouble());
+            bar.setVolume(el.getAsJsonArray().get(5).getAsDouble());
+            downloadedData.add(bar);
+        }
         logger.info("data for {} downloaded successfully", params.get("symbol"));
         return downloadedData;
     }

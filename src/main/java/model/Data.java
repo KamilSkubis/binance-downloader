@@ -1,9 +1,9 @@
 package model;
 
 //SQL query
-//create table binance_data(
+//create table binance_1d(
 //        id bigint AUTO_INCREMENT,
-//        ticker_id int,
+//        symbol char(13),
 //        open_time bigint signed,
 //        open double,
 //        high double,
@@ -15,18 +15,18 @@ package model;
 
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-@Table(name = "binance_data")
+@Table(name = "binance_1d")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Data {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id;
 
-    @OneToOne(cascade = CascadeType.REFRESH)
-    @JoinColumn(name="ticker_id", referencedColumnName = "ticker_name")
-    private Ticker ticker;
+    String symbol;
 
     @Column(name = "open_time", nullable = false)
     Long openTime;
@@ -37,14 +37,6 @@ public class Data {
     Double volume;
 
     public Data() {
-    }
-
-    public Ticker getTicker() {
-        return ticker;
-    }
-
-    public void setTicker(Ticker ticker) {
-        this.ticker = ticker;
     }
 
     public Long getOpenTime() {
@@ -99,4 +91,24 @@ public class Data {
         return id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Data data = (Data) o;
+        return openTime.equals(data.openTime) && open.equals(data.open) && high.equals(data.high) && low.equals(data.low) && close.equals(data.close) && volume.equals(data.volume);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(openTime, open, high, low, close, volume);
+    }
+
+    public void setTicker(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
 }
