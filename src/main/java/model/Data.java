@@ -26,7 +26,7 @@ public class Data {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Symbol symbol;
 
     @Column(name = "open_time", nullable = false)
@@ -111,5 +111,13 @@ public class Data {
 
     public Symbol getSymbol() {
         return symbol;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setSymbol(Symbol symbol) {
+        this.symbol = symbol;
     }
 }

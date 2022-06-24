@@ -64,7 +64,6 @@ public class BinanceDownloader {
         Symbol symbol = new Symbol();
         symbol.setSymbol(String.valueOf(params.get("symbol")));
 
-
         String response = market.klines(params);
         JsonArray arr = (JsonArray) JsonParser.parseString(response);
         for (JsonElement el : arr) {

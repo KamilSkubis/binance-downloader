@@ -50,4 +50,12 @@ public class Symbol {
     public int hashCode() {
         return Objects.hash(symbol);
     }
+
+    @Override
+    public String toString() {
+        return "Symbol{" +
+                "id=" + id +
+                ", symbol='" + symbol + '\'' +
+                '}';
+    }
 }
