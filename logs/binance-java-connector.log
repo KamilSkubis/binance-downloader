@@ -1216,3 +1216,102 @@ antlr.NoViableAltException: unexpected token: drop
 2022-06-24 13:50:26.436[1656071426436] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
 2022-06-24 13:50:27.207[1656071427207] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
 2022-06-24 13:50:28.573[1656071428573] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-24 14:17:29.491[1656073049491] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-24 14:17:32.041[1656073052041] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-24 14:17:32.505[1656073052505] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-24 14:17:32.520[1656073052520] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-24 14:17:32.520[1656073052520] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-24 14:17:32.520[1656073052520] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-24 14:17:32.536[1656073052536] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-24 14:17:33.407[1656073053407] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-24 14:17:34.764[1656073054764] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-24 14:18:49.815[1656073129815] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-24 14:18:51.903[1656073131903] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-24 14:18:52.430[1656073132430] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-24 14:18:52.445[1656073132445] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-24 14:18:52.445[1656073132445] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-24 14:18:52.445[1656073132445] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-24 14:18:52.461[1656073132461] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-24 14:18:53.332[1656073133332] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-24 14:18:54.604[1656073134604] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-24 14:20:08.111[1656073208111] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-24 14:20:10.143[1656073210143] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-24 14:20:10.544[1656073210544] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-24 14:20:10.544[1656073210544] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-24 14:20:10.544[1656073210544] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-24 14:20:10.544[1656073210544] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-24 14:20:10.560[1656073210560] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-24 14:20:11.346[1656073211346] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-24 14:20:12.766[1656073212766] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-24 14:20:13.870[1656073213870] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:20:13.870[1656073213870] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:20:13.976[1656073213976] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:20:13.976[1656073213976] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:20:53.654[1656073253654] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-24 14:20:56.083[1656073256083] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-24 14:20:56.484[1656073256484] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-24 14:20:56.500[1656073256500] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-24 14:20:56.500[1656073256500] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-24 14:20:56.500[1656073256500] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-24 14:20:56.500[1656073256500] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-24 14:20:57.271[1656073257271] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-24 14:20:58.721[1656073258721] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-24 14:20:58.937[1656073258937] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:20:58.937[1656073258937] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:20:59.044[1656073259044] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:20:59.044[1656073259044] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:20:59.122[1656073259122] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:20:59.122[1656073259122] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:20:59.207[1656073259207] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:20:59.207[1656073259207] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:21:40.574[1656073300574] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-24 14:21:42.665[1656073302665] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-24 14:21:43.066[1656073303066] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-24 14:21:43.066[1656073303066] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-24 14:21:43.066[1656073303066] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-24 14:21:43.066[1656073303066] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-24 14:21:43.081[1656073303081] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-24 14:21:43.852[1656073303852] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-24 14:21:45.722[1656073305722] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-24 14:21:45.939[1656073305939] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:21:45.939[1656073305939] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:21:46.054[1656073306054] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:21:46.054[1656073306054] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:21:46.123[1656073306123] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:21:46.123[1656073306123] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:21:46.208[1656073306208] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:21:46.208[1656073306208] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:30:35.874[1656073835874] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-24 14:30:38.173[1656073838173] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-24 14:30:38.574[1656073838574] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-24 14:30:38.590[1656073838590] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-24 14:30:38.590[1656073838590] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-24 14:30:38.590[1656073838590] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-24 14:30:38.606[1656073838606] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-24 14:30:39.392[1656073839392] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-24 14:30:40.781[1656073840781] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-24 14:30:41.044[1656073841044] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:30:41.044[1656073841044] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:30:41.182[1656073841182] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:30:41.182[1656073841182] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:30:41.282[1656073841282] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:30:41.282[1656073841282] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:30:41.360[1656073841360] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:30:41.360[1656073841360] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:31:50.977[1656073910977] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-24 14:31:53.061[1656073913061] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-24 14:31:53.589[1656073913589] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-24 14:31:53.605[1656073913605] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-24 14:31:53.605[1656073913605] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-24 14:31:53.605[1656073913605] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-24 14:31:53.605[1656073913605] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-24 14:31:54.460[1656073914460] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-24 14:31:56.011[1656073916011] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-24 14:31:56.281[1656073916281] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:31:56.281[1656073916281] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:31:56.397[1656073916397] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:31:56.397[1656073916397] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:31:56.466[1656073916466] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:31:56.466[1656073916466] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-24 14:31:56.544[1656073916544] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-24 14:31:56.544[1656073916544] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists

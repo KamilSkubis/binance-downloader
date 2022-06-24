@@ -1,12 +1,7 @@
 import com.binance.connector.client.impl.SpotClientImpl;
 import model.Data;
 import downloads.BinanceDownloader;
-import model.Symbol;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import persistence.MySQL;
 
-import javax.persistence.Query;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -25,8 +20,8 @@ public class Main {
 
 
 
-        Session s = MySQL.getSessionFactory().openSession();
-        Query q = s.createQuery("From Symbol");
+//        Session s = Repository.getSessionFactory().openSession();
+//        Query q = s.createQuery("From Symbol");
     }
 
 }

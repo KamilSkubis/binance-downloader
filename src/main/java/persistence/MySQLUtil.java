@@ -3,7 +3,7 @@ package persistence;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class MySQL {
+public class MySQLUtil {
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     private static SessionFactory buildSessionFactory() {
@@ -17,11 +17,11 @@ public class MySQL {
         }
     }
 
-    public static SessionFactory getSessionFactory() {
+    public  SessionFactory getSessionFactory() {
         return sessionFactory;
     }
 
-    public static void shutdown() {
+    public  void shutdown() {
         // Close caches and connection pools
         getSessionFactory().close();
     }
