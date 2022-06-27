@@ -3,32 +3,26 @@ package persistence;
 import model.Data;
 import model.Symbol;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import javax.transaction.TransactionManager;
-import javax.transaction.TransactionSynchronizationRegistry;
-import javax.transaction.Transactional;
 
 public class DBWriter {
 
-    private final Session session;
+    public static void writeSymbol(SessionFactory sessionFactory,Symbol symbol) {
 
-    public DBWriter(Session session) {
-        this.session = session;
-    }
-
-    @Transactional
-    public void writeSymbol(Symbol symbol) {
-
+        Session session = sessionFactory.openSession();
         Transaction transaction = session.getTransaction();
         session.save(symbol);
         transaction.commit();
+        session.close();
     }
 
-    @Transactional
-    public void writeData(Data d) {
+    public static void writeData(SessionFactory sessionFactory,Data d) {
+        Session session = sessionFactory.openSession();
         Transaction transaction = session.getTransaction();
         session.save(d);
         transaction.commit();
+        session.close();
     }
 }
