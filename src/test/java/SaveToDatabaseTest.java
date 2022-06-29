@@ -97,7 +97,7 @@ public class SaveToDatabaseTest {
 
 
     @Test
-    public void canAddData_twoSessions_shouldHaveOneSymbol(){
+    public void canAddData_twoSessions_sameSymbolObj_shouldHaveOneSymbol(){
         Symbol symbol = new Symbol();
         symbol.setSymbol("testTwoEntry");
         Binance1d binance1d1 = createSampleData(symbol);
@@ -116,8 +116,57 @@ public class SaveToDatabaseTest {
         assertEquals(1,result);
     }
 
+    @Test
+    public void canAddData_twoSessions_differentSymbolObj_shouldHaveOneSymbol() {
+        Symbol symbol1 = new Symbol();
+        symbol1.setSymbol("testTwoEntry");
+        Symbol symbol2 = new Symbol();
+        symbol2.setSymbol("testTwoEntry");
+
+        Binance1d binance1d1 = createSampleData(symbol1);
+        Binance1d binance1d2 = createSampleData(symbol2);
+
+        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d1);
+        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d2);
+
+        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        List<Binance1d> resultList = session
+                .createQuery("From Symbol")
+                .getResultList();
+        int result = resultList.size();
+        System.out.println(resultList);
+        session.close();
+        assertEquals(1, result);
+    }
 
 
+    @Test
+    public void canAddData_threeSessions_differentSymbolObj_shouldHaveTwoSymbol() {
+        Symbol symbol1 = new Symbol();
+        symbol1.setSymbol("testTwoEntry");
+        Symbol symbol2 = new Symbol();
+        symbol2.setSymbol("testTwoEntry");
+        Symbol symbol3 = new Symbol();
+        symbol3.setSymbol("testThreeEntry");
+
+        Binance1d binance1d1 = createSampleData(symbol1);
+        Binance1d binance1d2 = createSampleData(symbol3);
+        Binance1d binance1d3 = createSampleData(symbol2);
+
+        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d1);
+        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d2);
+        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d3);
+
+        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        List<Binance1d> resultList = session
+                .createQuery("From Symbol")
+                .getResultList();
+        int result = resultList.size();
+        System.out.println(resultList);
+        session.close();
+        assertEquals(2, result);
+
+    }
 
 
 
