@@ -14,19 +14,21 @@ package model;
 //        );
 
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "binance_1d")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Data {
+public class Binance1d {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     Symbol symbol;
 
     @Column(name = "open_time", nullable = false)
@@ -37,7 +39,7 @@ public class Data {
     Double close;
     Double volume;
 
-    public Data() {
+    public Binance1d() {
     }
 
     public Long getOpenTime() {
@@ -96,8 +98,8 @@ public class Data {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Data data = (Data) o;
-        return openTime.equals(data.openTime) && open.equals(data.open) && high.equals(data.high) && low.equals(data.low) && close.equals(data.close) && volume.equals(data.volume);
+        Binance1d binance1d = (Binance1d) o;
+        return openTime.equals(binance1d.openTime) && open.equals(binance1d.open) && high.equals(binance1d.high) && low.equals(binance1d.low) && close.equals(binance1d.close) && volume.equals(binance1d.volume);
     }
 
     @Override

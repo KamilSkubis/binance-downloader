@@ -1,134 +1,337 @@
-2022-06-27 12:45:15.287[1656326715287] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-06-27 12:45:18.905[1656326718905] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-06-27 12:45:19.748[1656326719748] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-06-27 12:45:19.772[1656326719772] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
-2022-06-27 12:45:19.773[1656326719773] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
-2022-06-27 12:45:19.773[1656326719773] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
-2022-06-27 12:45:19.783[1656326719783] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-2022-06-27 12:45:21.401[1656326721401] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2022-06-27 12:45:25.818[1656326725818] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-06-27 12:45:26.739[1656326726739] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
-2022-06-27 12:45:26.740[1656326726740] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
-2022-06-27 12:45:26.915[1656326726915] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
-2022-06-27 12:45:26.915[1656326726915] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
-2022-06-27 12:45:27.035[1656326727035] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
-2022-06-27 12:45:27.035[1656326727035] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
-2022-06-27 12:45:27.221[1656326727221] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
-2022-06-27 12:45:27.221[1656326727221] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
-2022-06-27 12:48:17.711[1656326897711] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-06-27 12:48:20.597[1656326900597] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-06-27 12:48:21.028[1656326901028] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-06-27 12:48:21.048[1656326901048] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
-2022-06-27 12:48:21.050[1656326901050] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
-2022-06-27 12:48:21.051[1656326901051] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
-2022-06-27 12:48:21.057[1656326901057] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-2022-06-27 12:48:21.907[1656326901907] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2022-06-27 12:48:23.556[1656326903556] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-06-27 12:48:23.843[1656326903843] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
-2022-06-27 12:48:23.844[1656326903844] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
-2022-06-27 12:58:34.870[1656327514870] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-06-27 12:58:37.543[1656327517543] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-06-27 12:58:37.921[1656327517921] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-06-27 12:58:37.933[1656327517933] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
-2022-06-27 12:58:37.934[1656327517934] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
-2022-06-27 12:58:37.934[1656327517934] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
-2022-06-27 12:58:37.942[1656327517942] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-2022-06-27 12:58:39.324[1656327519324] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2022-06-27 12:58:40.883[1656327520883] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-06-27 12:58:41.454[1656327521454] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 12:58:41.454[1656327521454] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 12:58:41.634[1656327521634] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 12:58:41.635[1656327521635] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 12:58:41.730[1656327521730] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 12:58:41.731[1656327521731] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 12:58:41.843[1656327521843] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 12:58:41.843[1656327521843] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 12:58:41.854[1656327521854] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 12:58:41.854[1656327521854] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 12:58:41.982[1656327521982] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 12:58:41.983[1656327521983] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 12:58:42.054[1656327522054] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 12:58:42.054[1656327522054] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 12:59:22.709[1656327562709] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-06-27 12:59:24.870[1656327564870] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-06-27 12:59:25.353[1656327565353] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-06-27 12:59:25.366[1656327565366] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
-2022-06-27 12:59:25.367[1656327565367] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
-2022-06-27 12:59:25.367[1656327565367] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
-2022-06-27 12:59:25.377[1656327565377] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-2022-06-27 12:59:26.234[1656327566234] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2022-06-27 12:59:27.713[1656327567713] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-06-27 12:59:28.186[1656327568186] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 12:59:28.186[1656327568186] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 12:59:28.307[1656327568307] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 12:59:28.308[1656327568308] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 12:59:28.336[1656327568336] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 12:59:28.337[1656327568337] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 13:01:56.478[1656327716478] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-06-27 13:01:59.302[1656327719302] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-06-27 13:02:00.003[1656327720003] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-06-27 13:02:00.041[1656327720041] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
-2022-06-27 13:02:00.046[1656327720046] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
-2022-06-27 13:02:00.048[1656327720048] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
-2022-06-27 13:02:00.059[1656327720059] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-2022-06-27 13:02:01.246[1656327721246] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2022-06-27 13:02:03.022[1656327723022] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-06-27 13:02:03.500[1656327723500] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 13:02:03.500[1656327723500] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 13:02:03.695[1656327723695] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 13:02:03.695[1656327723695] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 13:02:03.777[1656327723777] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 13:02:03.778[1656327723778] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 13:02:03.963[1656327723963] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 13:02:03.964[1656327723964] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 13:02:03.977[1656327723977] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 13:02:03.978[1656327723978] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 13:02:04.201[1656327724201] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 13:02:04.201[1656327724201] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 13:02:04.308[1656327724308] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 13:02:04.309[1656327724309] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 13:04:12.131[1656327852131] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-06-27 13:04:14.716[1656327854716] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-06-27 13:04:15.514[1656327855514] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-06-27 13:04:15.536[1656327855536] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
-2022-06-27 13:04:15.537[1656327855537] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
-2022-06-27 13:04:15.539[1656327855539] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
-2022-06-27 13:04:15.549[1656327855549] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-2022-06-27 13:04:16.878[1656327856878] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2022-06-27 13:04:19.177[1656327859177] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-06-27 13:04:19.754[1656327859754] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 13:04:19.754[1656327859754] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 13:04:19.947[1656327859947] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 13:04:19.948[1656327859948] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 13:04:20.021[1656327860021] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 13:04:20.021[1656327860021] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 13:04:20.126[1656327860126] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 13:04:20.126[1656327860126] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 13:04:20.135[1656327860135] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 13:04:20.136[1656327860136] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 13:04:20.237[1656327860237] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-06-27 13:04:20.238[1656327860238] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
-2022-06-27 13:04:20.304[1656327860304] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1051, SQLState: 42S02
-2022-06-27 13:04:20.304[1656327860304] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unknown table 'test.symbols'
-2022-06-27 13:04:48.783[1656327888783] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-06-27 13:04:51.165[1656327891165] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-06-27 13:04:51.658[1656327891658] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-06-27 13:04:51.671[1656327891671] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
-2022-06-27 13:04:51.672[1656327891672] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
-2022-06-27 13:04:51.673[1656327891673] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
-2022-06-27 13:04:51.680[1656327891680] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-2022-06-27 13:04:52.572[1656327892572] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2022-06-27 13:04:54.004[1656327894004] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-06-27 13:04:54.320[1656327894320] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
-2022-06-27 13:04:54.321[1656327894321] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'binance_1d' already exists
-2022-06-27 13:24:14.926[1656329054926] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-06-27 13:24:17.920[1656329057920] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-06-27 13:24:18.520[1656329058520] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-06-27 13:24:18.538[1656329058538] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
-2022-06-27 13:24:18.539[1656329058539] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
-2022-06-27 13:24:18.540[1656329058540] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
-2022-06-27 13:24:18.548[1656329058548] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-2022-06-27 13:24:19.655[1656329059655] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2022-06-27 13:24:21.591[1656329061591] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-06-27 13:24:22.028[1656329062028] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
-2022-06-27 13:24:22.028[1656329062028] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'binance_1d' already exists
+2022-06-29 09:06:08.335[1656486368335] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 09:06:17.067[1656486377067] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 09:06:17.524[1656486377524] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 09:06:17.541[1656486377541] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 09:06:17.542[1656486377542] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 09:06:17.543[1656486377543] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 09:06:17.550[1656486377550] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 09:06:18.844[1656486378844] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 09:06:20.610[1656486380610] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 09:06:24.825[1656486384825] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-29 09:06:24.826[1656486384826] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'binance_1d' already exists
+2022-06-29 09:15:13.949[1656486913949] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 09:15:17.122[1656486917122] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 09:15:17.521[1656486917521] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 09:15:17.533[1656486917533] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 09:15:17.533[1656486917533] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 09:15:17.534[1656486917534] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 09:15:17.542[1656486917542] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 09:15:18.393[1656486918393] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 09:15:19.923[1656486919923] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 09:15:20.284[1656486920284] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-29 09:15:20.284[1656486920284] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'binance_1d' already exists
+2022-06-29 09:20:04.881[1656487204881] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 09:20:07.544[1656487207544] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 09:20:07.987[1656487207987] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 09:20:08.001[1656487208001] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 09:20:08.001[1656487208001] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 09:20:08.002[1656487208002] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 09:20:08.006[1656487208006] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 09:20:09.068[1656487209068] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 09:20:10.581[1656487210581] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 09:20:11.142[1656487211142] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-29 09:20:11.142[1656487211142] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'binance_1d' already exists
+2022-06-29 09:26:08.801[1656487568801] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 09:26:11.450[1656487571450] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 09:26:11.870[1656487571870] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 09:26:11.887[1656487571887] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 09:26:11.888[1656487571888] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 09:26:11.889[1656487571889] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 09:26:11.897[1656487571897] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 09:26:12.942[1656487572942] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 09:26:14.412[1656487574412] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 09:29:01.667[1656487741667] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 09:29:03.852[1656487743852] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 09:29:04.378[1656487744378] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 09:29:04.396[1656487744396] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 09:29:04.397[1656487744397] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 09:29:04.398[1656487744398] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 09:29:04.406[1656487744406] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 09:29:05.424[1656487745424] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 09:29:07.060[1656487747060] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 09:39:55.631[1656488395631] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 09:39:58.306[1656488398306] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 09:39:58.766[1656488398766] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 09:39:58.779[1656488398779] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 09:39:58.780[1656488398780] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 09:39:58.781[1656488398781] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 09:39:58.787[1656488398787] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 09:39:59.657[1656488399657] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 09:40:01.233[1656488401233] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 09:40:02.548[1656488402548] | ERROR | main       | o.h.hql.internal.ast.ErrorTracker    - <AST>:0:0: unexpected end of subtree
+2022-06-29 09:40:02.553[1656488402553] | ERROR | main       | o.h.hql.internal.ast.ErrorTracker    - <AST>:0:0: unexpected end of subtree
+antlr.NoViableAltException: unexpected end of subtree
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3676)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:746)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:602)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:339)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:287)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:276)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:192)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:113)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:636)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:748)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at SaveToDatabaseTest.canAddDataToDb_oneTime(SaveToDatabaseTest.java:77)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+2022-06-29 09:41:08.116[1656488468116] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 09:41:10.656[1656488470656] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 09:41:11.335[1656488471335] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 09:41:11.354[1656488471354] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 09:41:11.354[1656488471354] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 09:41:11.355[1656488471355] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 09:41:11.362[1656488471362] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 09:41:12.636[1656488472636] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 09:41:14.536[1656488474536] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 09:42:44.761[1656488564761] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 09:42:46.902[1656488566902] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 09:42:47.378[1656488567378] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 09:42:47.394[1656488567394] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 09:42:47.395[1656488567395] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 09:42:47.395[1656488567395] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 09:42:47.403[1656488567403] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 09:42:48.285[1656488568285] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 09:42:49.783[1656488569783] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 09:42:50.429[1656488570429] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-29 09:42:50.430[1656488570430] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-29 09:42:50.551[1656488570551] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-29 09:42:50.552[1656488570552] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-29 09:43:14.678[1656488594678] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 09:43:17.266[1656488597266] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 09:43:17.688[1656488597688] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 09:43:17.701[1656488597701] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 09:43:17.702[1656488597702] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 09:43:17.702[1656488597702] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 09:43:17.708[1656488597708] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 09:43:18.526[1656488598526] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 09:43:20.122[1656488600122] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 09:43:20.351[1656488600351] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-29 09:43:20.351[1656488600351] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'symbols' already exists
+2022-06-29 09:44:43.868[1656488683868] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 09:44:46.156[1656488686156] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 09:44:46.675[1656488686675] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 09:44:46.694[1656488686694] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 09:44:46.695[1656488686695] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 09:44:46.696[1656488686696] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 09:44:46.702[1656488686702] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 09:44:47.719[1656488687719] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 09:44:49.143[1656488689143] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 10:15:15.657[1656490515657] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:15:20.567[1656490520567] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:15:20.982[1656490520982] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:15:20.997[1656490520997] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:15:20.997[1656490520997] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:15:20.997[1656490520997] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:15:21.003[1656490521003] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:15:22.026[1656490522026] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:15:23.545[1656490523545] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 10:16:14.103[1656490574103] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:16:16.261[1656490576261] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:16:16.876[1656490576876] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:16:16.894[1656490576894] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:16:16.895[1656490576895] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:16:16.897[1656490576897] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:16:16.905[1656490576905] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:16:17.881[1656490577881] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:16:19.369[1656490579369] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 10:16:19.721[1656490579721] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-29 10:16:19.721[1656490579721] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'binance_1d' already exists
+2022-06-29 10:17:48.390[1656490668390] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:17:50.780[1656490670780] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:17:51.403[1656490671403] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:17:51.425[1656490671425] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:17:51.425[1656490671425] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:17:51.425[1656490671425] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:17:51.439[1656490671439] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:17:52.746[1656490672746] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:17:53.560[1656490673560] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:20:06.112[1656490806112] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:20:08.731[1656490808731] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:20:09.121[1656490809121] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:20:09.135[1656490809135] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:20:09.135[1656490809135] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:20:09.135[1656490809135] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:20:09.139[1656490809139] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:20:10.027[1656490810027] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:20:10.679[1656490810679] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:20:40.269[1656490840269] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:20:42.458[1656490842458] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:20:42.946[1656490842946] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:20:42.966[1656490842966] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:20:42.966[1656490842966] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:20:42.966[1656490842966] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:20:42.974[1656490842974] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:20:43.891[1656490843891] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:20:44.679[1656490844679] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:23:46.727[1656491026727] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:23:49.508[1656491029508] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:23:50.063[1656491030063] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:23:50.079[1656491030079] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:23:50.079[1656491030079] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:23:50.082[1656491030082] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:23:50.086[1656491030086] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:23:51.102[1656491031102] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:23:51.762[1656491031762] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:27:35.256[1656491255256] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:27:38.062[1656491258062] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:27:38.569[1656491258569] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:27:38.584[1656491258584] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:27:38.585[1656491258585] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:27:38.585[1656491258585] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:27:38.592[1656491258592] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:27:39.654[1656491259654] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:27:41.100[1656491261100] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 10:28:36.034[1656491316034] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:28:38.213[1656491318213] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:28:38.713[1656491318713] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:28:38.731[1656491318731] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:28:38.735[1656491318735] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:28:38.735[1656491318735] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:28:38.743[1656491318743] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:28:39.873[1656491319873] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:28:41.479[1656491321479] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 10:29:16.558[1656491356558] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:29:18.810[1656491358810] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:29:19.330[1656491359330] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:29:19.348[1656491359348] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:29:19.356[1656491359356] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:29:19.357[1656491359357] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:29:19.372[1656491359372] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:29:20.345[1656491360345] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:29:21.737[1656491361737] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 10:29:22.062[1656491362062] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-29 10:29:22.063[1656491362063] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'binance_1d' already exists
+2022-06-29 10:30:09.765[1656491409765] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:30:12.355[1656491412355] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:30:12.901[1656491412901] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:30:12.920[1656491412920] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:30:12.924[1656491412924] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:30:12.924[1656491412924] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:30:12.932[1656491412932] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:30:14.108[1656491414108] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:30:15.986[1656491415986] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 10:30:16.294[1656491416294] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1050, SQLState: 42S01
+2022-06-29 10:30:16.294[1656491416294] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'binance_1d' already exists
+2022-06-29 10:31:13.449[1656491473449] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:31:15.924[1656491475924] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:31:16.423[1656491476423] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:31:16.438[1656491476438] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:31:16.439[1656491476439] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:31:16.439[1656491476439] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:31:16.443[1656491476443] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:31:17.311[1656491477311] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:31:18.902[1656491478902] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 10:33:15.179[1656491595179] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:33:17.520[1656491597520] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:33:18.057[1656491598057] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:33:18.075[1656491598075] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:33:18.076[1656491598076] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:33:18.076[1656491598076] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:33:18.092[1656491598092] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:33:19.275[1656491599275] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:33:20.754[1656491600754] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 10:40:53.733[1656492053733] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:40:56.768[1656492056768] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:40:57.394[1656492057394] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:40:57.419[1656492057419] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:40:57.419[1656492057419] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:40:57.419[1656492057419] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:40:57.430[1656492057430] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:40:58.467[1656492058467] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:41:00.193[1656492060193] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 10:42:10.060[1656492130060] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 10:42:12.349[1656492132349] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 10:42:12.837[1656492132837] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 10:42:12.853[1656492132853] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 10:42:12.853[1656492132853] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 10:42:12.853[1656492132853] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 10:42:12.861[1656492132861] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 10:42:13.989[1656492133989] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 10:42:15.746[1656492135746] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 11:00:31.609[1656493231609] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 11:00:34.184[1656493234184] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 11:00:34.652[1656493234652] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 11:00:34.665[1656493234665] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 11:00:34.665[1656493234665] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 11:00:34.665[1656493234665] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 11:00:34.670[1656493234670] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 11:00:35.550[1656493235550] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 11:00:37.112[1656493237112] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 11:18:00.819[1656494280819] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 11:18:03.359[1656494283359] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 11:18:03.767[1656494283767] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 11:18:03.779[1656494283779] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 11:18:03.779[1656494283779] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 11:18:03.779[1656494283779] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 11:18:03.789[1656494283789] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 11:18:04.767[1656494284767] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 11:18:06.163[1656494286163] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 11:18:06.332[1656494286332] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
+2022-06-29 11:18:06.332[1656494286332] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
+2022-06-29 11:18:45.146[1656494325146] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 11:18:47.467[1656494327467] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 11:18:47.942[1656494327942] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 11:18:47.970[1656494327970] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 11:18:47.974[1656494327974] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 11:18:47.974[1656494327974] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 11:18:47.985[1656494327985] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 11:18:49.064[1656494329064] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 11:18:50.522[1656494330522] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 11:23:37.992[1656494617992] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 11:23:40.706[1656494620706] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 11:23:41.122[1656494621122] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 11:23:41.135[1656494621135] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 11:23:41.135[1656494621135] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 11:23:41.135[1656494621135] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 11:23:41.143[1656494621143] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 11:23:42.049[1656494622049] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 11:23:43.662[1656494623662] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 11:24:27.229[1656494667229] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 11:24:29.335[1656494669335] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 11:24:29.846[1656494669846] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 11:24:29.862[1656494669862] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 11:24:29.862[1656494669862] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 11:24:29.862[1656494669862] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 11:24:29.869[1656494669869] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 11:24:30.710[1656494670710] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 11:24:32.164[1656494672164] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 12:22:34.801[1656498154801] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-06-29 12:22:37.768[1656498157768] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-29 12:22:38.808[1656498158808] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-29 12:22:38.832[1656498158832] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-06-29 12:22:38.832[1656498158832] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-06-29 12:22:38.832[1656498158832] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-06-29 12:22:38.844[1656498158844] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-29 12:22:40.271[1656498160271] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-06-29 12:22:42.663[1656498162663] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]

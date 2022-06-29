@@ -1,5 +1,6 @@
 import com.binance.connector.client.impl.spot.Market;
-import model.Data;
+import downloads.Data;
+import model.Binance1d;
 import downloads.BinanceDownloader;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Before;

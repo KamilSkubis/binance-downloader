@@ -11,7 +11,7 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/test</property>
         <property name="connection.username">root</property>
         <property name="connection.password">password</property>
-        <mapping class="model.Data"/>
+        <mapping class="model.Binance1d"/>
         <mapping class="model.Symbol"/>
 
     </session-factory>

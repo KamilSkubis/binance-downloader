@@ -5,7 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import model.Data;
+import model.Binance1d;
 import model.Symbol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,14 +61,13 @@ public class BinanceDownloader {
         logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
         List<Data> downloadedData = new LinkedList<>();
 
-        Symbol symbol = new Symbol();
-        symbol.setSymbol(String.valueOf(params.get("symbol")));
+        String symbol =(String.valueOf(params.get("symbol")));
 
         String response = market.klines(params);
         JsonArray arr = (JsonArray) JsonParser.parseString(response);
         for (JsonElement el : arr) {
             Data bar = new Data();
-            bar.setTicker(symbol);
+            bar.setSymbol(symbol);
             bar.setOpenTime(el.getAsJsonArray().get(0).getAsLong());
             bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());
             bar.setHigh(el.getAsJsonArray().get(2).getAsDouble());

@@ -1,8 +1,8 @@
-import model.Data;
+import model.Binance1d;
 import model.Symbol;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.jetbrains.annotations.NotNull;
 import org.junit.*;
 import persistence.DBWriter;
 import persistence.MySQLUtilTesting;
@@ -13,11 +13,9 @@ import static org.junit.Assert.*;
 
 public class SaveToDatabaseTest {
 
-
-
     @Before
     public void setUp(){
-        Session session = (Session) MySQLUtilTesting.getSessionFactory().openSession();
+        Session session =(Session) MySQLUtilTesting.getSessionFactory().openSession();
 
         session.beginTransaction();
         String binance = "create table binance_1d(\n" +
@@ -48,7 +46,7 @@ public class SaveToDatabaseTest {
     @Test
     public void binance_1d_shouldBeEmpty(){
         Session session = (Session) MySQLUtilTesting.getSessionFactory().openSession();
-        Query query = session.createQuery("from Data");
+        Query query = session.createQuery("from Binance1d");
         assertEquals(0,query.getResultList().size());
     }
 
@@ -61,39 +59,82 @@ public class SaveToDatabaseTest {
     }
 
     @Test
-    public void canAdd_OneDataToDb(){
-        SessionFactory sessionFactory = MySQLUtilTesting.getSessionFactory();
+    public void canAddDataToDb_oneTime(){
         Symbol symbol = new Symbol();
-        symbol.setSymbol("test");
+        symbol.setSymbol("testSingleEntry");
+        Binance1d binance1d = createSampleData(symbol);
+        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d);
 
-        DBWriter.writeSymbol(sessionFactory,symbol);
-
-        SessionFactory sessionFactoryResult = MySQLUtilTesting.getSessionFactory();
-        List<Symbol> symbolList = sessionFactoryResult.openSession().createQuery("from Symbol").getResultList();
-        assertEquals(1,symbolList.size());
-
+        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        List<Binance1d> resultList = session
+                .createQuery("From Binance1d")
+                .getResultList();
+        int result = (int) resultList.stream()
+                .filter(d -> d.getSymbol().getSymbol().equals("testSingleEntry"))
+                .count();
+        session.close();
+        assertEquals(1,result);
     }
 
-//    @Test
-//    public void canAddDataToEmptyDb(){
-//        Data d = new Data();
-//        Symbol s = new Symbol();
-//        s.setSymbol("test");
-//        d.setSymbol(s);
-//        d.setOpen(100.00);
-//        d.setLow(90.00);
-//        d.setHigh(123.00);
-//        d.setClose(112.0);
-//        d.setVolume(2332.0);
-//        d.setOpenTime(23321l);
-//
-//        Session session = (Session) MySQLUtilTesting.getSessionFactory().openSession();
-//        DBWriter writer = new DBWriter(session);
-//        writer.writeData(d);
-//        List<Data> results = session.createQuery("from Data").getResultList();
-//        assertEquals(1, results.size());
-//    }
+    @Test
+    public void canAddDataToDb_twoTimes_shouldHaveOneSymbol(){
+        Symbol symbol = new Symbol();
+        symbol.setSymbol("testTwoEntry");
+        Binance1d binance1d1 = createSampleData(symbol);
+        Binance1d binance1d2 = createSampleData(symbol);
 
+        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d1);
+        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d2);
+
+        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        List<Binance1d> resultList = session
+                .createQuery("From Symbol")
+                .getResultList();
+        int result =resultList.size();
+        session.close();
+        assertEquals(1,result);
+    }
+
+
+    @Test
+    public void canAddData_twoSessions_shouldHaveOneSymbol(){
+        Symbol symbol = new Symbol();
+        symbol.setSymbol("testTwoEntry");
+        Binance1d binance1d1 = createSampleData(symbol);
+        Binance1d binance1d2 = createSampleData(symbol);
+
+        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d1);
+        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d2);
+
+        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        List<Binance1d> resultList = session
+                .createQuery("From Symbol")
+                .getResultList();
+        int result =resultList.size();
+        System.out.println(resultList);
+        session.close();
+        assertEquals(1,result);
+    }
+
+
+
+
+
+
+    @NotNull
+    private Binance1d createSampleData(Symbol symbol) {
+        String symbolName = symbol.getSymbol();
+        symbol.setSymbol(symbolName);
+        Binance1d binance1d = new Binance1d();
+        binance1d.setOpenTime(1203l);
+        binance1d.setVolume(230.2);
+        binance1d.setSymbol(symbol);
+        binance1d.setOpen(323.41);
+        binance1d.setHigh(23132.1);
+        binance1d.setLow(231.3);
+        binance1d.setClose(95.21);
+        return binance1d;
+    }
 
 
     @After
