@@ -15,7 +15,7 @@ public class Main {
 //        List<Data> datas = binance.downloadKlines(params);
 
         Symbol symbol = new Symbol();
-        symbol.setSymbol("testTwoEntry");
+        symbol.setSymbolName("testTwoEntry");
 
 
     }

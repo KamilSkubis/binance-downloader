@@ -22,11 +22,11 @@ public class Symbol {
     private String symbol;
 
 
-    public String getSymbol() {
+    public String getSymbolName() {
         return symbol;
     }
 
-    public void setSymbol(String symbol) {
+    public void setSymbolName(String symbol) {
         this.symbol = symbol;
     }
 
