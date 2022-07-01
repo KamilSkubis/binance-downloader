@@ -24,13 +24,13 @@ public class DbReader {
         return symbolList;
     }
 
-    public  long readLastDate(Symbol symbol, Long askDate) {
+    public  long readLastDate(Symbol symbol) {
         Session session = sessionFactory.openSession();
         List<Symbol> symbolList = getSymbolsObjFromDb(symbol.getSymbolName());
 
-        Query query = session.createQuery("from Binance1d where binance1d.symbol = :symbol");
+        Query query = session.createQuery("from Binance1d where symbol = :symbol");
         query.setParameter("symbol", symbolList.get(0));
-        Binance1d b1 = (Binance1d) query.getResultList().get(0);
-        return b1.getOpenTime() - askDate;
+        Binance1d result = (Binance1d) query.getResultList().get(0);
+        return result.getOpenTime();
     }
 }

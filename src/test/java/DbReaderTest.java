@@ -26,10 +26,9 @@ public class DbReaderTest {
         DBWriter.writeData(mysqlTesting, b1);
 
         DbReader dbReader = new DbReader(mysqlTesting);
-        Long askDate = 23000l;
         Symbol symbol2 = new Symbol();
         symbol2.setSymbolName("testRead");
-        Assert.assertEquals(2000, dbReader.readLastDate(symbol2,askDate));
+        Assert.assertEquals(21000, dbReader.readLastDate(symbol2));
     }
 
     @After
