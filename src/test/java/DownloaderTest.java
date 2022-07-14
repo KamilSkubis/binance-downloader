@@ -32,7 +32,9 @@ public class DownloaderTest {
 //			]
 //			]
 
-    private final String jsonReturn = "[{" + "\"symbol\":" + "\"ticker\"," + "\"price\":" + "\"100\"" + "}]";
+    private final String jsonReturnWithoutSelectedWeightUsed = "[{" + "\"symbol\":" + "\"ticker\"," + "\"price\":" + "\"100\"" + "}]";
+    private final String jsonReturn = "{\"data\":[{\"symbol\":\"BTC\",\"price\":\"100\"}],\"x-mbx-used-weight\":\"10\"" +
+            ",\"x-mbx-used-weight-1m\":\"2\"}";
     private final String jsonArray = "[[1499040000000,\"0.01634790\",\"0.80000000\",\"0.01575800\",\"0.01577100\",\"148976.11427815\",1499644799999,\"2434.19055334\",308,\"1756.87402397\",\"28.46694368\",\"17928899.62484339\" ]]";
     private List<Data> downloadedData;
 
@@ -48,7 +50,7 @@ public class DownloaderTest {
         BinanceDownloader b = new BinanceDownloader(market);
         Mockito.when(market.tickerSymbol(null)).thenReturn(jsonReturn);
         LinkedList<String> result = new LinkedList<String>();
-        result.add("ticker");
+        result.add("BTC");
         assertEquals(result.get(0), b.getTickers().get(0));
         Mockito.verify(market, Mockito.times(1)).tickerSymbol(null);
     }

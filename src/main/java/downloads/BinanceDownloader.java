@@ -54,35 +54,16 @@ public class BinanceDownloader {
         List<String> tickers = new LinkedList<String>();
         String result = market.tickerSymbol(null);
         System.out.println(result);
-        JsonObject jsonObject = JsonParser.parseString(result).getAsJsonObject();
-        if (jsonObject.entrySet().contains("x-mbx-used-weight")) {
-            JsonPrimitive jsonPrimitive = (JsonPrimitive) jsonObject.get("data");
-            String tempResult =  jsonPrimitive.getAsString();
-            String resultString =  tempResult.replace("\"", "");
-            JsonArray dataArr = JsonParser.parseString(resultString).getAsJsonArray();
 
-            for (JsonElement el : dataArr) {
-                JsonObject json = el.getAsJsonObject();
-                String symbol = json.get("symbol").toString();
-                String symbolTrimmedFromSpecialCharacters = symbol.substring(1, symbol.length() - 1);
-                tickers.add(symbolTrimmedFromSpecialCharacters);
-            }
-            usedWeight = jsonObject.get("x-mbx-used-weight").getAsInt();
-            System.out.println("usedWeight: " + usedWeight);
-            logger.info("Used weight: %s",usedWeight);
-            return tickers;
-        } else {
-            JsonArray arr = (JsonArray) JsonParser.parseString(result);
-            for (JsonElement el : arr) {
-                JsonObject json = el.getAsJsonObject();
-                String symbol = json.get("symbol").toString();
-                String symbolTrimmedFromSpecialCharacters = symbol.substring(1, symbol.length() - 1);
-                tickers.add(symbolTrimmedFromSpecialCharacters);
-            }
+        Gson gson = new Gson();
+        GsonSymbolOuter deserializedObject = gson.fromJson(result,GsonSymbolOuter.class);
+
+        for(GsonSymbolInner o : deserializedObject.symbolList){
+            tickers.add(o.getSymbol());
         }
-        logger.info("Found: " + tickers.size() + " tickers");
+
         return tickers;
-    }
+   }
 
     public List<Data> downloadKlines(LinkedHashMap<String, Object> params) {
         logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
