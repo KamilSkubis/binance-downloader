@@ -195,3 +195,9 @@
 2022-07-14 14:11:24.846[1657800684846] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
 2022-07-14 14:11:24.850[1657800684850] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
 2022-07-14 14:11:24.850[1657800684850] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-14 14:16:39.331[1657800999331] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-07-14 14:16:39.341[1657800999341] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-07-14 14:38:11.287[1657802291287] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT
+2022-07-14 14:45:43.393[1657802743393] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT
+2022-07-14 14:46:56.895[1657802816895] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price?symbol=%5BBTCUSDT%2CETHUSDT%5D
+2022-07-14 14:48:25.431[1657802905431] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price

@@ -46,9 +46,6 @@ public class BinanceDownloader {
         return null;
     }
 
-
-
-
     public List<String> getTickers() {
         logger.info("Initialization: Start downloading ticker names");
         List<String> tickers = new LinkedList<String>();
@@ -58,8 +55,10 @@ public class BinanceDownloader {
         Gson gson = new Gson();
         GsonSymbolOuter deserializedObject = gson.fromJson(result,GsonSymbolOuter.class);
 
-        for(GsonSymbolInner o : deserializedObject.symbolList){
-            tickers.add(o.getSymbol());
+        GsonSymbolInner[] inner = gson.fromJson(deserializedObject.symbolList,GsonSymbolInner[].class);
+
+        for(int i=0; i<inner.length; i++){
+            tickers.add(inner[i].getSymbol());
         }
 
         return tickers;

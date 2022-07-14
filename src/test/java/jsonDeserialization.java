@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+import downloads.GsonSymbolInner;
 import downloads.GsonSymbolOuter;
 import org.junit.Test;
 
@@ -17,16 +18,19 @@ public class jsonDeserialization {
 
         @Test
         public void canDeserialize_array(){
-                String y = "{\"data\":[{\"symbol\":\"BTC\",\"price\":\"100\"}],\"x-mbx-used-weight\":\"1\"}";
+                String json = "{\"data\":\"{\"symbol\":\"BTCUSDT\",\"price\":\"19854.74000000\"}\",\"x-mbx-used-weight\":\"1\",\"x-mbx-used-weight-1m\":\"1\"}";
 
-                String json = "{\"data\":[{\"symbol\":\"BTC\",\"price\":\"100\"}],\"x-mbx-used-weight\":\"10\"" +
-                        ",\"x-mbx-used-weight-1m\":\"2\"}";
+
+                String iu = "{\"data\":\"[{\"symbol\":\"ETHBTC\",\"price\":\"0.05497500\"},{\"symbol\":\"LTCBTC\",\"price\":\"0.00245100\"},{\"symbol\":\"BNBBTC\",\"price\":\"0.01158200\"},{\"symbol\":\"NEOBTC\",\"price\":\"0.00306100\"}]\",\"x-mbx-used-weight\":\"2\",\"x-mbx-used-weight-1m\":\"2\"}";
+
+                System.out.println(json);
                 Gson gson = new Gson();
 
-                GsonSymbolOuter x = gson.fromJson(json, GsonSymbolOuter.class);
+                GsonSymbolOuter x = gson.fromJson(iu, GsonSymbolOuter.class);
+                GsonSymbolInner[] y = gson.fromJson(x.symbolList,GsonSymbolInner[].class);
 
-                assertEquals(1,x.symbolList.size());
-                assertEquals("BTC",x.symbolList.get(0).getSymbol());
+
+                assertEquals(1,x.symbolList.length());
         }
 
 

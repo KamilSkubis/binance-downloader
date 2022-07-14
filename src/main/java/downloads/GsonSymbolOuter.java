@@ -7,7 +7,7 @@ import java.util.List;
 public class GsonSymbolOuter {
 
     @SerializedName("data")
-    public List<GsonSymbolInner> symbolList;
+    public String symbolList;
 
     @SerializedName("x-mbx-used-weight")
     public int usedWeight;
