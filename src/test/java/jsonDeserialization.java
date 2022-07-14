@@ -19,8 +19,6 @@ public class jsonDeserialization {
         @Test
         public void canDeserialize_array(){
                 String json = "{\"data\":\"{\"symbol\":\"BTCUSDT\",\"price\":\"19854.74000000\"}\",\"x-mbx-used-weight\":\"1\",\"x-mbx-used-weight-1m\":\"1\"}";
-
-
                 String iu = "{\"data\":\"[{\"symbol\":\"ETHBTC\",\"price\":\"0.05497500\"},{\"symbol\":\"LTCBTC\",\"price\":\"0.00245100\"},{\"symbol\":\"BNBBTC\",\"price\":\"0.01158200\"},{\"symbol\":\"NEOBTC\",\"price\":\"0.00306100\"}]\",\"x-mbx-used-weight\":\"2\",\"x-mbx-used-weight-1m\":\"2\"}";
 
                 System.out.println(json);

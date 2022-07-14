@@ -13,16 +13,16 @@ public class Main {
         SpotClientImpl client = new SpotClientImpl();
         client.setShowLimitUsage(true);
         Market market =client.createMarket();
-//        BinanceDownloader binance = new BinanceDownloader(market);
-//        List<String> r= binance.getTickers();
-//        System.out.println(r.toString());
+        BinanceDownloader binance = new BinanceDownloader(market);
+        List<String> r= binance.getTickers();
+        System.out.println(r.toString());
 
 
 
 
 
-        String o = market.tickerSymbol(null);
-        System.out.println(o);
+//        String o = market.tickerSymbol(null);
+//        System.out.println(o);
     }
 
 }
