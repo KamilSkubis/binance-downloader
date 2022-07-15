@@ -1,5 +1,8 @@
 import com.binance.connector.client.impl.spot.Market;
+import com.google.gson.Gson;
 import downloads.Data;
+import downloads.GsonSymbolInner;
+import downloads.GsonSymbolOuter;
 import model.Binance1d;
 import downloads.BinanceDownloader;
 import org.jetbrains.annotations.NotNull;
@@ -33,7 +36,7 @@ public class DownloaderTest {
 //			]
 
     private final String jsonReturnWithoutSelectedWeightUsed = "[{" + "\"symbol\":" + "\"ticker\"," + "\"price\":" + "\"100\"" + "}]";
-    private final String jsonReturn = "{\"data\":[{\"symbol\":\"BTC\",\"price\":\"100\"}],\"x-mbx-used-weight\":\"10\"" +
+    private final String jsonReturn = "{\"data\":\"[{\"symbol\":\"BTC\",\"price\":\"100\"}]\",\"x-mbx-used-weight\":\"10\"" +
             ",\"x-mbx-used-weight-1m\":\"2\"}";
     private final String jsonArray = "[[1499040000000,\"0.01634790\",\"0.80000000\",\"0.01575800\",\"0.01577100\",\"148976.11427815\",1499644799999,\"2434.19055334\",308,\"1756.87402397\",\"28.46694368\",\"17928899.62484339\" ]]";
     private List<Data> downloadedData;
@@ -48,7 +51,15 @@ public class DownloaderTest {
     public void getTickers_willReturnTickerList() {
         Market market = Mockito.mock(Market.class);
         BinanceDownloader b = new BinanceDownloader(market);
-        Mockito.when(market.tickerSymbol(null)).thenReturn(jsonReturn);
+
+        GsonSymbolOuter gs = new GsonSymbolOuter();
+        gs.symbolList = "[{\"symbol\":\"BTC\",\"price\":\"100\"}]";
+        gs.usedWeight = 1;
+        gs.usedWeight1m = 0;
+
+        String validJson = new Gson().toJson(gs);
+
+        Mockito.when(market.tickerSymbol(null)).thenReturn(validJson);
         LinkedList<String> result = new LinkedList<String>();
         result.add("BTC");
         assertEquals(result.get(0), b.getTickers().get(0));

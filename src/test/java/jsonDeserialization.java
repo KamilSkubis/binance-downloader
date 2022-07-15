@@ -1,4 +1,8 @@
+import com.binance.connector.client.impl.SpotClientImpl;
+import com.binance.connector.client.impl.spot.Market;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import downloads.GsonSymbolInner;
 import downloads.GsonSymbolOuter;
 import org.junit.Test;
@@ -18,17 +22,18 @@ public class jsonDeserialization {
 
         @Test
         public void canDeserialize_array(){
-                String json = "{\"data\":\"{\"symbol\":\"BTCUSDT\",\"price\":\"19854.74000000\"}\",\"x-mbx-used-weight\":\"1\",\"x-mbx-used-weight-1m\":\"1\"}";
-                String iu = "{\"data\":\"[{\"symbol\":\"ETHBTC\",\"price\":\"0.05497500\"},{\"symbol\":\"LTCBTC\",\"price\":\"0.00245100\"},{\"symbol\":\"BNBBTC\",\"price\":\"0.01158200\"},{\"symbol\":\"NEOBTC\",\"price\":\"0.00306100\"}]\",\"x-mbx-used-weight\":\"2\",\"x-mbx-used-weight-1m\":\"2\"}";
-
-                System.out.println(json);
                 Gson gson = new Gson();
+                GsonSymbolOuter gs = new GsonSymbolOuter();
+                gs.symbolList = "[{\"symbol\":\"213\"}]";
+                gs.usedWeight = 1;
+                gs.usedWeight1m = 0;
 
-                GsonSymbolOuter x = gson.fromJson(iu, GsonSymbolOuter.class);
+                String j = new Gson().toJson(gs);
+
+                System.out.println(j);
+                GsonSymbolOuter x = gson.fromJson(j, GsonSymbolOuter.class);
                 GsonSymbolInner[] y = gson.fromJson(x.symbolList,GsonSymbolInner[].class);
-
-
-                assertEquals(1,x.symbolList.length());
+                assertEquals(1,y.length);
         }
 
 
