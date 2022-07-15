@@ -615,3 +615,149 @@
 2022-07-15 12:35:15.680[1657881315680] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
 2022-07-15 12:35:16.621[1657881316621] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
 2022-07-15 12:35:18.090[1657881318090] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 12:40:55.012[1657881655012] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 12:40:57.579[1657881657579] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 12:40:57.979[1657881657979] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 12:40:57.990[1657881657990] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 12:40:57.990[1657881657990] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 12:40:57.990[1657881657990] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 12:40:58.001[1657881658001] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 12:40:58.959[1657881658959] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 12:41:00.409[1657881660409] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 13:06:20.813[1657883180813] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 13:06:23.728[1657883183728] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 13:06:24.183[1657883184183] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 13:06:24.193[1657883184193] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 13:06:24.193[1657883184193] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 13:06:24.193[1657883184193] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 13:06:24.201[1657883184201] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 13:06:25.073[1657883185073] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 13:06:26.717[1657883186717] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 13:25:35.187[1657884335187] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 13:25:37.914[1657884337914] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 13:25:38.380[1657884338380] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 13:25:38.399[1657884338399] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 13:25:38.401[1657884338401] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 13:25:38.401[1657884338401] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 13:25:38.409[1657884338409] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 13:25:39.256[1657884339256] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 13:25:40.781[1657884340781] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 13:26:57.932[1657884417932] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 13:27:00.329[1657884420329] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 13:27:00.850[1657884420850] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 13:27:00.865[1657884420865] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 13:27:00.865[1657884420865] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 13:27:00.865[1657884420865] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 13:27:00.879[1657884420879] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 13:27:01.826[1657884421826] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 13:27:03.234[1657884423234] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 13:27:38.049[1657884458049] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 13:27:40.360[1657884460360] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 13:27:40.910[1657884460910] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 13:27:40.931[1657884460931] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 13:27:40.931[1657884460931] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 13:27:40.931[1657884460931] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 13:27:40.940[1657884460940] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 13:27:41.877[1657884461877] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 13:27:43.390[1657884463390] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 13:27:53.721[1657884473721] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 13:27:55.831[1657884475831] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 13:27:56.292[1657884476292] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 13:27:56.304[1657884476304] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 13:27:56.304[1657884476304] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 13:27:56.307[1657884476307] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 13:27:56.315[1657884476315] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 13:27:57.287[1657884477287] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 13:27:58.952[1657884478952] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 13:53:04.430[1657885984430] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 13:53:06.940[1657885986940] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 13:53:07.348[1657885987348] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 13:53:07.362[1657885987362] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 13:53:07.362[1657885987362] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 13:53:07.362[1657885987362] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 13:53:07.368[1657885987368] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 13:53:08.220[1657885988220] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 13:53:09.757[1657885989757] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 13:54:05.742[1657886045742] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 13:54:07.941[1657886047941] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 13:54:08.473[1657886048473] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 13:54:08.490[1657886048490] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 13:54:08.490[1657886048490] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 13:54:08.490[1657886048490] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 13:54:08.499[1657886048499] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 13:54:09.439[1657886049439] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 13:54:10.961[1657886050961] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 13:59:30.505[1657886370505] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 13:59:33.181[1657886373181] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 13:59:33.702[1657886373702] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 13:59:33.716[1657886373716] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 13:59:33.716[1657886373716] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 13:59:33.716[1657886373716] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 13:59:33.723[1657886373723] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 13:59:34.638[1657886374638] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 13:59:36.101[1657886376101] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 14:03:05.100[1657886585100] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 14:03:07.619[1657886587619] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 14:03:08.069[1657886588069] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 14:03:08.080[1657886588080] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 14:03:08.080[1657886588080] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 14:03:08.080[1657886588080] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 14:03:08.088[1657886588088] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 14:03:09.020[1657886589020] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 14:03:10.464[1657886590464] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 14:03:41.702[1657886621702] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 14:03:45.988[1657886625988] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 14:03:46.944[1657886626944] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 14:03:46.968[1657886626968] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 14:03:46.968[1657886626968] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 14:03:46.968[1657886626968] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 14:03:46.980[1657886626980] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 14:03:49.154[1657886629154] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 14:03:52.043[1657886632043] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 14:03:58.204[1657886638204] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:03:58.285[1657886638285] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:03:58.285[1657886638285] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:03:58.288[1657886638288] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:03:58.290[1657886638290] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:03:58.290[1657886638290] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:03:58.293[1657886638293] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:03:58.293[1657886638293] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:03:58.296[1657886638296] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:03:58.302[1657886638302] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:03:58.380[1657886638380] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-07-15 14:03:58.453[1657886638453] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:03:58.453[1657886638453] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:03:58.463[1657886638463] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:03:58.463[1657886638463] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:03:58.471[1657886638471] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:03:58.471[1657886638471] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:03:58.479[1657886638479] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:03:58.479[1657886638479] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:16:57.996[1657887417996] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 14:17:00.961[1657887420961] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 14:17:01.365[1657887421365] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 14:17:01.383[1657887421383] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 14:17:01.383[1657887421383] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 14:17:01.383[1657887421383] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 14:17:01.386[1657887421386] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 14:17:02.254[1657887422254] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 14:17:03.750[1657887423750] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 14:17:09.200[1657887429200] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:17:09.230[1657887429230] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:17:09.230[1657887429230] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:17:09.239[1657887429239] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:17:09.239[1657887429239] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:17:09.239[1657887429239] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:17:09.239[1657887429239] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:17:09.239[1657887429239] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:17:09.239[1657887429239] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:17:09.239[1657887429239] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:17:09.289[1657887429289] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-07-15 14:17:09.321[1657887429321] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:17:09.321[1657887429321] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:17:09.321[1657887429321] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:17:09.321[1657887429321] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:17:09.329[1657887429329] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:17:09.330[1657887429330] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 14:17:09.330[1657887429330] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 14:17:09.330[1657887429330] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully

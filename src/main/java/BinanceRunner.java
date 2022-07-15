@@ -3,6 +3,7 @@ import com.binance.connector.client.impl.spot.Market;
 import downloads.BinanceDownloader;
 import model.Symbol;
 import org.hibernate.SessionFactory;
+import persistence.DataManager;
 import persistence.DbReader;
 import persistence.MySQLUtil;
 
@@ -18,13 +19,13 @@ public class BinanceRunner {
         BinanceDownloader binance = new BinanceDownloader(market);
 
         List<String> filteredSymbolList =  getListOfSymbolsUSDT(binance,"USDT");
-
         MySQLUtil mySQLUtil = new MySQLUtil();
+        DataManager dataManager = new DataManager(mySQLUtil.getSessionFactory());
+
         SessionFactory sessionFactory = mySQLUtil.getSessionFactory();
 
         DbReader dbReader = new  DbReader(sessionFactory);
-        List<Symbol> symbolObj =  dbReader.getSymbolObjListFromDb(filteredSymbolList);
-
+        List<Symbol> symbolObj =  dbReader.getSymbolObjListFromDb();
 
     }
 

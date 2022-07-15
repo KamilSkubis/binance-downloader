@@ -14,7 +14,7 @@ public class DBWriter {
     public static void writeSymbol(SessionFactory sessionFactory,Symbol symbol) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(symbol);
+        session.saveOrUpdate(symbol);
         transaction.commit();
         session.close();
     }

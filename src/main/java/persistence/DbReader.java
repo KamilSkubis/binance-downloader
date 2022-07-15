@@ -24,18 +24,10 @@ public class DbReader {
         return symbolList;
     }
 
-    public List<Symbol> getSymbolObjListFromDb(List<String> symbolList) {
+    public List<Symbol> getSymbolObjListFromDb() {
         List<Symbol> returnedObjects = new ArrayList<>();
         Session session = sessionFactory.openSession();
-
         returnedObjects = session.createQuery("from Symbol").getResultList();
-
-
-//        for (String symbolName : symbolList) {
-//
-//            Symbol result = (Symbol) session.createQuery("from Symbol where symbol.symbol=:symbol").setParameter("symbol", symbolName).uniqueResult();
-//            returnedObjects.add(result);
-//        }
         session.close();
         return returnedObjects;
     }
