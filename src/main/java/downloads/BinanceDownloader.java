@@ -23,7 +23,7 @@ public class BinanceDownloader {
         this.market = market;
         logger = LoggerFactory.getLogger(BinanceDownloader.class);
         tickers = new LinkedList<String>();
-        usedWeight = 0;
+        updateUsedWeightAfterCall(0);
     }
 
     public void downloadUSDTcurrenciesKlines() {
@@ -52,7 +52,6 @@ public class BinanceDownloader {
         logger.info("Initialization: Start downloading ticker names");
         List<String> tickers = new LinkedList<String>();
         String result = market.tickerSymbol(null);
-        System.out.println(result);
 
         Gson gson = new Gson();
         BinanceSymbolOuter deserializedObject = gson.fromJson(result, BinanceSymbolOuter.class);
@@ -63,8 +62,14 @@ public class BinanceDownloader {
             tickers.add(inner[i].getSymbol());
         }
 
+        updateUsedWeightAfterCall(deserializedObject.usedWeight);
+
         return tickers;
    }
+
+    private void updateUsedWeightAfterCall(int deserializedObject) {
+        usedWeight = deserializedObject;
+    }
 
     public List<Data> downloadKlines(LinkedHashMap<String, Object> params) {
         logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));

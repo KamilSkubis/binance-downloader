@@ -12,14 +12,17 @@ import persistence.MySQLUtilTesting;
 
 public class DbReaderTest {
 
+    SessionFactory mysqlTesting;
+
+
     @Before
     public void setUp(){
         UtilForTesting.createTables();
+        mysqlTesting = MySQLUtilTesting.getSessionFactory();
     }
 
     @Test
     public void returnDateDiffrence_betweenDateDbAndFromDate(){
-        SessionFactory mysqlTesting = MySQLUtilTesting.getSessionFactory();
         Symbol symbol1 = new Symbol();
         symbol1.setSymbolName("testRead");
         Binance1d b1= UtilForTesting.createSampleData(symbol1);
@@ -30,6 +33,8 @@ public class DbReaderTest {
         symbol2.setSymbolName("testRead");
         Assert.assertEquals(21000, dbReader.readLastDate(symbol2));
     }
+
+
 
     @After
     public void tearDown(){

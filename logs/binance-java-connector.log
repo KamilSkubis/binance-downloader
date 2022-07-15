@@ -474,3 +474,72 @@
 2022-07-15 10:49:19.230[1657874959230] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
 2022-07-15 10:49:19.234[1657874959234] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
 2022-07-15 10:49:19.236[1657874959236] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:03:07.726[1657875787726] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 11:03:10.197[1657875790197] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 11:03:10.598[1657875790598] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 11:03:10.614[1657875790614] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 11:03:10.614[1657875790614] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 11:03:10.614[1657875790614] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 11:03:10.629[1657875790629] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 11:03:11.563[1657875791563] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 11:03:12.851[1657875792851] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 11:03:16.328[1657875796328] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:03:16.375[1657875796375] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:03:16.375[1657875796375] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:03:16.375[1657875796375] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:03:16.375[1657875796375] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:03:16.375[1657875796375] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:03:16.375[1657875796375] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:03:16.375[1657875796375] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:03:16.375[1657875796375] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:03:16.375[1657875796375] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:03:16.429[1657875796429] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-07-15 11:03:16.444[1657875796444] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:03:16.444[1657875796444] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:03:16.444[1657875796444] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:03:16.444[1657875796444] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:03:16.460[1657875796460] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:03:16.460[1657875796460] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:03:16.460[1657875796460] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:03:16.460[1657875796460] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:03:22.849[1657875802849] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-07-15 11:03:22.859[1657875802859] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-07-15 11:03:44.986[1657875824986] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-07-15 11:03:45.001[1657875825001] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-07-15 11:07:52.092[1657876072092] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 11:07:54.531[1657876074531] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 11:07:54.916[1657876074916] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 11:07:54.932[1657876074932] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 11:07:54.932[1657876074932] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 11:07:54.938[1657876074938] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 11:07:54.938[1657876074938] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 11:07:55.787[1657876075787] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 11:07:57.107[1657876077107] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 11:08:00.784[1657876080784] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:08:00.816[1657876080816] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:08:00.831[1657876080831] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:08:00.831[1657876080831] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:08:00.831[1657876080831] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:08:00.831[1657876080831] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:08:00.831[1657876080831] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:08:00.831[1657876080831] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:08:00.831[1657876080831] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:08:00.831[1657876080831] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:08:00.885[1657876080885] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-07-15 11:08:00.900[1657876080900] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:08:00.900[1657876080900] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:08:00.916[1657876080916] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:08:00.916[1657876080916] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:08:00.916[1657876080916] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:08:00.916[1657876080916] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 11:08:00.916[1657876080916] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 11:08:00.916[1657876080916] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 12:06:58.694[1657879618694] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 12:07:01.354[1657879621354] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 12:07:01.791[1657879621791] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 12:07:01.806[1657879621806] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 12:07:01.808[1657879621808] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 12:07:01.808[1657879621808] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 12:07:01.814[1657879621814] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 12:07:02.823[1657879622823] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 12:07:04.279[1657879624279] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]

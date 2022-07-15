@@ -34,9 +34,4 @@ public class DBWriter {
         session.close();
     }
 
-//    private static List<Symbol> getSymbolsObjFromDb(String symbolName, Session session) {
-//        List<Symbol> symbolList = session.createQuery("from Symbol where symbol.symbol=:symbol")
-//                .setParameter("symbol", symbolName).getResultList();
-//        return symbolList;
-//    }
 }

@@ -143,7 +143,30 @@ public class DbWriterTest {
         assertEquals(2, result);
     }
 
+    @Test
+    public void canWriteSymbol(){
+        Symbol symbol1 = new Symbol();
+        symbol1.setSymbolName("testTwoEntry");
+        Symbol symbol2 = new Symbol();
+        symbol2.setSymbolName("testTwoEntry");
+        Symbol symbol3 = new Symbol();
+        symbol3.setSymbolName("testThreeEntry");
 
+
+        DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(),symbol1);
+        DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(),symbol2);
+        DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(),symbol3);
+
+        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        List<Binance1d> resultList = session
+                .createQuery("From Symbol")
+                .getResultList();
+        int result = resultList.size();
+        System.out.println("Three inserts two separate tickers: resultList: " + resultList);
+        session.close();
+
+        assertEquals(3, result);
+    }
 
 
     @After
