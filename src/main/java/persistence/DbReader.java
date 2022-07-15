@@ -17,28 +17,33 @@ public class DbReader {
         this.sessionFactory = sessionFactory;
     }
 
-    public List<Symbol> getSymbolsObjFromDb(String symbolName) {
+    public List<Symbol> getSymbolObjFromDb(String symbolName) {
         Session session = sessionFactory.openSession();
         List<Symbol> symbolList = session.createQuery("from Symbol where symbol.symbol=:symbol").setParameter("symbol", symbolName).getResultList();
         session.close();
         return symbolList;
     }
 
-    public List<Symbol> getSymbolsObjFromDb(List<String> symbolList) {
+    public List<Symbol> getSymbolObjListFromDb(List<String> symbolList) {
         List<Symbol> returnedObjects = new ArrayList<>();
-        for (String symbolName : symbolList) {
-            Session session = sessionFactory.openSession();
-            returnedObjects = session.createQuery("from Symbol where symbol.symbol=:symbol").setParameter("symbol", symbolName).getResultList();
-            session.close();
-        }
+        Session session = sessionFactory.openSession();
 
+        returnedObjects = session.createQuery("from Symbol").getResultList();
+
+
+//        for (String symbolName : symbolList) {
+//
+//            Symbol result = (Symbol) session.createQuery("from Symbol where symbol.symbol=:symbol").setParameter("symbol", symbolName).uniqueResult();
+//            returnedObjects.add(result);
+//        }
+        session.close();
         return returnedObjects;
     }
 
 
     public long readLastDate(Symbol symbol) {
         Session session = sessionFactory.openSession();
-        List<Symbol> symbolList = getSymbolsObjFromDb(symbol.getSymbolName());
+        List<Symbol> symbolList = getSymbolObjFromDb(symbol.getSymbolName());
 
         Query query = session.createQuery("from Binance1d where symbol = :symbol");
         query.setParameter("symbol", symbolList.get(0));

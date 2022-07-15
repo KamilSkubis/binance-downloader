@@ -23,7 +23,7 @@ public class BinanceRunner {
         SessionFactory sessionFactory = mySQLUtil.getSessionFactory();
 
         DbReader dbReader = new  DbReader(sessionFactory);
-        List<Symbol> symbolObj =  dbReader.getSymbolsObjFromDb(filteredSymbolList);
+        List<Symbol> symbolObj =  dbReader.getSymbolObjListFromDb(filteredSymbolList);
 
 
     }

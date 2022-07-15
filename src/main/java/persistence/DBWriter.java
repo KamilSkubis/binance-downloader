@@ -24,7 +24,7 @@ public class DBWriter {
         Transaction transaction = session.beginTransaction();
 
         DbReader dbReader = new DbReader(sessionFactory);
-        List<Symbol> symbolList = dbReader.getSymbolsObjFromDb(d.getSymbol().getSymbolName());
+        List<Symbol> symbolList = dbReader.getSymbolObjFromDb(d.getSymbol().getSymbolName());
         if(symbolList.size() == 1){
             Symbol persistentSymbol = session.get(Symbol.class,symbolList.get(0).getId());
             d.setSymbol(persistentSymbol);

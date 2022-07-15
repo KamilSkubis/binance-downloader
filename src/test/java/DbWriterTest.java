@@ -162,9 +162,7 @@ public class DbWriterTest {
                 .createQuery("From Symbol")
                 .getResultList();
         int result = resultList.size();
-        System.out.println("Three inserts two separate tickers: resultList: " + resultList);
         session.close();
-
         assertEquals(3, result);
     }
 
