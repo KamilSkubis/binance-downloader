@@ -1,10 +1,8 @@
-package downloads;
+package downloads.deserializeJSON;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class GsonSymbolOuter {
+public class BinanceSymbolOuter {
 
     @SerializedName("data")
     public String symbolList;

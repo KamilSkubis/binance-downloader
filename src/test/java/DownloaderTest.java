@@ -1,9 +1,7 @@
 import com.binance.connector.client.impl.spot.Market;
 import com.google.gson.Gson;
 import downloads.Data;
-import downloads.GsonSymbolInner;
-import downloads.GsonSymbolOuter;
-import model.Binance1d;
+import downloads.deserializeJSON.BinanceSymbolOuter;
 import downloads.BinanceDownloader;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Before;
@@ -52,7 +50,7 @@ public class DownloaderTest {
         Market market = Mockito.mock(Market.class);
         BinanceDownloader b = new BinanceDownloader(market);
 
-        GsonSymbolOuter gs = new GsonSymbolOuter();
+        BinanceSymbolOuter gs = new BinanceSymbolOuter();
         gs.symbolList = "[{\"symbol\":\"BTC\",\"price\":\"100\"}]";
         gs.usedWeight = 1;
         gs.usedWeight1m = 0;

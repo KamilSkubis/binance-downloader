@@ -2,6 +2,8 @@ package downloads;
 
 import com.binance.connector.client.impl.spot.Market;
 import com.google.gson.*;
+import downloads.deserializeJSON.BinanceSymbolInner;
+import downloads.deserializeJSON.BinanceSymbolOuter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,9 +55,9 @@ public class BinanceDownloader {
         System.out.println(result);
 
         Gson gson = new Gson();
-        GsonSymbolOuter deserializedObject = gson.fromJson(result,GsonSymbolOuter.class);
+        BinanceSymbolOuter deserializedObject = gson.fromJson(result, BinanceSymbolOuter.class);
 
-        GsonSymbolInner[] inner = gson.fromJson(deserializedObject.symbolList,GsonSymbolInner[].class);
+        BinanceSymbolInner[] inner = gson.fromJson(deserializedObject.symbolList, BinanceSymbolInner[].class);
 
         for(int i=0; i<inner.length; i++){
             tickers.add(inner[i].getSymbol());

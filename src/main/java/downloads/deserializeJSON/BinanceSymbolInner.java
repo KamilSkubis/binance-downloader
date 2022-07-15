@@ -1,6 +1,6 @@
-package downloads;
+package downloads.deserializeJSON;
 
-public class GsonSymbolInner {
+public class BinanceSymbolInner {
     private String symbol;
     private transient  int price;
 

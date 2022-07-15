@@ -418,3 +418,31 @@
 2022-07-15 10:41:11.816[1657874471816] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
 2022-07-15 10:41:11.821[1657874471821] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
 2022-07-15 10:41:11.823[1657874471823] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 10:43:15.871[1657874595871] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-07-15 10:43:18.201[1657874598201] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 10:43:18.674[1657874598674] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-07-15 10:43:18.690[1657874598690] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/test]
+2022-07-15 10:43:18.691[1657874598691] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-07-15 10:43:18.692[1657874598692] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-07-15 10:43:18.699[1657874598699] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-07-15 10:43:19.573[1657874599573] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-07-15 10:43:20.845[1657874600845] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 10:43:24.561[1657874604561] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 10:43:24.602[1657874604602] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 10:43:24.604[1657874604604] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 10:43:24.606[1657874604606] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 10:43:24.607[1657874604607] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 10:43:24.608[1657874604608] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 10:43:24.611[1657874604611] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 10:43:24.612[1657874604612] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 10:43:24.614[1657874604614] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 10:43:24.615[1657874604615] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 10:43:24.655[1657874604655] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-07-15 10:43:24.676[1657874604676] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 10:43:24.677[1657874604677] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 10:43:24.680[1657874604680] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 10:43:24.681[1657874604681] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 10:43:24.684[1657874604684] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 10:43:24.686[1657874604686] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
+2022-07-15 10:43:24.688[1657874604688] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker test
+2022-07-15 10:43:24.690[1657874604690] | INFO  | main       | downloads.BinanceDownloader          - data for test downloaded successfully
