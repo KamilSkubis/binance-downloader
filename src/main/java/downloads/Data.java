@@ -1,96 +1,35 @@
 package downloads;
 
-import java.util.Objects;
+import model.Symbol;
 
-public class Data{
+public interface Data {
 
-    String symbol;
-    Long openTime;
-    Double open;
-    Double high;
-    Double low;
-    Double close;
-    Double volume;
+    Symbol getSymbol();
 
-    public String getSymbol() {
-        return symbol;
-    }
+    void setSymbol(Symbol symbol);
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
+    Long getOpenTime();
 
-    public Long getOpenTime() {
-        return openTime;
-    }
+    void setOpenTime(Long openTime);
 
-    public void setOpenTime(Long openTime) {
-        this.openTime = openTime;
-    }
+    Double getOpen();
 
-    public Double getOpen() {
-        return open;
-    }
+    void setOpen(Double open);
 
-    public void setOpen(Double open) {
-        this.open = open;
-    }
+    Double getHigh();
 
-    public Double getHigh() {
-        return high;
-    }
+    void setHigh(Double high);
 
-    public void setHigh(Double high) {
-        this.high = high;
-    }
+    Double getLow();
 
-    public Double getLow() {
-        return low;
-    }
+    void setLow(Double low);
 
-    public void setLow(Double low) {
-        this.low = low;
-    }
+    Double getClose();
 
-    public Double getClose() {
-        return close;
-    }
+    void setClose(Double close);
 
-    public void setClose(Double close) {
-        this.close = close;
-    }
+    Double getVolume();
 
-    public Double getVolume() {
-        return volume;
-    }
+    void setVolume(Double volume);
 
-    public void setVolume(Double volume) {
-        this.volume = volume;
-    }
-
-    @Override
-    public String toString() {
-        return "Data{" +
-                "symbol='" + symbol + '\'' +
-                ", openTime=" + openTime +
-                ", open=" + open +
-                ", high=" + high +
-                ", low=" + low +
-                ", close=" + close +
-                ", volume=" + volume +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Data data = (Data) o;
-        return Objects.equals(symbol, data.symbol) && Objects.equals(openTime, data.openTime) && Objects.equals(open, data.open) && Objects.equals(high, data.high) && Objects.equals(low, data.low) && Objects.equals(close, data.close) && Objects.equals(volume, data.volume);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(symbol, openTime, open, high, low, close, volume);
-    }
 }

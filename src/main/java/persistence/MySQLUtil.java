@@ -25,5 +25,8 @@ public class MySQLUtil {
         // Close caches and connection pools
         getSessionFactory().close();
     }
+
+
+
 }
 

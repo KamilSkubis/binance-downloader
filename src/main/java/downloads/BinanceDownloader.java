@@ -2,8 +2,11 @@ package downloads;
 
 import com.binance.connector.client.impl.spot.Market;
 import com.google.gson.*;
+import downloads.deserializeJSON.BinanceKlinesOuter;
 import downloads.deserializeJSON.BinanceSymbolInner;
 import downloads.deserializeJSON.BinanceSymbolOuter;
+import model.Binance1d;
+import model.Symbol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,8 +32,8 @@ public class BinanceDownloader {
     public void downloadUSDTcurrenciesKlines() {
         LinkedHashMap<String, Object> params = new LinkedHashMap<String, Object>();
         params.put("symbol", "BTCUSDT");
-        params.put("interval", "1d");
-        params.put("limit", 1);
+        params.put("interval", "1m"); //for daily 1d
+        params.put("limit", 1000); //max 1000 default 500
 
         String response = market.klines(params);
         JsonArray arr = (JsonArray) JsonParser.parseString(response);
@@ -58,12 +61,11 @@ public class BinanceDownloader {
 
         BinanceSymbolInner[] inner = gson.fromJson(deserializedObject.symbolList, BinanceSymbolInner[].class);
 
-        for(int i=0; i<inner.length; i++){
-            tickers.add(inner[i].getSymbol());
+        for (BinanceSymbolInner binanceSymbolInner : inner) {
+            tickers.add(binanceSymbolInner.getSymbol());
         }
 
         updateUsedWeightAfterCall(deserializedObject.usedWeight);
-
         return tickers;
    }
 
@@ -75,12 +77,19 @@ public class BinanceDownloader {
         logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
         List<Data> downloadedData = new LinkedList<>();
 
-        String symbol = (String.valueOf(params.get("symbol")));
+        Symbol symbol = new Symbol();
+        String symbolName = (String.valueOf(params.get("symbol")));
+        symbol.setSymbolName(symbolName);
 
         String response = market.klines(params);
-        JsonArray arr = (JsonArray) JsonParser.parseString(response);
+        System.out.println(response);
+
+        Gson gson = new Gson();
+        BinanceKlinesOuter binanceKlinesOuter = gson.fromJson(response, BinanceKlinesOuter.class);
+
+        JsonArray arr = (JsonArray) JsonParser.parseString(binanceKlinesOuter.data);
         for (JsonElement el : arr) {
-            Data bar = new Data();
+            Data bar = new Binance1d();
             bar.setSymbol(symbol);
             bar.setOpenTime(el.getAsJsonArray().get(0).getAsLong());
             bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());

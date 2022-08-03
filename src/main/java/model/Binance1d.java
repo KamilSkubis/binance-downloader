@@ -14,6 +14,7 @@ package model;
 //        );
 
 
+import downloads.Data;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -21,7 +22,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "binance_1d")
-public class Binance1d {
+public class Binance1d implements Data {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -1,5 +1,6 @@
 package persistence;
 
+import downloads.Data;
 import model.Binance1d;
 import model.Symbol;
 import org.hibernate.Session;
@@ -19,7 +20,7 @@ public class DBWriter {
         session.close();
     }
 
-    public static void writeData(SessionFactory sessionFactory, Binance1d d) {
+    public static void writeData(SessionFactory sessionFactory, Data d) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
