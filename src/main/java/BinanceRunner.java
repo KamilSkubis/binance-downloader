@@ -2,7 +2,6 @@ import com.binance.connector.client.impl.SpotClientImpl;
 import com.binance.connector.client.impl.spot.Market;
 import downloads.BinanceDownloader;
 import downloads.Data;
-import model.Binance1d;
 import model.Symbol;
 import org.hibernate.SessionFactory;
 import org.jetbrains.annotations.NotNull;
@@ -10,6 +9,7 @@ import persistence.DBWriter;
 import persistence.DbReader;
 import persistence.MySQLUtil;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -27,7 +27,6 @@ public class BinanceRunner {
         binance = configureDownloader();
         mySQLUtil = new MySQLUtil();
         sessionFactory = mySQLUtil.getSessionFactory();
-
     }
 
     public void run() {
@@ -40,10 +39,11 @@ public class BinanceRunner {
         //pobierz dane odnośnie symbolów z bazy danych i pobierz ostatni czas z bazy danych
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
-        HashMap<String, Long> symbolTimeFromDb = new HashMap<>();
+        HashMap<String, LocalDateTime> symbolTimeFromDb = new HashMap<>();
+
         while (symbolObj.listIterator().hasNext()) {
             Symbol symbol = symbolObj.listIterator().next();
-            Long lastDate = dbReader.readLastDate(symbol);
+            LocalDateTime lastDate = dbReader.readLastDate(symbol);
             symbolTimeFromDb.put(symbol.getSymbolName(), lastDate);
         }
 
@@ -63,7 +63,7 @@ public class BinanceRunner {
         }
     }
 
-    private List<LinkedHashMap<String, Object>> prepareParams(List<String> symbolsFromBinance, HashMap<String, Long> symbolTimeFromDb) {
+    private List<LinkedHashMap<String, Object>> prepareParams(List<String> symbolsFromBinance, HashMap<String, LocalDateTime> symbolTimeFromDb) {
         List<LinkedHashMap<String, Object>> preparedParamList = new ArrayList<>();
         for (String symbol : symbolsFromBinance) {
             System.out.println("sprawdzam czy symbol " + symbol + " jest w bazie " + symbolTimeFromDb.containsKey(symbol));

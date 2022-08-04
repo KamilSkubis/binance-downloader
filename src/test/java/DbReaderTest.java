@@ -9,6 +9,7 @@ import persistence.DBWriter;
 import persistence.DbReader;
 import persistence.MySQLUtilTesting;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class DbReaderTest {
         DbReader dbReader = new DbReader(mysqlTesting);
         Symbol symbol2 = new Symbol();
         symbol2.setSymbolName("testRead");
-        Assert.assertEquals(21000, dbReader.readLastDate(symbol2));
+        Assert.assertEquals(LocalDateTime.of(2000,1,1,5,25,2), dbReader.readLastDate(symbol2));
     }
 
 

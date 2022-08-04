@@ -4,7 +4,7 @@ package model;
 //create table binance_1d(
 //        id bigint AUTO_INCREMENT,
 //        symbol_id int,
-//        open_time bigint signed,
+//        open_time datetime(6),
 //        open double,
 //        high double,
 //        low double,
@@ -18,6 +18,7 @@ import downloads.Data;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -33,7 +34,7 @@ public class Binance1d implements Data {
     Symbol symbol;
 
     @Column(name = "open_time", nullable = false)
-    Long openTime;
+    LocalDateTime openTime;
     Double open;
     Double high;
     Double low;
@@ -43,11 +44,11 @@ public class Binance1d implements Data {
     public Binance1d() {
     }
 
-    public Long getOpenTime() {
+    public LocalDateTime getOpenTime() {
         return openTime;
     }
 
-    public void setOpenTime(Long openTime) {
+    public void setOpenTime(LocalDateTime openTime) {
         this.openTime = openTime;
     }
 

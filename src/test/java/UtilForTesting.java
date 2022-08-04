@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.jetbrains.annotations.NotNull;
 import persistence.MySQLUtilTesting;
 
+import java.time.LocalDateTime;
+
 public class UtilForTesting {
 
     public static void createTables(){
@@ -13,7 +15,7 @@ public class UtilForTesting {
         String binance = "create table binance_1d(\n" +
                 "        id bigint AUTO_INCREMENT,\n" +
                 "        symbol_id int,\n" +
-                "        open_time bigint signed,\n" +
+                "        open_time datetime(6),\n" +
                 "        open double,\n" +
                 "        high double,\n" +
                 "        low double,\n" +
@@ -48,7 +50,7 @@ public class UtilForTesting {
         String symbolName = symbol.getSymbolName();
         symbol.setSymbolName(symbolName);
         Binance1d binance1d = new Binance1d();
-        binance1d.setOpenTime(21000l);
+        binance1d.setOpenTime(LocalDateTime.of(2000,1,1,5,25,2,20));
         binance1d.setVolume(230.2);
         binance1d.setSymbol(symbol);
         binance1d.setOpen(323.41);

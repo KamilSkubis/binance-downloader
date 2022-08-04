@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import javax.persistence.Query;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class DbReader {
     }
 
 
-    public long readLastDate(Symbol symbol) {
+    public LocalDateTime readLastDate(Symbol symbol) {
         Session session = sessionFactory.openSession();
         List<Symbol> symbolList = getSymbolObjFromDb(symbol.getSymbolName());
 

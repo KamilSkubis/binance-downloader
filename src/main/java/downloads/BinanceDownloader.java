@@ -10,6 +10,9 @@ import model.Symbol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -82,7 +85,6 @@ public class BinanceDownloader {
         symbol.setSymbolName(symbolName);
 
         String response = market.klines(params);
-        System.out.println(response);
 
         Gson gson = new Gson();
         BinanceKlinesOuter binanceKlinesOuter = gson.fromJson(response, BinanceKlinesOuter.class);
@@ -91,7 +93,7 @@ public class BinanceDownloader {
         for (JsonElement el : arr) {
             Data bar = new Binance1d();
             bar.setSymbol(symbol);
-            bar.setOpenTime(el.getAsJsonArray().get(0).getAsLong());
+            bar.setOpenTime(convertToLocalDateTime(el.getAsJsonArray().get(0).getAsLong()));
             bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());
             bar.setHigh(el.getAsJsonArray().get(2).getAsDouble());
             bar.setLow(el.getAsJsonArray().get(3).getAsDouble());
@@ -101,6 +103,10 @@ public class BinanceDownloader {
         }
         logger.info("data for {} downloaded successfully", params.get("symbol"));
         return downloadedData;
+    }
+
+    private LocalDateTime convertToLocalDateTime(long intTime) {
+        return Instant.ofEpochMilli(intTime).atZone(ZoneId.of("UTC")).toLocalDateTime();
     }
 
 }

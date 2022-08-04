@@ -2,15 +2,17 @@ package downloads;
 
 import model.Symbol;
 
+import java.time.LocalDateTime;
+
 public interface Data {
 
     Symbol getSymbol();
 
     void setSymbol(Symbol symbol);
 
-    Long getOpenTime();
+    LocalDateTime getOpenTime();
 
-    void setOpenTime(Long openTime);
+    void setOpenTime(LocalDateTime openTime);
 
     Double getOpen();
 
