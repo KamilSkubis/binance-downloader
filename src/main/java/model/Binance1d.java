@@ -14,7 +14,6 @@ package model;
 //        );
 
 
-import downloads.Data;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;

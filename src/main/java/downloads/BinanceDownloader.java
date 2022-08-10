@@ -6,6 +6,7 @@ import downloads.deserializeJSON.BinanceKlinesOuter;
 import downloads.deserializeJSON.BinanceSymbolInner;
 import downloads.deserializeJSON.BinanceSymbolOuter;
 import model.Binance1d;
+import model.Data;
 import model.Symbol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -91,7 +92,7 @@ public class BinanceDownloader {
 
         JsonArray arr = (JsonArray) JsonParser.parseString(binanceKlinesOuter.data);
         for (JsonElement el : arr) {
-            Data bar = new Binance1d();
+            Data bar = new Binance1d(); //hard coded for now
             bar.setSymbol(symbol);
             bar.setOpenTime(convertToLocalDateTime(el.getAsJsonArray().get(0).getAsLong()));
             bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());

@@ -40,7 +40,7 @@ public class DbReader {
 
         Query query = session.createQuery("from Binance1d where symbol = :symbol");
         query.setParameter("symbol", symbolList.get(0));
-        Binance1d result = (Binance1d) query.getResultList().get(0);
+        Binance1d result = (Binance1d) query.getResultList().get(query.getResultList().size()-1);
         return result.getOpenTime();
     }
 }

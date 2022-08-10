@@ -1,4 +1,4 @@
-package downloads;
+package model;
 
 import model.Symbol;
 

@@ -1,7 +1,6 @@
 package persistence;
 
-import downloads.Data;
-import model.Binance1d;
+import model.Data;
 import model.Symbol;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

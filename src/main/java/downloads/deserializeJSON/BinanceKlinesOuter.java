@@ -1,7 +1,6 @@
 package downloads.deserializeJSON;
 
 import com.google.gson.annotations.SerializedName;
-import downloads.Data;
 
 public class BinanceKlinesOuter {
 
