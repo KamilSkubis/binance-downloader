@@ -86,7 +86,8 @@ public class BinanceRunner {
                 LinkedHashMap<String, Object> params = new LinkedHashMap<>();
                 params.put("symbol", symbol);
                 params.put("interval", "1m"); // TODO for daily 1d
-                params.put("startTime", convertedTime); // TODO max 1000 , default 500
+                params.put("startTime", convertedTime);
+                params.put("limit",1000); // TODO max 1000 , default 500
                 preparedParamList.add(params);
             }
         }

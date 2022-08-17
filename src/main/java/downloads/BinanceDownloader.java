@@ -92,7 +92,7 @@ public class BinanceDownloader {
 
         JsonArray arr = (JsonArray) JsonParser.parseString(binanceKlinesOuter.data);
         for (JsonElement el : arr) {
-            Data bar = new Binance1d(); //hard coded for now
+            Data bar = new Binance1d();  // TODO hard coded for now
             bar.setSymbol(symbol);
             bar.setOpenTime(convertToLocalDateTime(el.getAsJsonArray().get(0).getAsLong()));
             bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());
@@ -102,8 +102,25 @@ public class BinanceDownloader {
             bar.setVolume(el.getAsJsonArray().get(5).getAsDouble());
             downloadedData.add(bar);
         }
+
+
         logger.info("data for {} downloaded successfully", params.get("symbol"));
+
+        usedWeight = binanceKlinesOuter.usedWeight;
+        usedWeightThreadSleep();
+
         return downloadedData;
+    }
+
+    private void usedWeightThreadSleep() {
+        logger.info("used weight: " + usedWeight);
+        if(usedWeight > 150){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     private LocalDateTime convertToLocalDateTime(long intTime) {
