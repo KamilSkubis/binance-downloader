@@ -1,7 +1,10 @@
 package downloads;
 
 import com.binance.connector.client.impl.spot.Market;
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import downloads.deserializeJSON.BinanceKlinesOuter;
 import downloads.deserializeJSON.BinanceSymbolInner;
 import downloads.deserializeJSON.BinanceSymbolOuter;
@@ -49,7 +52,7 @@ public class BinanceDownloader {
 
     }
 
-    public List<String> getSymbols(){
+    public List<String> getSymbols() {
         String result = market.tickerSymbol(null);
         System.out.println(result);
         return null;
@@ -71,7 +74,7 @@ public class BinanceDownloader {
 
         updateUsedWeightAfterCall(deserializedObject.usedWeight);
         return tickers;
-   }
+    }
 
     private void updateUsedWeightAfterCall(int deserializedObject) {
         usedWeight = deserializedObject;
@@ -104,7 +107,7 @@ public class BinanceDownloader {
         }
 
 
-        logger.info("data for {} downloaded successfully", params.get("symbol"));
+        logger.info("data for {} downloaded successfully, downloaded {} bars", params.get("symbol"), downloadedData.size());
 
         usedWeight = binanceKlinesOuter.usedWeight;
         usedWeightThreadSleep();
@@ -114,7 +117,7 @@ public class BinanceDownloader {
 
     private void usedWeightThreadSleep() {
         logger.info("used weight: " + usedWeight);
-        if(usedWeight > 150){
+        if (usedWeight > 150) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
