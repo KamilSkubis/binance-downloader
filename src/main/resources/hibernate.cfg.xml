@@ -13,6 +13,5 @@
         <property name="connection.password">password</property>
         <mapping class="model.Binance1d"/>
         <mapping class="model.Symbol"/>
-
     </session-factory>
 </hibernate-configuration>

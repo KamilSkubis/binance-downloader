@@ -42,15 +42,14 @@ public class DataManager {
 
     public List<Symbol> getSymbolList() {
         DbReader dbReader = new DbReader(sessionFactory);
-        List<Symbol> result = dbReader.getSymbolObjListFromDb();
-        return result;
+        return dbReader.getSymbolObjListFromDb();
     }
 
     public List<Symbol> getSymbolsToDownload(List<String> symbolList) {
         List<Symbol> result = new ArrayList<>();
-
         saveOrUpdateSymbols(symbolList);
 
         return result;
     }
+
 }

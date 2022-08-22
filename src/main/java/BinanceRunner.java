@@ -5,6 +5,8 @@ import model.Data;
 import model.Symbol;
 import org.hibernate.SessionFactory;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import persistence.DBWriter;
 import persistence.DbReader;
 import persistence.MySQLUtil;
@@ -17,39 +19,42 @@ import java.util.stream.Collectors;
 
 public class BinanceRunner {
 
+    public enum Timeframe{
+        D1,
+        M1;
+    }
+
+
     final private BinanceDownloader binance;
     final private SessionFactory sessionFactory;
-
-    final private MySQLUtil mySQLUtil;
+    private final Logger logger;
 
     public BinanceRunner() {
         binance = configureDownloader();
-        mySQLUtil = new MySQLUtil();
+        MySQLUtil mySQLUtil = new MySQLUtil();
         sessionFactory = mySQLUtil.getSessionFactory();
+        logger = LoggerFactory.getLogger(BinanceRunner.class);
     }
 
     public void run() {
 
-        //sciagnij dane odnośnie tickerów, filtruj do USDT
 //        List<String> filteredSymbolList = getListOfSymbolsUSDT(binance, "USDT");
         List<String> filteredSymbolList = List.of("BTCUSDT");
-        System.out.println("downloaded tickers: " + filteredSymbolList.size());
+        logger.info("downloaded tickers: " + filteredSymbolList.size());
 
         //pobierz dane odnośnie symbolów z bazy danych i pobierz ostatni czas z bazy danych
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
-        HashMap<String, LocalDateTime> symbolTimeFromDb = new HashMap<>();
 
-        Iterator symbolObjIterator = symbolObj.listIterator();
+        HashMap<String, LocalDateTime> symbolTimeFromDb = new HashMap<>();
 
         for (Symbol symbol : symbolObj) {
             LocalDateTime lastDate = dbReader.readLastDate(symbol);
             symbolTimeFromDb.put(symbol.getSymbolName(), lastDate);
         }
 
-
-        System.out.println("symbol Time from database: ");
-        System.out.println(symbolTimeFromDb);
+        logger.info("symbol Time from database: ");
+        logger.info(symbolTimeFromDb.toString());
 
         //utwórz paramList dla każdego symbolu uwzględniając czas ostatniej świecy z db
         //przechodzę po filteredList pobranych z binance
@@ -83,6 +88,18 @@ public class BinanceRunner {
 
         }
     }
+
+
+    public void runWithConfig( Timeframe timeframe){
+//        List<String> filteredSymbolList = getListOfSymbolsUSDT(binance, "USDT");
+        List<String> filteredSymbolList = List.of("BTCUSDT");
+        logger.info("downloaded tickers: " + filteredSymbolList.size());
+
+
+
+    }
+
+
 
     private List<LinkedHashMap<String, Object>> prepareParams(List<String> symbolsFromBinance, HashMap<String, LocalDateTime> symbolTimeFromDb) {
         List<LinkedHashMap<String, Object>> preparedParamList = new ArrayList<>();
@@ -120,14 +137,12 @@ public class BinanceRunner {
         SpotClientImpl client = new SpotClientImpl();
         client.setShowLimitUsage(true); //important option to enable
         Market market = client.createMarket();
-        BinanceDownloader binance = new BinanceDownloader(market);
-        return binance;
+        return new BinanceDownloader(market);
     }
 
     private List<String> getListOfSymbolsUSDT(BinanceDownloader binance, String currency) {
         List<String> symbolList = binance.getTickers();
-        List<String> result = symbolList.stream().filter(s -> s.endsWith(currency)).collect(Collectors.toList());
-        return result;
+        return symbolList.stream().filter(s -> s.endsWith(currency)).collect(Collectors.toList());
     }
 
 }
