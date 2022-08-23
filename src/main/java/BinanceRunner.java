@@ -14,7 +14,10 @@ import persistence.MySQLUtil;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class BinanceRunner {
@@ -54,25 +57,41 @@ public class BinanceRunner {
 
         for (LinkedHashMap<String, Object> map : params) {
             List<Data> data = binance.downloadKlines(map);
-            data.forEach(d -> DBWriter.writeData(sessionFactory, d));
+
+//            data.forEach(d -> DBWriter.writeData(sessionFactory, d));
 
             int dataSize = data.size();
 
             while (dataSize == 1000) {
-                Symbol symbol = new Symbol();
-                symbol.setSymbolName(String.valueOf(map.get("symbol")));
-                final LocalDateTime lastDate = dbReader.readLastDate(symbol);
-                final HashMap<String,LocalDateTime> updateDateHashMap = new HashMap<>();
-                updateDateHashMap.put(symbol.getSymbolName(),lastDate);
 
-                final List<LinkedHashMap<String, Object>> moreParams = prepareParams(filteredSymbolList, updateDateHashMap);
+                LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
+                Instant instant = nextDate.toInstant(ZoneOffset.UTC);
+                Long date = instant.toEpochMilli();
 
-                for(LinkedHashMap<String,Object> moreMap : moreParams) {
-                    final List<Data> moreData = binance.downloadKlines(moreMap); //inside hard coded binance1d
-                    moreData.forEach(d -> DBWriter.writeData(sessionFactory, d));
-                    dataSize = moreData.size();
-                }
+                map.replace("startTime", date);
+                List<Data> downloadedData = binance.downloadKlines(map);
+
+                data.addAll(downloadedData);
+                dataSize = downloadedData.size();
+
+//                Symbol symbol = new Symbol();
+//                symbol.setSymbolName(String.valueOf(map.get("symbol")));
+//
+//                final LocalDateTime lastDate = dbReader.readLastDate(symbol);
+//                final HashMap<String,LocalDateTime> updateDateHashMap = new HashMap<>();
+//                updateDateHashMap.put(symbol.getSymbolName(),lastDate);
+//
+//                final List<LinkedHashMap<String, Object>> moreParams = prepareParams(filteredSymbolList, updateDateHashMap);
+//
+//                for(LinkedHashMap<String,Object> moreMap : moreParams) {
+//                    final List<Data> moreData = binance.downloadKlines(moreMap); //inside hard coded binance1d
+//                    moreData.forEach(d -> DBWriter.writeData(sessionFactory, d));
+//                    dataSize = moreData.size();
+//                }
             }
+
+            DBWriter.writeDatainBatch(sessionFactory,data);
+
         }
     }
 
@@ -89,7 +108,7 @@ public class BinanceRunner {
             System.out.println("check if " + symbol + " is in database " + symbolTimeFromDb.containsKey(symbol));
 
             if (!symbolTimeFromDb.containsKey(symbol)) {
-                LocalDateTime newStartDate = LocalDateTime.of(2010,1,1,0,0,0);
+                LocalDateTime newStartDate = LocalDateTime.of(2010, 1, 1, 0, 0, 0);
                 Instant instant = newStartDate.toInstant(ZoneOffset.UTC);
                 long convertedTime = instant.toEpochMilli();
                 params.put("startTime", convertedTime);

@@ -5,6 +5,8 @@ import model.Symbol;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -34,4 +36,23 @@ public class DBWriter {
         session.close();
     }
 
+    public static void writeDatainBatch(SessionFactory sessionFactory, List<Data> data) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        DbReader dbReader = new DbReader(sessionFactory);
+        List<Symbol> symbolList = dbReader.getSymbolObjFromDb(data.get(0).getSymbol().getSymbolName());
+
+        Symbol persistentSymbol = session.get(Symbol.class,symbolList.get(0).getId());
+        for (Data d : data) {
+            d.setSymbol(persistentSymbol);
+            session.save(d);
+        }
+
+        transaction.commit();
+        session.close();
+
+        Logger logger = LoggerFactory.getLogger(DBWriter.class);
+        logger.info("Saved to database: " + data.size() + " records for: " + data.get(0).getSymbol().getSymbolName() + " ticker");
+    }
 }
