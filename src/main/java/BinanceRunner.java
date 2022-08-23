@@ -33,7 +33,7 @@ public class BinanceRunner {
     public void run() {
 
 //        List<String> filteredSymbolList = getListOfSymbolsUSDT(binance, "USDT");
-        List<String> filteredSymbolList = List.of("BTCUSDT");
+        List<String> filteredSymbolList = List.of("SOLUSDT");
         logger.info("downloaded tickers: " + filteredSymbolList.size());
 
         //pobierz dane odnośnie symbolów z bazy danych i pobierz ostatni czas z bazy danych
@@ -53,7 +53,7 @@ public class BinanceRunner {
         final List<LinkedHashMap<String, Object>> params = prepareParams(filteredSymbolList, symbolTimeFromDb);
 
         for (LinkedHashMap<String, Object> map : params) {
-            List<Data> data = binance.downloadKlines(map); //inside hard coded binance1d
+            List<Data> data = binance.downloadKlines(map);
             data.forEach(d -> DBWriter.writeData(sessionFactory, d));
 
             int dataSize = data.size();
@@ -80,28 +80,32 @@ public class BinanceRunner {
     private List<LinkedHashMap<String, Object>> prepareParams(List<String> symbolsFromBinance, HashMap<String, LocalDateTime> symbolTimeFromDb) {
         List<LinkedHashMap<String, Object>> preparedParamList = new ArrayList<>();
         for (String symbol : symbolsFromBinance) {
-            System.out.println("sprawdzam czy symbol " + symbol + " jest w bazie " + symbolTimeFromDb.containsKey(symbol));
+
+            LinkedHashMap<String, Object> params = new LinkedHashMap<>();
+            params.put("symbol", symbol);
+            params.put("interval", "1m"); //  for daily timeframe use 1d
+            params.put("limit", 1000);    //default 500 max 1000
+
+            System.out.println("check if " + symbol + " is in database " + symbolTimeFromDb.containsKey(symbol));
+
             if (!symbolTimeFromDb.containsKey(symbol)) {
-                LinkedHashMap<String, Object> params = new LinkedHashMap<>();
-                params.put("symbol", symbol);
-                params.put("interval", "1m"); // TODO for daily 1d
-                params.put("limit", 3); // TODO max 1000 , default 500
+                LocalDateTime newStartDate = LocalDateTime.of(2010,1,1,0,0,0);
+                Instant instant = newStartDate.toInstant(ZoneOffset.UTC);
+                long convertedTime = instant.toEpochMilli();
+                params.put("startTime", convertedTime);
+
                 preparedParamList.add(params);
             } else {
-                System.out.println("symbol " + symbol + " , znajduje się w bazie danych");
+                System.out.println("symbol " + symbol + " , found in database");
 
                 LocalDateTime dateInDb = symbolTimeFromDb.get(symbol);
                 LocalDateTime newStartDate = dateInDb.plusMinutes(1); // TODO change this when downloading daily
 
-                System.out.println("znaleziono datę: " + dateInDb + " nowa data: " + newStartDate);
+                System.out.println("found latest date: " + dateInDb + " new calculated date: " + newStartDate);
                 Instant inst = newStartDate.toInstant(ZoneOffset.UTC);
                 long convertedTime = inst.toEpochMilli();
 
-                LinkedHashMap<String, Object> params = new LinkedHashMap<>();
-                params.put("symbol", symbol);
-                params.put("interval", "1m"); // TODO for daily 1d
                 params.put("startTime", convertedTime);
-                params.put("limit", 1000); //  max 1000 , default 500
                 preparedParamList.add(params);
             }
         }

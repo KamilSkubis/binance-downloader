@@ -1585,3 +1585,215 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
 2022-08-22 21:14:07.499[1661195647499] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
 2022-08-22 21:14:08.233[1661195648233] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
 2022-08-22 21:14:09.652[1661195649652] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-23 10:44:27.872[1661244267872] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-08-23 10:44:30.680[1661244270680] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-23 10:44:31.135[1661244271135] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-08-23 10:44:31.162[1661244271162] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-08-23 10:44:31.162[1661244271162] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-08-23 10:44:31.164[1661244271164] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-08-23 10:44:31.171[1661244271171] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-08-23 10:44:32.224[1661244272224] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-08-23 10:44:33.651[1661244273651] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-23 10:44:33.677[1661244273677] | INFO  | main       | BinanceRunner                        - downloaded tickers: 1
+2022-08-23 10:44:34.222[1661244274222] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 0, SQLState: 22018
+2022-08-23 10:44:34.223[1661244274223] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Unsupported conversion from LONG to java.sql.Timestamp
+2022-08-23 10:53:22.870[1661244802870] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-08-23 10:53:25.521[1661244805521] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-23 10:53:25.887[1661244805887] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-08-23 10:53:25.908[1661244805908] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-08-23 10:53:25.909[1661244805909] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-08-23 10:53:25.910[1661244805910] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-08-23 10:53:25.917[1661244805917] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-08-23 10:53:26.938[1661244806938] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-08-23 10:53:28.211[1661244808211] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-23 10:53:28.243[1661244808243] | INFO  | main       | BinanceRunner                        - downloaded tickers: 1
+2022-08-23 10:55:53.685[1661244953685] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-08-23 10:55:55.888[1661244955888] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-23 10:55:56.311[1661244956311] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-08-23 10:55:56.331[1661244956331] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-08-23 10:55:56.332[1661244956332] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-08-23 10:55:56.333[1661244956333] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-08-23 10:55:56.341[1661244956341] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-08-23 10:55:57.197[1661244957197] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-08-23 10:55:58.484[1661244958484] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-23 10:55:58.508[1661244958508] | INFO  | main       | BinanceRunner                        - downloaded tickers: 1
+2022-08-23 11:06:08.212[1661245568212] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-08-23 11:06:10.613[1661245570613] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-23 11:06:11.014[1661245571014] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-08-23 11:06:11.036[1661245571036] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-08-23 11:06:11.036[1661245571036] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-08-23 11:06:11.036[1661245571036] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-08-23 11:06:11.052[1661245571052] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-08-23 11:06:11.865[1661245571865] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-08-23 11:06:12.984[1661245572984] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-23 11:06:13.015[1661245573015] | INFO  | main       | BinanceRunner                        - downloaded tickers: 1
+2022-08-23 11:06:13.439[1661245573439] | INFO  | main       | BinanceRunner                        - symbol Time from database: 
+2022-08-23 11:06:13.439[1661245573439] | INFO  | main       | BinanceRunner                        - {ETHUSDT=2010-01-01T00:00}
+2022-08-23 11:06:13.454[1661245573454] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker BTCUSDT
+2022-08-23 11:06:13.454[1661245573454] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=3
+2022-08-23 11:06:14.603[1661245574603] | INFO  | main       | downloads.BinanceDownloader          - data for BTCUSDT downloaded successfully, downloaded 3 bars
+2022-08-23 11:06:14.603[1661245574603] | INFO  | main       | downloads.BinanceDownloader          - used weight: 1 used weight 1m: 1
+2022-08-23 11:13:18.169[1661245998169] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-08-23 11:13:20.471[1661246000471] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-23 11:13:20.888[1661246000888] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-08-23 11:13:20.903[1661246000903] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-08-23 11:13:20.903[1661246000903] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-08-23 11:13:20.903[1661246000903] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-08-23 11:13:20.903[1661246000903] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-08-23 11:13:21.834[1661246001834] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-08-23 11:13:23.006[1661246003006] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-23 11:13:23.022[1661246003022] | INFO  | main       | BinanceRunner                        - downloaded tickers: 1
+2022-08-23 11:13:23.423[1661246003423] | INFO  | main       | BinanceRunner                        - symbol Time from database: 
+2022-08-23 11:13:23.423[1661246003423] | INFO  | main       | BinanceRunner                        - {ETHUSDT=2010-01-01T00:00, BTCUSDT=2022-08-23T09:06}
+2022-08-23 11:13:23.439[1661246003439] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker BTCUSDT
+2022-08-23 11:13:23.445[1661246003445] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&startTime=1661245620000&limit=1000
+2022-08-23 11:13:24.378[1661246004378] | INFO  | main       | downloads.BinanceDownloader          - data for BTCUSDT downloaded successfully, downloaded 7 bars
+2022-08-23 11:13:24.378[1661246004378] | INFO  | main       | downloads.BinanceDownloader          - used weight: 1 used weight 1m: 1
+2022-08-23 12:10:05.236[1661249405236] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-08-23 12:10:08.218[1661249408218] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-23 12:10:08.589[1661249408589] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-08-23 12:10:08.607[1661249408607] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-08-23 12:10:08.608[1661249408608] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-08-23 12:10:08.609[1661249408609] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-08-23 12:10:08.617[1661249408617] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-08-23 12:10:09.497[1661249409497] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-08-23 12:10:10.737[1661249410737] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-23 12:10:10.760[1661249410760] | INFO  | main       | BinanceRunner                        - downloaded tickers: 1
+2022-08-23 12:10:11.188[1661249411188] | INFO  | main       | BinanceRunner                        - symbol Time from database: 
+2022-08-23 12:10:11.189[1661249411189] | INFO  | main       | BinanceRunner                        - {ETHUSDT=2010-01-01T00:00, BTCUSDT=2022-08-23T09:13}
+2022-08-23 12:10:11.200[1661249411200] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker BTCUSDT
+2022-08-23 12:10:11.204[1661249411204] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1000&startTime=1661246040000
+2022-08-23 12:10:12.322[1661249412322] | INFO  | main       | downloads.BinanceDownloader          - data for BTCUSDT downloaded successfully, downloaded 57 bars
+2022-08-23 12:10:12.328[1661249412328] | INFO  | main       | downloads.BinanceDownloader          - used weight: 1 used weight 1m: 1
+2022-08-23 12:11:36.136[1661249496136] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-08-23 12:11:38.186[1661249498186] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-23 12:11:38.513[1661249498513] | WARN  | main       | o.hibernate.orm.connections.pooling  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-08-23 12:11:38.527[1661249498527] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testing-binance-downloader]
+2022-08-23 12:11:38.528[1661249498528] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001001: Connection properties: {password=****, user=root}
+2022-08-23 12:11:38.528[1661249498528] | INFO  | main       | o.hibernate.orm.connections.pooling  - HHH10001003: Autocommit mode: false
+2022-08-23 12:11:38.534[1661249498534] | INFO  | main       | o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-08-23 12:11:39.290[1661249499290] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-08-23 12:11:40.574[1661249500574] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-23 12:11:40.614[1661249500614] | INFO  | main       | BinanceRunner                        - downloaded tickers: 1
+2022-08-23 12:11:41.250[1661249501250] | INFO  | main       | BinanceRunner                        - symbol Time from database: 
+2022-08-23 12:11:41.250[1661249501250] | INFO  | main       | BinanceRunner                        - {ETHUSDT=2010-01-01T00:00, BTCUSDT=2022-08-23T10:10}
+2022-08-23 12:11:41.256[1661249501256] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:11:41.263[1661249501263] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1262304000000
+2022-08-23 12:11:42.371[1661249502371] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:11:42.380[1661249502380] | INFO  | main       | downloads.BinanceDownloader          - used weight: 1 used weight 1m: 1
+2022-08-23 12:11:58.619[1661249518619] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:11:58.620[1661249518620] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597185600000
+2022-08-23 12:11:59.046[1661249519046] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:11:59.046[1661249519046] | INFO  | main       | downloads.BinanceDownloader          - used weight: 2 used weight 1m: 2
+2022-08-23 12:12:12.894[1661249532894] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:12:12.895[1661249532895] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597245600000
+2022-08-23 12:12:13.221[1661249533221] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:12:13.222[1661249533222] | INFO  | main       | downloads.BinanceDownloader          - used weight: 1 used weight 1m: 1
+2022-08-23 12:12:25.878[1661249545878] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:12:25.878[1661249545878] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597305600000
+2022-08-23 12:12:26.177[1661249546177] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:12:26.178[1661249546178] | INFO  | main       | downloads.BinanceDownloader          - used weight: 2 used weight 1m: 2
+2022-08-23 12:12:41.185[1661249561185] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:12:41.186[1661249561186] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597365600000
+2022-08-23 12:12:41.504[1661249561504] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:12:41.505[1661249561505] | INFO  | main       | downloads.BinanceDownloader          - used weight: 3 used weight 1m: 3
+2022-08-23 12:12:55.278[1661249575278] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:12:55.278[1661249575278] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597425600000
+2022-08-23 12:12:55.799[1661249575799] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:12:55.799[1661249575799] | INFO  | main       | downloads.BinanceDownloader          - used weight: 5 used weight 1m: 5
+2022-08-23 12:13:09.916[1661249589916] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:13:09.916[1661249589916] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597485600000
+2022-08-23 12:13:10.222[1661249590222] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:13:10.223[1661249590223] | INFO  | main       | downloads.BinanceDownloader          - used weight: 34 used weight 1m: 34
+2022-08-23 12:13:23.735[1661249603735] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:13:23.735[1661249603735] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597545600000
+2022-08-23 12:13:24.021[1661249604021] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:13:24.022[1661249604022] | INFO  | main       | downloads.BinanceDownloader          - used weight: 36 used weight 1m: 36
+2022-08-23 12:13:36.068[1661249616068] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:13:36.068[1661249616068] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597605600000
+2022-08-23 12:13:36.345[1661249616345] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:13:36.345[1661249616345] | INFO  | main       | downloads.BinanceDownloader          - used weight: 37 used weight 1m: 37
+2022-08-23 12:13:48.427[1661249628427] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:13:48.427[1661249628427] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597665600000
+2022-08-23 12:13:48.704[1661249628704] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:13:48.704[1661249628704] | INFO  | main       | downloads.BinanceDownloader          - used weight: 38 used weight 1m: 38
+2022-08-23 12:14:01.654[1661249641654] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:14:01.654[1661249641654] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597725600000
+2022-08-23 12:14:01.945[1661249641945] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:14:01.946[1661249641946] | INFO  | main       | downloads.BinanceDownloader          - used weight: 1 used weight 1m: 1
+2022-08-23 12:14:14.594[1661249654594] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:14:14.595[1661249654595] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597785600000
+2022-08-23 12:14:15.093[1661249655093] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:14:15.094[1661249655094] | INFO  | main       | downloads.BinanceDownloader          - used weight: 2 used weight 1m: 2
+2022-08-23 12:14:27.110[1661249667110] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:14:27.110[1661249667110] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597845600000
+2022-08-23 12:14:27.389[1661249667389] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:14:27.389[1661249667389] | INFO  | main       | downloads.BinanceDownloader          - used weight: 3 used weight 1m: 3
+2022-08-23 12:14:39.623[1661249679623] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:14:39.623[1661249679623] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597905600000
+2022-08-23 12:14:39.903[1661249679903] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:14:39.903[1661249679903] | INFO  | main       | downloads.BinanceDownloader          - used weight: 4 used weight 1m: 4
+2022-08-23 12:14:52.988[1661249692988] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:14:52.988[1661249692988] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1597965600000
+2022-08-23 12:14:53.266[1661249693266] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:14:53.267[1661249693267] | INFO  | main       | downloads.BinanceDownloader          - used weight: 5 used weight 1m: 5
+2022-08-23 12:15:10.901[1661249710901] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:15:10.902[1661249710902] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598025600000
+2022-08-23 12:15:11.180[1661249711180] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:15:11.181[1661249711181] | INFO  | main       | downloads.BinanceDownloader          - used weight: 1 used weight 1m: 1
+2022-08-23 12:15:26.629[1661249726629] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:15:26.630[1661249726630] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598085600000
+2022-08-23 12:15:26.909[1661249726909] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:15:26.909[1661249726909] | INFO  | main       | downloads.BinanceDownloader          - used weight: 2 used weight 1m: 2
+2022-08-23 12:15:39.423[1661249739423] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:15:39.423[1661249739423] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598145600000
+2022-08-23 12:15:39.705[1661249739705] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:15:39.706[1661249739706] | INFO  | main       | downloads.BinanceDownloader          - used weight: 3 used weight 1m: 3
+2022-08-23 12:15:52.049[1661249752049] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:15:52.050[1661249752050] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598205600000
+2022-08-23 12:15:52.334[1661249752334] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:15:52.334[1661249752334] | INFO  | main       | downloads.BinanceDownloader          - used weight: 4 used weight 1m: 4
+2022-08-23 12:16:04.960[1661249764960] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:16:04.960[1661249764960] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598265600000
+2022-08-23 12:16:05.244[1661249765244] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:16:05.245[1661249765245] | INFO  | main       | downloads.BinanceDownloader          - used weight: 1 used weight 1m: 1
+2022-08-23 12:16:17.803[1661249777803] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:16:17.803[1661249777803] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598325600000
+2022-08-23 12:16:18.086[1661249778086] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:16:18.086[1661249778086] | INFO  | main       | downloads.BinanceDownloader          - used weight: 2 used weight 1m: 2
+2022-08-23 12:16:31.548[1661249791548] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:16:31.548[1661249791548] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598385600000
+2022-08-23 12:16:31.832[1661249791832] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:16:31.833[1661249791833] | INFO  | main       | downloads.BinanceDownloader          - used weight: 3 used weight 1m: 3
+2022-08-23 12:16:44.304[1661249804304] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:16:44.304[1661249804304] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598445600000
+2022-08-23 12:16:44.584[1661249804584] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:16:44.585[1661249804585] | INFO  | main       | downloads.BinanceDownloader          - used weight: 4 used weight 1m: 4
+2022-08-23 12:16:57.179[1661249817179] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:16:57.179[1661249817179] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598505600000
+2022-08-23 12:16:57.684[1661249817684] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:16:57.685[1661249817685] | INFO  | main       | downloads.BinanceDownloader          - used weight: 5 used weight 1m: 5
+2022-08-23 12:17:09.892[1661249829892] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:17:09.893[1661249829893] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598565600000
+2022-08-23 12:17:11.083[1661249831083] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:17:11.083[1661249831083] | INFO  | main       | downloads.BinanceDownloader          - used weight: 1 used weight 1m: 1
+2022-08-23 12:17:31.597[1661249851597] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:17:31.597[1661249851597] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598625600000
+2022-08-23 12:17:31.890[1661249851890] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:17:31.890[1661249851890] | INFO  | main       | downloads.BinanceDownloader          - used weight: 2 used weight 1m: 2
+2022-08-23 12:17:47.619[1661249867619] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:17:47.619[1661249867619] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598685600000
+2022-08-23 12:17:48.301[1661249868301] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:17:48.301[1661249868301] | INFO  | main       | downloads.BinanceDownloader          - used weight: 3 used weight 1m: 3
+2022-08-23 12:18:00.930[1661249880930] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:18:00.930[1661249880930] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598745600000
+2022-08-23 12:18:01.226[1661249881226] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:18:01.226[1661249881226] | INFO  | main       | downloads.BinanceDownloader          - used weight: 1 used weight 1m: 1
+2022-08-23 12:18:15.719[1661249895719] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:18:15.720[1661249895720] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598805600000
+2022-08-23 12:18:16.042[1661249896042] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:18:16.042[1661249896042] | INFO  | main       | downloads.BinanceDownloader          - used weight: 2 used weight 1m: 2
+2022-08-23 12:18:29.145[1661249909145] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker SOLUSDT
+2022-08-23 12:18:29.146[1661249909146] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1m&limit=1000&startTime=1598865600000
+2022-08-23 12:18:29.431[1661249909431] | INFO  | main       | downloads.BinanceDownloader          - data for SOLUSDT downloaded successfully, downloaded 1000 bars
+2022-08-23 12:18:29.431[1661249909431] | INFO  | main       | downloads.BinanceDownloader          - used weight: 3 used weight 1m: 3

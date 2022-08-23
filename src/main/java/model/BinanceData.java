@@ -1,7 +1,7 @@
 package model;
 
 //SQL query
-//create table binance_1m(
+//create table binance_data(
 //        id bigint AUTO_INCREMENT,
 //        symbol_id int,
 //        open_time datetime(6),
@@ -21,8 +21,8 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-@Table(name = "binance_1m")
-public class Binance1m implements Data {
+@Table(name = "binance_data")
+public class BinanceData implements Data {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -40,7 +40,7 @@ public class Binance1m implements Data {
     Double close;
     Double volume;
 
-    public Binance1m() {
+    public BinanceData() {
     }
 
     public LocalDateTime getOpenTime() {
@@ -99,8 +99,8 @@ public class Binance1m implements Data {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Binance1m binance1d = (Binance1m) o;
-        return openTime.equals(binance1d.openTime) && open.equals(binance1d.open) && high.equals(binance1d.high) && low.equals(binance1d.low) && close.equals(binance1d.close) && volume.equals(binance1d.volume);
+        BinanceData binanceData = (BinanceData) o;
+        return openTime.equals(binanceData.openTime) && open.equals(binanceData.open) && high.equals(binanceData.high) && low.equals(binanceData.low) && close.equals(binanceData.close) && volume.equals(binanceData.volume);
     }
 
     @Override

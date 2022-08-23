@@ -1,4 +1,4 @@
-import model.Binance1d;
+import model.BinanceData;
 import model.Symbol;
 import org.hibernate.Session;
 import org.jetbrains.annotations.NotNull;
@@ -46,17 +46,17 @@ public class UtilForTesting {
     }
 
     @NotNull
-    public static Binance1d createSampleData(Symbol symbol) {
+    public static BinanceData createSampleData(Symbol symbol) {
         String symbolName = symbol.getSymbolName();
         symbol.setSymbolName(symbolName);
-        Binance1d binance1d = new Binance1d();
-        binance1d.setOpenTime(LocalDateTime.of(2000,1,1,5,25,2,20));
-        binance1d.setVolume(230.2);
-        binance1d.setSymbol(symbol);
-        binance1d.setOpen(323.41);
-        binance1d.setHigh(23132.1);
-        binance1d.setLow(231.3);
-        binance1d.setClose(95.21);
-        return binance1d;
+        BinanceData binanceData = new BinanceData();
+        binanceData.setOpenTime(LocalDateTime.of(2000,1,1,5,25,2,20));
+        binanceData.setVolume(230.2);
+        binanceData.setSymbol(symbol);
+        binanceData.setOpen(323.41);
+        binanceData.setHigh(23132.1);
+        binanceData.setLow(231.3);
+        binanceData.setClose(95.21);
+        return binanceData;
     }
 }

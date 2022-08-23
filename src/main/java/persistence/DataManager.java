@@ -36,7 +36,6 @@ public class DataManager {
             }
             result = dbReader.getSymbolObjListFromDb();
         }
-        //TODO: check if downloaded symbolList is smaller than persistent list. Meaning some tickers are not listed anymore.
         return result;
     }
 

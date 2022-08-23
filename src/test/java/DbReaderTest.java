@@ -1,4 +1,4 @@
-import model.Binance1d;
+import model.BinanceData;
 import model.Symbol;
 import org.hibernate.SessionFactory;
 import org.junit.After;
@@ -10,8 +10,6 @@ import persistence.DbReader;
 import persistence.MySQLUtilTesting;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DbReaderTest {
 
@@ -28,7 +26,7 @@ public class DbReaderTest {
     public void returnDateDiffrence_betweenDateDbAndFromDate(){
         Symbol symbol1 = new Symbol();
         symbol1.setSymbolName("testRead");
-        Binance1d b1= UtilForTesting.createSampleData(symbol1);
+        BinanceData b1= UtilForTesting.createSampleData(symbol1);
         DBWriter.writeData(mysqlTesting, b1);
 
         DbReader dbReader = new DbReader(mysqlTesting);

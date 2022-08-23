@@ -8,8 +8,7 @@ import com.google.gson.JsonParser;
 import downloads.deserializeJSON.BinanceKlinesOuter;
 import downloads.deserializeJSON.BinanceSymbolInner;
 import downloads.deserializeJSON.BinanceSymbolOuter;
-import model.Binance1d;
-import model.Binance1m;
+import model.BinanceData;
 import model.Data;
 import model.Symbol;
 import org.slf4j.Logger;
@@ -31,31 +30,10 @@ public class BinanceDownloader {
     private int usedWeight1m;
 
     public BinanceDownloader(Market market) {
-        this.market = market;
         logger = LoggerFactory.getLogger(BinanceDownloader.class);
-        updateUsedWeightAfterCall(0);
-    }
-
-    public void downloadUSDTcurrenciesKlines() {
-        LinkedHashMap<String, Object> params = new LinkedHashMap<>();
-        params.put("symbol", "BTCUSDT");
-        params.put("interval", "1m"); //for daily 1d
-        params.put("limit", 1000); //max 1000 default 500
-
-        String response = market.klines(params);
-        JsonArray arr = (JsonArray) JsonParser.parseString(response);
-        for (JsonElement e : arr) {
-            JsonArray temp = e.getAsJsonArray();
-            System.out.println(temp.get(0));
-            System.out.println(temp.get(1));
-        }
-
-    }
-
-    public List<String> getSymbols() {
-        String result = market.tickerSymbol(null);
-        System.out.println(result);
-        return null;
+        this.market = market;
+        usedWeight = 0;
+        usedWeight1m = 0;
     }
 
     public List<String> getTickers() {
@@ -78,6 +56,7 @@ public class BinanceDownloader {
 
     private void updateUsedWeightAfterCall(int deserializedObject) {
         usedWeight = deserializedObject;
+        usedWeight1m = deserializedObject;
     }
 
     public List<Data> downloadKlines(LinkedHashMap<String, Object> params) {
@@ -95,7 +74,7 @@ public class BinanceDownloader {
 
         JsonArray arr = (JsonArray) JsonParser.parseString(binanceKlinesOuter.data);
         for (JsonElement el : arr) {
-            Data bar = new Binance1m();  // this is place the to change to Binance1d if you like to have daily timeframe
+            Data bar = new BinanceData();
             bar.setSymbol(symbol);
             bar.setOpenTime(convertToLocalDateTime(el.getAsJsonArray().get(0).getAsLong()));
             bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());
@@ -119,6 +98,7 @@ public class BinanceDownloader {
         logger.info("used weight: " + usedWeight + " used weight 1m: " + usedWeight1m);
         if (usedWeight > 150 || usedWeight1m >150) {
             try {
+                logger.info("used weight exceed limit, sleeping for 20000 miliseconds");
                 Thread.sleep(20000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

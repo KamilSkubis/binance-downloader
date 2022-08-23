@@ -1,6 +1,6 @@
 package persistence;
 
-import model.Binance1d;
+import model.BinanceData;
 import model.Symbol;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -38,9 +38,16 @@ public class DbReader {
         Session session = sessionFactory.openSession();
         List<Symbol> symbolList = getSymbolObjFromDb(symbol.getSymbolName());
 
-        Query query = session.createQuery("from Binance1d where symbol = :symbol");
+        Query query = session.createQuery("from BinanceData where symbol = :symbol");
         query.setParameter("symbol", symbolList.get(0));
-        Binance1d result = (Binance1d) query.getResultList().get(query.getResultList().size()-1);
-        return result.getOpenTime();
+
+        LocalDateTime result = null;
+        if(query.getResultList().size() != 0) {
+             BinanceData bar = (BinanceData) query.getResultList().get(query.getResultList().size() - 1);
+             result = bar.getOpenTime();
+        }else{
+            result = LocalDateTime.of(2010,1,1,0,0,0,0);
+        }
+        return result;
     }
 }
