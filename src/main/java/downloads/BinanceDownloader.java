@@ -9,6 +9,7 @@ import downloads.deserializeJSON.BinanceKlinesOuter;
 import downloads.deserializeJSON.BinanceSymbolInner;
 import downloads.deserializeJSON.BinanceSymbolOuter;
 import model.Binance1d;
+import model.Binance1m;
 import model.Data;
 import model.Symbol;
 import org.slf4j.Logger;
@@ -25,19 +26,18 @@ public class BinanceDownloader {
 
     private final Market market;
     private final Logger logger;
-    private final List<String> tickers;
 
     private int usedWeight;
+    private int usedWeight1m;
 
     public BinanceDownloader(Market market) {
         this.market = market;
         logger = LoggerFactory.getLogger(BinanceDownloader.class);
-        tickers = new LinkedList<String>();
         updateUsedWeightAfterCall(0);
     }
 
     public void downloadUSDTcurrenciesKlines() {
-        LinkedHashMap<String, Object> params = new LinkedHashMap<String, Object>();
+        LinkedHashMap<String, Object> params = new LinkedHashMap<>();
         params.put("symbol", "BTCUSDT");
         params.put("interval", "1m"); //for daily 1d
         params.put("limit", 1000); //max 1000 default 500
@@ -60,7 +60,7 @@ public class BinanceDownloader {
 
     public List<String> getTickers() {
         logger.info("Initialization: Start downloading ticker names");
-        List<String> tickers = new LinkedList<String>();
+        List<String> tickers = new LinkedList<>();
         String result = market.tickerSymbol(null);
 
         Gson gson = new Gson();
@@ -95,7 +95,7 @@ public class BinanceDownloader {
 
         JsonArray arr = (JsonArray) JsonParser.parseString(binanceKlinesOuter.data);
         for (JsonElement el : arr) {
-            Data bar = new Binance1d();  // TODO hard coded for now
+            Data bar = new Binance1m();  // this is place the to change to Binance1d if you like to have daily timeframe
             bar.setSymbol(symbol);
             bar.setOpenTime(convertToLocalDateTime(el.getAsJsonArray().get(0).getAsLong()));
             bar.setOpen(el.getAsJsonArray().get(1).getAsDouble());
@@ -106,20 +106,20 @@ public class BinanceDownloader {
             downloadedData.add(bar);
         }
 
-
         logger.info("data for {} downloaded successfully, downloaded {} bars", params.get("symbol"), downloadedData.size());
 
         usedWeight = binanceKlinesOuter.usedWeight;
+        usedWeight1m = binanceKlinesOuter.usedWeight1m;
         usedWeightThreadSleep();
 
         return downloadedData;
     }
 
     private void usedWeightThreadSleep() {
-        logger.info("used weight: " + usedWeight);
-        if (usedWeight > 150) {
+        logger.info("used weight: " + usedWeight + " used weight 1m: " + usedWeight1m);
+        if (usedWeight > 150 || usedWeight1m >150) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(20000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

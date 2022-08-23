@@ -19,12 +19,6 @@ import java.util.stream.Collectors;
 
 public class BinanceRunner {
 
-    public enum Timeframe{
-        D1,
-        M1;
-    }
-
-
     final private BinanceDownloader binance;
     final private SessionFactory sessionFactory;
     private final Logger logger;
@@ -56,13 +50,8 @@ public class BinanceRunner {
         logger.info("symbol Time from database: ");
         logger.info(symbolTimeFromDb.toString());
 
-        //utwórz paramList dla każdego symbolu uwzględniając czas ostatniej świecy z db
-        //przechodzę po filteredList pobranych z binance
-        //do każdego symbolu dodaję
-
         final List<LinkedHashMap<String, Object>> params = prepareParams(filteredSymbolList, symbolTimeFromDb);
 
-        //sciagnij dane z binance
         for (LinkedHashMap<String, Object> map : params) {
             List<Data> data = binance.downloadKlines(map); //inside hard coded binance1d
             data.forEach(d -> DBWriter.writeData(sessionFactory, d));
@@ -83,22 +72,9 @@ public class BinanceRunner {
                     moreData.forEach(d -> DBWriter.writeData(sessionFactory, d));
                     dataSize = moreData.size();
                 }
-
             }
-
         }
     }
-
-
-    public void runWithConfig( Timeframe timeframe){
-//        List<String> filteredSymbolList = getListOfSymbolsUSDT(binance, "USDT");
-        List<String> filteredSymbolList = List.of("BTCUSDT");
-        logger.info("downloaded tickers: " + filteredSymbolList.size());
-
-
-
-    }
-
 
 
     private List<LinkedHashMap<String, Object>> prepareParams(List<String> symbolsFromBinance, HashMap<String, LocalDateTime> symbolTimeFromDb) {
