@@ -4,13 +4,15 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="show_sql">false</property>
+        <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/test</property>
         <property name="connection.username">root</property>
         <property name="connection.password">password</property>
+        <property name="hibernate.jdbc.rewriteBatchedStatements">true</property>
+        <property name="hibernate.jdbc.batch_size">5</property>
         <mapping class="model.BinanceData"/>
         <mapping class="model.Symbol"/>
 

@@ -23,6 +23,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "binance_data")
 public class BinanceData implements Data {
+//
+//    @Id
+//    @GeneratedValue(strategy=GenerationType.IDENTITY)
+//    Long id;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
