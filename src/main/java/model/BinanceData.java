@@ -29,7 +29,6 @@ public class BinanceData implements Data {
 //    Long id;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id;
 
     @ManyToOne

@@ -1,3 +1,4 @@
+import ch.qos.logback.core.db.BindDataSourceToJNDIAction;
 import model.BinanceData;
 import model.Data;
 import model.Symbol;
@@ -9,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import persistence.DBWriter;
+import persistence.DbReader;
 import persistence.MySQLUtilTesting;
 
 import java.time.LocalDateTime;
@@ -29,11 +31,16 @@ public class batchInsertTest {
         UtilForTesting.createTables();
         mysqlTesting = MySQLUtilTesting.getSessionFactory();
 
+
+        Symbol s = new Symbol();
+        s.setSymbolName("abc");
+
+        long id = 1l;
         datas = new ArrayList<>();
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 370_000; i++) {
             Data d = new BinanceData();
-            Symbol s = new Symbol();
-            s.setSymbolName("abc");
+            d.setId(id);
+            id++;
             d.setSymbol(s);
             d.setClose(2003.20);
             d.setHigh(20302.21);
@@ -45,37 +52,37 @@ public class batchInsertTest {
     }
 
     @Test
-    public void batchInsert100k() {
-
+    public void batchInsert100k_preparedStatements() {
 
         Session session = MySQLUtilTesting.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
-        int batch = 5;
 
-        long start =System.currentTimeMillis()/1000;
+        int batch = 50;
+
+
+        long start = System.currentTimeMillis() / 1000;
 
         System.out.println();
 
-        for(int i=0 ; i<datas.size(); i++){
+        for (int i = 0; i < datas.size(); i++) {
             session.save(datas.get(i));
 
-            if( i % batch == 0){
+            if (i % batch == 0) {
                 session.flush();
                 session.clear();
             }
         }
 
-        transaction.commit();
-        session.close();
 
-        long end = System.currentTimeMillis()/1000;
+        transaction.commit();
+
+        long end = System.currentTimeMillis() / 1000;
         long duration = end - start;
         System.out.println("Duration: " + duration + " s");
+        session.close();
 
         assertTrue(duration < 120);
-
-
     }
 
 //    @Test

@@ -12,8 +12,20 @@ public class UtilForTesting {
         Session session =(Session) MySQLUtilTesting.getSessionFactory().openSession();
 
         session.beginTransaction();
-        String binance = "create table binance_1d(\n" +
-                "        id bigint AUTO_INCREMENT,\n" +
+//        String binance = "create table binance_data(\n" +
+//                "        id bigint AUTO_INCREMENT,\n" +
+//                "        symbol_id int,\n" +
+//                "        open_time datetime(6),\n" +
+//                "        open double,\n" +
+//                "        high double,\n" +
+//                "        low double,\n" +
+//                "        close double,\n" +
+//                "        volume double,\n" +
+//                "        key(id)\n" +
+//                "        );";
+
+        String binance = "create table binance_data(\n" +
+                "        id bigint ,\n" +
                 "        symbol_id int,\n" +
                 "        open_time datetime(6),\n" +
                 "        open double,\n" +
@@ -23,6 +35,7 @@ public class UtilForTesting {
                 "        volume double,\n" +
                 "        key(id)\n" +
                 "        );";
+
 
         String symbol = "create table symbols(\n" +
                 "id bigint AUTO_INCREMENT,\n" +
@@ -40,7 +53,7 @@ public class UtilForTesting {
         Session session = (Session) MySQLUtilTesting.getSessionFactory().openSession();
         session.beginTransaction();
         session.createSQLQuery("DROP TABLE symbols").executeUpdate();
-        session.createSQLQuery("DROP TABLE binance_1d").executeUpdate();
+        session.createSQLQuery("DROP TABLE binance_data").executeUpdate();
         session.getTransaction().commit();
         session.close();
     }

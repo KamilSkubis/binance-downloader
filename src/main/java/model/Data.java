@@ -34,4 +34,6 @@ public interface Data {
 
     void setVolume(Double volume);
 
+    void setId(Long id);
+
 }
