@@ -43,6 +43,8 @@ public class DBWriter {
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolList = dbReader.getSymbolObjFromDb(data.get(0).getSymbol().getSymbolName());
 
+        long index = dbReader.getLatestIndex();
+
         Symbol persistentSymbol = session.get(Symbol.class,symbolList.get(0).getId());
         for (Data d : data) {
             d.setSymbol(persistentSymbol);

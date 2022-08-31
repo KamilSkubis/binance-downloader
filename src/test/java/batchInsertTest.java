@@ -6,15 +6,15 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
-import persistence.MySQLUtilWithParams;
+
+import persistence.MySQLUtilTesting;
+
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 
 public class batchInsertTest {
 
@@ -25,7 +25,7 @@ public class batchInsertTest {
     public void setUp() {
 
         UtilForTesting.createTables();
-        mysqlTesting = MySQLUtilWithParams.getSessionFactory();
+        mysqlTesting = MySQLUtilTesting.getSessionFactory();
 
         Symbol s = new Symbol();
         s.setSymbolName("abc");
@@ -46,39 +46,39 @@ public class batchInsertTest {
         }
     }
 
-    @Test
-    public void batchInsert100k_preparedStatements() {
-
-        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-
-
-        int batch = 50;
-
-
-        long start = System.currentTimeMillis() / 1000;
-
-        System.out.println();
-
-        for (int i = 0; i < datas.size(); i++) {
-            session.save(datas.get(i));
-
-            if (i % batch == 0) {
-                session.flush();
-                session.clear();
-            }
-        }
-
-
-        transaction.commit();
-
-        long end = System.currentTimeMillis() / 1000;
-        long duration = end - start;
-        System.out.println("Duration: " + duration + " s");
-        session.close();
-
-        assertTrue(duration < 120);
-    }
+//    @Test
+//    public void batchInsert100k_preparedStatements() {
+//
+//        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
+//        Transaction transaction = session.beginTransaction();
+//
+//
+//        int batch = 50;
+//
+//
+//        long start = System.currentTimeMillis() / 1000;
+//
+//        System.out.println();
+//
+//        for (int i = 0; i < datas.size(); i++) {
+//            session.save(datas.get(i));
+//
+//            if (i % batch == 0) {
+//                session.flush();
+//                session.clear();
+//            }
+//        }
+//
+//
+//        transaction.commit();
+//
+//        long end = System.currentTimeMillis() / 1000;
+//        long duration = end - start;
+//        System.out.println("Duration: " + duration + " s");
+//        session.close();
+//
+//        assertTrue(duration < 120);
+//    }
 
 //    @Test
 //    public void testWithoutBatch(){

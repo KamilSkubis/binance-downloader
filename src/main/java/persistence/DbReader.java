@@ -50,4 +50,13 @@ public class DbReader {
         }
         return result;
     }
+
+    public long getLatestIndex() {
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("from BinanceData order by id DESC");
+        query.setMaxResults(1);
+        BinanceData bar = (BinanceData) query.getSingleResult();
+
+        return  bar.getId();
+    }
 }

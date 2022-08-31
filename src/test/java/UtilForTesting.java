@@ -2,14 +2,17 @@ import model.BinanceData;
 import model.Symbol;
 import org.hibernate.Session;
 import org.jetbrains.annotations.NotNull;
-import persistence.MySQLUtilWithParams;
+import persistence.MySQLUtilTesting;
+
 
 import java.time.LocalDateTime;
 
 public class UtilForTesting {
 
+    private static long index;
+
     public static void createTables(){
-        Session session =(Session) MySQLUtilWithParams.getSessionFactory().openSession();
+        Session session =(Session) MySQLUtilTesting.getSessionFactory().openSession();
 
         session.beginTransaction();
 //        String binance = "create table binance_data(\n" +
@@ -50,7 +53,7 @@ public class UtilForTesting {
     }
 
     public static void dropTables(){
-        Session session = (Session) MySQLUtilWithParams.getSessionFactory().openSession();
+        Session session = (Session) MySQLUtilTesting.getSessionFactory().openSession();
         session.beginTransaction();
         session.createSQLQuery("DROP TABLE symbols").executeUpdate();
         session.createSQLQuery("DROP TABLE binance_data").executeUpdate();
@@ -60,9 +63,12 @@ public class UtilForTesting {
 
     @NotNull
     public static BinanceData createSampleData(Symbol symbol) {
+        index = 100l;
         String symbolName = symbol.getSymbolName();
         symbol.setSymbolName(symbolName);
         BinanceData binanceData = new BinanceData();
+        binanceData.setId(index);
+        index++;
         binanceData.setOpenTime(LocalDateTime.of(2000,1,1,5,25,2,20));
         binanceData.setVolume(230.2);
         binanceData.setSymbol(symbol);

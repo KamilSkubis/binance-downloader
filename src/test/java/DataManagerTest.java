@@ -6,7 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 import persistence.DBWriter;
 import persistence.DataManager;
-import persistence.MySQLUtilWithParams;
+import persistence.MySQLUtilTesting;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class DataManagerTest {
     @Before
     public void setUp() {
         UtilForTesting.createTables();
-        mysqlTesting = MySQLUtilWithParams.getSessionFactory();
+        mysqlTesting = MySQLUtilTesting.getSessionFactory();
     }
 
     @Test
@@ -26,7 +27,7 @@ public class DataManagerTest {
 
         List<String> symbolList = new ArrayList<>();
 
-        DataManager dataManager = new DataManager(MySQLUtilWithParams.getSessionFactory());
+        DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
         dataManager.saveOrUpdateSymbols(symbolList);
 
         List<Symbol> readResult = dataManager.getSymbolList();
@@ -42,7 +43,7 @@ public class DataManagerTest {
         List<String> symbolList = List.of("test", "test1");
         writeSymbolsToDb();
 
-        DataManager dataManager = new DataManager(MySQLUtilWithParams.getSessionFactory());
+        DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
         dataManager.saveOrUpdateSymbols(symbolList);
 
         List<Symbol> readResult = dataManager.getSymbolList();
@@ -57,7 +58,7 @@ public class DataManagerTest {
         List<String> symbolList = List.of("test", "test1", "test2");
         writeSymbolsToDb();
 
-        DataManager dataManager = new DataManager(MySQLUtilWithParams.getSessionFactory());
+        DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
         dataManager.saveOrUpdateSymbols(symbolList);
         List<Symbol> readResult = dataManager.getSymbolList();
 
@@ -73,7 +74,7 @@ public class DataManagerTest {
 
         writeSymbolsToDb();
 
-        DataManager dataManager = new DataManager(MySQLUtilWithParams.getSessionFactory());
+        DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
         List<Symbol> readResult = dataManager.getSymbolsToDownload(symbolList);
     }
 
@@ -85,10 +86,10 @@ public class DataManagerTest {
         Symbol symbol1 = new Symbol();
         symbol1.setSymbolName("test1");
 
-        DBWriter.writeSymbol(MySQLUtilWithParams.getSessionFactory(), symbol);
-        DBWriter.writeSymbol(MySQLUtilWithParams.getSessionFactory(), symbol1);
+        DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(), symbol);
+        DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(), symbol1);
 
-        DataManager dataManager = new DataManager(MySQLUtilWithParams.getSessionFactory());
+        DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
         Assert.assertEquals(2,dataManager.getSymbolList().size());
     }
 
