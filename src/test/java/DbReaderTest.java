@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import persistence.DBWriter;
 import persistence.DbReader;
-import persistence.MySQLUtilTesting;
+import persistence.MySQLUtilWithParams;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +19,7 @@ public class DbReaderTest {
     @Before
     public void setUp(){
         UtilForTesting.createTables();
-        mysqlTesting = MySQLUtilTesting.getSessionFactory();
+        mysqlTesting = MySQLUtilWithParams.getSessionFactory();
     }
 
     @Test

@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import persistence.DBWriter;
-import persistence.MySQLUtilTesting;
+import persistence.MySQLUtilWithParams;
 
 import java.util.List;
 
@@ -21,14 +21,14 @@ public class DbWriterTest {
 
     @Test
     public void binance_1d_shouldBeEmpty() {
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
         Query query = session.createQuery("from Binance1d");
         assertEquals(0, query.getResultList().size());
     }
 
     @Test
     public void symbol_shouldBeEmpty() {
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
         Query query = session.createQuery("from Symbol");
         assertEquals(0, query.getResultList().size());
 
@@ -39,9 +39,9 @@ public class DbWriterTest {
         Symbol symbol = new Symbol();
         symbol.setSymbolName("testSingleEntry");
         BinanceData binanceData = UtilForTesting.createSampleData(symbol);
-        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binanceData);
+        DBWriter.writeData(MySQLUtilWithParams.getSessionFactory(), binanceData);
 
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
         List<BinanceData> resultList = session
                 .createQuery("From Binance1d")
                 .getResultList();
@@ -59,10 +59,10 @@ public class DbWriterTest {
         BinanceData binance1d1 = UtilForTesting.createSampleData(symbol);
         BinanceData binanceData2 = UtilForTesting.createSampleData(symbol);
 
-        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d1);
-        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binanceData2);
+        DBWriter.writeData(MySQLUtilWithParams.getSessionFactory(), binance1d1);
+        DBWriter.writeData(MySQLUtilWithParams.getSessionFactory(), binanceData2);
 
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
         List<BinanceData> resultList = session
                 .createQuery("From Symbol")
                 .getResultList();
@@ -79,10 +79,10 @@ public class DbWriterTest {
         BinanceData binance1d1 = UtilForTesting.createSampleData(symbol);
         BinanceData binanceData2 = UtilForTesting.createSampleData(symbol);
 
-        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d1);
-        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binanceData2);
+        DBWriter.writeData(MySQLUtilWithParams.getSessionFactory(), binance1d1);
+        DBWriter.writeData(MySQLUtilWithParams.getSessionFactory(), binanceData2);
 
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
         List<BinanceData> resultList = session
                 .createQuery("From Symbol")
                 .getResultList();
@@ -102,10 +102,10 @@ public class DbWriterTest {
         BinanceData binance1d1 = UtilForTesting.createSampleData(symbol1);
         BinanceData binanceData2 = UtilForTesting.createSampleData(symbol2);
 
-        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d1);
-        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binanceData2);
+        DBWriter.writeData(MySQLUtilWithParams.getSessionFactory(), binance1d1);
+        DBWriter.writeData(MySQLUtilWithParams.getSessionFactory(), binanceData2);
 
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
         List<BinanceData> resultList = session
                 .createQuery("From Symbol")
                 .getResultList();
@@ -129,11 +129,11 @@ public class DbWriterTest {
         BinanceData binanceData2 = UtilForTesting.createSampleData(symbol3);
         BinanceData binanceData3 = UtilForTesting.createSampleData(symbol2);
 
-        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binance1d1);
-        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binanceData2);
-        DBWriter.writeData(MySQLUtilTesting.getSessionFactory(), binanceData3);
+        DBWriter.writeData(MySQLUtilWithParams.getSessionFactory(), binance1d1);
+        DBWriter.writeData(MySQLUtilWithParams.getSessionFactory(), binanceData2);
+        DBWriter.writeData(MySQLUtilWithParams.getSessionFactory(), binanceData3);
 
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
         List<BinanceData> resultList = session
                 .createQuery("From Symbol")
                 .getResultList();
@@ -153,11 +153,11 @@ public class DbWriterTest {
         symbol3.setSymbolName("testThreeEntry");
 
 
-        DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(),symbol1);
-        DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(),symbol2);
-        DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(),symbol3);
+        DBWriter.writeSymbol(MySQLUtilWithParams.getSessionFactory(),symbol1);
+        DBWriter.writeSymbol(MySQLUtilWithParams.getSessionFactory(),symbol2);
+        DBWriter.writeSymbol(MySQLUtilWithParams.getSessionFactory(),symbol3);
 
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
         List<BinanceData> resultList = session
                 .createQuery("From Symbol")
                 .getResultList();

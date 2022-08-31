@@ -39,7 +39,6 @@ public class BinanceRunner {
         List<String> filteredSymbolList = List.of("SOLUSDT");
         logger.info("downloaded tickers: " + filteredSymbolList.size());
 
-        //pobierz dane odnośnie symbolów z bazy danych i pobierz ostatni czas z bazy danych
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
 
@@ -58,8 +57,6 @@ public class BinanceRunner {
         for (LinkedHashMap<String, Object> map : params) {
             List<Data> data = binance.downloadKlines(map);
 
-//            data.forEach(d -> DBWriter.writeData(sessionFactory, d));
-
             int dataSize = data.size();
 
             while (dataSize == 1000) {
@@ -73,25 +70,9 @@ public class BinanceRunner {
 
                 data.addAll(downloadedData);
                 dataSize = downloadedData.size();
-
-//                Symbol symbol = new Symbol();
-//                symbol.setSymbolName(String.valueOf(map.get("symbol")));
-//
-//                final LocalDateTime lastDate = dbReader.readLastDate(symbol);
-//                final HashMap<String,LocalDateTime> updateDateHashMap = new HashMap<>();
-//                updateDateHashMap.put(symbol.getSymbolName(),lastDate);
-//
-//                final List<LinkedHashMap<String, Object>> moreParams = prepareParams(filteredSymbolList, updateDateHashMap);
-//
-//                for(LinkedHashMap<String,Object> moreMap : moreParams) {
-//                    final List<Data> moreData = binance.downloadKlines(moreMap); //inside hard coded binance1d
-//                    moreData.forEach(d -> DBWriter.writeData(sessionFactory, d));
-//                    dataSize = moreData.size();
-//                }
             }
 
             DBWriter.writeDatainBatch(sessionFactory,data);
-
         }
     }
 

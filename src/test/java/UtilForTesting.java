@@ -2,14 +2,14 @@ import model.BinanceData;
 import model.Symbol;
 import org.hibernate.Session;
 import org.jetbrains.annotations.NotNull;
-import persistence.MySQLUtilTesting;
+import persistence.MySQLUtilWithParams;
 
 import java.time.LocalDateTime;
 
 public class UtilForTesting {
 
     public static void createTables(){
-        Session session =(Session) MySQLUtilTesting.getSessionFactory().openSession();
+        Session session =(Session) MySQLUtilWithParams.getSessionFactory().openSession();
 
         session.beginTransaction();
 //        String binance = "create table binance_data(\n" +
@@ -50,7 +50,7 @@ public class UtilForTesting {
     }
 
     public static void dropTables(){
-        Session session = (Session) MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = (Session) MySQLUtilWithParams.getSessionFactory().openSession();
         session.beginTransaction();
         session.createSQLQuery("DROP TABLE symbols").executeUpdate();
         session.createSQLQuery("DROP TABLE binance_data").executeUpdate();

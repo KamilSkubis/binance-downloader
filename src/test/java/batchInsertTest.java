@@ -1,17 +1,13 @@
-import ch.qos.logback.core.db.BindDataSourceToJNDIAction;
 import model.BinanceData;
 import model.Data;
 import model.Symbol;
-import net.bytebuddy.asm.Advice;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import persistence.DBWriter;
-import persistence.DbReader;
-import persistence.MySQLUtilTesting;
+import persistence.MySQLUtilWithParams;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -29,8 +25,7 @@ public class batchInsertTest {
     public void setUp() {
 
         UtilForTesting.createTables();
-        mysqlTesting = MySQLUtilTesting.getSessionFactory();
-
+        mysqlTesting = MySQLUtilWithParams.getSessionFactory();
 
         Symbol s = new Symbol();
         s.setSymbolName("abc");
@@ -54,7 +49,7 @@ public class batchInsertTest {
     @Test
     public void batchInsert100k_preparedStatements() {
 
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilWithParams.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
 
