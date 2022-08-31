@@ -68,22 +68,24 @@ public class DataManagerTest {
         Assert.assertEquals(1, readResult.stream().filter(s -> s.getSymbolName().equals("test2")).count());
     }
 
-    @Test
-    public void returnCurrentListOfSymbolsToPersist_symbolListSmaller_returnSmallerList(){
-        List<String> symbolList = List.of("test");
-
-        writeSymbolsToDb();
-
-        DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
-        List<Symbol> readResult = dataManager.getSymbolsToDownload(symbolList);
-    }
+//    @Test
+//    public void returnCurrentListOfSymbolsToPersist_symbolListSmaller_returnSmallerList(){
+//        List<String> symbolList = List.of("test");
+//
+//        writeSymbolsToDb();
+//
+//        DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
+//        List<Symbol> readResult = dataManager.getSymbolsToDownload(symbolList);
+//    }
 
     private void writeSymbolsToDb() {
         List<Symbol> symbolList = new ArrayList<>();
         Symbol symbol = new Symbol();
+        symbol.setId(1l);
         symbol.setSymbolName("test");
 
         Symbol symbol1 = new Symbol();
+        symbol.setId(2l);
         symbol1.setSymbolName("test1");
 
         DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(), symbol);

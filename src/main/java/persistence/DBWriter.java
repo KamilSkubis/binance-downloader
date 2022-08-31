@@ -16,7 +16,7 @@ public class DBWriter {
     public static void writeSymbol(SessionFactory sessionFactory,Symbol symbol) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.saveOrUpdate(symbol);
+        session.save(symbol);
         transaction.commit();
         session.close();
     }
@@ -44,11 +44,14 @@ public class DBWriter {
         List<Symbol> symbolList = dbReader.getSymbolObjFromDb(data.get(0).getSymbol().getSymbolName());
 
         long index = dbReader.getLatestIndex();
-
+        index++;
         Symbol persistentSymbol = session.get(Symbol.class,symbolList.get(0).getId());
+
         for (Data d : data) {
             d.setSymbol(persistentSymbol);
+            d.setId(index);
             session.save(d);
+            index++;
         }
 
         transaction.commit();

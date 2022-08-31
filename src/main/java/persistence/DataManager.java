@@ -1,7 +1,10 @@
 package persistence;
 
+import model.Data;
 import model.Symbol;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +12,11 @@ import java.util.List;
 public class DataManager {
 
     private final SessionFactory sessionFactory;
+    private final Logger logger;
 
     public DataManager(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+        logger = LoggerFactory.getLogger(DataManager.class);
     }
 
     public List<Symbol> saveOrUpdateSymbols(List<String> symbolList){
@@ -24,12 +29,12 @@ public class DataManager {
             onlySymbolNames.add(s.getSymbolName());
         }
 
-        List<String> diffrences = new ArrayList<>(symbolList);
-        diffrences.removeAll(onlySymbolNames);
+        List<String> differences = new ArrayList<>(symbolList);
+        differences.removeAll(onlySymbolNames);
 
-        if(diffrences.size() > 0){
-            System.out.println("Found diffrencess " + diffrences);
-            for(String s : diffrences){
+        if(differences.size() > 0){
+            logger.info("Found differences in Symbols table: " + differences);
+            for(String s : differences){
                 Symbol symbol = new Symbol();
                 symbol.setSymbolName(s);
                 DBWriter.writeSymbol(sessionFactory,symbol);

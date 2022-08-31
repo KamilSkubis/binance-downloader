@@ -2,7 +2,12 @@ package persistence;
 
 import config.ConfigReader;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.BootstrapServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.spi.ServiceBinding;
+
+import java.util.Properties;
 
 public class MySQLUtil {
     private static final SessionFactory sessionFactory = buildSessionFactory();
@@ -19,12 +24,13 @@ public class MySQLUtil {
                 String login = configReader.getLogin();
                 String password = configReader.getPassword();
 
-                return new Configuration()
-                        .configure()
-                        .setProperty("connection.url",url)
-                        .setProperty("connection.username",login)
-                        .setProperty("connection.password",password)
-                        .buildSessionFactory();
+                Configuration configuration = new Configuration();
+                configuration.configure();
+                configuration.setProperty("connection.url",url);
+                configuration.setProperty("connection.username",login);
+                configuration.setProperty("connection.password",password);
+
+                return configuration.buildSessionFactory();
             }else {
                 // Create the SessionFactory from hibernate.cfg.xml
                 return new Configuration().configure().buildSessionFactory();
@@ -34,9 +40,6 @@ public class MySQLUtil {
             throw new ExceptionInInitializerError(ex);
         }
     }
-
-
-
 
     public  void shutdown() {
         // Close caches and connection pools
