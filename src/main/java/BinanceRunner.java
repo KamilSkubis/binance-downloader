@@ -23,13 +23,12 @@ import java.util.stream.Collectors;
 public class BinanceRunner {
 
     final private BinanceDownloader binance;
-    final private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
     private final Logger logger;
 
     public BinanceRunner() {
         binance = configureDownloader();
-        MySQLUtil mySQLUtil = new MySQLUtil();
-        sessionFactory = mySQLUtil.getSessionFactory();
+        sessionFactory = MySQLUtil.getSessionFactory();
         logger = LoggerFactory.getLogger(BinanceRunner.class);
     }
 
@@ -94,7 +93,6 @@ public class BinanceRunner {
                 long convertedTime = instant.toEpochMilli();
                 params.put("startTime", convertedTime);
 
-                preparedParamList.add(params);
             } else {
                 System.out.println("symbol " + symbol + " , found in database");
 
@@ -106,8 +104,8 @@ public class BinanceRunner {
                 long convertedTime = inst.toEpochMilli();
 
                 params.put("startTime", convertedTime);
-                preparedParamList.add(params);
             }
+            preparedParamList.add(params);
         }
         return preparedParamList;
     }

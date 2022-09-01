@@ -12,7 +12,7 @@ public class UtilForTesting {
     private static long index;
 
     public static void createTables(){
-        Session session =(Session) MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilTesting.getSessionFactory().openSession();
 
         session.beginTransaction();
 //        String binance = "create table binance_data(\n" +
@@ -27,24 +27,28 @@ public class UtilForTesting {
 //                "        key(id)\n" +
 //                "        );";
 
-        String binance = "create table binance_data(\n" +
-                "        id bigint ,\n" +
-                "        symbol_id int,\n" +
-                "        open_time datetime(6),\n" +
-                "        open double,\n" +
-                "        high double,\n" +
-                "        low double,\n" +
-                "        close double,\n" +
-                "        volume double,\n" +
-                "        key(id)\n" +
-                "        );";
+        String binance = """
+                create table binance_data(
+                        id bigint ,
+                        symbol_id int,
+                        open_time datetime(6),
+                        open double,
+                        high double,
+                        low double,
+                        close double,
+                        volume double,
+                        key(id)
+                        );""";
 
 
-        String symbol = "create table symbols(\n" +
-                "id bigint AUTO_INCREMENT,\n" +
-                "symbol char(15),\n" +
-                "key(id)\n" +
-                ");";
+        String symbol = """
+                create table symbols(
+                id bigint AUTO_INCREMENT,
+                symbol char(15),
+                key(id)
+                );""";
+
+
 
         session.createSQLQuery(symbol).executeUpdate();
         session.createSQLQuery(binance).executeUpdate();
@@ -53,7 +57,7 @@ public class UtilForTesting {
     }
 
     public static void dropTables(){
-        Session session = (Session) MySQLUtilTesting.getSessionFactory().openSession();
+        Session session = MySQLUtilTesting.getSessionFactory().openSession();
         session.beginTransaction();
         session.createSQLQuery("DROP TABLE symbols").executeUpdate();
         session.createSQLQuery("DROP TABLE binance_data").executeUpdate();
@@ -63,7 +67,7 @@ public class UtilForTesting {
 
     @NotNull
     public static BinanceData createSampleData(Symbol symbol) {
-        index = 100l;
+        index = 100L;
         String symbolName = symbol.getSymbolName();
         symbol.setSymbolName(symbolName);
         BinanceData binanceData = new BinanceData();

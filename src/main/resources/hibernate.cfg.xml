@@ -6,11 +6,21 @@
     <session-factory>
         <property name="show_sql">false</property>
         <property name="format_sql">true</property>
+
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<!--        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>-->
         <property name="connection.url">jdbc:mysql://localhost:3306/testing-binance-downloader</property>
+
         <property name="connection.username">root</property>
         <property name="connection.password">password</property>
+
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.acquire_increment">5</property>
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <property name="hibernate.c3p0.privilegeSpawnedThreads">true</property>
+        <property name="hibernate.c3p0.contextClassLoaderSource">library</property>
+
         <mapping class="model.BinanceData"/>
         <mapping class="model.Symbol"/>
     </session-factory>

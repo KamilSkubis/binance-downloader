@@ -26,7 +26,7 @@ public class DbReader {
     }
 
     public List<Symbol> getSymbolObjListFromDb() {
-        List<Symbol> returnedObjects = new ArrayList<>();
+        List<Symbol> returnedObjects;
         Session session = sessionFactory.openSession();
         returnedObjects = session.createQuery("from Symbol").getResultList();
         session.close();
