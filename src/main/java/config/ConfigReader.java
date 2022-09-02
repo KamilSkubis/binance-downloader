@@ -26,7 +26,6 @@ public class ConfigReader {
             System.out.println(properties.isEmpty());
             System.out.println("size properties: " + properties.size());
 
-
             logger.info("loaded new settings" + properties.toString());
             logger.info("url  " + properties.get("url"));
             logger.info("password " + properties.get("password"));

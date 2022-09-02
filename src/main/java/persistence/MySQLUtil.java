@@ -14,10 +14,9 @@ import java.util.Properties;
 
 public class MySQLUtil {
     private static SessionFactory sessionFactory;
-    private static Logger logger = null;
+    private static Logger logger;
 
     private MySQLUtil(){};
-
 
     public static SessionFactory getSessionFactory() {
 
@@ -26,7 +25,7 @@ public class MySQLUtil {
         }
 
         if(sessionFactory == null){
-            buildSessionFactory();
+             buildSessionFactory();
         }
         return sessionFactory;
     }
@@ -55,10 +54,12 @@ public class MySQLUtil {
                 ServiceRegistry serviceRegistry;
                 serviceRegistry = new StandardServiceRegistryBuilder().applySettings(properties).build();
 
-                return configuration.buildSessionFactory(serviceRegistry);
+                sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+                return sessionFactory;
             }else {
                 // Create the SessionFactory from hibernate.cfg.xml
-                return new Configuration().configure().buildSessionFactory();
+                sessionFactory = new Configuration().configure().buildSessionFactory();
+                return sessionFactory;
             }
         } catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);

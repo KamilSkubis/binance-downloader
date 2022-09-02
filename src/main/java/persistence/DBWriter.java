@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 
@@ -41,11 +42,21 @@ public class DBWriter {
         Transaction transaction = session.beginTransaction();
 
         DbReader dbReader = new DbReader(sessionFactory);
-        List<Symbol> symbolList = dbReader.getSymbolObjFromDb(data.get(0).getSymbol().getSymbolName());
 
-        long index = dbReader.getLatestIndex();
+
+        long index = 0;
+        try{
+        index = dbReader.getLatestIndex();
         index++;
-        Symbol persistentSymbol = session.get(Symbol.class,symbolList.get(0).getId());
+        }catch (NoResultException e){
+            index =0;
+        }
+
+        Symbol persistentSymbol = data.get(0).getSymbol();
+        List<Symbol> symbolList = dbReader.getSymbolObjFromDb(data.get(0).getSymbol().getSymbolName());
+        if(symbolList.size() != 0) {
+            persistentSymbol = session.get(Symbol.class, symbolList.get(0).getId());
+        }
 
         for (Data d : data) {
             d.setSymbol(persistentSymbol);
