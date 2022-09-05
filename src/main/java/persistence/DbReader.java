@@ -45,6 +45,7 @@ public class DbReader {
         if(query.getResultList().size() != 0) {
              BinanceData bar = (BinanceData) query.getResultList().get(query.getResultList().size() - 1);
              result = bar.getOpenTime();
+
         }else{
             result = LocalDateTime.of(2010,1,1,0,0,0,0);
         }

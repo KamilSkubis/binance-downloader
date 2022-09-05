@@ -63,6 +63,8 @@ public class DBWriter {
             persistentSymbol = session.get(Symbol.class, symbolList.get(0).getId());
         }
 
+        Long startTime = System.currentTimeMillis();
+
         for (Data d : data) {
             d.setSymbol(persistentSymbol);
             d.setId(index);
@@ -78,6 +80,8 @@ public class DBWriter {
         transaction.commit();
         session.close();
 
-        logger.info("Saved to database: " + data.size() + " records for: " + data.get(0).getSymbol().getSymbolName() + " ticker");
+        Long endTime = System.currentTimeMillis();
+        Long duration = (endTime - startTime) /1000;
+        logger.info("Saved to database: " + data.size() + " records for: " + data.get(0).getSymbol().getSymbolName() + " ticker, this operation took: " + duration);
     }
 }
