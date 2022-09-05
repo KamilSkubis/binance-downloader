@@ -53,8 +53,8 @@ public class DBWriter {
         logger.info("incrementing index value by 1:  " + index);
         }catch (NoResultException e){
             logger.info("found no tickier on this name: " + data.get(0).getSymbol().getSymbolName()
-            + " setting index to 0");
-            index =0;
+            + " setting index to 1");
+            index =1;
         }
 
         Symbol persistentSymbol = data.get(0).getSymbol();
