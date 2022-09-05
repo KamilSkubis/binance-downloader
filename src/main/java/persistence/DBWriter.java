@@ -38,17 +38,22 @@ public class DBWriter {
     }
 
     public static void writeDatainBatch(SessionFactory sessionFactory, List<Data> data) {
+        Logger logger = LoggerFactory.getLogger(DBWriter.class);
+
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
         DbReader dbReader = new DbReader(sessionFactory);
-
-
-        long index = 0;
+        logger.info("reading last index value for ticker: " + data.get(0).getSymbol().getSymbolName());
+        long index;
         try{
         index = dbReader.getLatestIndex();
+        logger.info("last index value: " + index);
         index++;
+        logger.info("incrementing index value by 1:  " + index);
         }catch (NoResultException e){
+            logger.info("found no tickier on this name: " + data.get(0).getSymbol().getSymbolName()
+            + " setting index to 0");
             index =0;
         }
 
@@ -73,7 +78,6 @@ public class DBWriter {
         transaction.commit();
         session.close();
 
-        Logger logger = LoggerFactory.getLogger(DBWriter.class);
         logger.info("Saved to database: " + data.size() + " records for: " + data.get(0).getSymbol().getSymbolName() + " ticker");
     }
 }
