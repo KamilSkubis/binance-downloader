@@ -13,8 +13,6 @@ public class ConfigReader {
     Properties properties;
     Logger logger;
 
-
-
     public ConfigReader(){
         logger = LoggerFactory.getLogger(ConfigReader.class);
         properties = new Properties();
@@ -56,4 +54,13 @@ public class ConfigReader {
     public String getPassword() {
         return properties.getProperty("password");
     }
+
+    public String getTimeFrame(){
+        return properties.getProperty("timeframe");
+    }
+
+    public String getKlineLimit(){
+        return properties.getProperty("kline_limit");
+    }
+
 }

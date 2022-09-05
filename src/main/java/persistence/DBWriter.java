@@ -62,6 +62,11 @@ public class DBWriter {
             d.setSymbol(persistentSymbol);
             d.setId(index);
             session.save(d);
+
+            if(index % 50 == 0){
+                session.flush();
+                session.clear();
+            }
             index++;
         }
 

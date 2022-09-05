@@ -27,26 +27,10 @@ public class UtilForTesting {
 //                "        key(id)\n" +
 //                "        );";
 
-        String binance = """
-                create table binance_data(
-                        id bigint ,
-                        symbol_id int,
-                        open_time datetime(6),
-                        open double,
-                        high double,
-                        low double,
-                        close double,
-                        volume double,
-                        key(id)
-                        );""";
+        String binance = "create table binance_data(id bigint ,symbol_id int,open_time datetime(6),open double,high double,low double,close double,volume double,key(id));";
 
 
-        String symbol = """
-                create table symbols(
-                id bigint AUTO_INCREMENT,
-                symbol char(15),
-                key(id)
-                );""";
+        String symbol = "create table symbols(id bigint AUTO_INCREMENT,symbol char(15),key(id));";
 
 
 

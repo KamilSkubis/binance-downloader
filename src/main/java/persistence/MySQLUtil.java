@@ -43,10 +43,12 @@ public class MySQLUtil {
                 configuration.configure();
 
                 Properties properties = new Properties();
-                properties.put("connection.url",url);
-                properties.put("connection.username",login);
-                properties.put("connection.password",password);
+                properties.put("hibernate.connection.url",url);
+                properties.put("hibernate.connection.username",login);
+                properties.put("hibernate.connection.password",password);
                 configuration.addProperties(properties);
+                configuration.addAnnotatedClass(model.Symbol.class);
+                configuration.addAnnotatedClass(model.BinanceData.class);
 
                 logger.info("Found user settings file:");
                 logger.info("Modified configuration object to: " + configuration.getProperties().toString());

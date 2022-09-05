@@ -1,5 +1,6 @@
 import com.binance.connector.client.impl.SpotClientImpl;
 import com.binance.connector.client.impl.spot.Market;
+import config.ConfigReader;
 import downloads.BinanceDownloader;
 import model.Data;
 import model.Symbol;
@@ -25,17 +26,24 @@ public class BinanceRunner {
     final private BinanceDownloader binance;
     private final SessionFactory sessionFactory;
     private final Logger logger;
+    private final String timeframe;
+    private final String kline_limit;
+
 
     public BinanceRunner() {
         binance = configureDownloader();
         sessionFactory = MySQLUtil.getSessionFactory();
         logger = LoggerFactory.getLogger(BinanceRunner.class);
+
+        ConfigReader configReader = new ConfigReader();
+        timeframe = configReader.getTimeFrame();
+        kline_limit = configReader.getKlineLimit();
+
     }
 
     public void run() {
 
-//        List<String> filteredSymbolList = getListOfSymbolsUSDT(binance, "USDT");
-        List<String> filteredSymbolList = List.of("SOLUSDT");
+        List<String> filteredSymbolList = getListOfSymbolsUSDT(binance, "USDT");
         logger.info("downloaded tickers: " + filteredSymbolList.size());
 
         DbReader dbReader = new DbReader(sessionFactory);
@@ -82,8 +90,8 @@ public class BinanceRunner {
 
             LinkedHashMap<String, Object> params = new LinkedHashMap<>();
             params.put("symbol", symbol);
-            params.put("interval", "1m"); //  for daily timeframe use 1d
-            params.put("limit", 1000);    //default 500 max 1000
+            params.put("interval", timeframe); //  for daily timeframe use 1d
+            params.put("limit", Integer.valueOf(kline_limit));    //default 500 max 1000
 
             System.out.println("check if " + symbol + " is in database " + symbolTimeFromDb.containsKey(symbol));
 
