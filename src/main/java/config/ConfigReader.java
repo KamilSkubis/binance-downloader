@@ -26,8 +26,8 @@ public class ConfigReader {
 
             logger.info("loaded new settings" + properties.toString());
             logger.info("url  " + properties.get("url"));
-            logger.info("password " + properties.get("password"));
-            logger.info("login: " + properties.get("login"));
+            logger.info("password: ***********");
+            logger.info("login: *********** ");
         } catch (IOException e) {
             properties = null;
         } catch (URISyntaxException e) {
@@ -36,11 +36,7 @@ public class ConfigReader {
     }
 
     public boolean userSettingsExists() {
-        if(properties != null){
-            return true;
-        }else{
-            return false;
-        }
+        return properties != null;
     }
 
     public String getUrl() {
