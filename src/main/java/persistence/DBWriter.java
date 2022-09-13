@@ -38,6 +38,8 @@ public class DBWriter {
     }
 
     public static void writeDatainBatch(SessionFactory sessionFactory, List<Data> data) {
+
+
         Logger logger = LoggerFactory.getLogger(DBWriter.class);
 
         Session session = sessionFactory.openSession();

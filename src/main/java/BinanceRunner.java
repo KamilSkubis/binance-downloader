@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 public class BinanceRunner {
@@ -62,24 +64,25 @@ public class BinanceRunner {
         final List<LinkedHashMap<String, Object>> params = prepareParams(filteredSymbolList, symbolTimeFromDb);
 
         for (LinkedHashMap<String, Object> map : params) {
-            List<Data> data = binance.downloadKlines(map);
 
-            int dataSize = data.size();
+                List<Data> data =binance.downloadKlines(map);
 
-            while (dataSize == 1000) {
+                int dataSize = data.size();
 
-                LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
-                Instant instant = nextDate.toInstant(ZoneOffset.UTC);
-                Long date = instant.toEpochMilli();
+                while (dataSize == 1000) {
 
-                map.replace("startTime", date);
-                List<Data> downloadedData = binance.downloadKlines(map);
+                    LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
+                    Instant instant = nextDate.toInstant(ZoneOffset.UTC);
+                    Long date = instant.toEpochMilli();
 
-                data.addAll(downloadedData);
-                dataSize = downloadedData.size();
-            }
+                    map.replace("startTime", date);
+                    List<Data> downloadedData = binance.downloadKlines(map);
 
-            DBWriter.writeDatainBatch(sessionFactory,data);
+                    data.addAll(downloadedData);
+                    dataSize = downloadedData.size();
+                }
+
+                DBWriter.writeDatainBatch(sessionFactory, data);
         }
     }
 
@@ -104,8 +107,8 @@ public class BinanceRunner {
             } else {
                 System.out.println("symbol " + symbol + " , found in database");
 
-                LocalDateTime dateInDb = symbolTimeFromDb.get(symbol);
-                LocalDateTime newStartDate = dateInDb.plusMinutes(1); // TODO change this when downloading daily, or refactor
+                final LocalDateTime dateInDb = symbolTimeFromDb.get(symbol);
+                final LocalDateTime newStartDate = dateInDb.plusSeconds(1); // TODO change this when downloading daily, or refactor
 
                 System.out.println("found latest date: " + dateInDb + " new calculated date: " + newStartDate);
                 Instant inst = newStartDate.toInstant(ZoneOffset.UTC);
