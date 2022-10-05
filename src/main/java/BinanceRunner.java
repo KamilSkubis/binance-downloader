@@ -36,12 +36,12 @@ public class BinanceRunner {
         logger = LoggerFactory.getLogger(BinanceRunner.class);
 
         ConfigReader configReader = new ConfigReader();
-//        timeframe = configReader.getTimeFrame();
-//        kline_limit = configReader.getKlineLimit();
+        timeframe = configReader.getTimeFrame();
+        kline_limit = configReader.getKlineLimit();
 
         //this is for testing only;
-        timeframe = "1m";
-        kline_limit= "50";
+//        timeframe = "1m";
+//        kline_limit= "50";
 
     }
 

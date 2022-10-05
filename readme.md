@@ -37,11 +37,15 @@ create table symbols(
         );
 ```
 
-This is all for setting up database. Now download compiled jars from build *page*. 
+This is all for setting up database. Now download compiled jars from build *page*.
+In settings file you have to fill several options:
+- Timeframe and kline_limit which is amount of bars you want to download.
+- Database settings:
+  - url to database : fill `[your schema name] ` which schema that you created in previours step.
+  - login and password to database.
+  
+# How to start this app
 
-# How you can use this application
-By default, this app is using following settings to connect to MySQL database 
- 
 
 
 
