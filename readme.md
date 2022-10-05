@@ -2,7 +2,7 @@
 In development. Working on Readme
 
 # Project goal
-Console application to download data from Binance. 
+Console application to download data from Binance and save it in database. 
 
 # Installation
 

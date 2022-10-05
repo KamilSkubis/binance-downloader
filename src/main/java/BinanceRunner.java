@@ -36,17 +36,17 @@ public class BinanceRunner {
         logger = LoggerFactory.getLogger(BinanceRunner.class);
 
         ConfigReader configReader = new ConfigReader();
-        timeframe = configReader.getTimeFrame();
-        kline_limit = configReader.getKlineLimit();
+//        timeframe = configReader.getTimeFrame();
+//        kline_limit = configReader.getKlineLimit();
 
         //this is for testing only;
-//        timeframe = "1d";
-//        kline_limit= "50";
+        timeframe = "1m";
+        kline_limit= "50";
 
     }
 
     public void run() {
-
+        Long startTime = System.currentTimeMillis();
         List<String> filteredSymbolList = getListOfSymbolsUSDT(binance, "USDT");
         logger.info("downloaded tickers: " + filteredSymbolList.size());
 
@@ -90,6 +90,10 @@ public class BinanceRunner {
             thread.setName("database_writer_" + data.get(0).getSymbol().getSymbolName());
             thread.start();
         }
+
+        Long endTime = System.currentTimeMillis();
+        Long duration = endTime - startTime;
+        logger.info("Program took " + duration + "ms or " + duration/1000 + "s");
     }
 
 
