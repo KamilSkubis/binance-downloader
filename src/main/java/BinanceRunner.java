@@ -8,7 +8,7 @@ import org.hibernate.SessionFactory;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import persistence.DBWriter;
+import persistence.BatchWriterMultiThreaded;
 import persistence.DbReader;
 import persistence.MySQLUtil;
 
@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 public class BinanceRunner {
@@ -41,6 +39,10 @@ public class BinanceRunner {
         timeframe = configReader.getTimeFrame();
         kline_limit = configReader.getKlineLimit();
 
+        //this is for testing only;
+//        timeframe = "1d";
+//        kline_limit= "50";
+
     }
 
     public void run() {
@@ -50,7 +52,6 @@ public class BinanceRunner {
 
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
-
         HashMap<String, LocalDateTime> symbolTimeFromDb = new HashMap<>();
 
         for (Symbol symbol : symbolObj) {
@@ -65,24 +66,29 @@ public class BinanceRunner {
 
         for (LinkedHashMap<String, Object> map : params) {
 
-                List<Data> data =binance.downloadKlines(map);
+            List<Data> data = binance.downloadKlines(map);
 
-                int dataSize = data.size();
+            int dataSize = data.size();
 
-                while (dataSize == 1000) {
+            while (dataSize == 1000) {
 
-                    LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
-                    Instant instant = nextDate.toInstant(ZoneOffset.UTC);
-                    Long date = instant.toEpochMilli();
+                LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
+                Instant instant = nextDate.toInstant(ZoneOffset.UTC);
+                Long date = instant.toEpochMilli();
 
-                    map.replace("startTime", date);
-                    List<Data> downloadedData = binance.downloadKlines(map);
+                map.replace("startTime", date);
+                List<Data> downloadedData = binance.downloadKlines(map);
 
-                    data.addAll(downloadedData);
-                    dataSize = downloadedData.size();
-                }
+                data.addAll(downloadedData);
+                dataSize = downloadedData.size();
+            }
 
-                DBWriter.writeDatainBatch(sessionFactory, data);
+
+//                DBWriter.writeDatainBatch(sessionFactory, data);
+            BatchWriterMultiThreaded batchWriterMultiThreaded = new BatchWriterMultiThreaded(sessionFactory, data);
+            Thread thread = new Thread(batchWriterMultiThreaded);
+            thread.setName("database_writer_" + data.get(0).getSymbol().getSymbolName());
+            thread.start();
         }
     }
 

@@ -39,7 +39,6 @@ public class DBWriter {
 
     public static void writeDatainBatch(SessionFactory sessionFactory, List<Data> data) {
 
-
         Logger logger = LoggerFactory.getLogger(DBWriter.class);
 
         Session session = sessionFactory.openSession();
@@ -86,4 +85,5 @@ public class DBWriter {
         Long duration = (endTime - startTime) /1000;
         logger.info("Saved to database: " + data.size() + " records for: " + data.get(0).getSymbol().getSymbolName() + " ticker, this operation took: " + duration);
     }
+
 }
