@@ -1,5 +1,5 @@
 # Status
-In development. Working on Readme
+Working.
 
 # Project goal
 Console application to download data from Binance and save it in database. 
