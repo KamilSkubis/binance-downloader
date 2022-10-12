@@ -4,10 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
@@ -30,10 +28,28 @@ public class ConfigTest {
         ConfigReader reader = new ConfigReader();
 
         ConfigLocation configLocation = mock(ConfigLocation.class);
-        when(configLocation.getConfig()).thenThrow(RuntimeException.class);
+        when(configLocation.getConfigInputStream()).thenThrow(RuntimeException.class);
         assertThrows(RuntimeException.class, () -> {
             reader.read(configLocation);
         });
+    }
+
+
+    @Test
+    public void shouldReturn_ValidConfig(){
+        ConfigLocation configLocation = mock(ConfigLocation.class);
+        String s = "timeframe=1d\\n"
+                + "kline_limit=1000\\n"
+                + "startDateTime=2010-01-01:00:00:00Z\\n"
+                +"url=jdbc:mysql://localhost:3306/test\\n"
+                +"login=root\\n"
+                +"password=password";
+
+        when(configLocation.getConfigInputStream()).thenReturn(new ByteArrayInputStream(s.getBytes()));
+
+        ConfigReader configReader = new ConfigReader();
+        assertEquals("1d", configReader.read(configLocation).getTimeFrame());
+
     }
 
 }

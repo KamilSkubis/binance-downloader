@@ -1,6 +1,9 @@
 package config;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 
 class ConfigLocation {
@@ -23,8 +26,14 @@ class ConfigLocation {
         this.file = file;
     }
 
-    public File getConfig() {
-        return file;
+    public InputStream getConfigInputStream() {
+        InputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    return inputStream;
     }
 }
 
