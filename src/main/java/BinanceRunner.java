@@ -1,6 +1,6 @@
 import com.binance.connector.client.impl.SpotClientImpl;
 import com.binance.connector.client.impl.spot.Market;
-import config.ConfigReader;
+import config.Config;
 import downloads.BinanceDownloader;
 import model.Data;
 import model.Symbol;
@@ -27,7 +27,7 @@ public class BinanceRunner {
     private final SessionFactory sessionFactory;
     private final Logger logger;
     private final String timeframe;
-    private final String kline_limit;
+    private final Integer kline_limit;
 
 
     public BinanceRunner() {
@@ -35,7 +35,7 @@ public class BinanceRunner {
         sessionFactory = MySQLUtil.getSessionFactory();
         logger = LoggerFactory.getLogger(BinanceRunner.class);
 
-        ConfigReader configReader = new ConfigReader();
+        Config configReader = new Config.ConfigBuilder().build();
         timeframe = configReader.getTimeFrame();
         kline_limit = configReader.getKlineLimit();
 

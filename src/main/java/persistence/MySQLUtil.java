@@ -1,12 +1,10 @@
 package persistence;
 
-import config.ConfigReader;
+import config.Config;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.BootstrapServiceRegistryBuilder;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.spi.ServiceBinding;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,12 +30,12 @@ public class MySQLUtil {
 
     private static SessionFactory buildSessionFactory() {
         try {
-            ConfigReader configReader = new ConfigReader();
-            if(configReader.userSettingsExists()){
+            Config config = new Config.ConfigBuilder().build();
+            if(config.userSettingsExists()){
 
-                String url = configReader.getUrl();
-                String login = configReader.getLogin();
-                String password = configReader.getPassword();
+                String url = config.getUrl();
+                String login = config.getLogin();
+                String password = config.getPassword();
 
                 Configuration configuration = new Configuration();
                 configuration.configure();
