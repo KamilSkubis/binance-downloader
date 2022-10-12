@@ -2,13 +2,14 @@ package config;
 
 import org.slf4j.Logger;
 
+import java.time.Instant;
 import java.util.Properties;
 
 public final class Config {
     private final String password;
     private final String timeframe;
-    private final Integer klineLimit;
-    private final String startDateTime;
+    private final int klineLimit;
+    private final Instant startDateTime;
     private final String url;
     private final String login;
     Properties properties;
@@ -69,7 +70,7 @@ public final class Config {
         return klineLimit;
     }
 
-    public String getStartDateTime() {
+    public Instant getStartDateTime() {
         return startDateTime;
     }
 
@@ -80,7 +81,7 @@ public final class Config {
         private String password;
         private String timeframe;
         private Integer klineLimit;
-        private String startDateTime;
+        private Instant startDateTime;
 
         public ConfigBuilder setLogin(String login) {
             this.login = login;
@@ -108,7 +109,7 @@ public final class Config {
         }
 
         public ConfigBuilder setStartDateTime(String startDateTime) {
-            this.startDateTime = startDateTime;
+            this.startDateTime = Instant.parse(startDateTime);
             return this;
         }
 
@@ -122,7 +123,7 @@ public final class Config {
             }
 
             if(startDateTime == null){
-                startDateTime = "2010-01-01";
+                startDateTime = Instant.parse("2010-01-01T00:00:00Z");
             }
             return new Config(this);
         }

@@ -1,65 +1,58 @@
 package config;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ConfigBuilder {
 
     @Test
     public void shouldThrowException_whenNullUrl() {
-        IllegalArgumentException exc = assertThrows(IllegalArgumentException.class, () -> {
-            new Config.ConfigBuilder()
-                    .setLogin("login")
-                    .setPassword("pass")
-                    .setKlineLimit("321")
-                    .setStartDateTime("2000")
-                    .setTimeFrame("4h")
-                    .build();
-        });
+        assertThrows(IllegalArgumentException.class, () -> new Config.ConfigBuilder()
+                .setLogin("login")
+                .setPassword("pass")
+                .setKlineLimit("321")
+                .setStartDateTime("2000-01-01T00:00:00.00Z")
+                .setTimeFrame("4h")
+                .build());
     }
 
     @Test
     public void shouldThrowException_whenNullLogin() {
-        IllegalArgumentException exc = assertThrows(IllegalArgumentException.class, () -> {
-            new Config.ConfigBuilder()
-                    .setUrl("test")
-                    .setPassword("pass")
-                    .setKlineLimit("321")
-                    .setStartDateTime("2000")
-                    .setTimeFrame("4h")
-                    .build();
-        });
+        assertThrows(IllegalArgumentException.class, () -> new Config.ConfigBuilder()
+                .setUrl("test")
+                .setPassword("pass")
+                .setKlineLimit("321")
+                .setStartDateTime("2000-01-01T00:00:00.00Z")
+                .setTimeFrame("4h")
+                .build());
     }
 
     @Test
     public void shouldThrowException_whenNullPassword() {
-        IllegalArgumentException exc = assertThrows(IllegalArgumentException.class, () -> {
-            new Config.ConfigBuilder()
-                    .setUrl("test")
-                    .setLogin("login")
-                    .setKlineLimit("321")
-                    .setStartDateTime("2000")
-                    .setTimeFrame("4h")
-                    .build();
-        });
+        assertThrows(IllegalArgumentException.class, () -> new Config.ConfigBuilder()
+                .setUrl("test")
+                .setLogin("login")
+                .setKlineLimit("321")
+                .setStartDateTime("2000-01-01T00:00:00.00Z")
+                .setTimeFrame("4h")
+                .build());
     }
 
     @Test
     public void shouldThrowException_whenNullTimeFrame() {
-        IllegalArgumentException exc = assertThrows(IllegalArgumentException.class, () -> {
-            new Config.ConfigBuilder()
-                    .setUrl("test")
-                    .setLogin("login")
-                    .setPassword("pass")
-                    .setKlineLimit("321")
-                    .setStartDateTime("2000")
-                    .build();
-        });
+        assertThrows(IllegalArgumentException.class, () -> new Config.ConfigBuilder()
+                .setUrl("test")
+                .setLogin("login")
+                .setPassword("pass")
+                .setKlineLimit("321")
+                .setStartDateTime("2000-01-01T00:00:00.00Z")
+                .build());
     }
 
     @Test
@@ -69,9 +62,9 @@ class ConfigBuilder {
                 .setLogin("login")
                 .setPassword("pass")
                 .setTimeFrame("time")
-                .setStartDateTime("2000")
+                .setStartDateTime("2000-01-01T00:00:00.00Z")
                 .build();
-        assertEquals("500",config.getKlineLimit());
+        Assertions.assertEquals(500, config.getKlineLimit());
     }
 
     @Test
@@ -81,10 +74,10 @@ class ConfigBuilder {
                 .setLogin("login")
                 .setPassword("pass")
                 .setTimeFrame("time")
-                .setStartDateTime("2000")
+                .setStartDateTime("2000-01-01T00:00:00.00Z")
                 .setKlineLimit("234")
                 .build();
-        assertEquals(Optional.of(234),config.getKlineLimit());
+        Assertions.assertEquals(Optional.of(234).get(), config.getKlineLimit());
     }
 
     @Test
@@ -95,7 +88,7 @@ class ConfigBuilder {
                 .setPassword("pass")
                 .setTimeFrame("time")
                 .build();
-        assertEquals("2010-01-01",config.getStartDateTime());
+        Assertions.assertEquals(Instant.parse("2010-01-01T00:00:00.00Z"), config.getStartDateTime());
     }
 
     @Test
@@ -105,18 +98,25 @@ class ConfigBuilder {
                 .setLogin("login")
                 .setPassword("pass")
                 .setTimeFrame("time")
-                .setStartDateTime("2000")
                 .setKlineLimit("234")
-                .setStartDateTime("2020-01-01")
+                .setStartDateTime("2000-01-01T00:00:00.00Z")
                 .build();
-        assertEquals("2020-01-01",config.getKlineLimit());
+        Assertions.assertEquals(Instant.parse("2000-01-01T00:00:00.00Z"), config.getStartDateTime());
     }
 
     @Test
-    public void dateIsValid(){
-
+    public void dateIsValid() {
+        Config config = new Config.ConfigBuilder()
+                .setUrl("test")
+                .setLogin("login")
+                .setPassword("pass")
+                .setTimeFrame("time")
+                .setKlineLimit("234")
+                .setStartDateTime("2000-01-01T00:00:00.00Z")
+                .build();
+        Assertions.assertEquals(Instant.parse("2000-01-01T00:00:00.00Z")
+                ,config.getStartDateTime());
     }
-
 
 
 }

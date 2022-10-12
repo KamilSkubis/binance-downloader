@@ -59,7 +59,7 @@ public class BatchWriterMultiThreaded implements Runnable {
             d.setId(index);
             session.save(d);
 
-            if (index % 50 == 0) {
+            if (index % 10000 == 0) {
                 session.flush();
                 session.clear();
             }
