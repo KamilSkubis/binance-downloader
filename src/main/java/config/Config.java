@@ -6,6 +6,7 @@ import java.time.Instant;
 import java.util.Properties;
 
 public final class Config {
+    static Logger logger;
     private final String password;
     private final String timeframe;
     private final int klineLimit;
@@ -13,7 +14,6 @@ public final class Config {
     private final String url;
     private final String login;
     Properties properties;
-    Logger logger;
 
 
     private Config(ConfigBuilder builder) {
@@ -29,27 +29,6 @@ public final class Config {
         return properties != null;
     }
 
-
-//    public Config(){
-//        logger = LoggerFactory.getLogger(Config.class);
-//        properties = new Properties();
-//        try {
-//            File base = new File(Config.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
-//            File configFile = new File(base, "settings.properties");
-//            properties.load(new FileInputStream(configFile));
-//
-//
-//            logger.info("loaded new settings" + properties.toString());
-//            logger.info("url  " + properties.get("url"));
-//            logger.info("password: ***********");
-//            logger.info("login: *********** ");
-//        } catch (IOException e) {
-//            properties = null;
-//        } catch (URISyntaxException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     public String getUrl() {
         return url;
     }
@@ -59,11 +38,11 @@ public final class Config {
     }
 
     public String getPassword() {
-        return properties.getProperty("password");
+        return password;
     }
 
     public String getTimeFrame() {
-        return properties.getProperty("timeframe");
+        return timeframe;
     }
 
     public Integer getKlineLimit() {
@@ -82,6 +61,11 @@ public final class Config {
         private String timeframe;
         private Integer klineLimit;
         private Instant startDateTime;
+
+        @Override
+        public String toString() {
+            return "ConfigBuilder{" + "login='" + login + '\'' + ", url='" + url + '\'' + ", password=[***] " + '\'' + ", timeframe='" + timeframe + '\'' + ", klineLimit=" + klineLimit + ", startDateTime=" + startDateTime + '}';
+        }
 
         public ConfigBuilder setLogin(String login) {
             this.login = login;
@@ -118,13 +102,18 @@ public final class Config {
             if (url == null || login == null || password == null || timeframe == null) {
                 throw new IllegalArgumentException("Check url, login, password,timeframe parameters in settings file");
             }
-            if(klineLimit == null){
-                klineLimit = 500;
+
+            if (this.klineLimit == null) {
+                this.klineLimit = 500;
             }
 
-            if(startDateTime == null){
+            if (this.startDateTime == null) {
                 startDateTime = Instant.parse("2010-01-01T00:00:00Z");
             }
+
+            logger.info("Created new config");
+            logger.info(this.toString());
+
             return new Config(this);
         }
 
