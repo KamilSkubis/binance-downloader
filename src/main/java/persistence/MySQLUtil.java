@@ -1,6 +1,8 @@
 package persistence;
 
 import config.Config;
+import config.ConfigLocation;
+import config.ConfigReader;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -13,54 +15,47 @@ import java.util.Properties;
 public class MySQLUtil {
     private static SessionFactory sessionFactory;
     private static Logger logger;
+    private static Config config;
 
-    private MySQLUtil(){};
+    private MySQLUtil() {
+    }
 
     public static SessionFactory getSessionFactory() {
 
-        if(logger == null){
+        if (logger == null) {
             logger = LoggerFactory.getLogger(MySQLUtil.class);
         }
 
-        if(sessionFactory == null){
-             buildSessionFactory();
+        if (sessionFactory == null) {
+            ConfigLocation configLocation = new ConfigLocation();
+            ConfigReader configReader = new ConfigReader();
+            config = configReader.read(configLocation);
+            buildSessionFactory();
         }
         return sessionFactory;
     }
 
+
     private static SessionFactory buildSessionFactory() {
         try {
-            Config config = new Config.ConfigBuilder().build();
-            if(config.userSettingsExists()){
 
-                String url = config.getUrl();
-                String login = config.getLogin();
-                String password = config.getPassword();
+            Configuration configuration = new Configuration();
+            configuration.configure();
 
-                Configuration configuration = new Configuration();
-                configuration.configure();
+            Properties properties = new Properties();
+            properties.put("hibernate.connection.url", config.getUrl());
+            properties.put("hibernate.connection.username", config.getLogin());
+            properties.put("hibernate.connection.password", config.getPassword());
+            configuration.addProperties(properties);
+            configuration.addAnnotatedClass(model.Symbol.class);
+            configuration.addAnnotatedClass(model.BinanceData.class);
 
-                Properties properties = new Properties();
-                properties.put("hibernate.connection.url",url);
-                properties.put("hibernate.connection.username",login);
-                properties.put("hibernate.connection.password",password);
-                configuration.addProperties(properties);
-                configuration.addAnnotatedClass(model.Symbol.class);
-                configuration.addAnnotatedClass(model.BinanceData.class);
+            ServiceRegistry serviceRegistry;
+            serviceRegistry = new StandardServiceRegistryBuilder().applySettings(properties).build();
 
-                logger.info("Found user settings file:");
-                logger.info("Modified configuration object to: " + configuration.getProperties().toString());
+            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            return sessionFactory;
 
-                ServiceRegistry serviceRegistry;
-                serviceRegistry = new StandardServiceRegistryBuilder().applySettings(properties).build();
-
-                sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-                return sessionFactory;
-            }else {
-                // Create the SessionFactory from hibernate.cfg.xml
-                sessionFactory = new Configuration().configure().buildSessionFactory();
-                return sessionFactory;
-            }
         } catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);
             logger.warn(ex.getMessage());
@@ -68,11 +63,10 @@ public class MySQLUtil {
         }
     }
 
-    public  void shutdown() {
+    public void shutdown() {
         // Close caches and connection pools
         getSessionFactory().close();
     }
-
 
 
 }

@@ -1,6 +1,8 @@
 import com.binance.connector.client.impl.SpotClientImpl;
 import com.binance.connector.client.impl.spot.Market;
 import config.Config;
+import config.ConfigLocation;
+import config.ConfigReader;
 import downloads.BinanceDownloader;
 import model.Data;
 import model.Symbol;
@@ -9,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import persistence.BatchWriterMultiThreaded;
+import persistence.DBWriter;
 import persistence.DbReader;
 import persistence.MySQLUtil;
 
@@ -35,9 +38,12 @@ public class BinanceRunner {
         sessionFactory = MySQLUtil.getSessionFactory();
         logger = LoggerFactory.getLogger(BinanceRunner.class);
 
-        Config configReader = new Config.ConfigBuilder().build();
-        timeframe = configReader.getTimeFrame();
-        kline_limit = configReader.getKlineLimit();
+        ConfigLocation configLocation = new ConfigLocation();
+        ConfigReader configReader = new ConfigReader();
+        Config config = configReader.read(configLocation);
+
+        timeframe = config.getTimeFrame();
+        kline_limit = config.getKlineLimit();
 
         //this is for testing only;
 //        timeframe = "1m";
@@ -67,10 +73,11 @@ public class BinanceRunner {
         for (LinkedHashMap<String, Object> map : params) {
 
             List<Data> data = binance.downloadKlines(map);
+            DBWriter.writeDatainBatch(sessionFactory,data);
 
             int dataSize = data.size();
 
-            while (dataSize == 1000) {
+            while (dataSize == kline_limit) {
 
                 LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
                 Instant instant = nextDate.toInstant(ZoneOffset.UTC);
@@ -78,17 +85,10 @@ public class BinanceRunner {
 
                 map.replace("startTime", date);
                 List<Data> downloadedData = binance.downloadKlines(map);
-
-                data.addAll(downloadedData);
+                DBWriter.writeDatainBatch(sessionFactory,downloadedData);
                 dataSize = downloadedData.size();
             }
 
-
-//                DBWriter.writeDatainBatch(sessionFactory, data);
-            BatchWriterMultiThreaded batchWriterMultiThreaded = new BatchWriterMultiThreaded(sessionFactory, data);
-            Thread thread = new Thread(batchWriterMultiThreaded);
-            thread.setName("database_writer_" + data.get(0).getSymbol().getSymbolName());
-            thread.start();
         }
 
         Long endTime = System.currentTimeMillis();

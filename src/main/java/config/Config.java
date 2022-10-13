@@ -1,6 +1,7 @@
 package config;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Instant;
 import java.util.Properties;
@@ -61,6 +62,8 @@ public final class Config {
         private String timeframe;
         private Integer klineLimit;
         private Instant startDateTime;
+        private Logger logger;
+
 
         @Override
         public String toString() {
@@ -111,6 +114,7 @@ public final class Config {
                 startDateTime = Instant.parse("2010-01-01T00:00:00Z");
             }
 
+            logger = LoggerFactory.getLogger(ConfigBuilder.class);
             logger.info("Created new config");
             logger.info(this.toString());
 
