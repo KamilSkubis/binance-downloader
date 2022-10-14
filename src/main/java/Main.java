@@ -12,7 +12,6 @@ public class Main {
 
 
 
-
         BinanceRunner binanceRunner = new BinanceRunner();
         binanceRunner.run();
     }

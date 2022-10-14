@@ -54,6 +54,7 @@ public class MySQLUtil {
             serviceRegistry = new StandardServiceRegistryBuilder().applySettings(properties).build();
 
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
             return sessionFactory;
 
         } catch (Throwable ex) {

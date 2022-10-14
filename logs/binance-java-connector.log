@@ -1,77 +1,153 @@
-2022-10-13 10:42:19.495[1665650539495] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-10-13 10:42:21.192[1665650541192] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-10-13 10:42:21.524[1665650541524] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://localhost:3306/test
-2022-10-13 10:42:21.524[1665650541524] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001001: Connection properties: {password=****, user=root}
-2022-10-13 10:42:21.524[1665650541524] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001003: Autocommit mode: false
-2022-10-13 10:42:21.593[1665650541593] | INFO  | MLog-Init-Reporter | com.mchange.v2.log.MLog              - MLog clients using slf4j logging.
-2022-10-13 10:42:21.941[1665650541941] | INFO  | main       | com.mchange.v2.c3p0.C3P0Registry     - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
-2022-10-13 10:42:22.041[1665650542041] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001007: JDBC isolation level: <unknown>
-2022-10-13 10:42:22.094[1665650542094] | INFO  | main       | c.m.v.c.i.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@66199797 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@e08129ba [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hgengoar1luqiyfz2a5k0|62b969c4, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@6271aa28 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hgengoar1luqiyfz2a5k0|660591fb, jdbcUrl -> jdbc:mysql://localhost:3306/test, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hgengoar1luqiyfz2a5k0|dc7b462, numHelperThreads -> 3 ]
-2022-10-13 10:42:23.380[1665650543380] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-10-13 10:42:24.699[1665650544699] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-10-13 10:42:28.542[1665650548542] | INFO  | main       | persistence.DataManager              - Found differences in Symbols table: [test2]
-2022-10-13 10:44:40.758[1665650680758] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-10-13 10:44:42.176[1665650682176] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-10-13 10:44:42.562[1665650682562] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://localhost:3306/test
-2022-10-13 10:44:42.562[1665650682562] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001001: Connection properties: {password=****, user=root}
-2022-10-13 10:44:42.562[1665650682562] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001003: Autocommit mode: false
-2022-10-13 10:44:42.631[1665650682631] | INFO  | MLog-Init-Reporter | com.mchange.v2.log.MLog              - MLog clients using slf4j logging.
-2022-10-13 10:44:42.978[1665650682978] | INFO  | main       | com.mchange.v2.c3p0.C3P0Registry     - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
-2022-10-13 10:44:43.115[1665650683115] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001007: JDBC isolation level: <unknown>
-2022-10-13 10:44:43.216[1665650683216] | INFO  | main       | c.m.v.c.i.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@1979e6cc [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@b60dea7 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hgengoar1lutjrjdgtre0|47ec7422, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@5813a2c6 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hgengoar1lutjrjdgtre0|8c46918, jdbcUrl -> jdbc:mysql://localhost:3306/test, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hgengoar1lutjrjdgtre0|26a2f7f9, numHelperThreads -> 3 ]
-2022-10-13 10:44:44.236[1665650684236] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-10-13 10:44:45.665[1665650685665] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-10-13 10:44:49.307[1665650689307] | INFO  | main       | persistence.DataManager              - Found differences in Symbols table: [test2]
-2022-10-13 10:44:50.414[1665650690414] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:50.430[1665650690430] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 10:44:50.430[1665650690430] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:50.430[1665650690430] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 10:44:50.446[1665650690446] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:50.446[1665650690446] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 10:44:50.461[1665650690461] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:50.461[1665650690461] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 10:44:50.477[1665650690477] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:50.477[1665650690477] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 10:44:50.477[1665650690477] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:50.477[1665650690477] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 10:44:51.318[1665650691318] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:51.318[1665650691318] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='login', url='test', password=[***] ', timeframe='time', klineLimit=234, startDateTime=2000-01-01T00:00:00Z}
-2022-10-13 10:44:51.333[1665650691333] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:51.333[1665650691333] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='login', url='test', password=[***] ', timeframe='time', klineLimit=500, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 10:44:51.333[1665650691333] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:51.333[1665650691333] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='login', url='test', password=[***] ', timeframe='time', klineLimit=234, startDateTime=2000-01-01T00:00:00Z}
-2022-10-13 10:44:51.349[1665650691349] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:51.349[1665650691349] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='login', url='test', password=[***] ', timeframe='time', klineLimit=234, startDateTime=2000-01-01T00:00:00Z}
-2022-10-13 10:44:51.396[1665650691396] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:44:51.396[1665650691396] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='login', url='test', password=[***] ', timeframe='time', klineLimit=500, startDateTime=2000-01-01T00:00:00Z}
-2022-10-13 10:49:44.800[1665650984800] | INFO  | main       | config.ConfigLocation                - Using config file in path:C:\Users\Kamil\Documents\projekty\stock-exchange-data-downloader\target\settings.properties
-2022-10-13 10:50:10.561[1665651010561] | INFO  | main       | config.ConfigLocation                - Using config file in path:C:\Users\Kamil\Documents\projekty\stock-exchange-data-downloader\target\settings.properties
-2022-10-13 10:50:10.582[1665651010582] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 10:50:10.612[1665651010612] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 10:50:10.661[1665651010661] | WARN  | main       | persistence.MySQLUtil                - Check url, login, password,timeframe parameters in settings file
-2022-10-13 11:22:16.838[1665652936838] | INFO  | main       | config.ConfigLocation                - Using config file in path:C:\Users\Kamil\Documents\projekty\stock-exchange-data-downloader\target\settings.properties
-2022-10-13 11:22:16.866[1665652936866] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 11:22:16.888[1665652936888] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 11:22:16.928[1665652936928] | INFO  | main       | config.ConfigLocation                - Using config file in path:C:\Users\Kamil\Documents\projekty\stock-exchange-data-downloader\target\settings.properties
-2022-10-13 11:22:16.928[1665652936928] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 11:22:16.928[1665652936928] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 11:22:17.113[1665652937113] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-10-13 11:22:18.474[1665652938474] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-10-13 11:22:18.869[1665652938869] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH010002: C3P0 using driver: null at URL: jdbc:mysql://localhost:3306/test
-2022-10-13 11:22:18.884[1665652938884] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001001: Connection properties: {password=****, user=root}
-2022-10-13 11:22:18.884[1665652938884] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001003: Autocommit mode: false
-2022-10-13 11:22:18.884[1665652938884] | WARN  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001006: No JDBC Driver class was specified by property hibernate.connection.driver_class
-2022-10-13 11:22:18.916[1665652938916] | INFO  | MLog-Init-Reporter | com.mchange.v2.log.MLog              - MLog clients using slf4j logging.
-2022-10-13 11:22:19.239[1665652939239] | INFO  | main       | com.mchange.v2.c3p0.C3P0Registry     - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
-2022-10-13 11:22:19.386[1665652939386] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001007: JDBC isolation level: <unknown>
-2022-10-13 11:22:19.417[1665652939417] | INFO  | main       | c.m.v.c.i.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@b1c9cdf3 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@6a1c87ef [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hgengoar1lw5wq1cafyxv|71154f21, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@915f74a1 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hgengoar1lw5wq1cafyxv|7544a1e4, jdbcUrl -> jdbc:mysql://localhost:3306/test, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hgengoar1lw5wq1cafyxv|60c16548, numHelperThreads -> 3 ]
-2022-10-13 11:22:20.543[1665652940543] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-10-13 11:22:21.808[1665652941808] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-10-13 11:22:21.824[1665652941824] | INFO  | main       | config.ConfigLocation                - Using config file in path:C:\Users\Kamil\Documents\projekty\stock-exchange-data-downloader\target\settings.properties
-2022-10-13 11:22:21.824[1665652941824] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
-2022-10-13 11:22:21.824[1665652941824] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
-2022-10-13 11:22:21.824[1665652941824] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
-2022-10-13 11:22:21.839[1665652941839] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
-2022-10-13 11:22:22.927[1665652942927] | INFO  | main       | BinanceRunner                        - downloaded tickers: 410
-2022-10-13 11:22:23.197[1665652943197] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
-2022-10-13 11:22:23.197[1665652943197] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.symbols' doesn't exist
+2022-10-14 12:23:25.730[1665743005730] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
+2022-10-14 12:23:25.759[1665743005759] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='loginTest', url='test', password=[***] ', timeframe='4h', klineLimit=500, startDateTime=2010-01-01T00:00:00Z}
+2022-10-14 12:23:25.991[1665743005991] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-10-14 12:23:27.600[1665743007600] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-14 12:23:28.008[1665743008008] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH010002: C3P0 using driver: null at URL: test
+2022-10-14 12:23:28.008[1665743008008] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001001: Connection properties: {password=****, user=loginTest}
+2022-10-14 12:23:28.008[1665743008008] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001003: Autocommit mode: false
+2022-10-14 12:23:28.009[1665743008009] | WARN  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001006: No JDBC Driver class was specified by property hibernate.connection.driver_class
+2022-10-14 12:23:28.054[1665743008054] | INFO  | MLog-Init-Reporter | com.mchange.v2.log.MLog              - MLog clients using slf4j logging.
+2022-10-14 12:23:28.456[1665743008456] | INFO  | main       | com.mchange.v2.c3p0.C3P0Registry     - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2022-10-14 12:23:28.538[1665743008538] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001007: JDBC isolation level: <unknown>
+2022-10-14 12:23:28.568[1665743008568] | INFO  | main       | c.m.v.c.i.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@2571c9d3 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@642668d9 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hgengoar1ndseiyamzl2b|389562d6, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@ab7e245e [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hgengoar1ndseiyamzl2b|1162410a, jdbcUrl -> test, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hgengoar1ndseiyamzl2b|3e134896, numHelperThreads -> 3 ]
+2022-10-14 12:23:58.801[1665743038801] | WARN  | C3P0PooledConnectionPoolManager[identityToken->1hgengoar1ndseiyamzl2b|3e134896]-HelperThread-#1 | c.m.v.resourcepool.BasicResourcePool - com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@33cadc0 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
+	at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+2022-10-14 12:23:58.801[1665743038801] | WARN  | C3P0PooledConnectionPoolManager[identityToken->1hgengoar1ndseiyamzl2b|3e134896]-HelperThread-#0 | c.m.v.resourcepool.BasicResourcePool - com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@6499ebb3 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
+	at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+2022-10-14 12:23:58.801[1665743038801] | WARN  | C3P0PooledConnectionPoolManager[identityToken->1hgengoar1ndseiyamzl2b|3e134896]-HelperThread-#2 | c.m.v.resourcepool.BasicResourcePool - com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@4ee024d7 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
+	at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+2022-10-14 12:23:58.802[1665743038802] | WARN  | C3P0PooledConnectionPoolManager[identityToken->1hgengoar1ndseiyamzl2b|3e134896]-HelperThread-#1 | c.m.v.resourcepool.BasicResourcePool - Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2eb79cbe is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
+2022-10-14 12:23:58.803[1665743038803] | WARN  | C3P0PooledConnectionPoolManager[identityToken->1hgengoar1ndseiyamzl2b|3e134896]-HelperThread-#2 | c.m.v.resourcepool.BasicResourcePool - Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2eb79cbe is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
+2022-10-14 12:23:58.804[1665743038804] | WARN  | C3P0PooledConnectionPoolManager[identityToken->1hgengoar1ndseiyamzl2b|3e134896]-HelperThread-#0 | c.m.v.resourcepool.BasicResourcePool - Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2eb79cbe is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
+2022-10-14 12:23:58.808[1665743038808] | WARN  | main       | o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:118)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:692)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:140)
+	at org.hibernate.c3p0.internal.C3P0ConnectionProvider.getConnection(C3P0ConnectionProvider.java:72)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:86)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:479)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:85)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:709)
+	at persistence.SessionFactoryCreator.<init>(SessionFactoryCreator.java:31)
+	at persistence.SessionFactoryCreatorTest.shouldReturnSessionFactoryObj(SessionFactoryCreatorTest.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1507)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:644)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:554)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutAndMarkConnectionInUse(C3P0PooledConnectionPool.java:758)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:685)
+	... 48 common frames omitted
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
+	at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+2022-10-14 12:29:55.399[1665743395399] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
+2022-10-14 12:29:55.434[1665743395434] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='4h', klineLimit=500, startDateTime=2010-01-01T00:00:00Z}
+2022-10-14 12:29:55.663[1665743395663] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-10-14 12:29:57.159[1665743397159] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-14 12:29:57.613[1665743397613] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH010002: C3P0 using driver: null at URL: jdbc:mysql://localhost:3306/test
+2022-10-14 12:29:57.614[1665743397614] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001001: Connection properties: {password=****, user=root}
+2022-10-14 12:29:57.614[1665743397614] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001003: Autocommit mode: false
+2022-10-14 12:29:57.614[1665743397614] | WARN  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001006: No JDBC Driver class was specified by property hibernate.connection.driver_class
+2022-10-14 12:29:57.648[1665743397648] | INFO  | MLog-Init-Reporter | com.mchange.v2.log.MLog              - MLog clients using slf4j logging.
+2022-10-14 12:29:58.026[1665743398026] | INFO  | main       | com.mchange.v2.c3p0.C3P0Registry     - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2022-10-14 12:29:58.147[1665743398147] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001007: JDBC isolation level: <unknown>
+2022-10-14 12:29:58.193[1665743398193] | INFO  | main       | c.m.v.c.i.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@95cc2edd [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@520e50c7 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hgengoar1ne0r4py3xeab|2160e52a, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@7c05590b [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hgengoar1ne0r4py3xeab|b09fac1, jdbcUrl -> jdbc:mysql://localhost:3306/test, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hgengoar1ne0r4py3xeab|2e3a5237, numHelperThreads -> 3 ]
+2022-10-14 12:29:59.578[1665743399578] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-10-14 12:30:00.879[1665743400879] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-14 12:33:05.140[1665743585140] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
+2022-10-14 12:33:05.169[1665743585169] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='4h', klineLimit=500, startDateTime=2010-01-01T00:00:00Z}
+2022-10-14 12:33:05.388[1665743585388] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-10-14 12:33:06.841[1665743586841] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-14 12:33:07.334[1665743587334] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH010002: C3P0 using driver: null at URL: jdbc:mysql://localhost:3306/test
+2022-10-14 12:33:07.335[1665743587335] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001001: Connection properties: {password=****, user=root}
+2022-10-14 12:33:07.336[1665743587336] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001003: Autocommit mode: false
+2022-10-14 12:33:07.336[1665743587336] | WARN  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001006: No JDBC Driver class was specified by property hibernate.connection.driver_class
+2022-10-14 12:33:07.380[1665743587380] | INFO  | MLog-Init-Reporter | com.mchange.v2.log.MLog              - MLog clients using slf4j logging.
+2022-10-14 12:33:07.704[1665743587704] | INFO  | main       | com.mchange.v2.c3p0.C3P0Registry     - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2022-10-14 12:33:07.818[1665743587818] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001007: JDBC isolation level: <unknown>
+2022-10-14 12:33:07.855[1665743587855] | INFO  | main       | c.m.v.c.i.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@e2c55d6a [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@9f077f54 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hgengoar1ne4tiyfvxls2|2160e52a, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@d115a4de [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hgengoar1ne4tiyfvxls2|b09fac1, jdbcUrl -> jdbc:mysql://localhost:3306/test, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hgengoar1ne4tiyfvxls2|2e3a5237, numHelperThreads -> 3 ]
+2022-10-14 12:33:09.073[1665743589073] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-10-14 12:33:10.480[1665743590480] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
