@@ -27,6 +27,7 @@ public class MySQLUtil {
         }
 
         if (sessionFactory == null) {
+            logger.debug("SessionFactory is null. Need to create new one");
             ConfigLocation configLocation = new ConfigLocation();
             ConfigReader configReader = new ConfigReader();
             config = configReader.read(configLocation);
@@ -54,6 +55,7 @@ public class MySQLUtil {
             serviceRegistry = new StandardServiceRegistryBuilder().applySettings(properties).build();
 
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            logger.debug("SessionFactory created.");
             return sessionFactory;
 
         } catch (Throwable ex) {

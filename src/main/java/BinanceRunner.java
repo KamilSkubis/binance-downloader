@@ -53,8 +53,10 @@ public class BinanceRunner {
 
     public void run() {
         Long startTime = System.currentTimeMillis();
+
         List<String> filteredSymbolList = getListOfSymbolsUSDT(binance, "USDT");
         logger.info("downloaded tickers: " + filteredSymbolList.size());
+
 
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
@@ -88,7 +90,6 @@ public class BinanceRunner {
                 DBWriter.writeDatainBatch(sessionFactory,downloadedData);
                 dataSize = downloadedData.size();
             }
-
         }
 
         Long endTime = System.currentTimeMillis();
