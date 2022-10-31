@@ -53,22 +53,22 @@ public class BinanceRunner {
     public void run() {
         Long startTime = System.currentTimeMillis();
 
-        List<String> filteredSymbolList = getListOfSymbolsUSDT(binance);
-        logger.info("downloaded tickers: " + filteredSymbolList.size());
+        List<String> symbolsUSDT = getListOfSymbolsUSDT(binance);
+        logger.info("downloaded tickers: " + symbolsUSDT.size());
 
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
-        HashMap<String, LocalDateTime> symbolTimeFromDb = new HashMap<>();
+        HashMap<String, LocalDateTime> latestDateTimePerSymbol = new HashMap<>();
 
         for (Symbol symbol : symbolObj) {
             LocalDateTime lastDate = dbReader.readLastDate(symbol);
-            symbolTimeFromDb.put(symbol.getSymbolName(), lastDate);
+            latestDateTimePerSymbol.put(symbol.getSymbolName(), lastDate);
         }
 
         logger.info("symbol Time from database: ");
-        logger.info(symbolTimeFromDb.toString());
+        logger.info(latestDateTimePerSymbol.toString());
 
-        final List<LinkedHashMap<String, Object>> params = prepareParams(filteredSymbolList, symbolTimeFromDb);
+        final List<LinkedHashMap<String, Object>> params = prepareParams(symbolsUSDT, latestDateTimePerSymbol);
 
         for (LinkedHashMap<String, Object> map : params) {
 
@@ -88,7 +88,6 @@ public class BinanceRunner {
                 DBWriter.writeDatainBatch(sessionFactory, downloadedData);
                 dataSize = downloadedData.size();
             }
-            data = null;
         }
 
         Long endTime = System.currentTimeMillis();
