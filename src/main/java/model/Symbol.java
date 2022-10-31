@@ -21,7 +21,6 @@ public class Symbol {
 
     private String symbol;
 
-
     public String getSymbolName() {
         return symbol;
     }

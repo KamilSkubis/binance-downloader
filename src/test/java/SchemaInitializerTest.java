@@ -3,16 +3,14 @@ import org.hibernate.query.NativeQuery;
 import org.junit.jupiter.api.Test;
 import persistence.SchemaInitializer;
 
-import java.util.List;
-
 import static org.mockito.Mockito.*;
 
 public class SchemaInitializerTest {
 
     @Test
-    public void shouldInitializeTable_WhenNoTable(){
-        Session session =  mock(Session.class);
-        NativeQuery nativeQuery = mock(NativeQuery.class);
+    public void shouldInitializeTable_WhenNoTable() {
+        Session session = mock(Session.class);
+        var nativeQuery = mock(NativeQuery.class);
 
         SchemaInitializer db = new SchemaInitializer(session);
 

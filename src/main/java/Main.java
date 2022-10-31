@@ -5,14 +5,6 @@ import org.hibernate.SessionFactory;
 import persistence.MySQLUtil;
 import persistence.SchemaInitializer;
 
-/*
-binanceRunnner(config, sessionFactory);
-
-Na liście wywołuję
-
-
-
- */
 
 public class Main {
 

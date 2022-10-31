@@ -23,8 +23,9 @@ public class SchemaInitializer {
         Optional<List> show_tables = Optional.ofNullable(
                 session.createSQLQuery("Show tables")
                         .getResultList());
-        logger.info("Are there tables? " + show_tables.isEmpty());
-        if(!show_tables.isEmpty()){
+
+
+        if(show_tables.isPresent() && show_tables.get().size() == 0){
             logger.debug("No tables in database, need to create one");
             Transaction transaction = session.beginTransaction();
             String binanceData = "create table binance_data(id bigint ,symbol_id int,open_time datetime(6),open double,high double,low double,close double,volume double,key(id));";

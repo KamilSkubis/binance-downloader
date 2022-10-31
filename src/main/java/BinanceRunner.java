@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import persistence.BatchWriterMultiThreaded;
 import persistence.DBWriter;
 import persistence.DbReader;
 import persistence.MySQLUtil;
@@ -54,9 +53,8 @@ public class BinanceRunner {
     public void run() {
         Long startTime = System.currentTimeMillis();
 
-        List<String> filteredSymbolList = getListOfSymbolsUSDT(binance, "USDT");
+        List<String> filteredSymbolList = getListOfSymbolsUSDT(binance);
         logger.info("downloaded tickers: " + filteredSymbolList.size());
-
 
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
@@ -75,7 +73,7 @@ public class BinanceRunner {
         for (LinkedHashMap<String, Object> map : params) {
 
             List<Data> data = binance.downloadKlines(map);
-            DBWriter.writeDatainBatch(sessionFactory,data);
+            DBWriter.writeDatainBatch(sessionFactory, data);
 
             int dataSize = data.size();
 
@@ -87,14 +85,15 @@ public class BinanceRunner {
 
                 map.replace("startTime", date);
                 List<Data> downloadedData = binance.downloadKlines(map);
-                DBWriter.writeDatainBatch(sessionFactory,downloadedData);
+                DBWriter.writeDatainBatch(sessionFactory, downloadedData);
                 dataSize = downloadedData.size();
             }
+            data = null;
         }
 
         Long endTime = System.currentTimeMillis();
-        Long duration = endTime - startTime;
-        logger.info("Program took " + duration + "ms or " + duration/1000 + "s");
+        long duration = endTime - startTime;
+        logger.info("Program took " + duration + "ms or " + duration / 1000 + "s");
     }
 
 
@@ -105,7 +104,7 @@ public class BinanceRunner {
             LinkedHashMap<String, Object> params = new LinkedHashMap<>();
             params.put("symbol", symbol);
             params.put("interval", timeframe); //  for daily timeframe use 1d
-            params.put("limit", Integer.valueOf(kline_limit));    //default 500 max 1000
+            params.put("limit", kline_limit);    //default 500 max 1000
 
             System.out.println("check if " + symbol + " is in database " + symbolTimeFromDb.containsKey(symbol));
 
@@ -140,9 +139,9 @@ public class BinanceRunner {
         return new BinanceDownloader(market);
     }
 
-    private List<String> getListOfSymbolsUSDT(BinanceDownloader binance, String currency) {
+    private List<String> getListOfSymbolsUSDT(BinanceDownloader binance) {
         List<String> symbolList = binance.getTickers();
-        return symbolList.stream().filter(s -> s.endsWith(currency)).collect(Collectors.toList());
+        return symbolList.stream().filter(s -> s.endsWith("USDT")).collect(Collectors.toList());
     }
 
 }
