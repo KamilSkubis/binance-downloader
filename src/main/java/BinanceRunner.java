@@ -51,10 +51,10 @@ public class BinanceRunner {
     }
 
     public void run() {
-        Long startTime = System.currentTimeMillis();
+
 
         List<String> symbolsUSDT = getListOfSymbolsUSDT(binance);
-        logger.info("downloaded tickers: " + symbolsUSDT.size());
+        logger.info("USDT symbols already in database: " + symbolsUSDT.size());
 
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
@@ -90,9 +90,6 @@ public class BinanceRunner {
             }
         }
 
-        Long endTime = System.currentTimeMillis();
-        long duration = endTime - startTime;
-        logger.info("Program took " + duration + "ms or " + duration / 1000 + "s");
     }
 
 
