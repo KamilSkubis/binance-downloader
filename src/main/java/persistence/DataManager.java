@@ -1,6 +1,5 @@
 package persistence;
 
-import model.Data;
 import model.Symbol;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -37,7 +36,7 @@ public class DataManager {
             for(String s : differences){
                 Symbol symbol = new Symbol();
                 symbol.setSymbolName(s);
-                DBWriter.writeSymbol(sessionFactory,symbol);
+                new DbWriter().writeSymbol(sessionFactory,symbol); //TODO refactor this
             }
             result = dbReader.getSymbolObjListFromDb();
         }

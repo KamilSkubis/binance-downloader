@@ -12,9 +12,19 @@ import javax.persistence.NoResultException;
 import java.util.List;
 
 
-public class DBWriter {
+public class DbWriter {
 
-    public static void writeSymbol(SessionFactory sessionFactory,Symbol symbol) {
+    private final SessionFactory sessionFactory;
+
+    public DbWriter(SessionFactory sessionFactory){
+        this.sessionFactory = sessionFactory;
+    }
+
+    public DbWriter(){
+        this.sessionFactory = MySQLUtil.getSessionFactory();
+    }
+
+    public void writeSymbol(SessionFactory sessionFactory,Symbol symbol) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.save(symbol);
@@ -22,7 +32,7 @@ public class DBWriter {
         session.close();
     }
 
-    public static void writeData(SessionFactory sessionFactory, Data d) {
+    public void writeData(SessionFactory sessionFactory, Data d) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
@@ -37,9 +47,9 @@ public class DBWriter {
         session.close();
     }
 
-    public static void writeDatainBatch(SessionFactory sessionFactory, List<Data> data) {
+    public void writeDatainBatch(SessionFactory sessionFactory, List<Data> data) {
 
-        Logger logger = LoggerFactory.getLogger(DBWriter.class);
+        Logger logger = LoggerFactory.getLogger(DbWriter.class);
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();

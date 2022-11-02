@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import persistence.DBWriter;
+import persistence.DbWriter;
 import persistence.DataManager;
 import persistence.MySQLUtilTesting;
 
@@ -88,8 +88,8 @@ public class DataManagerTest {
         symbol.setId(2l);
         symbol1.setSymbolName("test1");
 
-        DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(), symbol);
-        DBWriter.writeSymbol(MySQLUtilTesting.getSessionFactory(), symbol1);
+        new DbWriter().writeSymbol(MySQLUtilTesting.getSessionFactory(), symbol);
+        new DbWriter().writeSymbol(MySQLUtilTesting.getSessionFactory(), symbol1);
 
         DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
         Assert.assertEquals(2,dataManager.getSymbolList().size());
