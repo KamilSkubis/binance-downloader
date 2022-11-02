@@ -28,7 +28,7 @@ public class DbReaderTest {
         Symbol symbol1 = new Symbol();
         symbol1.setSymbolName("testRead");
         BinanceData b1 = UtilForTesting.createSampleData(symbol1);
-        new DbWriter().writeData(mysqlTesting, b1);
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeData(b1);
 
         DbReader dbReader = new DbReader(mysqlTesting);
         Symbol symbol2 = new Symbol();
@@ -41,7 +41,7 @@ public class DbReaderTest {
         Symbol symbol1 = new Symbol();
         symbol1.setSymbolName("testRead");
         BinanceData b1 = UtilForTesting.createSampleData(symbol1);
-        new DbWriter().writeData(mysqlTesting, b1);
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeData(b1);
         DbReader dbReader = new DbReader(mysqlTesting);
         Assert.assertEquals(100l, dbReader.getLatestIndex());
 

@@ -73,7 +73,7 @@ public class BinanceRunner {
         for (LinkedHashMap<String, Object> map : params) {
 
             List<Data> data = binance.downloadKlines(map);
-            new DbWriter().writeDatainBatch(sessionFactory, data);
+            new DbWriter().writeDatainBatch(data);
 
             int dataSize = data.size();
 
@@ -85,7 +85,7 @@ public class BinanceRunner {
 
                 map.replace("startTime", date);
                 List<Data> downloadedData = binance.downloadKlines(map);
-                new DbWriter().writeDatainBatch(sessionFactory, downloadedData);
+                new DbWriter().writeDatainBatch(downloadedData);
                 dataSize = downloadedData.size();
             }
         }

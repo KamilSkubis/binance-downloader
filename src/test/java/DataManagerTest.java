@@ -88,8 +88,8 @@ public class DataManagerTest {
         symbol.setId(2l);
         symbol1.setSymbolName("test1");
 
-        new DbWriter().writeSymbol(MySQLUtilTesting.getSessionFactory(), symbol);
-        new DbWriter().writeSymbol(MySQLUtilTesting.getSessionFactory(), symbol1);
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeSymbol(symbol);
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeSymbol(symbol1);
 
         DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
         Assert.assertEquals(2,dataManager.getSymbolList().size());

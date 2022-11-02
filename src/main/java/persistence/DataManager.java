@@ -36,7 +36,7 @@ public class DataManager {
             for(String s : differences){
                 Symbol symbol = new Symbol();
                 symbol.setSymbolName(s);
-                new DbWriter().writeSymbol(sessionFactory,symbol); //TODO refactor this
+                new DbWriter().writeSymbol(symbol); //TODO refactor this
             }
             result = dbReader.getSymbolObjListFromDb();
         }

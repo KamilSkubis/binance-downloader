@@ -24,7 +24,7 @@ public class DbWriter {
         this.sessionFactory = MySQLUtil.getSessionFactory();
     }
 
-    public void writeSymbol(SessionFactory sessionFactory,Symbol symbol) {
+    public void writeSymbol(Symbol symbol) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.save(symbol);
@@ -32,9 +32,9 @@ public class DbWriter {
         session.close();
     }
 
-    public void writeData(SessionFactory sessionFactory, Data d) {
+    public void writeData(Data d) {
         Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
+        Transaction transaction = sessionFactory.openSession().beginTransaction();
 
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolList = dbReader.getSymbolObjFromDb(d.getSymbol().getSymbolName());
@@ -47,7 +47,7 @@ public class DbWriter {
         session.close();
     }
 
-    public void writeDatainBatch(SessionFactory sessionFactory, List<Data> data) {
+    public void writeDatainBatch(List<Data> data) {
 
         Logger logger = LoggerFactory.getLogger(DbWriter.class);
 
@@ -92,7 +92,7 @@ public class DbWriter {
         session.close();
 
         Long endTime = System.currentTimeMillis();
-        Long duration = (endTime - startTime) /1000;
+        long duration = (endTime - startTime) /1000;
         logger.info("Saved to database: " + data.size() + " records for: " + data.get(0).getSymbol().getSymbolName() + " ticker, this operation took: " + duration);
     }
 

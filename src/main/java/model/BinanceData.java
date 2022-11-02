@@ -15,6 +15,7 @@ package model;
 
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -25,6 +26,8 @@ import java.util.Objects;
 public class BinanceData implements Data {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name="binanceData_generator", sequenceName = "binance_gen", allocationSize = 50)
     Long id;
 
     @ManyToOne
