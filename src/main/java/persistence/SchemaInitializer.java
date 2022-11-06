@@ -5,27 +5,23 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
-import java.util.Optional;
-
 public class SchemaInitializer {
 
     private final Session session;
     private final Logger logger;
 
-    public SchemaInitializer(Session session){
+    public SchemaInitializer(Session session) {
         this.session = session;
         this.logger = LoggerFactory.getLogger(SchemaInitializer.class);
     }
 
     public void initializeSchemasOrDoNothing() {
 
-        Optional<List> show_tables = Optional.ofNullable(
-                session.createSQLQuery("Show tables")
-                        .getResultList());
 
+        final var tables = session.createSQLQuery("Show tables")
+                .getResultList();
 
-        if(show_tables.isPresent() && show_tables.get().size() == 0){
+        if (tables.isEmpty()) {
             logger.debug("No tables in database, need to create one");
             Transaction transaction = session.beginTransaction();
             String binanceData = "create table binance_data(id bigint ,symbol_id int,open_time datetime(6),open double,high double,low double,close double,volume double,key(id));";
