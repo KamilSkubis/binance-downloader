@@ -9,3 +9,67 @@
 2022-11-09 21:09:31.052[1668024571052] | INFO  | main       | c.m.v.c.i.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@37478bb3 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@8b67a55b [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hge0xgasq325l71y88c61|7f829c76, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@c748742e [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hge0xgasq325l71y88c61|65cc8228, jdbcUrl -> jdbc:mysql://localhost:3306/test, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hge0xgasq325l71y88c61|f3fcd59, numHelperThreads -> 3 ]
 2022-11-09 21:09:31.471[1668024571471] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
 2022-11-09 21:09:31.898[1668024571898] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-09 21:17:10.283[1668025030283] | INFO  | main       | config.ConfigLocation                - Using config file in path:/home/neptun/IdeaProjects/stock-exchange-data-downloader/target/settings.properties
+2022-11-09 21:17:10.291[1668025030291] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
+2022-11-09 21:17:10.301[1668025030301] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
+2022-11-09 21:17:10.305[1668025030305] | INFO  | main       | config.ConfigLocation                - Using config file in path:/home/neptun/IdeaProjects/stock-exchange-data-downloader/target/settings.properties
+2022-11-09 21:17:10.305[1668025030305] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
+2022-11-09 21:17:10.305[1668025030305] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
+2022-11-09 21:17:10.387[1668025030387] | INFO  | main       | org.hibernate.Version                - HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-11-09 21:17:11.041[1668025031041] | INFO  | main       | o.h.annotations.common.Version       - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-09 21:17:11.124[1668025031124] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH010002: C3P0 using driver: null at URL: jdbc:mysql://localhost:3306/test
+2022-11-09 21:17:11.124[1668025031124] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001001: Connection properties: {password=****, user=root}
+2022-11-09 21:17:11.124[1668025031124] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001003: Autocommit mode: false
+2022-11-09 21:17:11.124[1668025031124] | WARN  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001006: No JDBC Driver class was specified by property hibernate.connection.driver_class
+2022-11-09 21:17:11.138[1668025031138] | INFO  | MLog-Init-Reporter | com.mchange.v2.log.MLog              - MLog clients using slf4j logging.
+2022-11-09 21:17:11.320[1668025031320] | INFO  | main       | com.mchange.v2.c3p0.C3P0Registry     - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2022-11-09 21:17:11.353[1668025031353] | INFO  | main       | o.h.c.i.C3P0ConnectionProvider       - HHH10001007: JDBC isolation level: <unknown>
+2022-11-09 21:17:11.364[1668025031364] | INFO  | main       | c.m.v.c.i.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@236cb099 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@bc2dd318 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hge0xgasq3c0s8gb9jqt|710b30ef, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@eee86361 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hge0xgasq3c0s8gb9jqt|bc57b40, jdbcUrl -> jdbc:mysql://localhost:3306/test, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hge0xgasq3c0s8gb9jqt|6f95cd51, numHelperThreads -> 3 ]
+2022-11-09 21:17:11.750[1668025031750] | INFO  | main       | org.hibernate.dialect.Dialect        - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-11-09 21:17:12.183[1668025032183] | INFO  | main       | o.h.e.t.j.p.i.JtaPlatformInitiator   - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-09 21:17:12.287[1668025032287] | INFO  | main       | config.ConfigLocation                - Using config file in path:/home/neptun/IdeaProjects/stock-exchange-data-downloader/target/settings.properties
+2022-11-09 21:17:12.287[1668025032287] | INFO  | main       | config.Config$ConfigBuilder          - Created new config
+2022-11-09 21:17:12.287[1668025032287] | INFO  | main       | config.Config$ConfigBuilder          - ConfigBuilder{login='root', url='jdbc:mysql://localhost:3306/test', password=[***] ', timeframe='1d', klineLimit=1000, startDateTime=2010-01-01T00:00:00Z}
+2022-11-09 21:17:12.287[1668025032287] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading ticker names
+2022-11-09 21:17:12.288[1668025032288] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/ticker/price
+2022-11-09 21:17:28.869[1668025048869] | INFO  | main       | BinanceRunner                        - downloaded tickers: 415
+2022-11-09 21:17:28.935[1668025048935] | INFO  | main       | BinanceRunner                        - symbol Time from database: 
+2022-11-09 21:17:28.936[1668025048936] | INFO  | main       | BinanceRunner                        - {}
+2022-11-09 21:17:28.955[1668025048955] | INFO  | main       | downloads.BinanceDownloader          - Initialization: Start downloading data for ticker BTCUSDT
+2022-11-09 21:17:28.956[1668025048956] | INFO  | main       | c.b.c.client.utils.RequestHandler    - GET https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=1000&startTime=1262304000000
+2022-11-09 21:17:29.939[1668025049939] | INFO  | main       | downloads.BinanceDownloader          - data for BTCUSDT downloaded successfully, downloaded 1000 bars
+2022-11-09 21:17:29.942[1668025049942] | INFO  | main       | downloads.BinanceDownloader          - used weight: 3 used weight 1m: 3
+2022-11-09 21:17:29.946[1668025049946] | INFO  | main       | persistence.DbWriter                 - reading last index value for ticker: BTCUSDT
+2022-11-09 21:17:29.951[1668025049951] | INFO  | main       | persistence.DbWriter                 - found no tickier on this name: BTCUSDT setting index to 1
+2022-11-09 21:17:29.972[1668025049972] | ERROR | main       | o.h.id.enhanced.TableStructure       - could not read a hi value
+java.sql.SQLSyntaxErrorException: Table 'test.hibernate_sequence' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1009)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:1471)
+	at org.hibernate.id.enhanced.TableStructure.executeQuery(TableStructure.java:228)
+	at org.hibernate.id.enhanced.TableStructure.access$300(TableStructure.java:45)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:150)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:138)
+	at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:55)
+	at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:57)
+	at org.hibernate.id.enhanced.TableStructure$1.getNextValue(TableStructure.java:137)
+	at org.hibernate.id.enhanced.NoopOptimizer.generate(NoopOptimizer.java:40)
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:534)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:115)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:672)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:665)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:660)
+	at persistence.DbWriter.writeDatainBatch(DbWriter.java:82)
+	at BinanceRunner.run(BinanceRunner.java:76)
+	at Main.main(Main.java:23)
+2022-11-09 21:17:29.973[1668025049973] | WARN  | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - SQL Error: 1146, SQLState: 42S02
+2022-11-09 21:17:29.973[1668025049973] | ERROR | main       | o.h.e.jdbc.spi.SqlExceptionHelper    - Table 'test.hibernate_sequence' doesn't exist
