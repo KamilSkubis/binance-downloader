@@ -16,7 +16,8 @@ public class DbWriterTest {
 
     @Before
     public void setUp() {
-        UtilForTesting.createTables();
+        UtilForTesting.dropTables();
+//        UtilForTesting.createTables();
     }
 
     @Test

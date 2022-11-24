@@ -26,8 +26,8 @@ import java.util.Objects;
 public class BinanceData implements Data {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="binanceData_generator", sequenceName = "binance_gen", allocationSize = 50)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "binanceData_generator")
+    @SequenceGenerator(name="binanceData_generator", sequenceName = "binance_data_seq",initialValue = 1, allocationSize = 50)
     Long id;
 
     @ManyToOne

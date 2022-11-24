@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import persistence.MySQLUtilTesting;
 import persistence.SchemaInitializer;
 
+import java.util.Arrays;
+
 public class SchemaInitializerTest {
 
     @Before
@@ -15,14 +17,14 @@ public class SchemaInitializerTest {
 
     @Test
     public void initTables_whenNoTables_IntegrationTest() {
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
-        SchemaInitializer schemaInitializer = new SchemaInitializer(session);
+        SchemaInitializer schemaInitializer = new SchemaInitializer(MySQLUtilTesting.getSessionFactory());
         schemaInitializer.initializeSchemasOrDoNothing();
 
         var s = MySQLUtilTesting.getSessionFactory().openSession();
+        var list = s.createSQLQuery("show tables").getResultList();
+        System.out.println("Result:" + list.toString());
 
-        int size = s.createSQLQuery("show tables").getResultList().size();
-        Assertions.assertEquals(2, size);
+        Assertions.assertEquals(2, list.size());
     }
 
 

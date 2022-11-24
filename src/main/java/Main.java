@@ -16,7 +16,7 @@ public class Main {
 
         SessionFactory sessionFactory = MySQLUtil.getSessionFactory();
 
-        SchemaInitializer schemaInitializer = new SchemaInitializer(sessionFactory.openSession());
+        SchemaInitializer schemaInitializer = new SchemaInitializer(sessionFactory);
         schemaInitializer.initializeSchemasOrDoNothing();
 
         BinanceRunner binanceRunner = new BinanceRunner();
