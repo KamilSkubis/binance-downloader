@@ -21,7 +21,7 @@ public class BatchWriterMultiThreaded implements Runnable {
 
         this.sessionFactory = sessionFactory;
         this.data = data;
-        this.logger = LoggerFactory.getLogger(DBWriter.class);
+        this.logger = LoggerFactory.getLogger(DbWriter.class);
     }
 
 

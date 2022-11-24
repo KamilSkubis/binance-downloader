@@ -42,9 +42,21 @@ public class UtilForTesting {
 
     public static void dropTables(){
         Session session = MySQLUtilTesting.getSessionFactory().openSession();
+
+        final var tables = session.createSQLQuery("Show tables")
+                .getResultList();
+
         session.beginTransaction();
-        session.createSQLQuery("DROP TABLE symbols").executeUpdate();
-        session.createSQLQuery("DROP TABLE binance_data").executeUpdate();
+        if(tables.contains("binance_data")) {
+            session.createSQLQuery("DROP TABLE binance_data").executeUpdate();
+        }
+        if(tables.contains("symbols")) {
+            session.createSQLQuery("DROP TABLE symbols").executeUpdate();
+        }
+
+        if(tables.contains("binance_data_seq")) {
+            session.createSQLQuery("DROP TABLE binance_data_seq").executeUpdate();
+        }
         session.getTransaction().commit();
         session.close();
     }

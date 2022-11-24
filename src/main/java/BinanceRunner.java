@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import persistence.DBWriter;
+import persistence.DbWriter;
 import persistence.DbReader;
 import persistence.MySQLUtil;
 
@@ -73,7 +73,7 @@ public class BinanceRunner {
         for (LinkedHashMap<String, Object> map : params) {
 
             List<Data> data = binance.downloadKlines(map);
-            DBWriter.writeDatainBatch(sessionFactory, data);
+            new DbWriter().writeDatainBatch(data);
 
             int dataSize = data.size();
 
@@ -85,7 +85,7 @@ public class BinanceRunner {
 
                 map.replace("startTime", date);
                 List<Data> downloadedData = binance.downloadKlines(map);
-                DBWriter.writeDatainBatch(sessionFactory, downloadedData);
+                new DbWriter().writeDatainBatch(downloadedData);
                 dataSize = downloadedData.size();
             }
         }

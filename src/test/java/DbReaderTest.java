@@ -5,7 +5,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import persistence.DBWriter;
+import persistence.DbWriter;
 import persistence.DbReader;
 import persistence.MySQLUtilTesting;
 
@@ -28,7 +28,7 @@ public class DbReaderTest {
         Symbol symbol1 = new Symbol();
         symbol1.setSymbolName("testRead");
         BinanceData b1 = UtilForTesting.createSampleData(symbol1);
-        DBWriter.writeData(mysqlTesting, b1);
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeData(b1);
 
         DbReader dbReader = new DbReader(mysqlTesting);
         Symbol symbol2 = new Symbol();
@@ -41,7 +41,7 @@ public class DbReaderTest {
         Symbol symbol1 = new Symbol();
         symbol1.setSymbolName("testRead");
         BinanceData b1 = UtilForTesting.createSampleData(symbol1);
-        DBWriter.writeData(mysqlTesting, b1);
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeData(b1);
         DbReader dbReader = new DbReader(mysqlTesting);
         Assert.assertEquals(100l, dbReader.getLatestIndex());
 
