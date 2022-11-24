@@ -1,5 +1,6 @@
 package persistence;
 
+import model.BinanceData;
 import model.Data;
 import model.Symbol;
 import org.hibernate.Session;
@@ -12,7 +13,7 @@ import javax.persistence.NoResultException;
 import java.util.List;
 
 
-public class DbWriter {
+public class DbWriter implements Writer{
 
     private final SessionFactory sessionFactory;
 
@@ -96,4 +97,17 @@ public class DbWriter {
         logger.info("Saved to database: " + data.size() + " records for: " + data.get(0).getSymbol().getSymbolName() + " ticker, this operation took: " + duration);
     }
 
+    @Override
+    public void write(BinanceData data) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(data);
+        transaction.commit();
+        session.close();
+    }
+
+    @Override
+    public void write(Symbol symbol) {
+
+    }
 }

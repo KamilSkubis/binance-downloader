@@ -1,16 +1,19 @@
 import model.BinanceData;
 import model.Symbol;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import persistence.DbWriter;
 import persistence.MySQLUtilTesting;
+import persistence.Writer;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DbWriterTest {
 
@@ -24,27 +27,45 @@ public class DbWriterTest {
     public void symbol_shouldBeEmpty() {
         Session session = MySQLUtilTesting.getSessionFactory().openSession();
         Query query = session.createQuery("from Symbol");
-        assertEquals(0, query.getResultList().size());
-
+        Assert.assertEquals(0, query.getResultList().size());
     }
+
+//    @Test
+//    public void canAddDataToDb_oneTime() {
+//        Symbol symbol = new Symbol();
+//        symbol.setSymbolName("testSingleEntry");
+//        BinanceData binanceData = UtilForTesting.createSampleData(symbol);
+//        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeData(binanceData);
+//
+//        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+//        List resultList = session
+//                .createQuery("From BinanceData")
+//                .getResultList();
+//        int result = (int) resultList.stream()
+//                .filter(d -> d.getSymbol().getSymbolName().equals("testSingleEntry"))
+//                .count();
+//        session.close();
+//        assertEquals(1, result);
+//    }
 
     @Test
-    public void canAddDataToDb_oneTime() {
+    public void canWriteToDb_one_data() {
         Symbol symbol = new Symbol();
-        symbol.setSymbolName("testSingleEntry");
-        BinanceData binanceData = UtilForTesting.createSampleData(symbol);
-        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeData(binanceData);
+        symbol.setSymbolName("test");
+        var sampleData = UtilForTesting.createSampleData(symbol);
 
-        Session session = MySQLUtilTesting.getSessionFactory().openSession();
-        List<BinanceData> resultList = session
-                .createQuery("From BinanceData")
-                .getResultList();
-        int result = (int) resultList.stream()
-                .filter(d -> d.getSymbol().getSymbolName().equals("testSingleEntry"))
-                .count();
-        session.close();
-        assertEquals(1, result);
+        SessionFactory sessionFactory = MySQLUtilTesting.getSessionFactory();
+        Writer dbWriter = new DbWriter(sessionFactory);
+        dbWriter.write(sampleData);
+
+
+        Session s = MySQLUtilTesting.getSessionFactory().openSession();
+        BinanceData binanceData = s.get(BinanceData.class, 1);
+        s.close();
+        assertEquals("test", binanceData.getSymbol().getSymbolName());
+
     }
+
 
     @Test
     public void canAddDataToDb_twoTimes_shouldHaveOneSymbol() {
@@ -62,7 +83,7 @@ public class DbWriterTest {
                 .getResultList();
         int result = resultList.size();
         session.close();
-        assertEquals(1, result);
+        Assert.assertEquals(1, result);
     }
 
 
@@ -83,7 +104,7 @@ public class DbWriterTest {
         int result = resultList.size();
         System.out.println(resultList);
         session.close();
-        assertEquals(1, result);
+        Assert.assertEquals(1, result);
     }
 
     @Test
@@ -106,7 +127,7 @@ public class DbWriterTest {
         int result = resultList.size();
         System.out.println(resultList);
         session.close();
-        assertEquals(1, result);
+        Assert.assertEquals(1, result);
     }
 
 
@@ -134,7 +155,7 @@ public class DbWriterTest {
         int result = resultList.size();
         System.out.println("Three inserts two separate tickers: resultList: " + resultList);
         session.close();
-        assertEquals(2, result);
+        Assert.assertEquals(2, result);
     }
 
     @Test
@@ -157,7 +178,7 @@ public class DbWriterTest {
                 .getResultList();
         int result = resultList.size();
         session.close();
-        assertEquals(3, result);
+        Assert.assertEquals(3, result);
     }
 
 
