@@ -52,7 +52,6 @@ public class BinanceRunner {
 
     public void run() {
 
-
         List<String> symbolsUSDT = getListOfSymbolsUSDT(binance);
         logger.info("USDT symbols already in database: " + symbolsUSDT.size());
 

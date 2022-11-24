@@ -8,6 +8,9 @@ import persistence.SchemaInitializer;
 
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class SchemaInitializerTest {
 
     @Before
@@ -24,7 +27,10 @@ public class SchemaInitializerTest {
         var list = s.createSQLQuery("show tables").getResultList();
         System.out.println("Result:" + list.toString());
 
-        Assertions.assertEquals(2, list.size());
+        assertEquals(3, list.size());
+        assertTrue(list.contains("binance_data"));
+        assertTrue(list.contains("binance_data_seq"));
+        assertTrue(list.contains("symbols"));
     }
 
 
