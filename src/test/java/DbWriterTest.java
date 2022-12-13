@@ -182,6 +182,25 @@ public class DbWriterTest {
     }
 
 
+    @Test
+    public void canAdd_oneBinanceData(){
+        var symbol = new Symbol();
+        symbol.setSymbolName("test");
+        var binanceData = new BinanceData();
+        binanceData.setSymbol(symbol);
+
+        DbWriter dbWriter = new DbWriter(MySQLUtilTesting.getSessionFactory());
+        dbWriter.write(binanceData);
+
+        Session session = MySQLUtilTesting.getSessionFactory().openSession();
+        List<BinanceData> result = session.createQuery("From BinanceData").getResultList();
+        System.out.println(result.toString());
+    }
+
+
+
+
+
     @After
     public void tearDown() {
         UtilForTesting.dropTables();

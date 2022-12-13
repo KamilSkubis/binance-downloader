@@ -108,6 +108,10 @@ public class DbWriter implements Writer{
 
     @Override
     public void write(Symbol symbol) {
-
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(symbol);
+        transaction.commit();
+        session.close();
     }
 }
