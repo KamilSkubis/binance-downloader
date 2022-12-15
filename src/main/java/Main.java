@@ -14,10 +14,6 @@ public class Main {
 
         Logger logger = LoggerFactory.getLogger(Main.class);
 
-//        ConfigLocation configLocation = new ConfigLocation();
-//        ConfigReader configReader = new ConfigReader();
-//        Config config = configReader.read(configLocation);
-
         SessionFactory sessionFactory = MySQLUtil.getSessionFactory();
 
         SchemaInitializer schemaInitializer = new SchemaInitializer(sessionFactory);
