@@ -47,6 +47,7 @@ public class MySQLUtil {
             properties.put("hibernate.connection.url", config.getUrl());
             properties.put("hibernate.connection.username", config.getLogin());
             properties.put("hibernate.connection.password", config.getPassword());
+            properties.put("hibernate.hbm2ddl.auto", "update");
             configuration.addProperties(properties);
             configuration.addAnnotatedClass(model.Symbol.class);
             configuration.addAnnotatedClass(model.BinanceData.class);
@@ -56,6 +57,7 @@ public class MySQLUtil {
 
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
             logger.debug("SessionFactory created.");
+
             return sessionFactory;
 
         } catch (Throwable ex) {

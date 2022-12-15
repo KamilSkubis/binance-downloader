@@ -14,9 +14,9 @@ public class Main {
 
         Logger logger = LoggerFactory.getLogger(Main.class);
 
-        ConfigLocation configLocation = new ConfigLocation();
-        ConfigReader configReader = new ConfigReader();
-        Config config = configReader.read(configLocation);
+//        ConfigLocation configLocation = new ConfigLocation();
+//        ConfigReader configReader = new ConfigReader();
+//        Config config = configReader.read(configLocation);
 
         SessionFactory sessionFactory = MySQLUtil.getSessionFactory();
 
@@ -31,6 +31,8 @@ public class Main {
         Long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         logger.info("Program took " + duration + "ms or " + duration / 1000 + "s");
+
+        MySQLUtil.getSessionFactory().close();
     }
 
 }

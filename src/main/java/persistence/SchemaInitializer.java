@@ -40,14 +40,17 @@ public class SchemaInitializer {
             s2.createSQLQuery(symbol).executeUpdate();
             transaction2.commit();
             s2.close();
-            logger.debug("tables created");
 
             Session s3 = sessionFactory.openSession();
-            var t3 = s3.beginTransaction();
-            s3.createSQLQuery("create table xxx(id bigint AUTO_INCREMENT,symbol char(10),key(id));").executeUpdate();
-            t3.commit();
+            Transaction transaction3 = s3.beginTransaction();
+            String str3 = "create sequence test.binance_data_seq start with 1 increment by 1;";
+            s3.createSQLQuery(str3).executeUpdate();
+            transaction3.commit();
             s3.close();
 
+
+
+            logger.debug("tables created");
 
         }
     }

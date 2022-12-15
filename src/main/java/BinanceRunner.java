@@ -74,9 +74,8 @@ public class BinanceRunner {
 
             List<Data> data = binance.downloadKlines(map);
             Writer writer = new DbWriter(sessionFactory);
-            for(Data d : data) {
-                writer.write(d);
-            }
+            writer.write(data);
+
             int dataSize = data.size();
 
             while (dataSize == kline_limit) {
@@ -87,11 +86,7 @@ public class BinanceRunner {
 
                 map.replace("startTime", date);
                 List<Data> downloadedData = binance.downloadKlines(map);
-
-
-                for(Data d : downloadedData) {
-                    writer.write(d);
-                }
+                writer.write(downloadedData);
 
                 dataSize = downloadedData.size();
             }

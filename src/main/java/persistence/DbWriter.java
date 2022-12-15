@@ -5,18 +5,26 @@ import model.Symbol;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 
 public class DbWriter implements Writer{
 
     private final SessionFactory sessionFactory;
+    private final Logger logger;
 
     public DbWriter(SessionFactory sessionFactory){
         this.sessionFactory = sessionFactory;
+        logger = LoggerFactory.getLogger(DbWriter.class);
     }
 
     public DbWriter(){
         this.sessionFactory = MySQLUtil.getSessionFactory();
+        logger = LoggerFactory.getLogger(DbWriter.class);;
     }
 
 //    public void writeSymbol(Symbol symbol) {
@@ -98,6 +106,31 @@ public class DbWriter implements Writer{
         session.save(data);
         transaction.commit();
         session.close();
+    }
+
+
+    @Override
+    public void write(List<Data> data) {
+        Long now = System.nanoTime();
+
+        int i = 0;
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        for(Data d: data){
+            session.save(d);
+            i++;
+            if(i % 50 == 0){
+                session.flush();
+                session.clear();
+            }
+        }
+        transaction.commit();
+        session.close();
+
+        Long elapsed = (now - System.nanoTime())/1_000_000;
+        logger.info("Saving to Database took: " + elapsed + " ms");
+
     }
 
     @Override
