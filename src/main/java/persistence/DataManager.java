@@ -31,12 +31,14 @@ public class DataManager {
         List<String> differences = new ArrayList<>(symbolList);
         differences.removeAll(onlySymbolNames);
 
+
         if(differences.size() > 0){
             logger.info("Found differences in Symbols table: " + differences);
+            Writer writer = new DbWriter(sessionFactory); //TODO tight coupling -- refactor this class
             for(String s : differences){
                 Symbol symbol = new Symbol();
                 symbol.setSymbolName(s);
-                new DbWriter().writeSymbol(symbol); //TODO refactor this
+                writer.write(symbol);
             }
             result = dbReader.getSymbolObjListFromDb();
         }

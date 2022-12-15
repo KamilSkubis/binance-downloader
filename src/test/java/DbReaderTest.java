@@ -19,7 +19,7 @@ public class DbReaderTest {
 
     @Before
     public void setUp() {
-        UtilForTesting.createTables();
+        UtilForTesting.dropTables();
         mysqlTesting = MySQLUtilTesting.getSessionFactory();
     }
 
@@ -28,23 +28,12 @@ public class DbReaderTest {
         Symbol symbol1 = new Symbol();
         symbol1.setSymbolName("testRead");
         BinanceData b1 = UtilForTesting.createSampleData(symbol1);
-        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeData(b1);
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).write(b1);
 
         DbReader dbReader = new DbReader(mysqlTesting);
         Symbol symbol2 = new Symbol();
         symbol2.setSymbolName("testRead");
         Assert.assertEquals(LocalDateTime.of(2000, 1, 1, 5, 25, 2), dbReader.readLastDate(symbol2));
-    }
-
-    @Test
-    public void canGetlatestIndex() {
-        Symbol symbol1 = new Symbol();
-        symbol1.setSymbolName("testRead");
-        BinanceData b1 = UtilForTesting.createSampleData(symbol1);
-        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeData(b1);
-        DbReader dbReader = new DbReader(mysqlTesting);
-        Assert.assertEquals(100l, dbReader.getLatestIndex());
-
     }
 
 

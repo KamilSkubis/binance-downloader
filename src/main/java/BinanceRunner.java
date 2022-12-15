@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import persistence.DbWriter;
 import persistence.DbReader;
 import persistence.MySQLUtil;
+import persistence.Writer;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -72,8 +73,10 @@ public class BinanceRunner {
         for (LinkedHashMap<String, Object> map : params) {
 
             List<Data> data = binance.downloadKlines(map);
-            new DbWriter().writeDatainBatch(data);
-
+            Writer writer = new DbWriter(sessionFactory);
+            for(Data d : data) {
+                writer.write(d);
+            }
             int dataSize = data.size();
 
             while (dataSize == kline_limit) {
@@ -84,7 +87,12 @@ public class BinanceRunner {
 
                 map.replace("startTime", date);
                 List<Data> downloadedData = binance.downloadKlines(map);
-                new DbWriter().writeDatainBatch(downloadedData);
+
+
+                for(Data d : downloadedData) {
+                    writer.write(d);
+                }
+
                 dataSize = downloadedData.size();
             }
         }

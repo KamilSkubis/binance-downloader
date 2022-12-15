@@ -9,8 +9,6 @@ import java.time.LocalDateTime;
 
 public class UtilForTesting {
 
-    private static long index;
-
     public static void createTables(){
         Session session = MySQLUtilTesting.getSessionFactory().openSession();
 
@@ -40,22 +38,25 @@ public class UtilForTesting {
         session.close();
     }
 
-    public static void dropTables(){
+    public static void dropTables() {
         Session session = MySQLUtilTesting.getSessionFactory().openSession();
 
         final var tables = session.createSQLQuery("Show tables")
                 .getResultList();
 
         session.beginTransaction();
-        if(tables.contains("binance_data")) {
-            session.createSQLQuery("DROP TABLE binance_data").executeUpdate();
+        if (tables.contains("binance_data")) {
+            session.createSQLQuery("truncate TABLE binance_data").executeUpdate();
         }
-        if(tables.contains("symbols")) {
-            session.createSQLQuery("DROP TABLE symbols").executeUpdate();
+        if (tables.contains("symbols")) {
+            session.createSQLQuery("SET FOREIGN_KEY_CHECKS = 0").executeUpdate();
+            session.createSQLQuery("truncate TABLE symbols").executeUpdate();
+            session.createSQLQuery("SET FOREIGN_KEY_CHECKS = 1").executeUpdate();
         }
 
         if(tables.contains("binance_data_seq")) {
-            session.createSQLQuery("DROP TABLE binance_data_seq").executeUpdate();
+            session.createSQLQuery("truncate binance_data_seq").executeUpdate();
+            session.createSQLQuery("insert into test.binance_data_seq(next_val) values ( 0 )").executeUpdate();
         }
         session.getTransaction().commit();
         session.close();
@@ -63,12 +64,11 @@ public class UtilForTesting {
 
     @NotNull
     public static BinanceData createSampleData(Symbol symbol) {
-        index = 100L;
+        long index = 100L;
         String symbolName = symbol.getSymbolName();
         symbol.setSymbolName(symbolName);
         BinanceData binanceData = new BinanceData();
         binanceData.setId(index);
-        index++;
         binanceData.setOpenTime(LocalDateTime.of(2000,1,1,5,25,2,20));
         binanceData.setVolume(230.2);
         binanceData.setSymbol(symbol);

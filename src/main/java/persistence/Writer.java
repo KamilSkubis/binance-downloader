@@ -1,10 +1,10 @@
 package persistence;
 
-import model.BinanceData;
+import model.Data;
 import model.Symbol;
 
 public interface Writer {
 
-    void write(BinanceData data);
+    void write(Data data);
     void write(Symbol symbol);
 }

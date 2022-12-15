@@ -17,7 +17,7 @@ public class DataManagerTest {
 
     @Before
     public void setUp() {
-        UtilForTesting.createTables();
+        UtilForTesting.dropTables();
         mysqlTesting = MySQLUtilTesting.getSessionFactory();
     }
 
@@ -47,7 +47,7 @@ public class DataManagerTest {
         dataManager.saveOrUpdateSymbols(symbolList);
 
         List<Symbol> readResult = dataManager.getSymbolList();
-        Assert.assertTrue(readResult.size() == symbolList.size());
+        Assert.assertEquals(readResult.size(), symbolList.size());
         Assert.assertEquals(2, readResult.size());
         Assert.assertEquals(1, readResult.stream().filter(s -> s.getSymbolName().equals("test")).count());
         Assert.assertEquals(1, readResult.stream().filter(s -> s.getSymbolName().equals("test1")).count());
@@ -62,7 +62,7 @@ public class DataManagerTest {
         dataManager.saveOrUpdateSymbols(symbolList);
         List<Symbol> readResult = dataManager.getSymbolList();
 
-        Assert.assertEquals(true, readResult.size() == symbolList.size());
+        Assert.assertEquals(readResult.size(), symbolList.size());
         Assert.assertEquals(1, readResult.stream().filter(s -> s.getSymbolName().equals("test")).count());
         Assert.assertEquals(1, readResult.stream().filter(s -> s.getSymbolName().equals("test1")).count());
         Assert.assertEquals(1, readResult.stream().filter(s -> s.getSymbolName().equals("test2")).count());
@@ -81,15 +81,15 @@ public class DataManagerTest {
     private void writeSymbolsToDb() {
         List<Symbol> symbolList = new ArrayList<>();
         Symbol symbol = new Symbol();
-        symbol.setId(1l);
+        symbol.setId(1L);
         symbol.setSymbolName("test");
 
         Symbol symbol1 = new Symbol();
-        symbol.setId(2l);
+        symbol.setId(2L);
         symbol1.setSymbolName("test1");
 
-        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeSymbol(symbol);
-        new DbWriter(MySQLUtilTesting.getSessionFactory()).writeSymbol(symbol1);
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).write(symbol);
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).write(symbol1);
 
         DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
         Assert.assertEquals(2,dataManager.getSymbolList().size());

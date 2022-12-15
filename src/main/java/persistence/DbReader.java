@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 
 import javax.persistence.Query;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DbReader {
@@ -18,9 +17,10 @@ public class DbReader {
         this.sessionFactory = sessionFactory;
     }
 
-    public List<Symbol> getSymbolObjFromDb(String symbolName) {
+    public List getSymbolObjFromDb(String symbolName) {
         Session session = sessionFactory.openSession();
-        List<Symbol> symbolList = session.createQuery("from Symbol where symbol.symbol=:symbol").setParameter("symbol", symbolName).getResultList();
+        List symbolList;
+        symbolList = session.createQuery("from Symbol where symbol.symbol=:symbol").setParameter("symbol", symbolName).getResultList();
         session.close();
         return symbolList;
     }
@@ -41,23 +41,16 @@ public class DbReader {
         Query query = session.createQuery("from BinanceData where symbol = :symbol");
         query.setParameter("symbol", symbolList.get(0));
 
-        LocalDateTime result = null;
-        if(query.getResultList().size() != 0) {
-             BinanceData bar = (BinanceData) query.getResultList().get(query.getResultList().size() - 1);
-             result = bar.getOpenTime();
+        LocalDateTime result;
+        if (query.getResultList().size() != 0) {
+            BinanceData bar = (BinanceData) query.getResultList().get(query.getResultList().size() - 1);
+            result = bar.getOpenTime();
 
-        }else{
-            result = LocalDateTime.of(2010,1,1,0,0,0,0);
+        } else {
+            result = LocalDateTime.of(2010, 1, 1, 0, 0, 0, 0);
         }
         return result;
     }
 
-    public long getLatestIndex() {
-        Session session = sessionFactory.openSession();
-        Query query = session.createQuery("from BinanceData order by id DESC");
-        query.setMaxResults(1);
-        BinanceData bar = (BinanceData) query.getSingleResult();
 
-        return  bar.getId();
-    }
 }
