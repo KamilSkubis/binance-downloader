@@ -18,13 +18,13 @@ public class DataManager {
         logger = LoggerFactory.getLogger(DataManager.class);
     }
 
-    public List<Symbol> saveOrUpdateSymbols(List<String> symbolList){
+    public List<Symbol> saveOrUpdateSymbols(List<String> symbolList) {
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> result = dbReader.getSymbolObjListFromDb();
 
         List<String> onlySymbolNames = new ArrayList<>();
         //convert List<Symbol> to List<String>
-        for(Symbol s : result){
+        for (Symbol s : result) {
             onlySymbolNames.add(s.getSymbolName());
         }
 
@@ -32,10 +32,10 @@ public class DataManager {
         differences.removeAll(onlySymbolNames);
 
 
-        if(differences.size() > 0){
+        if (differences.size() > 0) {
             logger.info("Found differences in Symbols table: " + differences);
             Writer writer = new DbWriter(sessionFactory); //TODO tight coupling -- refactor this class
-            for(String s : differences){
+            for (String s : differences) {
                 Symbol symbol = new Symbol();
                 symbol.setSymbolName(s);
                 writer.write(symbol);

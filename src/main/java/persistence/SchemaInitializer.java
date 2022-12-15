@@ -49,7 +49,6 @@ public class SchemaInitializer {
             s3.close();
 
 
-
             logger.debug("tables created");
 
         }

@@ -8,23 +8,22 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 
-public class DbWriter implements Writer{
+public class DbWriter implements Writer {
 
     private final SessionFactory sessionFactory;
     private final Logger logger;
 
-    public DbWriter(SessionFactory sessionFactory){
+    public DbWriter(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
         logger = LoggerFactory.getLogger(DbWriter.class);
     }
 
-    public DbWriter(){
+    public DbWriter() {
         this.sessionFactory = MySQLUtil.getSessionFactory();
-        logger = LoggerFactory.getLogger(DbWriter.class);;
+        logger = LoggerFactory.getLogger(DbWriter.class);
     }
 
 //    public void writeSymbol(Symbol symbol) {
@@ -117,10 +116,10 @@ public class DbWriter implements Writer{
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        for(Data d: data){
+        for (Data d : data) {
             session.save(d);
             i++;
-            if(i % 50 == 0){
+            if (i % 50 == 0) {
                 session.flush();
                 session.clear();
             }
@@ -128,8 +127,8 @@ public class DbWriter implements Writer{
         transaction.commit();
         session.close();
 
-        Long elapsed = (now - System.nanoTime())/1_000_000;
-        logger.info("Saving to Database took: " + elapsed + " ms");
+        Long elapsed = (System.nanoTime() - now) / 1_000_000;
+        logger.info("Saving all data for " + data.get(0).getSymbol().getSymbolName() + " to Database took: " + elapsed + " ms");
 
     }
 

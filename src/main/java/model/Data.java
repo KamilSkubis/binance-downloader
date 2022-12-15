@@ -1,7 +1,5 @@
 package model;
 
-import model.Symbol;
-
 import java.time.LocalDateTime;
 
 public interface Data {

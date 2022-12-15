@@ -12,7 +12,7 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name="symbols")
+@Table(name = "symbols")
 public class Symbol {
 
     @Id
@@ -29,12 +29,12 @@ public class Symbol {
         this.symbol = symbol;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override

@@ -10,8 +10,8 @@ import org.hibernate.SessionFactory;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import persistence.DbWriter;
 import persistence.DbReader;
+import persistence.DbWriter;
 import persistence.MySQLUtil;
 import persistence.Writer;
 
@@ -70,27 +70,52 @@ public class BinanceRunner {
 
         final List<LinkedHashMap<String, Object>> params = prepareParams(symbolsUSDT, latestDateTimePerSymbol);
 
+//        for (LinkedHashMap<String, Object> map : params) {
+//
+//            List<Data> data = binance.downloadKlines(map);
+//            Writer writer = new DbWriter(sessionFactory);
+//            writer.write(data);
+//
+//            int dataSize = data.size();
+//
+//            while (dataSize == kline_limit) {
+//
+//                LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
+//                Instant instant = nextDate.toInstant(ZoneOffset.UTC);
+//                Long date = instant.toEpochMilli();
+//
+//                map.replace("startTime", date);
+//                List<Data> downloadedData = binance.downloadKlines(map);
+//
+//                //dont data for current candle to be persistent
+//                //becouse it is not closed yet
+//
+//                writer.write(downloadedData);
+//
+//                dataSize = downloadedData.size();
+//            }
+//        }
+
         for (LinkedHashMap<String, Object> map : params) {
 
             List<Data> data = binance.downloadKlines(map);
             Writer writer = new DbWriter(sessionFactory);
-            writer.write(data);
 
-            int dataSize = data.size();
 
-            while (dataSize == kline_limit) {
+            while (data.size() % kline_limit == 0) {
 
                 LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
                 Instant instant = nextDate.toInstant(ZoneOffset.UTC);
                 Long date = instant.toEpochMilli();
 
                 map.replace("startTime", date);
-                List<Data> downloadedData = binance.downloadKlines(map);
-                writer.write(downloadedData);
-
-                dataSize = downloadedData.size();
+                data.addAll(binance.downloadKlines(map));
             }
+
+            data.remove(data.size() - 1);
+            writer.write(data);
         }
+
 
     }
 

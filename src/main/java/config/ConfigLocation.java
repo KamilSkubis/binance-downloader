@@ -13,6 +13,7 @@ public class ConfigLocation {
 
     private final File file;
     private final Logger logger;
+
     public ConfigLocation() {
 
         logger = LoggerFactory.getLogger(ConfigLocation.class);
@@ -29,8 +30,8 @@ public class ConfigLocation {
     public ConfigLocation(File file) {
         logger = LoggerFactory.getLogger(ConfigLocation.class);
 
-        if(!file.exists()){
-            throw(new RuntimeException(file + " doesn't exist"));
+        if (!file.exists()) {
+            throw (new RuntimeException(file + " doesn't exist"));
         }
         this.file = file;
         logger.info("Using config file in path:" + file.getPath());
@@ -43,7 +44,7 @@ public class ConfigLocation {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    return inputStream;
+        return inputStream;
     }
 }
 

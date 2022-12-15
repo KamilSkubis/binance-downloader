@@ -15,7 +15,6 @@ package model;
 
 
 import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -26,8 +25,8 @@ import java.util.Objects;
 public class BinanceData implements Data {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "binanceData_generator")
-    @SequenceGenerator(name="binanceData_generator", sequenceName = "binance_data_seq",initialValue = 1, allocationSize = 50)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "binanceData_generator")
+    @SequenceGenerator(name = "binanceData_generator", sequenceName = "binance_data_seq", initialValue = 1, allocationSize = 50)
     Long id;
 
     @ManyToOne
@@ -97,6 +96,10 @@ public class BinanceData implements Data {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -116,10 +119,6 @@ public class BinanceData implements Data {
 
     public Symbol getSymbol() {
         return symbol;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public void setSymbol(Symbol symbol) {

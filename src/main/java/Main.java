@@ -1,6 +1,3 @@
-import config.Config;
-import config.ConfigLocation;
-import config.ConfigReader;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

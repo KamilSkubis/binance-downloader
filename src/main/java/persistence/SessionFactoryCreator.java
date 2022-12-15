@@ -14,7 +14,7 @@ public class SessionFactoryCreator {
 
     private final SessionFactory sessionFactory;
 
-    public SessionFactoryCreator(Config config){
+    public SessionFactoryCreator(Config config) {
 
 
         Properties properties = prepareCustomProperties(config);
