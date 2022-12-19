@@ -58,8 +58,10 @@ public class DbWriter implements Writer {
         session.close();
 
         Long elapsed = (System.nanoTime() - now) / 1_000_000;
-        logger.info("Saving all data for " + data.get(0).getSymbol().getSymbolName() + " to Database took: " + elapsed + " ms");
-
+        logger.info("Saving all data "
+                + data.size() + " for "
+                + data.get(0).getSymbol().getSymbolName()
+                + " to Database took: " + elapsed + " ms");
     }
 
     @Override
