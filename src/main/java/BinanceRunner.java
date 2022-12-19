@@ -120,7 +120,7 @@ public class BinanceRunner {
                 System.out.println("symbol " + symbol + " , found in database");
 
                 final LocalDateTime dateInDb = symbolTimeFromDb.get(symbol);
-                final LocalDateTime newStartDate = dateInDb.plusMinutes(1); // TODO change this when downloading daily, or refactor
+                final LocalDateTime newStartDate = dateInDb.plusMinutes(1); // this should work for all timeframes
 
                 System.out.println("found latest date: " + dateInDb + " new calculated date: " + newStartDate);
                 Instant inst = newStartDate.toInstant(ZoneOffset.UTC);
