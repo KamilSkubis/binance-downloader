@@ -16,6 +16,7 @@ import persistence.MySQLUtil;
 import persistence.Writer;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
@@ -70,41 +71,20 @@ public class BinanceRunner {
 
         final List<LinkedHashMap<String, Object>> params = prepareParams(symbolsUSDT, latestDateTimePerSymbol);
 
-//        for (LinkedHashMap<String, Object> map : params) {
-//
-//            List<Data> data = binance.downloadKlines(map);
-//            Writer writer = new DbWriter(sessionFactory);
-//            writer.write(data);
-//
-//            int dataSize = data.size();
-//
-//            while (dataSize == kline_limit) {
-//
-//                LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
-//                Instant instant = nextDate.toInstant(ZoneOffset.UTC);
-//                Long date = instant.toEpochMilli();
-//
-//                map.replace("startTime", date);
-//                List<Data> downloadedData = binance.downloadKlines(map);
-//
-//                //dont data for current candle to be persistent
-//                //becouse it is not closed yet
-//
-//                writer.write(downloadedData);
-//
-//                dataSize = downloadedData.size();
-//            }
-//        }
-
-        for (LinkedHashMap<String, Object> map : params) {
-
+        params.parallelStream().forEach(map -> {
             List<Data> data = binance.downloadKlines(map);
             Writer writer = new DbWriter(sessionFactory);
-
 
             while (data.size() % kline_limit == 0) {
 
                 LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
+
+                var calculatedDate = nextDate.toLocalDate();
+                if (calculatedDate.equals(LocalDate.now())) {
+                    logger.info("calculated date is equal to today date. Breaking while loop");
+                    break;
+                }
+
                 Instant instant = nextDate.toInstant(ZoneOffset.UTC);
                 Long date = instant.toEpochMilli();
 
@@ -114,8 +94,7 @@ public class BinanceRunner {
 
             data.remove(data.size() - 1);
             writer.write(data);
-        }
-
+        });
 
     }
 
@@ -126,8 +105,8 @@ public class BinanceRunner {
 
             LinkedHashMap<String, Object> params = new LinkedHashMap<>();
             params.put("symbol", symbol);
-            params.put("interval", timeframe); //  for daily timeframe use 1d
-            params.put("limit", kline_limit);    //default 500 max 1000
+            params.put("interval", timeframe);
+            params.put("limit", kline_limit);
 
             System.out.println("check if " + symbol + " is in database " + symbolTimeFromDb.containsKey(symbol));
 
