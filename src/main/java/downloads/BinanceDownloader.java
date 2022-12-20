@@ -96,10 +96,10 @@ public class BinanceDownloader {
 
     private void usedWeightThreadSleep() {
         logger.info("used weight: " + usedWeight + " used weight 1m: " + usedWeight1m);
-        if (usedWeight > 200 || usedWeight1m > 200) {
+        if (usedWeight > 300 || usedWeight1m > 300) {
             try {
                 logger.info("used weight exceed limit, sleeping for 40000 miliseconds");
-                Thread.sleep(40000);
+                Thread.sleep(30000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

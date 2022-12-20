@@ -1,16 +1,18 @@
+import model.BinanceData;
 import model.Symbol;
 import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import persistence.DbWriter;
 import persistence.DataManager;
+import persistence.DbWriter;
 import persistence.MySQLUtilTesting;
-
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class DataManagerTest {
     SessionFactory mysqlTesting;
@@ -68,15 +70,6 @@ public class DataManagerTest {
         Assert.assertEquals(1, readResult.stream().filter(s -> s.getSymbolName().equals("test2")).count());
     }
 
-//    @Test
-//    public void returnCurrentListOfSymbolsToPersist_symbolListSmaller_returnSmallerList(){
-//        List<String> symbolList = List.of("test");
-//
-//        writeSymbolsToDb();
-//
-//        DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
-//        List<Symbol> readResult = dataManager.getSymbolsToDownload(symbolList);
-//    }
 
     private void writeSymbolsToDb() {
         List<Symbol> symbolList = new ArrayList<>();
@@ -92,8 +85,34 @@ public class DataManagerTest {
         new DbWriter(MySQLUtilTesting.getSessionFactory()).write(symbol1);
 
         DataManager dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
-        Assert.assertEquals(2,dataManager.getSymbolList().size());
+        Assert.assertEquals(2, dataManager.getSymbolList().size());
     }
+
+
+    @Test
+    public void writeTwoDataObjWithTwoDiffrentSymbols_OneSymbolSaved() {
+        var symbol1 = new Symbol();
+        symbol1.setSymbolName("test1");
+
+//        var symbol2 = new Symbol();
+//        symbol1.setSymbolName("test1");
+
+        BinanceData sampleData1 = UtilForTesting.createSampleData(symbol1);
+
+
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).write(sampleData1);
+
+        var symbolList = new DataManager(MySQLUtilTesting.getSessionFactory()).getSymbolList();
+
+        var symbol2 = symbolList.stream().filter(symbol -> Objects.equals(symbol.getSymbolName(), "test1")).collect(Collectors.toList());
+        BinanceData sampleData2 = UtilForTesting.createSampleData(symbol2.get(0));
+        new DbWriter(MySQLUtilTesting.getSessionFactory()).write(sampleData2);
+
+        var dataManager = new DataManager(MySQLUtilTesting.getSessionFactory());
+        System.out.println(dataManager.getSymbolList().toString());
+        Assert.assertEquals(1, dataManager.getSymbolList().size());
+    }
+
 
     @After
     public void tearDown() {
