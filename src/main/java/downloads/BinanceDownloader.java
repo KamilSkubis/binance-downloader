@@ -99,7 +99,7 @@ public class BinanceDownloader {
         if (usedWeight > 300 || usedWeight1m > 300) {
             try {
                 int sleepTime = 30000;
-                logger.info("used weight exceed limit, sleeping for {} miliseconds", sleepTime);
+                logger.info("used weight exceed limit, sleeping for {} milliseconds", sleepTime);
                 Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
