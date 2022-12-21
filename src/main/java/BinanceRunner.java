@@ -35,7 +35,7 @@ public class BinanceRunner {
 
 
     public BinanceRunner() {
-        binance = configureDownloader();
+        binance = configureBinanceDownloader();
         sessionFactory = MySQLUtil.getSessionFactory();
         logger = LoggerFactory.getLogger(BinanceRunner.class);
 
@@ -94,6 +94,7 @@ public class BinanceRunner {
 
             data.remove(data.size() - 1);
             writer.write(data);
+            data.clear();
         });
 
     }
@@ -134,7 +135,7 @@ public class BinanceRunner {
     }
 
     @NotNull
-    private BinanceDownloader configureDownloader() {
+    private BinanceDownloader configureBinanceDownloader() {
         SpotClientImpl client = new SpotClientImpl();
         client.setShowLimitUsage(true); //important option to enable
         Market market = client.createMarket();
