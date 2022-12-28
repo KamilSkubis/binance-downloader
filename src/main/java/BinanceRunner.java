@@ -18,12 +18,13 @@ import persistence.Writer;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static java.time.ZoneOffset.UTC;
 
 public class BinanceRunner {
 
@@ -55,18 +56,29 @@ public class BinanceRunner {
         logger.info("USDT symbols already in database: " + symbolsUSDT.size());
 
         DbReader dbReader = new DbReader(sessionFactory);
-        List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
+        List<Symbol> symbols = dbReader.getSymbolObjListFromDb();
         HashMap<String, LocalDateTime> latestDateTimePerSymbol = new HashMap<>();
 
-        for (Symbol symbol : symbolObj) {
+        for (Symbol symbol : symbols) {
             LocalDateTime lastDate = dbReader.readLastDate(symbol);
             latestDateTimePerSymbol.put(symbol.getSymbolName(), lastDate);
         }
 
+        for (String ticker : symbolsUSDT) {
+            if (!latestDateTimePerSymbol.containsKey(ticker)) {
+                Symbol symbol = new Symbol();
+                symbol.setSymbolName(ticker);
+                symbols.add(symbol);
+                LocalDateTime startTime = LocalDateTime.of(2010, 1, 1, 0, 0, 0);
+                latestDateTimePerSymbol.put(ticker, startTime);
+            }
+        }
+
+
         logger.info("symbol Time from database: ");
         logger.info(latestDateTimePerSymbol.toString());
 
-        final List<LinkedHashMap<String, Object>> params = prepareParams(symbolsUSDT, latestDateTimePerSymbol);
+        final List<LinkedHashMap<String, Object>> params = prepareParams(latestDateTimePerSymbol);
 
         params.parallelStream().forEach(map -> {
             List<Data> data = binance.downloadKlines(map);
@@ -82,7 +94,7 @@ public class BinanceRunner {
                     break;
                 }
 
-                Instant instant = nextDate.toInstant(ZoneOffset.UTC);
+                Instant instant = nextDate.toInstant(UTC);
                 Long date = instant.toEpochMilli();
 
                 map.replace("startTime", date);
@@ -97,39 +109,20 @@ public class BinanceRunner {
     }
 
 
-    private List<LinkedHashMap<String, Object>> prepareParams(List<String> symbolsFromBinance, HashMap<String, LocalDateTime> symbolTimeFromDb) {
+    private List<LinkedHashMap<String, Object>> prepareParams(HashMap<String, LocalDateTime> symbolTimeFromDb) {
         List<LinkedHashMap<String, Object>> preparedParamList = new ArrayList<>();
-        for (String symbol : symbolsFromBinance) {
 
+        symbolTimeFromDb.keySet().stream().forEach(key -> {
             LinkedHashMap<String, Object> params = new LinkedHashMap<>();
-            params.put("symbol", symbol);
+            params.put("symbol", key);
             params.put("interval", timeframe);
             params.put("limit", kline_limit);
-
-            System.out.println("check if " + symbol + " is in database " + symbolTimeFromDb.containsKey(symbol));
-
-            if (!symbolTimeFromDb.containsKey(symbol)) {
-                LocalDateTime newStartDate = LocalDateTime.of(2010, 1, 1, 0, 0, 0);
-                Instant instant = newStartDate.toInstant(ZoneOffset.UTC);
-                long convertedTime = instant.toEpochMilli();
-                params.put("startTime", convertedTime);
-
-            } else {
-                System.out.println("symbol " + symbol + " , found in database");
-
-                final LocalDateTime dateInDb = symbolTimeFromDb.get(symbol);
-                final LocalDateTime newStartDate = dateInDb.plusMinutes(1); // this should work for all timeframes
-
-                System.out.println("found latest date: " + dateInDb + " new calculated date: " + newStartDate);
-                Instant inst = newStartDate.toInstant(ZoneOffset.UTC);
-                long convertedTime = inst.toEpochMilli();
-
-                params.put("startTime", convertedTime);
-            }
+            params.put("startTime", symbolTimeFromDb.get(key));
             preparedParamList.add(params);
-        }
+        });
+
         return preparedParamList;
-    }
+}
 
     @NotNull
     private BinanceDownloader configureBinanceDownloader() {
