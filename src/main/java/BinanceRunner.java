@@ -74,6 +74,8 @@ public class BinanceRunner {
             }
         }
 
+        symbols.sort(null);
+
 
         logger.info("symbol Time from database: ");
         logger.info(latestDateTimePerSymbol.toString());
@@ -81,7 +83,7 @@ public class BinanceRunner {
         final List<LinkedHashMap<String, Object>> params = prepareParams(latestDateTimePerSymbol);
 
         params.parallelStream().forEach(map -> {
-            List<Data> data = binance.downloadKlines(map);
+            List<Data> data = binance.downloadKlines(map,symbols);
             Writer writer = new DbWriter(sessionFactory);
 
             while (data.size() % kline_limit == 0) {
@@ -98,7 +100,7 @@ public class BinanceRunner {
                 Long date = instant.toEpochMilli();
 
                 map.replace("startTime", date);
-                data.addAll(binance.downloadKlines(map));
+                data.addAll(binance.downloadKlines(map, symbols));
             }
 
             data.remove(data.size() - 1);

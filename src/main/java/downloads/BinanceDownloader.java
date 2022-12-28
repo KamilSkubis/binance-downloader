@@ -17,9 +17,8 @@ import org.slf4j.LoggerFactory;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class BinanceDownloader {
 
@@ -59,13 +58,13 @@ public class BinanceDownloader {
         usedWeight1m = deserializedObject;
     }
 
-    public List<Data> downloadKlines(LinkedHashMap<String, Object> params) {
+    public List<Data> downloadKlines(LinkedHashMap<String, Object> params, List<Symbol> symbols) {
         logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
         List<Data> downloadedData = new LinkedList<>();
 
-        Symbol symbol = new Symbol();
-        String symbolName = (String.valueOf(params.get("symbol")));
-        symbol.setSymbolName(symbolName);
+        Optional<Symbol> optionalSymbol = symbols.stream().findFirst().filter(symbol -> symbol.getSymbolName() == params.get("symbol"));
+        Symbol symbol = optionalSymbol.get();
+
 
         String response = market.klines(params);
 
