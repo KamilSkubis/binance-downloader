@@ -62,8 +62,10 @@ public class BinanceDownloader {
         logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
         List<Data> downloadedData = new LinkedList<>();
 
-        Optional<Symbol> optionalSymbol = symbols.stream().findFirst().filter(symbol -> symbol.getSymbolName() == params.get("symbol"));
-        Symbol symbol = optionalSymbol.get();
+        List<Symbol> filteredSymbol = symbols.stream()
+                .filter(symbol -> symbol.getSymbolName() == params.get("symbol"))
+                .collect(Collectors.toList());
+        Symbol symbol = filteredSymbol.get(0);
 
 
         String response = market.klines(params);

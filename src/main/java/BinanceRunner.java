@@ -18,6 +18,7 @@ import persistence.Writer;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -53,6 +54,8 @@ public class BinanceRunner {
     public void run() {
 
         List<String> symbolsUSDT = getListOfSymbolsUSDT(binance);
+//        List<String> symbolsUSDT = getSingleCoin(binance);
+
         logger.info("USDT symbols already in database: " + symbolsUSDT.size());
 
         DbReader dbReader = new DbReader(sessionFactory);
@@ -73,9 +76,6 @@ public class BinanceRunner {
                 latestDateTimePerSymbol.put(ticker, startTime);
             }
         }
-
-        symbols.sort(null);
-
 
         logger.info("symbol Time from database: ");
         logger.info(latestDateTimePerSymbol.toString());
@@ -119,7 +119,7 @@ public class BinanceRunner {
             params.put("symbol", key);
             params.put("interval", timeframe);
             params.put("limit", kline_limit);
-            params.put("startTime", symbolTimeFromDb.get(key));
+            params.put("startTime", String.valueOf(symbolTimeFromDb.get(key).toInstant(UTC).toEpochMilli()));
             preparedParamList.add(params);
         });
 
@@ -137,6 +137,11 @@ public class BinanceRunner {
     private List<String> getListOfSymbolsUSDT(BinanceDownloader binance) {
         List<String> symbolList = binance.getTickers();
         return symbolList.stream().filter(s -> s.endsWith("USDT")).collect(Collectors.toList());
+    }
+
+    private List<String> getSingleCoin(BinanceDownloader binance) {
+        List<String> symbolList = binance.getTickers();
+        return symbolList.stream().filter(s -> s.endsWith("BTCUSDT")).collect(Collectors.toList());
     }
 
 }
