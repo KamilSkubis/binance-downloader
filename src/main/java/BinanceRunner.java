@@ -54,8 +54,8 @@ public class BinanceRunner {
 
     public void run() {
 
-        List<String> symbolsUSDT = getListOfSymbolsUSDT(binance);
-        logger.info("USDT symbols already in database: " + symbolsUSDT.size());
+        List<String> downloadedTickers = getListOfSymbolsUSDT(binance);
+        logger.info("USDT symbols already in database: " + downloadedTickers.size());
 
         DbReader dbReader = new DbReader(sessionFactory);
         List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
@@ -69,7 +69,7 @@ public class BinanceRunner {
         logger.info("symbol Time from database: ");
         logger.info(latestDateTimePerSymbol.toString());
 
-        final List<LinkedHashMap<String, Object>> params = prepareParams(symbolsUSDT, latestDateTimePerSymbol);
+        final List<LinkedHashMap<String, Object>> params = prepareParams(downloadedTickers, latestDateTimePerSymbol);
 
         params.parallelStream().forEach(map -> {
             List<Data> data = binance.downloadKlines(map);
@@ -142,7 +142,7 @@ public class BinanceRunner {
         return new BinanceDownloader(market);
     }
 
-    private List<String> getListOfSymbolsUSDT(BinanceDownloader binance) {
+    private List<String> getListOfSymbolsUSDT(final BinanceDownloader binance) {
         List<String> symbolList = binance.getTickers();
         return symbolList.stream().filter(s -> s.endsWith("USDT")).collect(Collectors.toList());
     }
