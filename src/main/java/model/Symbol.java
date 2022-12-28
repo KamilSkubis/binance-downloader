@@ -1,14 +1,8 @@
 package model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
-
-
-//create table symbols(
-//        id bigint AUTO_INCREMENT,
-//        symbol char(15),
-//        key(id)
-//        );
 
 
 @Entity
@@ -21,6 +15,24 @@ public class Symbol {
 
     private String symbol;
 
+    @Transient
+    private LocalDateTime lastDate;
+
+    public Symbol() {
+    }
+
+    ;
+
+    public Symbol(String symbol, LocalDateTime lastDate) {
+        this.symbol = symbol;
+        this.lastDate = lastDate;
+    }
+
+    public Symbol(String symbol) {
+        this.symbol = symbol;
+        this.lastDate = LocalDateTime.of(2010, 1, 1, 0, 0, 0);
+    }
+
     public String getSymbolName() {
         return symbol;
     }
@@ -29,12 +41,16 @@ public class Symbol {
         this.symbol = symbol;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public LocalDateTime getLastDate() {
+        return lastDate;
+    }
+
+    public void setLastDate(LocalDateTime lastDate) {
+        this.lastDate = lastDate;
     }
 
     @Override
