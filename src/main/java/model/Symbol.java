@@ -5,13 +5,6 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 
-//create table symbols(
-//        id bigint AUTO_INCREMENT,
-//        symbol char(15),
-//        key(id)
-//        );
-
-
 @Entity
 @Table(name = "symbols")
 public class Symbol {
