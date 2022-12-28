@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 
@@ -21,6 +22,9 @@ public class Symbol {
 
     private String symbol;
 
+    @Transient
+    private LocalDateTime lastDate;
+
     public String getSymbolName() {
         return symbol;
     }
@@ -29,12 +33,16 @@ public class Symbol {
         this.symbol = symbol;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public LocalDateTime getLastDate() {
+        return lastDate;
+    }
+
+    public void setLastDate(LocalDateTime lastDate) {
+        this.lastDate = lastDate;
     }
 
     @Override
