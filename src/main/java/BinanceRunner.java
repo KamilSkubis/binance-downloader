@@ -102,7 +102,6 @@ public class BinanceRunner {
                 map.replace("startTime", date);
                 data.addAll(binance.downloadKlines(map, symbols));
             }
-
             data.remove(data.size() - 1);
             writer.write(data);
             data.clear();
