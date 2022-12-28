@@ -20,7 +20,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,30 +45,26 @@ public class BinanceRunner {
         timeframe = config.getTimeFrame();
         kline_limit = config.getKlineLimit();
 
-        //this is for testing only;
-//        timeframe = "1m";
-//        kline_limit= "50";
-
     }
 
     public void run() {
 
-        List<String> downloadedTickers = getListOfSymbolsUSDT(binance);
-        logger.info("USDT symbols already in database: " + downloadedTickers.size());
-
         DbReader dbReader = new DbReader(sessionFactory);
-        List<Symbol> symbolObj = dbReader.getSymbolObjListFromDb();
-        HashMap<String, LocalDateTime> latestDateTimePerSymbol = new HashMap<>();
+        List<Symbol> symbols = new ArrayList<>(dbReader.getSymbolObjListFromDb());
 
-        for (Symbol symbol : symbolObj) {
+        for (Symbol symbol : symbols) {
             LocalDateTime lastDate = dbReader.readLastDate(symbol);
-            latestDateTimePerSymbol.put(symbol.getSymbolName(), lastDate);
+            symbol.setLastDate(lastDate);
         }
 
-        logger.info("symbol Time from database: ");
-        logger.info(latestDateTimePerSymbol.toString());
+        List<String> downloadedTickers = getListOfSymbolsUSDT(binance);
+        var downloadedSymbols = downloadedTickers.stream().filter(s -> !symbols.contains(s)).map(Symbol::new
+        ).collect(Collectors.toList());
 
-        final List<LinkedHashMap<String, Object>> params = prepareParams(downloadedTickers, latestDateTimePerSymbol);
+        symbols.addAll(downloadedSymbols);
+
+
+        final List<LinkedHashMap<String, Object>> params = prepareParams(downloadedTickers, symbols);
 
         params.parallelStream().forEach(map -> {
             List<Data> data = binance.downloadKlines(map);
@@ -100,36 +95,15 @@ public class BinanceRunner {
     }
 
 
-    private List<LinkedHashMap<String, Object>> prepareParams(List<String> symbolsFromBinance, HashMap<String, LocalDateTime> symbolTimeFromDb) {
+    private List<LinkedHashMap<String, Object>> prepareParams(List<String> symbolsFromBinance, List<Symbol> symbols) {
         List<LinkedHashMap<String, Object>> preparedParamList = new ArrayList<>();
-        for (String symbol : symbolsFromBinance) {
-
+        for (Symbol symbol : symbols) {
             LinkedHashMap<String, Object> params = new LinkedHashMap<>();
             params.put("symbol", symbol);
             params.put("interval", timeframe);
             params.put("limit", kline_limit);
+            params.put("startTime", symbol.getLastDate().toInstant(ZoneOffset.UTC).toEpochMilli());
 
-            System.out.println("check if " + symbol + " is in database " + symbolTimeFromDb.containsKey(symbol));
-
-            if (!symbolTimeFromDb.containsKey(symbol)) {
-                LocalDateTime newStartDate = LocalDateTime.of(2010, 1, 1, 0, 0, 0);
-                Instant instant = newStartDate.toInstant(ZoneOffset.UTC);
-                long convertedTime = instant.toEpochMilli();
-                params.put("startTime", convertedTime);
-
-            } else {
-                System.out.println("symbol " + symbol + " , found in database");
-
-                final LocalDateTime dateInDb = symbolTimeFromDb.get(symbol);
-                final LocalDateTime newStartDate = dateInDb.plusMinutes(1); // this should work for all timeframes
-
-                System.out.println("found latest date: " + dateInDb + " new calculated date: " + newStartDate);
-                Instant inst = newStartDate.toInstant(ZoneOffset.UTC);
-                long convertedTime = inst.toEpochMilli();
-
-                params.put("startTime", convertedTime);
-            }
-            preparedParamList.add(params);
         }
         return preparedParamList;
     }

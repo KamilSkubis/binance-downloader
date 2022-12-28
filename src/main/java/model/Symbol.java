@@ -18,6 +18,21 @@ public class Symbol {
     @Transient
     private LocalDateTime lastDate;
 
+    public Symbol() {
+    }
+
+    ;
+
+    public Symbol(String symbol, LocalDateTime lastDate) {
+        this.symbol = symbol;
+        this.lastDate = lastDate;
+    }
+
+    public Symbol(String symbol) {
+        this.symbol = symbol;
+        this.lastDate = LocalDateTime.of(2010, 1, 1, 0, 0, 0);
+    }
+
     public String getSymbolName() {
         return symbol;
     }
