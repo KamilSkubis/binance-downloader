@@ -46,9 +46,6 @@ public class BinanceRunner {
         timeframe = config.getTimeFrame();
         kline_limit = config.getKlineLimit();
 
-        //this is for testing only;
-//        timeframe = "1m";
-//        kline_limit= "50";
 
     }
 
