@@ -44,6 +44,7 @@ public class BinanceData implements Data {
     public BinanceData() {
     }
 
+
     public LocalDateTime getOpenTime() {
         return openTime;
     }
@@ -92,7 +93,7 @@ public class BinanceData implements Data {
         this.volume = volume;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

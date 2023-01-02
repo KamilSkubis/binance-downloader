@@ -34,4 +34,5 @@ public interface Data {
 
     void setId(Long id);
 
+    long getId();
 }

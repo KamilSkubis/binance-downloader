@@ -142,4 +142,53 @@ public class DbWriterTest2 {
         dropTables();
     }
 
+
+    @Test
+    public void batchInsert_1000k_data_objects() {
+        List<Data> data = new ArrayList<>();
+        Symbol symbol = new Symbol();
+        symbol.setSymbolName("test");
+        LocalDateTime now = LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20);
+        for (int i = 0; i < 1_000_000; i++) {
+            var d = new BinanceData();
+            d.setSymbol(symbol);
+            d.setOpenTime(now.plusMinutes(1));
+            d.setVolume(Math.random());
+            d.setSymbol(symbol);
+            d.setOpen(Math.random());
+            d.setHigh(Math.random());
+            d.setLow(Math.random());
+            d.setClose(Math.random());
+            data.add(d);
+        }
+
+        DbWriter dbWriter = new DbWriter(MySQLUtilTesting.getSessionFactory());
+        dbWriter.write(data);
+    }
+
+    @Test
+    public void batchInsert_1000k_objects_nativeSQL() {
+        List<Data> data = new ArrayList<>();
+        Symbol symbol = new Symbol();
+        symbol.setSymbolName("test");
+        LocalDateTime now = LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20);
+        for (int i = 0; i < 5; i++) {
+            var d = new BinanceData();
+            d.setSymbol(symbol);
+            d.setOpenTime(now.plusMinutes(1));
+            d.setVolume(Math.random());
+            d.setSymbol(symbol);
+            d.setOpen(Math.random());
+            d.setHigh(Math.random());
+            d.setLow(Math.random());
+            d.setClose(Math.random());
+            data.add(d);
+        }
+        DbWriter dbWriter = new DbWriter(MySQLUtilTesting.getSessionFactory());
+        dbWriter.batchUsingNativeSQL(data);
+
+
+    }
+
+
 }

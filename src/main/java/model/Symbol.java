@@ -43,6 +43,10 @@ public class Symbol {
         this.id = id;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public LocalDateTime getLastDate() {
         return lastDate;
     }
