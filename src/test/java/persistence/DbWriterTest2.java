@@ -7,7 +7,12 @@ import org.hibernate.Session;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -166,13 +171,16 @@ public class DbWriterTest2 {
         dbWriter.write(data);
     }
 
+    //This method will write 1000k data objects to db
+    // in 6.23115 min or 373869ms - without rewriteBatchStatements
+    // in 1.212733 min or 72764ms - with rewriteBatchStatements
     @Test
-    public void batchInsert_1000k_objects_nativeSQL() {
+    public void batchInsert_1000k_objects_nativeSQL_with_same_batch_and_array() {
         List<Data> data = new ArrayList<>();
         Symbol symbol = new Symbol();
         symbol.setSymbolName("test");
         LocalDateTime now = LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20);
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1_000_000; i++) {
             var d = new BinanceData();
             d.setSymbol(symbol);
             d.setOpenTime(now.plusMinutes(1));
@@ -184,10 +192,62 @@ public class DbWriterTest2 {
             d.setClose(Math.random());
             data.add(d);
         }
-        DbWriter dbWriter = new DbWriter(MySQLUtilTesting.getSessionFactory());
-        dbWriter.batchUsingNativeSQL(data);
+//        DbWriter dbWriter = new DbWriter(MySQLUtilTesting.getSessionFactory());
+//        dbWriter.batchUsingNativeSQL(data);
+
+        String path = "jdbc:mysql://localhost:3306/test";
+        String path2 = path + "?rewriteBatchedStatements=true";
+        String user = "root";
+        String pass = "password";
+
+        Connection con = null;
+        try {
+            con = DriverManager.getConnection(path2, user, pass);
+            con.setAutoCommit(false);
+            PreparedStatement ps = con.prepareStatement(
+                    "Insert into test.binance_data(id,close,high,low,open,open_time,volume,symbol_id) values(?,?,?,?,?,?,?,?)");
+            int i = 0;
+            long id = 0;
+            long idSymbol = 1;
+
+            PreparedStatement preparedStatement = con.prepareStatement("insert into symbols values(?,?)");
+            preparedStatement.setLong(1, idSymbol);
+            preparedStatement.setString(2, symbol.getSymbolName());
+            preparedStatement.executeUpdate();
+
+            long start = System.currentTimeMillis();
 
 
+            for (Data d : data) {
+                id++;
+                var formatedDate = d.getOpenTime().format(DateTimeFormatter.BASIC_ISO_DATE);
+
+                ps.setLong(1, id);
+                ps.setDouble(2, d.getClose());
+                ps.setDouble(3, d.getHigh());
+                ps.setDouble(4, d.getLow());
+                ps.setDouble(5, d.getOpen());
+                ps.setString(6, formatedDate);
+                ps.setDouble(7, d.getVolume());
+                ps.setLong(8, idSymbol);
+
+                ps.addBatch();
+                i++;
+                if (i % 100000 == 0) {
+
+                    ps.executeLargeBatch();
+                    con.commit();
+                }
+
+                ps.clearParameters();
+            }
+
+            long elapsed = System.currentTimeMillis() - start;
+            System.out.println("elapsed time: " + elapsed);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

@@ -73,31 +73,4 @@ public class DbWriter implements Writer {
         session.close();
     }
 
-    public void batchUsingNativeSQL(List<Data> data) {
-        logger.info("Saving data to db for: " + data.get(0).getSymbol().getSymbolName());
-        Long now = System.nanoTime();
-
-        int i = 0;
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        long id = 0;
-        StringBuilder sb = new StringBuilder();
-        sb.append("Insert into binance_data ");
-        for (Data d : data) {
-            d.setId(id + 1);
-            sb.append("(" + d.getId() + "," + d.getClose() + "," + d.getHigh() + "," + d.getLow() + "," + d.getOpen() + "," + "TIMESTAMP(" + d.getOpenTime() + ")" + "," + d.getVolume() + "," + d.getSymbol().getId() + "),");
-            i++;
-            if (i % 5 == 0) {
-                session.createSQLQuery(sb.toString()).executeUpdate();
-            }
-        }
-        transaction.commit();
-        session.close();
-
-        Long elapsed = (System.nanoTime() - now) / 1_000_000;
-        logger.info("Saving all data "
-                + data.size() + " for "
-                + data.get(0).getSymbol().getSymbolName()
-                + " to Database took: " + elapsed + " ms");
-    }
 }
