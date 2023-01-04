@@ -2,6 +2,7 @@ import config.Config;
 import downloads.BinanceDownloader;
 import model.Data;
 import model.Symbol;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import persistence.DataRepository;
@@ -38,21 +39,14 @@ public class BinanceRunner {
 
     public void run() {
 
-        List<Symbol> symbols = dataRepository.getSymbolsWithUSDT();
-        HashMap<String, LocalDateTime> symbolNameWithLastDate = new HashMap<>();
-        for (Symbol symbol : symbols) {
-            LocalDateTime lastDate = dataRepository.readLastDate(symbol);
-            symbolNameWithLastDate.put(symbol.getSymbolName(), lastDate);
-        }
-
-        List<String> downloadedSymbols = downloader.getTickers();
+        List<Symbol> symbols = getPersistentSymbolsWithUSDT();
+        HashMap<String, LocalDateTime> symbolNameWithLastDate = getSymbolByDateFromPersistence(symbols);
+        List<String> downloadedSymbols = downloadSymbolsFromBinance();
 
         for (String symbolName : downloadedSymbols) {
             if (!symbolNameWithLastDate.containsKey(symbolName)) {
-                Symbol symbol = new Symbol();
-                symbol.setSymbolName(symbolName);
-                LocalDateTime startTime = LocalDateTime.of(2010, 1, 1, 0, 0, 0);
-                symbolNameWithLastDate.put(symbolName, startTime);
+                Symbol symbol = createSymbolWithDefaultLastDate(symbolName);
+//                symbolNameWithLastDate.put(symbol.getSymbolName(), symbol.getLastDate());
                 symbols.add(symbol);
                 dataRepository.write(symbol);
             }
@@ -84,6 +78,31 @@ public class BinanceRunner {
             data.clear();
         });
 
+    }
+
+    @NotNull
+    private Symbol createSymbolWithDefaultLastDate(String symbolName) {
+        Symbol symbol = new Symbol();
+        symbol.setSymbolName(symbolName);
+        return symbol;
+    }
+
+    private List<String> downloadSymbolsFromBinance() {
+        return downloader.getTickers();
+    }
+
+    @NotNull
+    private HashMap<String, LocalDateTime> getSymbolByDateFromPersistence(List<Symbol> symbols) {
+        HashMap<String, LocalDateTime> symbolNameWithLastDate = new HashMap<>();
+        for (Symbol symbol : symbols) {
+            LocalDateTime lastDate = dataRepository.readLastDate(symbol);
+            symbolNameWithLastDate.put(symbol.getSymbolName(), lastDate);
+        }
+        return symbolNameWithLastDate;
+    }
+
+    private List<Symbol> getPersistentSymbolsWithUSDT() {
+        return dataRepository.getSymbolsWithUSDT();
     }
 
 
