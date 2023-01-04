@@ -56,7 +56,7 @@ public class BinanceRunner {
         logger.info("USDT symbols already in database: " + symbolsUSDT.size());
 
         DbReader dbReader = new DbReader(sessionFactory);
-        List<Symbol> symbols = dbReader.getSymbolObjListFromDb();
+        List<Symbol> symbols = dbReader.getSymbols();
         HashMap<String, LocalDateTime> latestDateTimePerSymbol = new HashMap<>();
 
         for (Symbol symbol : symbols) {

@@ -1,8 +1,6 @@
 package persistence;
 
-import config.Config;
 import model.Symbol;
-import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,19 +9,30 @@ import java.util.List;
 
 public class DataRepository {
 
-    private final SessionFactory sessionFactory;
     private final Logger logger;
-    private final Config config;
+    private final BatchWriter batchWriter;
+    private final Writer writer;
+    private final Reader reader;
 
-    public DataRepository(Config config) {
-        this.config = config;
-        this.sessionFactory = MySQLUtil.getSessionFactory();
+
+    public DataRepository(Writer writer, BatchWriter batchWriter, Reader reader) {
+        this.batchWriter = batchWriter;
+        this.writer = writer;
+        this.reader = reader;
+        logger = LoggerFactory.getLogger(DataRepository.class);
+
+    }
+
+
+    public DataRepository(Writer writer, Reader reader) {
+        this.writer = writer;
+        this.reader = reader;
+        this.batchWriter = null;
         logger = LoggerFactory.getLogger(DataRepository.class);
     }
 
     public List<Symbol> saveOrUpdateSymbols(List<String> symbolList) {
-        DbReader dbReader = new DbReader(sessionFactory);
-        List<Symbol> result = dbReader.getSymbolObjListFromDb();
+        List<Symbol> result = reader.getSymbols();
 
         List<String> onlySymbolNames = new ArrayList<>();
         //convert List<Symbol> to List<String>
@@ -37,20 +46,18 @@ public class DataRepository {
 
         if (differences.size() > 0) {
             logger.info("Found differences in Symbols table: " + differences);
-            Writer writer = new DbWriter(sessionFactory); //TODO tight coupling -- refactor this class
             for (String s : differences) {
                 Symbol symbol = new Symbol();
                 symbol.setSymbolName(s);
                 writer.write(symbol);
             }
-            result = dbReader.getSymbolObjListFromDb();
+            result = reader.getSymbols();
         }
         return result;
     }
 
     public List<Symbol> getSymbolList() {
-        DbReader dbReader = new DbReader(sessionFactory);
-        return dbReader.getSymbolObjListFromDb();
+        return reader.getSymbols();
     }
 
     public List<Symbol> getSymbolsToDownload(List<String> symbolList) {

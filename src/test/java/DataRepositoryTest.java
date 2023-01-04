@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import persistence.DataRepository;
+import persistence.DbReader;
 import persistence.DbWriter;
 import persistence.MySQLUtilTesting;
 
@@ -28,8 +29,11 @@ public class DataRepositoryTest {
         writeSymbolsToDb();
 
         List<String> symbolList = new ArrayList<>();
+        var writer = new DbWriter(MySQLUtilTesting.getSessionFactory());
+        var reader = new DbReader(MySQLUtilTesting.getSessionFactory());
 
-        DataRepository dataManager = new DataRepository(MySQLUtilTesting.getSessionFactory());
+
+        DataRepository dataManager = new DataRepository(writer, reader);
         dataManager.saveOrUpdateSymbols(symbolList);
 
         List<Symbol> readResult = dataManager.getSymbolList();
@@ -45,7 +49,9 @@ public class DataRepositoryTest {
         List<String> symbolList = List.of("test", "test1");
         writeSymbolsToDb();
 
-        DataRepository dataManager = new DataRepository(MySQLUtilTesting.getSessionFactory());
+        var writer = new DbWriter(MySQLUtilTesting.getSessionFactory());
+        var reader = new DbReader(MySQLUtilTesting.getSessionFactory());
+        DataRepository dataManager = new DataRepository(writer, reader);
         dataManager.saveOrUpdateSymbols(symbolList);
 
         List<Symbol> readResult = dataManager.getSymbolList();
@@ -60,7 +66,9 @@ public class DataRepositoryTest {
         List<String> symbolList = List.of("test", "test1", "test2");
         writeSymbolsToDb();
 
-        DataRepository dataManager = new DataRepository(MySQLUtilTesting.getSessionFactory());
+        var writer = new DbWriter(MySQLUtilTesting.getSessionFactory());
+        var reader = new DbReader(MySQLUtilTesting.getSessionFactory());
+        DataRepository dataManager = new DataRepository(writer, reader);
         dataManager.saveOrUpdateSymbols(symbolList);
         List<Symbol> readResult = dataManager.getSymbolList();
 
@@ -84,7 +92,9 @@ public class DataRepositoryTest {
         new DbWriter(MySQLUtilTesting.getSessionFactory()).write(symbol);
         new DbWriter(MySQLUtilTesting.getSessionFactory()).write(symbol1);
 
-        DataRepository dataManager = new DataRepository(MySQLUtilTesting.getSessionFactory());
+        var writer = new DbWriter(MySQLUtilTesting.getSessionFactory());
+        var reader = new DbReader(MySQLUtilTesting.getSessionFactory());
+        DataRepository dataManager = new DataRepository(writer, reader);
         Assert.assertEquals(2, dataManager.getSymbolList().size());
     }
 
@@ -102,15 +112,18 @@ public class DataRepositoryTest {
 
         new DbWriter(MySQLUtilTesting.getSessionFactory()).write(sampleData1);
 
-        var symbolList = new DataRepository(MySQLUtilTesting.getSessionFactory()).getSymbolList();
+        var writer = new DbWriter(MySQLUtilTesting.getSessionFactory());
+        var reader = new DbReader(MySQLUtilTesting.getSessionFactory());
+        DataRepository dataRepository = new DataRepository(writer, reader);
+
+        var symbolList = dataRepository.getSymbolList();
 
         var symbol2 = symbolList.stream().filter(symbol -> Objects.equals(symbol.getSymbolName(), "test1")).collect(Collectors.toList());
         BinanceData sampleData2 = UtilForTesting.createSampleData(symbol2.get(0));
         new DbWriter(MySQLUtilTesting.getSessionFactory()).write(sampleData2);
 
-        var dataManager = new DataRepository(MySQLUtilTesting.getSessionFactory());
-        System.out.println(dataManager.getSymbolList().toString());
-        Assert.assertEquals(1, dataManager.getSymbolList().size());
+        System.out.println(dataRepository.getSymbolList().toString());
+        Assert.assertEquals(1, dataRepository.getSymbolList().size());
     }
 
 

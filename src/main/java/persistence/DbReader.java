@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class DbReader {
+public class DbReader implements Reader {
 
     SessionFactory sessionFactory;
 
@@ -17,7 +17,7 @@ public class DbReader {
         this.sessionFactory = sessionFactory;
     }
 
-    public List getSymbolObjFromDb(String symbolName) {
+    public List getSymbolByName(String symbolName) {
         Session session = sessionFactory.openSession();
         List symbolList;
         symbolList = session.createQuery("from Symbol where symbol.symbol=:symbol").setParameter("symbol", symbolName).getResultList();
@@ -25,7 +25,7 @@ public class DbReader {
         return symbolList;
     }
 
-    public List<Symbol> getSymbolObjListFromDb() {
+    public List<Symbol> getSymbols() {
         List<Symbol> returnedObjects;
         Session session = sessionFactory.openSession();
         returnedObjects = session.createQuery("from Symbol", Symbol.class).getResultList();
@@ -36,7 +36,7 @@ public class DbReader {
 
     public LocalDateTime readLastDate(Symbol symbol) {
         Session session = sessionFactory.openSession();
-        List<Symbol> symbolList = getSymbolObjFromDb(symbol.getSymbolName());
+        List<Symbol> symbolList = getSymbolByName(symbol.getSymbolName());
 
         Query query = session.createQuery("from BinanceData where symbol = :symbol");
         query.setParameter("symbol", symbolList.get(0));
