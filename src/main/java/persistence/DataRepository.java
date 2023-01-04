@@ -1,9 +1,11 @@
 package persistence;
 
+import model.Data;
 import model.Symbol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +58,7 @@ public class DataRepository {
         return result;
     }
 
-    public List<Symbol> getSymbolList() {
+    public List<Symbol> getSymbolsWithUSDT() {
         return reader.getSymbols();
     }
 
@@ -66,5 +68,22 @@ public class DataRepository {
 
         return result;
     }
+
+    public List<Symbol> getSymbols() {
+        return reader.getSymbols();
+    }
+
+    public LocalDateTime readLastDate(Symbol symbol) {
+        return reader.readLastDate(symbol);
+    }
+
+    public void write(Symbol symbol) {
+        writer.write(symbol);
+    }
+
+    public void write(List<Data> data) {
+        writer.write(data);
+    }
+
 
 }

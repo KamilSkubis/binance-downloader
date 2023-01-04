@@ -1,19 +1,10 @@
-import com.binance.connector.client.impl.SpotClientImpl;
-import com.binance.connector.client.impl.spot.Market;
 import config.Config;
-import config.ConfigLocation;
-import config.ConfigReader;
 import downloads.BinanceDownloader;
 import model.Data;
 import model.Symbol;
-import org.hibernate.SessionFactory;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import persistence.DbReader;
-import persistence.DbWriter;
-import persistence.MySQLUtil;
-import persistence.Writer;
+import persistence.DataRepository;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -28,21 +19,19 @@ import static java.time.ZoneOffset.UTC;
 
 public class BinanceRunner {
 
-    final private BinanceDownloader binance;
-    private final SessionFactory sessionFactory;
+
     private final Logger logger;
     private final String timeframe;
     private final Integer kline_limit;
+    private final DataRepository dataRepository;
+    private final BinanceDownloader downloader;
 
 
-    public BinanceRunner() {
-        binance = configureBinanceDownloader();
-        sessionFactory = MySQLUtil.getSessionFactory();
+    public BinanceRunner(DataRepository dataRepository, BinanceDownloader downloader, Config config) {
+
         logger = LoggerFactory.getLogger(BinanceRunner.class);
-
-        ConfigLocation configLocation = new ConfigLocation();
-        ConfigReader configReader = new ConfigReader();
-        Config config = configReader.read(configLocation);
+        this.dataRepository = dataRepository;
+        this.downloader = downloader;
 
         timeframe = config.getTimeFrame();
         kline_limit = config.getKlineLimit();
@@ -50,38 +39,30 @@ public class BinanceRunner {
 
     public void run() {
 
-        List<String> symbolsUSDT = getListOfSymbolsUSDT(binance);
-//        List<String> symbolsUSDT = getSingleCoin(binance);
-
-        logger.info("USDT symbols already in database: " + symbolsUSDT.size());
-
-        DbReader dbReader = new DbReader(sessionFactory);
-        List<Symbol> symbols = dbReader.getSymbols();
-        HashMap<String, LocalDateTime> latestDateTimePerSymbol = new HashMap<>();
-
+        List<Symbol> symbols = dataRepository.getSymbolsWithUSDT();
+        HashMap<String, LocalDateTime> symbolNameWithLastDate = new HashMap<>();
         for (Symbol symbol : symbols) {
-            LocalDateTime lastDate = dbReader.readLastDate(symbol);
-            latestDateTimePerSymbol.put(symbol.getSymbolName(), lastDate);
+            LocalDateTime lastDate = dataRepository.readLastDate(symbol);
+            symbolNameWithLastDate.put(symbol.getSymbolName(), lastDate);
         }
 
-        for (String ticker : symbolsUSDT) {
-            if (!latestDateTimePerSymbol.containsKey(ticker)) {
+        List<String> downloadedSymbols = downloader.getTickers();
+
+        for (String symbolName : downloadedSymbols) {
+            if (!symbolNameWithLastDate.containsKey(symbolName)) {
                 Symbol symbol = new Symbol();
-                symbol.setSymbolName(ticker);
-                symbols.add(symbol);
+                symbol.setSymbolName(symbolName);
                 LocalDateTime startTime = LocalDateTime.of(2010, 1, 1, 0, 0, 0);
-                latestDateTimePerSymbol.put(ticker, startTime);
+                symbolNameWithLastDate.put(symbolName, startTime);
+                symbols.add(symbol);
+                dataRepository.write(symbol);
             }
         }
 
-        logger.info("symbol Time from database: ");
-        logger.info(latestDateTimePerSymbol.toString());
-
-        final List<LinkedHashMap<String, Object>> params = prepareParams(latestDateTimePerSymbol);
+        final List<LinkedHashMap<String, Object>> params = prepareParams(symbolNameWithLastDate);
 
         params.parallelStream().forEach(map -> {
-            List<Data> data = binance.downloadKlines(map,symbols);
-            Writer writer = new DbWriter(sessionFactory);
+            List<Data> data = downloader.downloadKlines(map, symbols);
 
             while (data.size() % kline_limit == 0) {
 
@@ -97,10 +78,10 @@ public class BinanceRunner {
                 Long date = instant.toEpochMilli();
 
                 map.replace("startTime", date);
-                data.addAll(binance.downloadKlines(map, symbols));
+                data.addAll(downloader.downloadKlines(map, symbols));
             }
             data.remove(data.size() - 1);
-            writer.write(data);
+            dataRepository.write(data);
             data.clear();
         });
 
@@ -120,23 +101,16 @@ public class BinanceRunner {
         });
 
         return preparedParamList;
-}
-
-    @NotNull
-    private BinanceDownloader configureBinanceDownloader() {
-        SpotClientImpl client = new SpotClientImpl();
-        client.setShowLimitUsage(true); //important option to enable
-        Market market = client.createMarket();
-        return new BinanceDownloader(market);
     }
 
-    private List<String> getListOfSymbolsUSDT(BinanceDownloader binance) {
-        List<String> symbolList = binance.getTickers();
+
+    private List<String> getListOfSymbolsUSDT() {
+        List<String> symbolList = downloader.getTickers();
         return symbolList.stream().filter(s -> s.endsWith("USDT")).collect(Collectors.toList());
     }
 
-    private List<String> getSingleCoin(BinanceDownloader binance) {
-        List<String> symbolList = binance.getTickers();
+    private List<String> getSingleCoin() {
+        List<String> symbolList = downloader.getTickers();
         return symbolList.stream().filter(s -> s.endsWith("BTCUSDT")).collect(Collectors.toList());
     }
 
