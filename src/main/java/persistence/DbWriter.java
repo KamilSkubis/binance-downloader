@@ -40,7 +40,7 @@ public class DbWriter implements Writer {
     @Override
     public void write(List<Data> data) {
         logger.info("Saving data to db for: " + data.get(0).getSymbol().getSymbolName());
-        Long now = System.nanoTime();
+        long now = System.nanoTime();
 
         int i = 0;
         Session session = sessionFactory.openSession();
@@ -57,7 +57,7 @@ public class DbWriter implements Writer {
         transaction.commit();
         session.close();
 
-        Long elapsed = (System.nanoTime() - now) / 1_000_000;
+        long elapsed = (System.nanoTime() - now) / 1_000_000;
         logger.info("Saving all data "
                 + data.size() + " for "
                 + data.get(0).getSymbol().getSymbolName()
