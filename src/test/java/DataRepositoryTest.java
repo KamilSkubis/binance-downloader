@@ -104,11 +104,7 @@ public class DataRepositoryTest {
         var symbol1 = new Symbol();
         symbol1.setSymbolName("test1");
 
-//        var symbol2 = new Symbol();
-//        symbol1.setSymbolName("test1");
-
         BinanceData sampleData1 = UtilForTesting.createSampleData(symbol1);
-
 
         new DbWriter(MySQLUtilTesting.getSessionFactory()).write(sampleData1);
 
