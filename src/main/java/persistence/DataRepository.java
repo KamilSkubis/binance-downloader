@@ -1,5 +1,6 @@
 package persistence;
 
+import config.Config;
 import model.Symbol;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -8,14 +9,16 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataManager {
+public class DataRepository {
 
     private final SessionFactory sessionFactory;
     private final Logger logger;
+    private final Config config;
 
-    public DataManager(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-        logger = LoggerFactory.getLogger(DataManager.class);
+    public DataRepository(Config config) {
+        this.config = config;
+        this.sessionFactory = MySQLUtil.getSessionFactory();
+        logger = LoggerFactory.getLogger(DataRepository.class);
     }
 
     public List<Symbol> saveOrUpdateSymbols(List<String> symbolList) {

@@ -209,15 +209,13 @@ public class DbWriterTest {
                 ps.setLong(8, idSymbol);
 
                 ps.addBatch();
-                i++;
-                if (i % 100000 == 0) {
-
-                    ps.executeLargeBatch();
-                    con.commit();
-                }
                 ps.clearParameters();
+
             }
 
+            ps.executeLargeBatch();
+
+            con.commit();
             long elapsed = System.currentTimeMillis() - start;
             System.out.println("elapsed time: " + elapsed);
 
