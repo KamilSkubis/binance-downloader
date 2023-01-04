@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.time.ZoneOffset.UTC;
 
@@ -103,15 +102,5 @@ public class BinanceRunner {
         return preparedParamList;
     }
 
-
-    private List<String> getListOfSymbolsUSDT() {
-        List<String> symbolList = downloader.getTickers();
-        return symbolList.stream().filter(s -> s.endsWith("USDT")).collect(Collectors.toList());
-    }
-
-    private List<String> getSingleCoin() {
-        List<String> symbolList = downloader.getTickers();
-        return symbolList.stream().filter(s -> s.endsWith("BTCUSDT")).collect(Collectors.toList());
-    }
 
 }
