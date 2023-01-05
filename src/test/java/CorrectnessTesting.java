@@ -2,7 +2,6 @@ import model.BinanceData;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Ignore;
-import org.junit.Test;
 import persistence.*;
 
 import java.util.Comparator;
@@ -14,12 +13,10 @@ import static org.junit.Assert.fail;
 
 public class CorrectnessTesting {
 
-    /*
-    This test will check if openTime of downloaded and persisted data is within 1d
-    works only when settings.properties in target has timeframe set to 1d
-     */
+
+    //    This test will check if openTime of downloaded and persisted data is within 1d
+//    works only when settings.properties in target has timeframe set to 1d
     @Ignore
-    @Test
     public void testCorrectness() {
         SessionFactory sf = MySQLUtilTesting.getSessionFactory();
         Writer writer = new DbWriter(sf);

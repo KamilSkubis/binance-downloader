@@ -37,7 +37,7 @@ public class DataRepository {
         List<Symbol> result = reader.getSymbols();
 
         List<String> onlySymbolNames = new ArrayList<>();
-        //convert List<Symbol> to List<String>
+
         for (Symbol s : result) {
             onlySymbolNames.add(s.getSymbolName());
         }
@@ -62,13 +62,6 @@ public class DataRepository {
         return reader.getSymbols();
     }
 
-    public List<Symbol> getSymbolsToDownload(List<String> symbolList) {
-        List<Symbol> result = new ArrayList<>();
-        saveOrUpdateSymbols(symbolList);
-
-        return result;
-    }
-
     public void sychronizeDownloadedSymbolsWithDb(List<String> downloadedSymbols) {
         List<Symbol> persistentSymbols = getSymbols();
         SymbolSynchronizator symbolSynchronizator = new SymbolSynchronizator(writer, reader);
@@ -88,7 +81,17 @@ public class DataRepository {
     }
 
     public void write(List<Data> data) {
-        writer.write(data);
+        var size = data.size();
+        if (size >= 1000) {
+            String symbol = data.get(0).getSymbol().getSymbolName();
+            logger.info("Data for symbol: {} is too big, using batchWriter", symbol);
+            long start = System.currentTimeMillis();
+            batchWriter.write(data);
+            long elapsed = System.currentTimeMillis() - start;
+            logger.info("Writing {} rows of {} took {}", size, symbol, elapsed);
+        } else {
+            writer.write(data);
+        }
     }
 
 

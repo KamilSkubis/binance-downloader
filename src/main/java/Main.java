@@ -25,9 +25,9 @@ public class Main {
 
         Long startTime = System.currentTimeMillis();
 
-        DataRepository dataRepository = createDataRepository(sessionFactory);
-        BinanceDownloader downloader = createBinanceDownloader();
         Config config = new ConfigReader().read(new ConfigLocation());
+        DataRepository dataRepository = createDataRepository(sessionFactory, config);
+        BinanceDownloader downloader = createBinanceDownloader();
         BinanceRunner binanceRunner = new BinanceRunner(dataRepository, downloader, config);
         binanceRunner.run();
 
@@ -39,10 +39,10 @@ public class Main {
     }
 
     @NotNull
-    private static DataRepository createDataRepository(SessionFactory sql) {
+    private static DataRepository createDataRepository(SessionFactory sql, Config config) {
         Writer writer = new DbWriter(sql);
         Reader reader = new DbReader(sql);
-        BatchWriter batchWriter = new BatchWriter();
+        BatchWriter batchWriter = new BatchWriter(config);
         return new DataRepository(writer, batchWriter, reader);
     }
 
