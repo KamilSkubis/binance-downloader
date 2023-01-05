@@ -69,6 +69,12 @@ public class DataRepository {
         return result;
     }
 
+    public void sychronizeDownloadedSymbolsWithDb(List<String> downloadedSymbols) {
+        List<Symbol> persistentSymbols = getSymbols();
+        SymbolSynchronizator symbolSynchronizator = new SymbolSynchronizator(writer, reader);
+        symbolSynchronizator.synchronize(persistentSymbols, downloadedSymbols);
+    }
+
     public List<Symbol> getSymbols() {
         return reader.getSymbols();
     }

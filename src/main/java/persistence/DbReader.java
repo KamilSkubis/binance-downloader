@@ -30,6 +30,11 @@ public class DbReader implements Reader {
         Session session = sessionFactory.openSession();
         returnedObjects = session.createQuery("from Symbol", Symbol.class).getResultList();
         session.close();
+
+        for (Symbol symbol : returnedObjects) {
+            var dateTime = readLastDate(symbol);
+            symbol.setLastDate(dateTime);
+        }
         return returnedObjects;
     }
 

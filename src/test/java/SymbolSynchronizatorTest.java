@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -63,15 +64,15 @@ public class SymbolSynchronizatorTest {
 
         List<Symbol> symbols = dataRepository.getSymbols();
 
-        SymbolSynchronization symbolSynchronizator = new SymbolSynchronization(writer, reader);
+        SymbolSynchronizator symbolSynchronizator = new SymbolSynchronizator(writer, reader);
         symbolSynchronizator.synchronize(symbols, downloadedSymbols);
 
         List<Symbol> symbolListAfterSynchronization = dataRepository.getSymbols();
         Set<String> set = symbolListAfterSynchronization.stream().map(Symbol::getSymbolName).collect(Collectors.toSet());
 
         assertEquals(2, symbolListAfterSynchronization.size());
-        assertEquals(true, set.contains("test1"));
-        assertEquals(true, set.contains("test2"));
+        assertTrue(set.contains("test1"));
+        assertTrue(set.contains("test2"));
 
     }
 }

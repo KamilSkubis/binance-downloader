@@ -2,7 +2,6 @@ import config.Config;
 import downloads.BinanceDownloader;
 import model.Data;
 import model.Symbol;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import persistence.DataRepository;
@@ -11,7 +10,6 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -39,20 +37,11 @@ public class BinanceRunner {
 
     public void run() {
 
-        List<Symbol> symbols = getPersistentSymbolsWithUSDT();
-        HashMap<String, LocalDateTime> symbolNameWithLastDate = getSymbolByDateFromPersistence(symbols);
         List<String> downloadedSymbols = downloadSymbolsFromBinance();
+        dataRepository.sychronizeDownloadedSymbolsWithDb(downloadedSymbols);
 
-        for (String symbolName : downloadedSymbols) {
-            if (!symbolNameWithLastDate.containsKey(symbolName)) {
-                Symbol symbol = createSymbolWithDefaultLastDate(symbolName);
-//                symbolNameWithLastDate.put(symbol.getSymbolName(), symbol.getLastDate());
-                symbols.add(symbol);
-                dataRepository.write(symbol);
-            }
-        }
-
-        final List<LinkedHashMap<String, Object>> params = prepareParams(symbolNameWithLastDate);
+        List<Symbol> symbols = dataRepository.getSymbols();
+        final List<LinkedHashMap<String, Object>> params = prepareParams(symbols);
 
         params.parallelStream().forEach(map -> {
             List<Data> data = downloader.downloadKlines(map, symbols);
@@ -80,43 +69,33 @@ public class BinanceRunner {
 
     }
 
-    @NotNull
-    private Symbol createSymbolWithDefaultLastDate(String symbolName) {
-        Symbol symbol = new Symbol();
-        symbol.setSymbolName(symbolName);
-        return symbol;
-    }
-
     private List<String> downloadSymbolsFromBinance() {
         return downloader.getTickers();
     }
 
-    @NotNull
-    private HashMap<String, LocalDateTime> getSymbolByDateFromPersistence(List<Symbol> symbols) {
-        HashMap<String, LocalDateTime> symbolNameWithLastDate = new HashMap<>();
-        for (Symbol symbol : symbols) {
-            LocalDateTime lastDate = dataRepository.readLastDate(symbol);
-            symbolNameWithLastDate.put(symbol.getSymbolName(), lastDate);
-        }
-        return symbolNameWithLastDate;
-    }
 
-    private List<Symbol> getPersistentSymbolsWithUSDT() {
-        return dataRepository.getSymbolsWithUSDT();
-    }
-
-
-    private List<LinkedHashMap<String, Object>> prepareParams(HashMap<String, LocalDateTime> symbolTimeFromDb) {
+    private List<LinkedHashMap<String, Object>> prepareParams(List<Symbol> symbols) {
         List<LinkedHashMap<String, Object>> preparedParamList = new ArrayList<>();
 
-        symbolTimeFromDb.keySet().stream().forEach(key -> {
+        for (Symbol symbol : symbols) {
+            LocalDateTime modifiedDate;
+            switch (timeframe) {
+                case "1d":
+                    modifiedDate = symbol.getLastDate().plusDays(1);
+                case "1m":
+                    modifiedDate = symbol.getLastDate().plusMinutes(1);
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + timeframe);
+            }
+
             LinkedHashMap<String, Object> params = new LinkedHashMap<>();
-            params.put("symbol", key);
+            params.put("symbol", symbol.getSymbolName());
             params.put("interval", timeframe);
             params.put("limit", kline_limit);
-            params.put("startTime", String.valueOf(symbolTimeFromDb.get(key).toInstant(UTC).toEpochMilli()));
+            params.put("startTime", String.valueOf(modifiedDate.toInstant(UTC).toEpochMilli()));
             preparedParamList.add(params);
-        });
+        }
 
         return preparedParamList;
     }

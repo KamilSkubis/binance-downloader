@@ -6,18 +6,18 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class SymbolSynchronization {
+public class SymbolSynchronizator {
     private final Writer writer;
     private final Reader reader;
 
-    public SymbolSynchronization(Writer writer, Reader reader) {
+    public SymbolSynchronizator(Writer writer, Reader reader) {
         this.writer = writer;
         this.reader = reader;
     }
 
     public void synchronize(List<Symbol> symbols, List<String> downloadedSymbols) {
         List<String> persistentSymbolNames = symbols.stream()
-                .map(s -> s.getSymbolName())
+                .map(Symbol::getSymbolName)
                 .collect(Collectors.toList());
 
         List<Symbol> filteredSymbols = downloadedSymbols.stream()
@@ -25,6 +25,6 @@ public class SymbolSynchronization {
                 .map(Symbol::new)
                 .collect(Collectors.toList());
 
-        filteredSymbols.stream().forEach(writer::write);
+        filteredSymbols.forEach(writer::write);
     }
 }
