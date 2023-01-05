@@ -2,6 +2,7 @@ import config.Config;
 import downloads.BinanceDownloader;
 import model.Data;
 import model.Symbol;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import persistence.DataRepository;
@@ -78,18 +79,9 @@ public class BinanceRunner {
         List<LinkedHashMap<String, Object>> preparedParamList = new ArrayList<>();
 
         for (Symbol symbol : symbols) {
-            LocalDateTime modifiedDate;
-            switch (timeframe) {
-                case "1d":
-                    modifiedDate = symbol.getLastDate().plusDays(1);
-                case "1m":
-                    modifiedDate = symbol.getLastDate().plusMinutes(1);
-                    break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + timeframe);
-            }
+            LocalDateTime modifiedDate = addOneToDateTime(symbol);
 
-            LinkedHashMap<String, Object> params = new LinkedHashMap<>();
+            var params = new LinkedHashMap<String, Object>();
             params.put("symbol", symbol.getSymbolName());
             params.put("interval", timeframe);
             params.put("limit", kline_limit);
@@ -98,6 +90,21 @@ public class BinanceRunner {
         }
 
         return preparedParamList;
+    }
+
+    @NotNull
+    private LocalDateTime addOneToDateTime(Symbol symbol) {
+        LocalDateTime modifiedDate;
+        switch (timeframe) {
+            case "1d":
+                modifiedDate = symbol.getLastDate().plusDays(1);
+            case "1m":
+                modifiedDate = symbol.getLastDate().plusMinutes(1);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + timeframe);
+        }
+        return modifiedDate;
     }
 
 
