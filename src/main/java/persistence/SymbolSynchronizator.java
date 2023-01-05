@@ -15,12 +15,13 @@ public class SymbolSynchronizator {
         this.reader = reader;
     }
 
-    public void synchronize(List<Symbol> symbols, List<String> downloadedSymbols) {
+    public void synchronizeUSDTSymbols(List<Symbol> symbols, List<String> downloadedSymbols) {
         List<String> persistentSymbolNames = symbols.stream()
                 .map(Symbol::getSymbolName)
                 .collect(Collectors.toList());
 
         List<Symbol> filteredSymbols = downloadedSymbols.stream()
+                .filter(s -> s.endsWith("USDT"))
                 .filter(Predicate.not(persistentSymbolNames::contains))
                 .map(Symbol::new)
                 .collect(Collectors.toList());

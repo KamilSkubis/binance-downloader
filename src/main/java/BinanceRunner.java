@@ -44,23 +44,36 @@ public class BinanceRunner {
         List<Symbol> symbols = dataRepository.getSymbols();
         final List<LinkedHashMap<String, Object>> params = prepareParams(symbols);
 
-        params.parallelStream().forEach(map -> {
+        params.stream().forEach(map -> {
             List<Data> data = downloader.downloadKlines(map, symbols);
 
+            symbols.stream()
+                    .filter(s -> s.getSymbolName() == map.get("symbol"))
+                    .limit(1)
+                    .forEach(s -> s.setLastDate(data.get(data.size() - 1).getOpenTime()));
+
+
             while (data.size() % kline_limit == 0) {
+                var symbol = symbols.stream()
+                        .filter(s -> s.getSymbolName() == map.get("symbol"))
+                        .findAny()
+                        .orElse(null);
 
-                LocalDateTime nextDate = data.get(data.size() - 1).getOpenTime().plusMinutes(1);
+                LocalDateTime modifiedDate = addOneToDateTime(symbol);
 
-                var calculatedDate = nextDate.toLocalDate();
+
+                var calculatedDate = modifiedDate.toLocalDate();
                 if (calculatedDate.equals(LocalDate.now())) {
                     logger.info("calculated date is equal to today date. Breaking while loop");
                     break;
                 }
 
-                Instant instant = nextDate.toInstant(UTC);
+                Instant instant = modifiedDate.toInstant(UTC);
                 Long date = instant.toEpochMilli();
 
                 map.replace("startTime", date);
+                logger.info("modified params: " + map);
+
                 data.addAll(downloader.downloadKlines(map, symbols));
             }
             data.remove(data.size() - 1);
@@ -79,7 +92,10 @@ public class BinanceRunner {
         List<LinkedHashMap<String, Object>> preparedParamList = new ArrayList<>();
 
         for (Symbol symbol : symbols) {
+
             LocalDateTime modifiedDate = addOneToDateTime(symbol);
+            logger.info("mod params: timeframe " + timeframe);
+            logger.info(symbol.getLastDate() + " modified: " + modifiedDate);
 
             var params = new LinkedHashMap<String, Object>();
             params.put("symbol", symbol.getSymbolName());
@@ -87,6 +103,7 @@ public class BinanceRunner {
             params.put("limit", kline_limit);
             params.put("startTime", String.valueOf(modifiedDate.toInstant(UTC).toEpochMilli()));
             preparedParamList.add(params);
+            logger.info("prepared params: " + params);
         }
 
         return preparedParamList;
@@ -98,6 +115,8 @@ public class BinanceRunner {
         switch (timeframe) {
             case "1d":
                 modifiedDate = symbol.getLastDate().plusDays(1);
+                logger.info("mod params: adding one day");
+                break;
             case "1m":
                 modifiedDate = symbol.getLastDate().plusMinutes(1);
                 break;

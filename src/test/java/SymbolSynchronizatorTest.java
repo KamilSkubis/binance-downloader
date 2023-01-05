@@ -65,7 +65,7 @@ public class SymbolSynchronizatorTest {
         List<Symbol> symbols = dataRepository.getSymbols();
 
         SymbolSynchronizator symbolSynchronizator = new SymbolSynchronizator(writer, reader);
-        symbolSynchronizator.synchronize(symbols, downloadedSymbols);
+        symbolSynchronizator.synchronizeUSDTSymbols(symbols, downloadedSymbols);
 
         List<Symbol> symbolListAfterSynchronization = dataRepository.getSymbols();
         Set<String> set = symbolListAfterSynchronization.stream().map(Symbol::getSymbolName).collect(Collectors.toSet());
