@@ -42,6 +42,10 @@ public class DbWriter implements Writer {
         logger.info("Saving data to db for: " + data.get(0).getSymbol().getSymbolName());
         long now = System.nanoTime();
 
+        writeDataUsingHibernate(data, now);
+    }
+
+    private void writeDataUsingHibernate(List<Data> data, long now) {
         int i = 0;
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
