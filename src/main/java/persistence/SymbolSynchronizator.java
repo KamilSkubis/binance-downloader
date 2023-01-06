@@ -26,6 +26,6 @@ public class SymbolSynchronizator {
                 .map(Symbol::new)
                 .collect(Collectors.toList());
 
-        filteredSymbols.forEach(writer::write);
+         filteredSymbols.forEach(writer::write);
     }
 }

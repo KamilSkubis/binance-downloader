@@ -21,6 +21,7 @@ public class Symbol {
     public Symbol() {
     }
 
+
     public Symbol(String symbol, LocalDateTime lastDate) {
         this.symbol = symbol;
         this.lastDate = lastDate;
