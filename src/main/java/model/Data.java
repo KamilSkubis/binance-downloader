@@ -32,7 +32,10 @@ public interface Data {
 
     void setVolume(Double volume);
 
-    void setId(Long id);
 
-    long getId();
+    @Override
+    public boolean equals(Object o);
+
+    @Override
+    public int hashCode();
 }

@@ -39,10 +39,6 @@ public class DbWriterTest {
             session.createSQLQuery("SET FOREIGN_KEY_CHECKS = 1").executeUpdate();
         }
 
-        if (tables.contains("binance_data_seq")) {
-            session.createSQLQuery("truncate binance_data_seq").executeUpdate();
-            session.createSQLQuery("insert into test.binance_data_seq(next_val) values ( 0 )").executeUpdate();
-        }
         session.getTransaction().commit();
         session.close();
     }
@@ -54,8 +50,10 @@ public class DbWriterTest {
 
     @Test
     public void canAdd_oneBinanceData() {
+        DbWriter dbWriter = new DbWriter(MySQLUtilTesting.getSessionFactory());
         var symbol = new Symbol();
         symbol.setSymbolName("test");
+        dbWriter.write(symbol);
         var binanceData = new BinanceData();
         binanceData.setSymbol(symbol);
         binanceData.setOpenTime(LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20));
@@ -66,7 +64,6 @@ public class DbWriterTest {
         binanceData.setLow(231.3);
         binanceData.setClose(95.21);
 
-        DbWriter dbWriter = new DbWriter(MySQLUtilTesting.getSessionFactory());
         dbWriter.write(binanceData);
 
         Session session = MySQLUtilTesting.getSessionFactory().openSession();
@@ -94,21 +91,24 @@ public class DbWriterTest {
     public void batchInsertTest() {
         var symbol = new Symbol();
         symbol.setSymbolName("test");
-        var binanceData = new BinanceData();
-        binanceData.setSymbol(symbol);
-        binanceData.setOpenTime(LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20));
-        binanceData.setVolume(230.2);
-        binanceData.setSymbol(symbol);
-        binanceData.setOpen(323.41);
-        binanceData.setHigh(23132.1);
-        binanceData.setLow(231.3);
-        binanceData.setClose(95.21);
+        symbol.setId(1l);
+        DbWriter dbWriter = new DbWriter(MySQLUtilTesting.getSessionFactory());
+        dbWriter.write(symbol);
+
+
+        var b1 = new BinanceData();
+        b1.setSymbol(symbol);
+        b1.setOpenTime(LocalDateTime.of(2000, 1, 1, 5, 25, 2, 21));
+        b1.setVolume(230.2);
+        b1.setOpen(323.41);
+        b1.setHigh(23132.1);
+        b1.setLow(231.3);
+        b1.setClose(95.21);
 
         var b2 = new BinanceData();
         b2.setSymbol(symbol);
-        b2.setOpenTime(LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20));
+        b2.setOpenTime(LocalDateTime.of(2000, 1, 1, 5, 25, 3, 22));
         b2.setVolume(230.2);
-        b2.setSymbol(symbol);
         b2.setOpen(323.41);
         b2.setHigh(23132.1);
         b2.setLow(231.3);
@@ -116,9 +116,8 @@ public class DbWriterTest {
 
         var b3 = new BinanceData();
         b3.setSymbol(symbol);
-        b3.setOpenTime(LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20));
+        b3.setOpenTime(LocalDateTime.of(2000, 1, 1, 5, 25, 4, 23));
         b3.setVolume(230.2);
-        b3.setSymbol(symbol);
         b3.setOpen(323.41);
         b3.setHigh(23132.1);
         b3.setLow(231.3);
@@ -126,7 +125,7 @@ public class DbWriterTest {
 
         var b4 = new BinanceData();
         b4.setSymbol(symbol);
-        b4.setOpenTime(LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20));
+        b4.setOpenTime(LocalDateTime.of(2000, 1, 1, 5, 25, 5, 20));
         b4.setVolume(230.2);
         b4.setSymbol(symbol);
         b4.setOpen(323.41);
@@ -134,14 +133,15 @@ public class DbWriterTest {
         b4.setLow(231.3);
         b4.setClose(95.21);
 
-        DbWriter dbWriter = new DbWriter(MySQLUtilTesting.getSessionFactory());
-        List<Data> l = new ArrayList<>();
-        l.add(binanceData);
-        l.add(b2);
-        l.add(b3);
+        List<Data> list = new ArrayList<>();
+        list.add(b1);
+        list.add(b2);
+        list.add(b3);
+        list.add(b4);
 
-        l.add(b4);
-        dbWriter.write(l);
+        list.forEach(s -> System.out.println(s.hashCode()));
+        list.forEach(s -> System.out.println(s.toString()));
+        dbWriter.write(list);
 
         Session session = MySQLUtilTesting.getSessionFactory().openSession();
         List<BinanceData> result = session.createQuery("From BinanceData").getResultList();

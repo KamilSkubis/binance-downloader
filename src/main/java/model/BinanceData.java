@@ -14,43 +14,37 @@ package model;
 //        );
 
 
-import org.hibernate.annotations.Cascade;
-
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Objects;
+
 
 @Entity
 @Table(name = "binance_data")
 public class BinanceData implements Data {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "binanceData_generator")
-    @SequenceGenerator(name = "binanceData_generator", sequenceName = "binance_data_seq", initialValue = 1, allocationSize = 50)
-    Long id;
+    @EmbeddedId
+    private final DataId dataId;
 
-    @ManyToOne
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    Symbol symbol;
-
-    @Column(name = "open_time", nullable = false)
-    LocalDateTime openTime;
-    Double open;
-    Double high;
-    Double low;
-    Double close;
-    Double volume;
+    private Double open;
+    private Double high;
+    private Double low;
+    private Double close;
+    private Double volume;
 
     public BinanceData() {
+        dataId = new DataId();
     }
 
 
     public LocalDateTime getOpenTime() {
-        return openTime;
+        return dataId.getOpenTime();
     }
 
     public void setOpenTime(LocalDateTime openTime) {
-        this.openTime = openTime;
+        this.dataId.setOpenTime(openTime);
     }
 
     public Double getOpen() {
@@ -93,36 +87,40 @@ public class BinanceData implements Data {
         this.volume = volume;
     }
 
-    public long getId() {
-        return id;
+    public void setTicker(Symbol symbol) {
+        this.dataId.setSymbol(symbol);
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Symbol getSymbol() {
+        return dataId.getSymbol();
+    }
+
+    public void setSymbol(Symbol symbol) {
+        this.dataId.setSymbol(symbol);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BinanceData binanceData = (BinanceData) o;
-        return openTime.equals(binanceData.openTime) && open.equals(binanceData.open) && high.equals(binanceData.high) && low.equals(binanceData.low) && close.equals(binanceData.close) && volume.equals(binanceData.volume);
+        BinanceData that = (BinanceData) o;
+        return Objects.equals(dataId, that.dataId) && Objects.equals(open, that.open) && Objects.equals(high, that.high) && Objects.equals(low, that.low) && Objects.equals(close, that.close) && Objects.equals(volume, that.volume);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(openTime, open, high, low, close, volume);
+        return Objects.hash(dataId.hashCode(), open, high, low, close, volume);
     }
 
-    public void setTicker(Symbol symbol) {
-        this.symbol = symbol;
-    }
-
-    public Symbol getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(Symbol symbol) {
-        this.symbol = symbol;
+    @Override
+    public String toString() {
+        return "BinanceData{" +
+                "dataId=" + dataId +
+                ", open=" + open +
+                ", high=" + high +
+                ", low=" + low +
+                ", close=" + close +
+                ", volume=" + volume +
+                '}';
     }
 }

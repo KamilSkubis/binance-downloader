@@ -41,12 +41,17 @@ public class DbWriter implements Writer {
     public void write(List<Data> data) {
         logger.info("Saving data to db for: " + data.get(0).getSymbol().getSymbolName());
         long now = System.nanoTime();
-        writeDataUsingHibernate(data, now);
-        long elapsed = System.currentTimeMillis() - now;
-        logger.info("Saving {} took: {}", data.size(), elapsed);
+        writeDataUsingHibernate(data);
+        long elapsed = (System.nanoTime() - now) / 1_000_000;
+
+
+        logger.info("Saving all data "
+                + data.size() + " for "
+                + data.get(0).getSymbol().getSymbolName()
+                + " to Database took: " + elapsed + " ms");
     }
 
-    private void writeDataUsingHibernate(List<Data> data, long now) {
+    private void writeDataUsingHibernate(List<Data> data) {
         int i = 0;
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -61,12 +66,6 @@ public class DbWriter implements Writer {
         }
         transaction.commit();
         session.close();
-
-        long elapsed = (System.nanoTime() - now) / 1_000_000;
-        logger.info("Saving all data "
-                + data.size() + " for "
-                + data.get(0).getSymbol().getSymbolName()
-                + " to Database took: " + elapsed + " ms");
     }
 
     @Override

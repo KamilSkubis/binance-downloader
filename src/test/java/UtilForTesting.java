@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.jetbrains.annotations.NotNull;
 import persistence.MySQLUtilTesting;
 
-
 import java.time.LocalDateTime;
 
 public class UtilForTesting {
@@ -68,7 +67,6 @@ public class UtilForTesting {
         String symbolName = symbol.getSymbolName();
         symbol.setSymbolName(symbolName);
         BinanceData binanceData = new BinanceData();
-        binanceData.setId(index);
         binanceData.setOpenTime(LocalDateTime.of(2000,1,1,5,25,2,20));
         binanceData.setVolume(230.2);
         binanceData.setSymbol(symbol);

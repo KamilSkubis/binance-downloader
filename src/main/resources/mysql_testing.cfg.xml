@@ -28,6 +28,7 @@
 
         <mapping class="model.BinanceData"/>
         <mapping class="model.Symbol"/>
+        <mapping class="model.DataId"/>
 
     </session-factory>
 </hibernate-configuration>

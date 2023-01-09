@@ -29,7 +29,7 @@ public class SchemaInitializer {
             logger.debug("No tables in database, need to create one");
             Transaction transaction1 = s1.beginTransaction();
 
-            String binanceData = "create table binance_data(id bigint ,symbol_id int,open_time datetime(6),open double,high double,low double,close double,volume double,key(id));";
+            String binanceData = "create table binance_data(symbol_id int,open_time datetime(6),open double,high double,low double,close double,volume double,key(open_time,symbol_id));";
             s1.createSQLQuery(binanceData).executeUpdate();
             transaction1.commit();
             s1.close();
@@ -40,13 +40,6 @@ public class SchemaInitializer {
             s2.createSQLQuery(symbol).executeUpdate();
             transaction2.commit();
             s2.close();
-
-            Session s3 = sessionFactory.openSession();
-            Transaction transaction3 = s3.beginTransaction();
-            String str3 = "create sequence test.binance_data_seq start with 1 increment by 1;";
-            s3.createSQLQuery(str3).executeUpdate();
-            transaction3.commit();
-            s3.close();
 
 
             logger.debug("tables created");
