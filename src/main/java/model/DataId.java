@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class DataId implements Serializable {
 
@@ -19,11 +20,6 @@ public class DataId implements Serializable {
     LocalDateTime openTime;
 
     public DataId() {
-    }
-
-    public DataId(Symbol symbol, LocalDateTime openTime) {
-        this.symbol = symbol;
-        this.openTime = openTime;
     }
 
     public Symbol getSymbol() {
@@ -40,5 +36,18 @@ public class DataId implements Serializable {
 
     public void setOpenTime(LocalDateTime openTime) {
         this.openTime = openTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DataId dataId = (DataId) o;
+        return Objects.equals(symbol, dataId.symbol) && Objects.equals(openTime, dataId.openTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(symbol, openTime);
     }
 }

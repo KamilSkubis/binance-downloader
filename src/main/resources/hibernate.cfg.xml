@@ -28,5 +28,6 @@
 
         <mapping class="model.BinanceData"/>
         <mapping class="model.Symbol"/>
+
     </session-factory>
 </hibernate-configuration>

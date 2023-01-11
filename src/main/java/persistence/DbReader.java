@@ -4,16 +4,19 @@ import model.BinanceData;
 import model.Symbol;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import javax.persistence.Query;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class DbReader implements Reader {
 
+    private final Logger logger;
     SessionFactory sessionFactory;
 
     public DbReader(SessionFactory sessionFactory) {
+        logger = LoggerFactory.getLogger(DbReader.class);
         this.sessionFactory = sessionFactory;
     }
 
@@ -44,10 +47,13 @@ public class DbReader implements Reader {
         List<Symbol> symbolList = getSymbolByName(symbol.getSymbolName());
         symbolList.forEach(s -> System.out.println(s.toString()));
 
-        Query query = session.createQuery("from BinanceData where symbol_id = :symbol");
-        query.setParameter("symbol", symbol.getSymbolName());
-        List resultList = query.getResultList();
+        List resultList = session.createQuery("from BinanceData where dataId.symbol.symbol = :symbol")
+                .setParameter("symbol", symbol.getSymbolName())
+                .getResultList();
 
+
+        logger.info("szukany symbol: " + symbol.getSymbolName());
+        logger.info(resultList.toString());
         LocalDateTime result;
         if (resultList.size() != 0) {
             BinanceData bar = (BinanceData) resultList.get(resultList.size() - 1);

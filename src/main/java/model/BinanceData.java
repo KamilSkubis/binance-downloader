@@ -99,6 +99,10 @@ public class BinanceData implements Data {
         this.dataId.setSymbol(symbol);
     }
 
+    public DataId getDataId() {
+        return dataId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

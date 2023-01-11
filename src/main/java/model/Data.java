@@ -34,8 +34,10 @@ public interface Data {
 
 
     @Override
-    public boolean equals(Object o);
+    boolean equals(Object o);
 
     @Override
-    public int hashCode();
+    int hashCode();
+
+    DataId getDataId();
 }

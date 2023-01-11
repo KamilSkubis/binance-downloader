@@ -54,10 +54,12 @@ public class DbReaderTest {
     @Test
     public void getSymbols_shouldHave_Real_LastDateInReturnedSymbol() {
         Symbol symbol = new Symbol("test");
+//        symbol.setId(1l);
         var data = UtilForTesting.createSampleData(symbol);
         var customDate = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
         data.setOpenTime(customDate);
         new DbWriter(MySQLUtilTesting.getSessionFactory()).write(data);
+
 
         DbReader dbReader = new DbReader(mysqlTesting);
         List<Symbol> symbols = dbReader.getSymbols();
@@ -68,7 +70,7 @@ public class DbReaderTest {
 
     @After
     public void tearDown() {
-        UtilForTesting.dropTables();
+//        UtilForTesting.dropTables();
     }
 
 

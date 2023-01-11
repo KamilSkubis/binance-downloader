@@ -31,6 +31,7 @@ public class DbWriter implements Writer {
     public void write(Data data) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
+        session.save(data.getSymbol());
         session.save(data);
         transaction.commit();
         session.close();
