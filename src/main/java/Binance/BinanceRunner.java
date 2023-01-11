@@ -1,6 +1,6 @@
 package Binance;
 
-import config.FileConfig;
+import config.Config;
 import downloads.Downloader;
 import model.Data;
 import model.Symbol;
@@ -28,7 +28,7 @@ public class BinanceRunner {
     private final Downloader downloader;
 
 
-    public BinanceRunner(DataRepository dataRepository, Downloader downloader, FileConfig fileConfig) {
+    public BinanceRunner(DataRepository dataRepository, Downloader downloader, Config fileConfig) {
 
         logger = LoggerFactory.getLogger(BinanceRunner.class);
         this.dataRepository = dataRepository;

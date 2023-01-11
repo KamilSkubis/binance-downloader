@@ -1,6 +1,6 @@
 package persistence;
 
-import config.FileConfig;
+import config.Config;
 import model.BinanceData;
 import model.Data;
 import model.Symbol;
@@ -48,13 +48,13 @@ public class BatchWriterTest {
     @Test
     public void write_1000k_records() {
         var data = generateDataWithSymbolIdSetTo1();
-        FileConfig fileConfig = mock(FileConfig.class);
-        when(fileConfig.getUrl()).thenReturn("jdbc:mysql://localhost:3306/test");
-        when(fileConfig.getLogin()).thenReturn("root");
-        when(fileConfig.getPassword()).thenReturn("password");
+        Config config = mock(Config.class);
+        when(config.getUrl()).thenReturn("jdbc:mysql://localhost:3306/test");
+        when(config.getLogin()).thenReturn("root");
+        when(config.getPassword()).thenReturn("password");
 
 
-        BatchWriter bw = new BatchWriter(fileConfig);
+        BatchWriter bw = new BatchWriter(config);
         bw.write(data);
 
     }
