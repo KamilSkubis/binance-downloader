@@ -1,5 +1,6 @@
 package integration;
 
+import Binance.BinanceRunner;
 import config.Config;
 import downloads.Downloader;
 import model.BinanceData;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class IntegrationTest {
 
@@ -52,6 +54,11 @@ public class IntegrationTest {
         Writer writer = new DbWriter(MySQLUtilTesting.getSessionFactory());
         Reader reader = new DbReader(MySQLUtilTesting.getSessionFactory());
         BatchWriter batchWriter = new BatchWriter(config);
+        DataRepository dr = new DataRepository(writer, batchWriter, reader);
+
+        BinanceRunner br = new BinanceRunner(dr, downloader, config);
+
+        br.run();
 
     }
 
@@ -67,19 +74,19 @@ class DownloaderStub implements Downloader {
 
     @Override
     public List<Data> downloadKlines(LinkedHashMap<String, Object> params, List<Symbol> symbols) {
-        return generateData(2);
+        return generateData(2, symbols, "testUSDT");
     }
 
 
-    private List<Data> generateData(int number) {
+    private List<Data> generateData(int number, List<Symbol> symbols, String ticker) {
         List<Data> data = new ArrayList<>();
-        Symbol symbol = new Symbol();
-        symbol.setSymbolName("testUSDT");
+        System.out.println(symbols.toString());
+
+        var symbol = symbols.stream().filter(s -> s.getSymbolName().equals(ticker)).collect(Collectors.toList()).get(0);
 
         LocalDateTime now = LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20);
         for (int i = 0; i < number; i++) {
             var d = new BinanceData();
-            d.setSymbol(symbol);
             now = now.plusMinutes(1);
             d.setOpenTime(now);
             d.setVolume(Math.random());

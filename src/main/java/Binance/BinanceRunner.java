@@ -41,9 +41,16 @@ public class BinanceRunner {
     public void run() {
 
         List<String> downloadedSymbols = downloadSymbolsFromBinance();
+        logger.info("downloaded symbols: {}", downloadedSymbols);
+        logger.info("start synchronization with db");
         dataRepository.sychronizeDownloadedSymbolsWithDb(downloadedSymbols);
+        logger.info("symbols are synchronized");
 
+        logger.info("getting list of symbols");
         List<Symbol> symbols = dataRepository.getSymbols();
+        logger.info("symbols from persistence");
+        symbols.stream().forEach(s -> logger.info(s.toString()));
+
         final List<LinkedHashMap<String, Object>> params = prepareParams(symbols);
 
         params.stream().forEach(map -> {
