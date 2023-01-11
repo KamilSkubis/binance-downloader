@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.time.Instant;
 import java.util.Properties;
 
-public final class Config {
+public class Config {
     static Logger logger;
     private final String password;
     private final String timeframe;

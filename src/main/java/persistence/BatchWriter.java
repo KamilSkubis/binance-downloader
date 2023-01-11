@@ -30,30 +30,21 @@ public class BatchWriter {
             con = DriverManager.getConnection(url, login, password);
             con.setAutoCommit(false);
             PreparedStatement ps = con.prepareStatement(
-                    "Insert into test.binance_data(id,close,high,low,open,open_time,volume,symbol_id) values(?,?,?,?,?,?,?,?)");
-
-//            PreparedStatement id = con.prepareStatement("select next_val from binance_data_seq");
-
-//            PreparedStatement preparedStatement = con.prepareStatement("insert into symbols values(?,?)");
-//            preparedStatement.setLong(1, idSymbol);
-//            preparedStatement.setString(2, symbol.getSymbolName());
-//            preparedStatement.executeUpdate();
-
+                    "Insert into test.binance_data(open_time,close,high,low,open,volume,symbol_id) values(?,?,?,?,?,?,?)");
 
             long start = System.currentTimeMillis();
 
             for (Data d : data) {
 
-                var formatedDate = d.getOpenTime().format(DateTimeFormatter.BASIC_ISO_DATE);
+                var formatedDate = d.getOpenTime().format(DateTimeFormatter.ISO_DATE_TIME);
 
-                ps.setString(1, "null");
+                ps.setString(1, formatedDate);
                 ps.setDouble(2, d.getClose());
                 ps.setDouble(3, d.getHigh());
                 ps.setDouble(4, d.getLow());
                 ps.setDouble(5, d.getOpen());
-                ps.setString(6, formatedDate);
-                ps.setDouble(7, d.getVolume());
-                ps.setLong(8, d.getSymbol().getId());
+                ps.setDouble(6, d.getVolume());
+                ps.setLong(7, d.getDataId().getSymbol().getId());
 
                 ps.addBatch();
                 ps.clearParameters();
@@ -65,6 +56,7 @@ public class BatchWriter {
             con.commit();
             long elapsed = System.currentTimeMillis() - start;
             System.out.println("elapsed time: " + elapsed);
+            con.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
