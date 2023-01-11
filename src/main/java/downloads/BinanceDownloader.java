@@ -17,10 +17,12 @@ import org.slf4j.LoggerFactory;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.stream.Collectors;
 
-public class BinanceDownloader {
+public class BinanceDownloader implements Downloader {
 
     private final Market market;
     private final Logger logger;
@@ -35,6 +37,7 @@ public class BinanceDownloader {
         usedWeight1m = 0;
     }
 
+    @Override
     public List<String> getTickers() {
         logger.info("Initialization: Start downloading ticker names");
         List<String> tickers = new LinkedList<>();
@@ -58,6 +61,7 @@ public class BinanceDownloader {
         usedWeight1m = deserializedObject;
     }
 
+    @Override
     public List<Data> downloadKlines(LinkedHashMap<String, Object> params, List<Symbol> symbols) {
         logger.info("Initialization: Start downloading data for ticker {}", params.get("symbol"));
         List<Data> downloadedData = new LinkedList<>();

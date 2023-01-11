@@ -1,7 +1,7 @@
 package Binance;
 
 import config.FileConfig;
-import downloads.BinanceDownloader;
+import downloads.Downloader;
 import model.Data;
 import model.Symbol;
 import org.jetbrains.annotations.NotNull;
@@ -25,10 +25,10 @@ public class BinanceRunner {
     private final String timeframe;
     private final Integer kline_limit;
     private final DataRepository dataRepository;
-    private final BinanceDownloader downloader;
+    private final Downloader downloader;
 
 
-    public BinanceRunner(DataRepository dataRepository, BinanceDownloader downloader, FileConfig fileConfig) {
+    public BinanceRunner(DataRepository dataRepository, Downloader downloader, FileConfig fileConfig) {
 
         logger = LoggerFactory.getLogger(BinanceRunner.class);
         this.dataRepository = dataRepository;
