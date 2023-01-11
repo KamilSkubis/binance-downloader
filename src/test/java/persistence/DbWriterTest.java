@@ -15,7 +15,9 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -158,12 +160,14 @@ public class DbWriterTest {
     public void batchInsert_1000k_objects_nativeSQL_with_same_batch_and_array() {
         List<Data> data = new ArrayList<>();
         Symbol symbol = new Symbol();
-        symbol.setSymbolName("test");
+        symbol.setSymbolName("testUSDT");
+        Set<LocalDateTime> duplicates = new HashSet<>();
         LocalDateTime now = LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20);
         for (int i = 0; i < 1_000_000; i++) {
             var d = new BinanceData();
             d.setSymbol(symbol);
-            d.setOpenTime(now.plusMinutes(1));
+            now = now.plusMinutes(1);
+            d.setOpenTime(now);
             d.setVolume(Math.random());
             d.setSymbol(symbol);
             d.setOpen(Math.random());
@@ -171,7 +175,9 @@ public class DbWriterTest {
             d.setLow(Math.random());
             d.setClose(Math.random());
             data.add(d);
+
         }
+
 
         String path = "jdbc:mysql://localhost:3306/test";
         String path2 = path + "?rewriteBatchedStatements=true";
@@ -183,9 +189,8 @@ public class DbWriterTest {
             con = DriverManager.getConnection(path2, user, pass);
             con.setAutoCommit(false);
             PreparedStatement ps = con.prepareStatement(
-                    "Insert into test.binance_data(id,close,high,low,open,open_time,volume,symbol_id) values(?,?,?,?,?,?,?,?)");
-            int i = 0;
-            long id = 0;
+                    "Insert into test.binance_data(open_time,close,high,low,open,volume,symbol_id) values(?,?,?,?,?,?,?)");
+
             long idSymbol = 1;
 
             PreparedStatement preparedStatement = con.prepareStatement("insert into symbols values(?,?)");
@@ -195,23 +200,26 @@ public class DbWriterTest {
 
             long start = System.currentTimeMillis();
 
-            for (Data d : data) {
-                id++;
-                var formatedDate = d.getOpenTime().format(DateTimeFormatter.BASIC_ISO_DATE);
+            Set<String> formattedDateDuplicates = new HashSet<>();
 
-                ps.setLong(1, id);
+
+            for (Data d : data) {
+
+                var formatedDate = d.getOpenTime().format(DateTimeFormatter.ISO_DATE_TIME);
+
+                ps.setString(1, formatedDate);
                 ps.setDouble(2, d.getClose());
                 ps.setDouble(3, d.getHigh());
                 ps.setDouble(4, d.getLow());
                 ps.setDouble(5, d.getOpen());
-                ps.setString(6, formatedDate);
-                ps.setDouble(7, d.getVolume());
-                ps.setLong(8, idSymbol);
+                ps.setDouble(6, d.getVolume());
+                ps.setLong(7, idSymbol);
 
                 ps.addBatch();
                 ps.clearParameters();
 
             }
+
 
             ps.executeLargeBatch();
 

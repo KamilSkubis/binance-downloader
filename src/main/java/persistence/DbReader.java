@@ -49,11 +49,9 @@ public class DbReader implements Reader {
 
         List resultList = session.createQuery("from BinanceData where dataId.symbol.symbol = :symbol")
                 .setParameter("symbol", symbol.getSymbolName())
-                .getResultList();
+                .setMaxResults(1)
+                .list();
 
-
-        logger.info("szukany symbol: " + symbol.getSymbolName());
-        logger.info(resultList.toString());
         LocalDateTime result;
         if (resultList.size() != 0) {
             BinanceData bar = (BinanceData) resultList.get(resultList.size() - 1);

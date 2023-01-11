@@ -63,9 +63,7 @@ public class UtilForTesting {
 
     @NotNull
     public static BinanceData createSampleData(Symbol symbol) {
-        long index = 100L;
-        String symbolName = symbol.getSymbolName();
-        symbol.setSymbolName(symbolName);
+
         BinanceData binanceData = new BinanceData();
         binanceData.setOpenTime(LocalDateTime.of(2000,1,1,5,25,2,20));
         binanceData.setVolume(230.2);

@@ -1,7 +1,6 @@
 import model.BinanceData;
 import model.Symbol;
 import org.hibernate.SessionFactory;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -102,7 +101,7 @@ public class DataRepositoryTest {
     @Test
     public void writeTwoDataObjWithTwoDiffrentSymbols_OneSymbolSaved() {
         var symbol1 = new Symbol();
-        symbol1.setSymbolName("test1");
+        symbol1.setSymbolName("test1USDT");
 
         BinanceData sampleData1 = UtilForTesting.createSampleData(symbol1);
 
@@ -114,8 +113,10 @@ public class DataRepositoryTest {
 
         var symbolList = dataRepository.getSymbolsWithUSDT();
 
-        var symbol2 = symbolList.stream().filter(symbol -> Objects.equals(symbol.getSymbolName(), "test1")).collect(Collectors.toList());
-        BinanceData sampleData2 = UtilForTesting.createSampleData(symbol2.get(0));
+        var symbol2 = symbolList.stream().filter(symbol -> Objects.equals(symbol.getSymbolName(), "test1USDT")).collect(Collectors.toList()).get(0);
+
+        BinanceData sampleData2 = UtilForTesting.createSampleData(symbol2);
+        sampleData2.setOpenTime(sampleData2.getOpenTime().plusSeconds(1));
         new DbWriter(MySQLUtilTesting.getSessionFactory()).write(sampleData2);
 
         System.out.println(dataRepository.getSymbolsWithUSDT().toString());
@@ -123,8 +124,4 @@ public class DataRepositoryTest {
     }
 
 
-    @After
-    public void tearDown() {
-        UtilForTesting.dropTables();
-    }
 }
