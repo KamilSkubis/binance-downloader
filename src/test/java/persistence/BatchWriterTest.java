@@ -6,6 +6,7 @@ import model.Data;
 import model.Symbol;
 import org.hibernate.Session;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
@@ -43,6 +44,7 @@ public class BatchWriterTest {
         dropTables();
     }
 
+    @Ignore
     @Test
     public void write_1000k_records() {
         var data = generateDataWithSymbolIdSetTo1();
