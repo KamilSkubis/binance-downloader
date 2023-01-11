@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ConfigTest {
+public class FileConfigTest {
 
     @TempDir
     File tempDir;

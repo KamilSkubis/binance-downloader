@@ -19,7 +19,7 @@ public class ConfigLocation {
         logger = LoggerFactory.getLogger(ConfigLocation.class);
 
         try {
-            File DEFAULT_BASE = new File(Config.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
+            File DEFAULT_BASE = new File(FileConfig.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
             this.file = new File(DEFAULT_BASE, "settings.properties");
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);

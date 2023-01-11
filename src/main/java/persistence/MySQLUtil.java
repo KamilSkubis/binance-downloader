@@ -1,8 +1,8 @@
 package persistence;
 
-import config.Config;
 import config.ConfigLocation;
 import config.ConfigReader;
+import config.FileConfig;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -15,7 +15,7 @@ import java.util.Properties;
 public class MySQLUtil {
     private static SessionFactory sessionFactory;
     private static Logger logger;
-    private static Config config;
+    private static FileConfig fileConfig;
 
     private MySQLUtil() {
     }
@@ -30,7 +30,7 @@ public class MySQLUtil {
             logger.debug("SessionFactory is null. Need to create new one");
             ConfigLocation configLocation = new ConfigLocation();
             ConfigReader configReader = new ConfigReader();
-            config = configReader.read(configLocation);
+            fileConfig = configReader.read(configLocation);
             buildSessionFactory();
         }
         return sessionFactory;
@@ -44,9 +44,9 @@ public class MySQLUtil {
             configuration.configure();
 
             Properties properties = new Properties();
-            properties.put("hibernate.connection.url", config.getUrl());
-            properties.put("hibernate.connection.username", config.getLogin());
-            properties.put("hibernate.connection.password", config.getPassword());
+            properties.put("hibernate.connection.url", fileConfig.getUrl());
+            properties.put("hibernate.connection.username", fileConfig.getLogin());
+            properties.put("hibernate.connection.password", fileConfig.getPassword());
             properties.put("hibernate.hbm2ddl.auto", "update");
             configuration.addProperties(properties);
             configuration.addAnnotatedClass(model.Symbol.class);

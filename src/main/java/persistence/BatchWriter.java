@@ -1,6 +1,6 @@
 package persistence;
 
-import config.Config;
+import config.FileConfig;
 import model.Data;
 
 import java.sql.Connection;
@@ -17,10 +17,10 @@ public class BatchWriter {
     private final String login;
     private final String password;
 
-    public BatchWriter(Config config) {
-        url = config.getUrl() + "?rewriteBatchedStatements=true";
-        login = config.getLogin();
-        password = config.getPassword();
+    public BatchWriter(FileConfig fileConfig) {
+        url = fileConfig.getUrl() + "?rewriteBatchedStatements=true";
+        login = fileConfig.getLogin();
+        password = fileConfig.getPassword();
     }
 
     public void write(List<Data> data) {

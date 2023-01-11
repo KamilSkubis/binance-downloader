@@ -6,7 +6,7 @@ import java.util.Properties;
 public class ConfigReader {
 
 
-    public Config read(ConfigLocation configLocation) {
+    public FileConfig read(ConfigLocation configLocation) {
         Properties properties = new Properties();
         try {
             properties.load(configLocation.getConfigInputStream());
@@ -14,7 +14,7 @@ public class ConfigReader {
             e.printStackTrace();
         }
 
-        return new Config.ConfigBuilder()
+        return new FileConfig.ConfigBuilder()
                 .setUrl(properties.getProperty("url"))
                 .setLogin(properties.getProperty("login"))
                 .setPassword(properties.getProperty("password"))

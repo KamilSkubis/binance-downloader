@@ -1,9 +1,9 @@
 import Binance.BinanceRunner;
 import com.binance.connector.client.impl.SpotClientImpl;
 import com.binance.connector.client.impl.spot.Market;
-import config.Config;
 import config.ConfigLocation;
 import config.ConfigReader;
+import config.FileConfig;
 import downloads.BinanceDownloader;
 import org.hibernate.SessionFactory;
 import org.jetbrains.annotations.NotNull;
@@ -26,10 +26,10 @@ public class Main {
 
         Long startTime = System.currentTimeMillis();
 
-        Config config = new ConfigReader().read(new ConfigLocation());
-        DataRepository dataRepository = createDataRepository(sessionFactory, config);
+        FileConfig fileConfig = new ConfigReader().read(new ConfigLocation());
+        DataRepository dataRepository = createDataRepository(sessionFactory, fileConfig);
         BinanceDownloader downloader = createBinanceDownloader();
-        BinanceRunner binanceRunner = new BinanceRunner(dataRepository, downloader, config);
+        BinanceRunner binanceRunner = new BinanceRunner(dataRepository, downloader, fileConfig);
         binanceRunner.run();
 
         Long endTime = System.currentTimeMillis();
@@ -40,10 +40,10 @@ public class Main {
     }
 
     @NotNull
-    private static DataRepository createDataRepository(SessionFactory sql, Config config) {
+    private static DataRepository createDataRepository(SessionFactory sql, FileConfig fileConfig) {
         Writer writer = new DbWriter(sql);
         Reader reader = new DbReader(sql);
-        BatchWriter batchWriter = new BatchWriter(config);
+        BatchWriter batchWriter = new BatchWriter(fileConfig);
         return new DataRepository(writer, batchWriter, reader);
     }
 

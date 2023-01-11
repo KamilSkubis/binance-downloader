@@ -1,7 +1,7 @@
 package persistence;
 
 
-import config.Config;
+import config.FileConfig;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -14,10 +14,10 @@ public class SessionFactoryCreator {
 
     private final SessionFactory sessionFactory;
 
-    public SessionFactoryCreator(Config config) {
+    public SessionFactoryCreator(FileConfig fileConfig) {
 
 
-        Properties properties = prepareCustomProperties(config);
+        Properties properties = prepareCustomProperties(fileConfig);
         Configuration configuration = createConfigurationObj(properties);
         sessionFactory = createSessionFactory(properties, configuration);
     }
@@ -42,11 +42,11 @@ public class SessionFactoryCreator {
     }
 
     @NotNull
-    private Properties prepareCustomProperties(Config config) {
+    private Properties prepareCustomProperties(FileConfig fileConfig) {
         Properties properties = new Properties();
-        properties.put("hibernate.connection.url", config.getUrl());
-        properties.put("hibernate.connection.username", config.getLogin());
-        properties.put("hibernate.connection.password", config.getPassword());
+        properties.put("hibernate.connection.url", fileConfig.getUrl());
+        properties.put("hibernate.connection.username", fileConfig.getLogin());
+        properties.put("hibernate.connection.password", fileConfig.getPassword());
         return properties;
     }
 

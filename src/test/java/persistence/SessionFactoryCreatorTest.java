@@ -1,24 +1,23 @@
 package persistence;
 
-import config.Config;
+import config.FileConfig;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 public class SessionFactoryCreatorTest {
 
 
     @Test
     public void shouldReturnSessionFactoryObj() {
-        Config config = new Config.ConfigBuilder()
+        FileConfig fileConfig = new FileConfig.ConfigBuilder()
                 .setUrl("jdbc:mysql://localhost:3306/test")
                 .setLogin("root")
                 .setPassword("password")
                 .setTimeFrame("4h")
                 .build();
 
-        SessionFactoryCreator sfc = new SessionFactoryCreator(config);
+        SessionFactoryCreator sfc = new SessionFactoryCreator(fileConfig);
         assertNotNull(sfc.getSessionFactory());
     }
 

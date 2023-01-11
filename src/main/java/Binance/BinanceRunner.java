@@ -1,6 +1,6 @@
 package Binance;
 
-import config.Config;
+import config.FileConfig;
 import downloads.BinanceDownloader;
 import model.Data;
 import model.Symbol;
@@ -28,14 +28,14 @@ public class BinanceRunner {
     private final BinanceDownloader downloader;
 
 
-    public BinanceRunner(DataRepository dataRepository, BinanceDownloader downloader, Config config) {
+    public BinanceRunner(DataRepository dataRepository, BinanceDownloader downloader, FileConfig fileConfig) {
 
         logger = LoggerFactory.getLogger(BinanceRunner.class);
         this.dataRepository = dataRepository;
         this.downloader = downloader;
 
-        timeframe = config.getTimeFrame();
-        kline_limit = config.getKlineLimit();
+        timeframe = fileConfig.getTimeFrame();
+        kline_limit = fileConfig.getKlineLimit();
     }
 
     public void run() {
