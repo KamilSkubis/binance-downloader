@@ -5,7 +5,7 @@ import model.Symbol;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.Query;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -44,20 +44,13 @@ public class DbReader implements Reader {
         List<Symbol> symbolList = getSymbolByName(symbol.getSymbolName());
         symbolList.forEach(s -> System.out.println(s.toString()));
 
-        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-
-        criteriaBuilder.
-
-                var query = "from BinanceData order by open_time DESC where symbol = :symbol";
-//        Query query = session.createQuery("from BinanceData where symbol = :symbol");
-//        query.setParameter();
-        var queryResult = session.createQuery(query).setParameter("symbol", symbolList.get(0)).list();
-
-        System.out.println(queryResult);
+        Query query = session.createQuery("from BinanceData where symbol_id = :symbol");
+        query.setParameter("symbol", symbol.getSymbolName());
+        List resultList = query.getResultList();
 
         LocalDateTime result;
-        if (queryResult.size() != 0) {
-            BinanceData bar = (BinanceData) queryResult.get(queryResult.size() - 1);
+        if (resultList.size() != 0) {
+            BinanceData bar = (BinanceData) resultList.get(resultList.size() - 1);
             result = bar.getOpenTime();
 
         } else {
