@@ -1,3 +1,5 @@
+package Binance;
+
 import config.Config;
 import downloads.BinanceDownloader;
 import model.Data;
