@@ -43,21 +43,21 @@ public class BinanceRunner {
 
 
         List<String> downloadedSymbols = downloadSymbolsFromBinance();
-        logger.info("downloaded symbols: {}", downloadedSymbols);
-        logger.info("start synchronization with db");
+        logger.debug("downloaded symbols: {}", downloadedSymbols);
+        logger.debug("start synchronization with db");
         dataRepository.sychronizeDownloadedSymbolsWithDb(downloadedSymbols);
-        logger.info("symbols are synchronized");
+        logger.debug("symbols are synchronized");
 
-        logger.info("getting list of symbols");
+        logger.debug("getting list of symbols");
         List<Symbol> symbols = dataRepository.getSymbols();
-        logger.info("symbols from persistence");
+        logger.debug("symbols from persistence");
         symbols.stream().forEach(s -> logger.info(s.toString()));
 
         final List<LinkedHashMap<String, Object>> params = prepareParams(symbols);
 
         params.stream().forEach(map -> {
             List<Data> data = downloader.downloadKlines(map, symbols);
-            logger.info("downloaded data size: {}", data.size());
+            logger.info("downloaded data for ticker {} size: {}", data.get(0).getSymbol().getSymbolName(), data.size());
 
             symbols.stream()
                     .filter(s -> s.getSymbolName() == map.get("symbol"))
@@ -76,7 +76,7 @@ public class BinanceRunner {
 
                 var calculatedDate = modifiedDate.toLocalDate();
                 if (calculatedDate.equals(LocalDate.now())) {
-                    logger.info("calculated date is equal to today date. Breaking while loop");
+                    logger.debug("calculated date is equal to today date. Breaking while loop");
                     break;
                 }
 
@@ -84,7 +84,7 @@ public class BinanceRunner {
                 Long date = instant.toEpochMilli();
 
                 map.replace("startTime", date);
-                logger.info("modified params: " + map);
+                logger.debug("modified params: " + map);
 
                 data.addAll(downloader.downloadKlines(map, symbols));
             }
@@ -93,14 +93,14 @@ public class BinanceRunner {
             switch (timeframe) {
                 case "1d":
                     var lastDateIsEqualToDownloadedDate = lastOpenTime.toLocalDate().isEqual(savedTime.toLocalDate());
-                    logger.info("checking condition to remove last data from list: {}", lastDateIsEqualToDownloadedDate);
+                    logger.debug("checking condition to remove last data from list: {}", lastDateIsEqualToDownloadedDate);
                     if (lastDateIsEqualToDownloadedDate) {
                         data.remove(data.get(data.size() - 1));
                     }
                     break;
                 case "1m":
                     var lastHourAndMinutesIsEqualToDownloadedTime = lastOpenTime.getHour() == savedTime.getHour() && lastOpenTime.getMinute() == savedTime.getMinute();
-                    logger.info("checking condition to remove last data from list: {}", lastHourAndMinutesIsEqualToDownloadedTime);
+                    logger.debug("checking condition to remove last data from list: {}", lastHourAndMinutesIsEqualToDownloadedTime);
                     if (lastHourAndMinutesIsEqualToDownloadedTime) {
                         data.remove(data.get(data.size() - 1));
                     }
@@ -128,8 +128,8 @@ public class BinanceRunner {
         for (Symbol symbol : symbols) {
 
             LocalDateTime modifiedDate = addOneToDateTime(symbol);
-            logger.info("mod params: timeframe " + timeframe);
-            logger.info(symbol.getLastDate() + " modified: " + modifiedDate);
+            logger.debug("mod params: timeframe " + timeframe);
+            logger.debug(symbol.getLastDate() + " modified: " + modifiedDate);
 
             var params = new LinkedHashMap<String, Object>();
             params.put("symbol", symbol.getSymbolName());
@@ -137,7 +137,7 @@ public class BinanceRunner {
             params.put("limit", kline_limit);
             params.put("startTime", String.valueOf(modifiedDate.toInstant(UTC).toEpochMilli()));
             preparedParamList.add(params);
-            logger.info("prepared params: " + params);
+            logger.debug("prepared params: " + params);
         }
 
         return preparedParamList;
@@ -149,10 +149,11 @@ public class BinanceRunner {
         switch (timeframe) {
             case "1d":
                 modifiedDate = symbol.getLastDate().plusDays(1);
-                logger.info("mod params: adding one day");
+                logger.debug("mod params: adding one day");
                 break;
             case "1m":
                 modifiedDate = symbol.getLastDate().plusMinutes(1);
+                logger.debug("mod params: adding one minute");
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + timeframe);

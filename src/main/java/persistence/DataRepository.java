@@ -81,6 +81,9 @@ public class DataRepository {
     }
 
     public void write(List<Data> data) {
+        if (data.size() == 0) {
+            return;
+        }
         var size = data.size();
         if (size >= 1000) {
             String symbol = data.get(0).getSymbol().getSymbolName();
