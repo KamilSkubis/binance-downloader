@@ -54,17 +54,30 @@ public class DbReaderTest {
     @Test
     public void getSymbols_shouldHave_Real_LastDateInReturnedSymbol() {
         Symbol symbol = new Symbol("test");
-//        symbol.setId(1l);
+        Symbol symbolWithoutData = new Symbol("test3");
         var data = UtilForTesting.createSampleData(symbol);
+        var data2 = UtilForTesting.createSampleData(symbol);
+        var data3 = UtilForTesting.createSampleData(symbol);
+        var data4 = UtilForTesting.createSampleData(new Symbol("test2"));
         var customDate = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
         data.setOpenTime(customDate);
-        new DbWriter(MySQLUtilTesting.getSessionFactory()).write(data);
+        data2.setOpenTime(customDate.plusDays(1));
+        data3.setOpenTime(customDate.plusDays(2));
+        data4.setOpenTime(customDate.plusDays(2));
+        DbWriter dbWriter = new DbWriter(MySQLUtilTesting.getSessionFactory());
+        dbWriter.write(symbolWithoutData);
+        dbWriter.write(data);
+        dbWriter.write(data2);
+        dbWriter.write(data3);
+        dbWriter.write(data4);
 
 
         DbReader dbReader = new DbReader(mysqlTesting);
         List<Symbol> symbols = dbReader.getSymbols();
 
-        assertEquals(customDate, symbols.get(0).getLastDate());
+        symbols.stream().forEach(s -> System.out.println(s.toString()));
+        Symbol result = symbols.stream().filter(s -> s.getSymbolName().equals("test")).findFirst().orElseThrow();
+        assertEquals(customDate.plusDays(2), result.getLastDate());
     }
 
 

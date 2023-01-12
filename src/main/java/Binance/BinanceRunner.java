@@ -43,20 +43,20 @@ public class BinanceRunner {
 
 
         List<String> downloadedSymbols = downloadSymbolsFromBinance();
-        logger.debug("downloaded symbols: {}", downloadedSymbols);
         logger.debug("start synchronization with db");
         dataRepository.sychronizeDownloadedSymbolsWithDb(downloadedSymbols);
         logger.debug("symbols are synchronized");
 
         logger.debug("getting list of symbols");
         List<Symbol> symbols = dataRepository.getSymbols();
-        logger.debug("symbols from persistence");
-        symbols.stream().forEach(s -> logger.info(s.toString()));
 
         final List<LinkedHashMap<String, Object>> params = prepareParams(symbols);
 
         params.stream().forEach(map -> {
             List<Data> data = downloader.downloadKlines(map, symbols);
+            if (data.size() == 0) {
+                return;
+            }
             logger.info("downloaded data for ticker {} size: {}", data.get(0).getSymbol().getSymbolName(), data.size());
 
             symbols.stream()
@@ -86,7 +86,10 @@ public class BinanceRunner {
                 map.replace("startTime", date);
                 logger.debug("modified params: " + map);
 
-                data.addAll(downloader.downloadKlines(map, symbols));
+                List<Data> moreDownloadedData = downloader.downloadKlines(map, symbols);
+                if (moreDownloadedData.size() != 0) {
+                    data.addAll(moreDownloadedData);
+                }
             }
 
             var lastOpenTime = data.get(data.size() - 1).getDataId().getOpenTime();
@@ -110,7 +113,6 @@ public class BinanceRunner {
             }
 
 
-//            data.remove(data.size() - 1); //remove today data
             dataRepository.write(data);
             data.clear();
         });

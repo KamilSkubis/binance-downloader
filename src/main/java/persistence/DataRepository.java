@@ -99,4 +99,14 @@ public class DataRepository {
     }
 
 
+    public List<Symbol> getSymbolsWithLastDate() {
+        List<Symbol> symbols = getSymbols();
+        for (Symbol symbol : symbols) {
+            LocalDateTime dateFromPersistence = readLastDate(symbol);
+            symbol.setLastDate(dateFromPersistence);
+        }
+        return symbols;
+
+
+    }
 }

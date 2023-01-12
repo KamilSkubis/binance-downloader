@@ -74,6 +74,7 @@ public class Symbol {
         return "Symbol{" +
                 "id=" + id +
                 ", symbol='" + symbol + '\'' +
+                ", lastDate=" + lastDate +
                 '}';
     }
 }

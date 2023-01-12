@@ -39,6 +39,7 @@ public class DbReader implements Reader {
             var dateTime = readLastDate(symbol);
             symbol.setLastDate(dateTime);
         }
+
         return returnedObjects;
     }
 
@@ -48,7 +49,7 @@ public class DbReader implements Reader {
         List<Symbol> symbolList = getSymbolByName(symbol.getSymbolName());
         symbolList.forEach(s -> System.out.println(s.toString()));
 
-        List resultList = session.createQuery("from BinanceData where dataId.symbol.symbol = :symbol")
+        List resultList = session.createQuery("from BinanceData b where dataId.symbol.symbol = :symbol order by b.dataId.openTime DESC")
                 .setParameter("symbol", symbol.getSymbolName())
                 .setMaxResults(1)
                 .list();
@@ -61,6 +62,7 @@ public class DbReader implements Reader {
         } else {
             result = LocalDateTime.of(2010, 1, 1, 0, 0, 0, 0);
         }
+
         return result;
     }
 
