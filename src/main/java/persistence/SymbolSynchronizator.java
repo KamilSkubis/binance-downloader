@@ -22,6 +22,8 @@ public class SymbolSynchronizator {
 
         List<Symbol> filteredSymbols = downloadedSymbols.stream()
                 .filter(s -> s.endsWith("USDT"))
+                .filter(Predicate.not(s -> s.contains("UP")))
+                .filter(Predicate.not(s -> s.contains("DOWN")))
                 .filter(Predicate.not(persistentSymbolNames::contains))
                 .map(Symbol::new)
                 .collect(Collectors.toList());

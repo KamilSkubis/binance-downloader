@@ -49,6 +49,7 @@ public class BinanceRunner {
 
         logger.debug("getting list of symbols");
         List<Symbol> symbols = dataRepository.getSymbols();
+        logger.info("selected symbols: {}", symbols.size());
 
         final List<LinkedHashMap<String, Object>> params = prepareParams(symbols);
 
