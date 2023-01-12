@@ -1,6 +1,7 @@
 package persistence;
 
 import model.BinanceData;
+import model.Data;
 import model.Symbol;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -61,6 +62,12 @@ public class DbReader implements Reader {
             result = LocalDateTime.of(2010, 1, 1, 0, 0, 0, 0);
         }
         return result;
+    }
+
+    @Override
+    public List<Data> getData() {
+        Session session = sessionFactory.openSession();
+        return session.createQuery("from BinanceData", Data.class).getResultList();
     }
 
 

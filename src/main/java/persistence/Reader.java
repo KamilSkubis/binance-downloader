@@ -1,5 +1,6 @@
 package persistence;
 
+import model.Data;
 import model.Symbol;
 
 import java.time.LocalDateTime;
@@ -10,4 +11,6 @@ public interface Reader {
     List<Symbol> getSymbols();
 
     LocalDateTime readLastDate(Symbol symbol);
+
+    List<Data> getData();
 }

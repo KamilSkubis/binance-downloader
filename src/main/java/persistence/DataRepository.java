@@ -90,6 +90,7 @@ public class DataRepository {
             long elapsed = System.currentTimeMillis() - start;
             logger.info("Writing {} rows of {} took {}", size, symbol, elapsed);
         } else {
+            logger.info("Using hibernate to write data. Data size {}", data.size());
             writer.write(data);
         }
     }

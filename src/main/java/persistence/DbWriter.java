@@ -59,6 +59,7 @@ public class DbWriter implements Writer {
 
         for (Data d : data) {
             session.save(d);
+            logger.info("adding data to transaction: {}", d.toString());
             i++;
             if (i % 50 == 0) {
                 session.flush();

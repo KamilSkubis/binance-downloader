@@ -39,6 +39,8 @@ public class BinanceRunner {
     }
 
     public void run() {
+        LocalDateTime savedTime = LocalDateTime.now();
+
 
         List<String> downloadedSymbols = downloadSymbolsFromBinance();
         logger.info("downloaded symbols: {}", downloadedSymbols);
@@ -55,6 +57,7 @@ public class BinanceRunner {
 
         params.stream().forEach(map -> {
             List<Data> data = downloader.downloadKlines(map, symbols);
+            logger.info("downloaded data size: {}", data.size());
 
             symbols.stream()
                     .filter(s -> s.getSymbolName() == map.get("symbol"))
@@ -85,7 +88,29 @@ public class BinanceRunner {
 
                 data.addAll(downloader.downloadKlines(map, symbols));
             }
-            data.remove(data.size() - 1);
+
+            var lastOpenTime = data.get(data.size() - 1).getDataId().getOpenTime();
+            switch (timeframe) {
+                case "1d":
+                    var lastDateIsEqualToDownloadedDate = lastOpenTime.toLocalDate().isEqual(savedTime.toLocalDate());
+                    logger.info("checking condition to remove last data from list: {}", lastDateIsEqualToDownloadedDate);
+                    if (lastDateIsEqualToDownloadedDate) {
+                        data.remove(data.get(data.size() - 1));
+                    }
+                    break;
+                case "1m":
+                    var lastHourAndMinutesIsEqualToDownloadedTime = lastOpenTime.getHour() == savedTime.getHour() && lastOpenTime.getMinute() == savedTime.getMinute();
+                    logger.info("checking condition to remove last data from list: {}", lastHourAndMinutesIsEqualToDownloadedTime);
+                    if (lastHourAndMinutesIsEqualToDownloadedTime) {
+                        data.remove(data.get(data.size() - 1));
+                    }
+                    break;
+                default:
+                    new RuntimeException();
+            }
+
+
+//            data.remove(data.size() - 1); //remove today data
             dataRepository.write(data);
             data.clear();
         });

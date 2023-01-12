@@ -18,6 +18,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.junit.Assert.assertEquals;
+
 public class IntegrationTest {
 
     public static void dropTables() {
@@ -59,13 +61,23 @@ public class IntegrationTest {
         BinanceRunner br = new BinanceRunner(dr, downloader, config);
 
         br.run();
+        br.run();
 
+        List<Data> data = reader.getData();
+        assertEquals(4, data.size());
     }
 
 
 }
 
 class DownloaderStub implements Downloader {
+
+    private LocalDateTime now;
+
+    public DownloaderStub() {
+        this.now = LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20);
+        ;
+    }
 
     @Override
     public List<String> getTickers() {
@@ -84,10 +96,8 @@ class DownloaderStub implements Downloader {
 
         var symbol = symbols.stream().filter(s -> s.getSymbolName().equals(ticker)).collect(Collectors.toList()).get(0);
 
-        LocalDateTime now = LocalDateTime.of(2000, 1, 1, 5, 25, 2, 20);
         for (int i = 0; i < number; i++) {
             var d = new BinanceData();
-            now = now.plusMinutes(1);
             d.setOpenTime(now);
             d.setVolume(Math.random());
             d.setSymbol(symbol);
@@ -95,8 +105,10 @@ class DownloaderStub implements Downloader {
             d.setHigh(Math.random());
             d.setLow(Math.random());
             d.setClose(Math.random());
+            now = now.plusMinutes(1);
             data.add(d);
         }
+        data.stream().forEach(d -> System.out.println(d.toString() + " " + d.getDataId().toString()));
         return data;
     }
 }
