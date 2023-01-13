@@ -1,6 +1,3 @@
-# Status
-Development. Not working.
-
 # Project goal
 Download all data with "USDT" (excluding also tickers containing UP or DOWN) from binance and save it to database.
 
