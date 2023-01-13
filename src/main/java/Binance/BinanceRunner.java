@@ -43,11 +43,11 @@ public class BinanceRunner {
 
 
         List<String> downloadedSymbols = downloadSymbolsFromBinance();
-        logger.debug("start synchronization with db");
+        logger.info("start synchronization with db");
         dataRepository.sychronizeDownloadedSymbolsWithDb(downloadedSymbols);
-        logger.debug("symbols are synchronized");
+        logger.info("symbols are synchronized");
 
-        logger.debug("getting list of symbols");
+        logger.info("getting list of symbols");
         List<Symbol> symbols = dataRepository.getSymbols();
         logger.info("selected symbols: {}", symbols.size());
 

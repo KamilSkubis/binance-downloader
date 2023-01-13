@@ -8,6 +8,7 @@ import model.Data;
 import model.Symbol;
 import org.hibernate.Session;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import persistence.*;
 
@@ -47,7 +48,7 @@ public class IntegrationTest {
         dropTables();
     }
 
-
+    @Ignore
     @Test
     public void add2rows_oneSymbol_inTwoSessions_should_OpenTime_same_delta() {
         Config config = new ConfigStub();

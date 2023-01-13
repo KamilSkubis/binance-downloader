@@ -47,7 +47,6 @@ public class DbReader implements Reader {
     public LocalDateTime readLastDate(Symbol symbol) {
         Session session = sessionFactory.openSession();
         List<Symbol> symbolList = getSymbolByName(symbol.getSymbolName());
-        symbolList.forEach(s -> System.out.println(s.toString()));
 
         List resultList = session.createQuery("from BinanceData b where dataId.symbol.symbol = :symbol order by b.dataId.openTime DESC")
                 .setParameter("symbol", symbol.getSymbolName())
